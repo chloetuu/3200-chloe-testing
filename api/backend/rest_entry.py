@@ -35,6 +35,34 @@ def create_app():
     app.logger.info('current_app(): starting the database connection')
     db.init_app(app)
 
+    # Add the default route 
+    # Can be accessed from a web browser 
+    # http://ip.address:port/
+    # Example: localhost: 8001
+
+    @app.route("/")
+    def welcome(): 
+        return "<h1> Welcome to the Summer 2025 CS 3200 Project Template Repo<h1>"
+    
+    
+    # Example route for testing streamlit
+    @app.route("/data")
+    def getData():
+        data = { 
+            "staff": [
+                {
+                    "Name": "Mark Fontenot",
+                    "role": "Instructor"
+                }, 
+                {
+                    "Name": "Ashley Davis",
+                    "role": "TA"
+                }
+            ]
+        }
+        return data
+    
+
 
     # Register the routes from each Blueprint with the app object
     # and give a url prefix to each
