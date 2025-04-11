@@ -175,3 +175,8 @@ CREATE TABLE Alert (
         ON DELETE CASCADE
         ON UPDATE CASCADE
 );
+
+INSERT INTO User(Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio)
+VAUES('soccermom123', 'Nina', 'Patel', 'Northeast', 100, 35, 'Active', 'I am a stay at home mom who has 3 children who have different dietary restrictions! Follow me to follow my journey :)')
+
+
