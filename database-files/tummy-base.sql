@@ -268,9 +268,9 @@ function generateMeals(count = 45) {
     'Jerk Chicken', 'Lasagna', 'Kung Pao Chicken', 'Enchiladas', 'Butter Chicken', 'Coq au Vin',
     'Tempura', 'Green Curry', 'Moussaka', 'Gazpacho', 'Mac and Cheese', 'Tabbouleh', 'Bulgogi',
     'Baklava', 'Fresh Spring Rolls', 'Moqueca', 'Couscous', 'Injera with Wat', 'Sauerbraten',
-    'Shepherd's Pie', 'Coconut Rice and Beans', 'Risotto', 'Sweet and Sour Pork', 'Chilaquiles',
+    'Shepherd Pie', 'Coconut Rice and Beans', 'Risotto', 'Sweet and Sour Pork', 'Chilaquiles',
     'Samosas', 'Ratatouille'
-  ];
+];
  
   const difficulties = ['Easy', 'Medium', 'Hard'];
  
@@ -758,3 +758,4 @@ ${allCSVData.Interaction.split('\n').slice(0, 6).join('\n')}
 `;
 
 console.log("\nGenerated mock data for Tummy database successfully!");
+
