@@ -14,6 +14,16 @@ CREATE TABLE User (
     Bio TEXT
 );
 
+-- Table: Follows 
+CREATE TABLE Follows (
+    follower_id VARCHAR(50),
+    followee_id VARCHAR(50),
+    follow_date DATE DEFAULT CURRENT_DATE,
+    PRIMARY KEY (follower_id, followee_id),
+    FOREIGN KEY (follower_id) REFERENCES User(Username),
+    FOREIGN KEY (followee_id) REFERENCES User(Username)
+);
+
 -- Table: Tag
 CREATE TABLE Tag (
     TagID INT PRIMARY KEY,

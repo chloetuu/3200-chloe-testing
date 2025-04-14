@@ -6,9 +6,6 @@ from modules.nav import SideBarLinks
 
 st.set_page_config(layout = 'wide')
 
-# Initialize Bio if it doesn't exist yet
-if 'bio' not in st.session_state:
-    st.session_state['bio'] = 'This is a default bio.'
 
 
 # Show appropriate sidebar links for the role of the currently logged in user
@@ -31,7 +28,7 @@ with col_b:
 
 st.write('')
 st.write('')
-st.write(f"### Bio: {st.session_state['bio']}")
+st.write(f"***Bio:*** {st.session_state['bio']}")
 
 
 
