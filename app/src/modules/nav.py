@@ -16,6 +16,10 @@ def AboutPageNav():
 def FavoriteRecipes(): 
     st.sidebar.page_link("pages/Nina_FavRecipes.py", label="Favorite Recipes", icon="❤️")
 
+def ExploreRecipes():
+    st.sidebar.page_link("pages/Nina_Patel_Recipes.py", label="Explore All Recipes", icon="🍔")
+
+
 
 #### ------------------------ Examples for Role of pol_strat_advisor ------------------------
 def PolStratAdvHomeNav():
@@ -65,7 +69,6 @@ def SideBarLinks(show_home=False):
     This function handles adding links to the sidebar of the app based upon the logged-in user's role, which was put in the streamlit session_state object when logging in.
     """
 
-    # add a logo to the sidebar always
     
 
     # If there is no logged in user, redirect to the Home (Landing) page
@@ -100,6 +103,8 @@ def SideBarLinks(show_home=False):
         # if the user is Nina, show their Favorite Recipes page 
         if st.session_state["first_name"].lower() == "nina":
             FavoriteRecipes()
+            ExploreRecipes()
+            
 
     if st.session_state["authenticated"]:
         # Always show a logout button if there is a logged in user

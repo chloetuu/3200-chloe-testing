@@ -12,7 +12,9 @@ if 'bio' not in st.session_state:
 
 
 # Show appropriate sidebar links for the role of the currently logged in user
-st.sidebar.image("assets/nina_patel_pfp.jpg", caption="Nina Patel", width=150)
+st.sidebar.image("assets/nina_patel_pfp.jpg", caption="@soccermom123", width=150)
+# we add the username under the profile picture 
+
 SideBarLinks()
 
 st.title(f"Welcome {st.session_state['first_name']}.")
@@ -20,7 +22,19 @@ st.write('')
 st.write('')
 st.write(f"### Bio: {st.session_state['bio']}")
 
-if st.button('Recipes', 
-             type='primary',
-             use_container_width=True):
-  st.switch_page('pages/Nina_Patel_Recipes.py')
+col1, col2, col3 = st.columns([3, 1, 0.75])  
+with col3:
+    st.write('')     
+    st.write('') 
+    st.write('')     
+    st.write('')
+    st.write('')
+    st.write('')
+    st.write('')
+    st.write('')
+    st.write('')
+    st.write('')
+    st.image("assets/Tummi_logo.png", width=150, caption="Tummi")
+
+
+
