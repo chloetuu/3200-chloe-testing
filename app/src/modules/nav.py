@@ -21,14 +21,14 @@ def PolStratAdvHomeNav():
     )
 
 
-def WorldBankVizNav():
+def Profile_Page():
     st.sidebar.page_link(
-        "pages/01_World_Bank_Viz.py", label="World Bank Visualization", icon="🏦"
+        "pages/01_Profile_Page.py", label="Profile Page", icon="🏦"
     )
 
 
-def MapDemoNav():
-    st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")
+def Recipe_Page():
+    st.sidebar.page_link("pages/02_Recipe_Page.py", label="Map Demonstration", icon="🗺️")
 
 
 ## ------------------------ Examples for Role of usaid_worker ------------------------
@@ -80,8 +80,8 @@ def SideBarLinks(show_home=False):
         # Show World Bank Link and Map Demo Link if the user is a political strategy advisor role.
         if st.session_state["role"] == "pol_strat_advisor":
             PolStratAdvHomeNav()
-            WorldBankVizNav()
-            MapDemoNav()
+            Profile_Page()
+            Recipe_Page()
 
         # If the user role is usaid worker, show the Api Testing page
         if st.session_state["role"] == "usaid_worker":
