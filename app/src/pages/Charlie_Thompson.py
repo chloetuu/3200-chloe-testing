@@ -29,3 +29,8 @@ if st.button('Explore All Recipes',
              type='primary',
              use_container_width=True):
   st.switch_page('pages/02_Map_Demo.py')
+
+if st.button('Blog', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/02_Map_Demo.py')
