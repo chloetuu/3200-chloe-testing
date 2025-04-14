@@ -10,16 +10,16 @@ from flask import current_app
 from backend.db_connection import db
 from backend.ml_models.model01 import predict
 
-recipes = Blueprint('recipes', __name__ )
+meals = Blueprint('meals', __name__ )
 
-@recipes.route('/recipes', methods=['GET'])
+# Gets all meals 
+@meals.route('/meals', methods=['GET'])
 def get_all_meals():
     cursor = db.get_db().cursor()
     the_query = '''
-    SELECT Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio
-    FROM User
+    SELECT Username, MealName, Calories, MealTime, Notes
+    FROM Meals
 '''
-
     cursor.execute(the_query)
     theData = cursor.fetchall()
     the_response = make_response(jsonify(theData))
@@ -27,10 +27,11 @@ def get_all_meals():
     the_response.mimetype='application/json'
     return the_response
 
-@recipes.route('/recipes', methods=['POST'])
-def add_recipe():
-    current_app.logger.info('POST /recipexs route')
-    recipe_info = request.json
+# Adds a meal 
+@meals.route('/meals', methods=['POST'])
+def add_meal():
+    current_app.logger.info('POST /meals route')
+    meal_info = request.json
     username = meal_info['username']
     meal_name = meal_info['meal_name']
     calories = meal_info['calories']
@@ -45,8 +46,9 @@ def add_recipe():
     cursor.execute(query, data)
     db.get_db().commit()
 
-    return 'Meal added!'
+    return jsonify(theData)
 
+# Deletes a meal 
 @meals.route('/meals/<int:recipe_id>', methods=['DELETE'])
 def delete_meal(recipe_id):
     current_app.logger.info(f'DELETE /meals/{recipe_id} route called')

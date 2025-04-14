@@ -28,7 +28,7 @@ CREATE TABLE Tag (
 CREATE TABLE Meal (
     RecipeID INT PRIMARY KEY,
     Name VARCHAR(50) NOT NULL,
-    DateCreated DATE DEFAULT (CURRENT_DATE),
+    TriedRecipeStatus BOOLEAN,
     PrepTime INT,
     CookTime INT,
     TotalTime INT GENERATED ALWAYS AS (PrepTime + CookTime) STORED,
