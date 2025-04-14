@@ -186,586 +186,2306 @@ CREATE TABLE Alert (
         ON UPDATE CASCADE
 );
 
-INSERT INTO User(Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio)
-VAUES('soccermom123', 'Nina', 'Patel', 'Northeast', 100, 35, 'Active', 'I am a stay at home mom who has 3 children who have different dietary restrictions! Follow me to follow my journey :)')
 
-function generateUsers(count = 50) {
-  const firstNames = ['John', 'Emma', 'Michael', 'Sophia', 'William', 'Olivia', 'James', 'Ava', 'Benjamin', 'Isabella',
-                      'Lucas', 'Mia', 'Henry', 'Charlotte', 'Alexander', 'Amelia', 'Daniel', 'Harper', 'Matthew', 'Evelyn',
-                      'Samuel', 'Abigail', 'David', 'Emily', 'Joseph', 'Elizabeth', 'Carter', 'Sofia', 'Owen', 'Madison',
-                      'Wyatt', 'Scarlett', 'Jack', 'Victoria', 'Luke', 'Aria', 'Jayden', 'Grace', 'Dylan', 'Chloe',
-                      'Ethan', 'Camila', 'Levi', 'Penelope', 'Isaac', 'Riley', 'Gabriel', 'Layla', 'Julian', 'Zoey'];
- 
-  const lastNames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez',
-                     'Hernandez', 'Lopez', 'Gonzalez', 'Wilson', 'Anderson', 'Thomas', 'Taylor', 'Moore', 'Jackson', 'Martin',
-                     'Lee', 'Perez', 'Thompson', 'White', 'Harris', 'Sanchez', 'Clark', 'Ramirez', 'Lewis', 'Robinson',
-                     'Walker', 'Young', 'Allen', 'King', 'Wright', 'Scott', 'Torres', 'Nguyen', 'Hill', 'Flores',
-                     'Green', 'Adams', 'Nelson', 'Baker', 'Hall', 'Rivera', 'Campbell', 'Mitchell', 'Carter', 'Roberts'];
- 
-  const regions = ['North America', 'Europe', 'Asia', 'South America', 'Africa', 'Australia', 'Middle East'];
-  const activityLevels = ['Sedentary', 'Light', 'Moderate', 'Active', 'Very Active'];
-  const bioPhrases = [
-    'Passionate about healthy eating',
-    'Food enthusiast and home chef',
-    'Looking for quick and nutritious recipes',
-    'Exploring international cuisines',
-    'On a journey to better eating habits',
-    'Meal prep enthusiast',
-    'Loves discovering new flavors',
-    'Foodie with a knack for improvisation',
-    'Nutrition-focused cooking advocate',
-    'Experimenting with sustainable food choices'
-  ];
- 
-  let users = [];
-  const usedUsernames = new Set();
- 
-  for (let i = 0; i < count; i++) {
-    const firstName = randomElement(firstNames);
-    const lastName = randomElement(lastNames);
-    let username = (firstName.toLowerCase() + lastName.toLowerCase() + randomInt(1, 999)).substring(0, 50);
-   
-    // Ensure unique usernames
-    while (usedUsernames.has(username)) {
-      username = (firstName.toLowerCase() + lastName.toLowerCase() + randomInt(1, 9999)).substring(0, 50);
-    }
-    usedUsernames.add(username);
-   
-    users.push({
-      Username: username,
-      FirstName: firstName,
-      LastName: lastName,
-      Region: randomElement(regions),
-      ActivityLevel: randomElement(activityLevels),
-      Age: randomInt(18, 80),
-      InclusionStatus: randomBoolean(),
-      Bio: randomElement(bioPhrases) + '. ' + randomElement(bioPhrases)
-    });
-  }
- 
-  return users;
-}
+-- Insert statements for table: Added_Meals
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user030', 123);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user099', 48);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user086', 59);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user040', 38);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user074', 11);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user024', 60);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user051', 103);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user074', 35);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user050', 98);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user019', 39);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user046', 112);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user042', 39);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user018', 30);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user012', 81);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user090', 85);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user043', 70);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user099', 14);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user043', 112);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user035', 80);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user017', 3);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user082', 69);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user050', 110);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user020', 69);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user110', 17);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user053', 27);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user024', 11);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user055', 93);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user043', 100);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user008', 75);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user083', 93);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user008', 72);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user036', 65);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user040', 44);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user017', 13);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user097', 107);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user111', 90);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user007', 43);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user041', 27);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user056', 53);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user104', 94);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user124', 58);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user113', 82);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user021', 59);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user082', 11);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user066', 42);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user078', 68);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user001', 119);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user002', 65);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user113', 42);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user023', 116);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user085', 46);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user084', 122);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user015', 125);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user080', 114);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user081', 97);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user022', 92);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user095', 74);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user043', 125);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user014', 55);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user020', 36);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user042', 57);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user073', 53);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user052', 20);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user049', 32);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user098', 15);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user024', 108);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user037', 8);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user050', 111);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user073', 122);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user086', 117);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user124', 69);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user018', 83);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user085', 85);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user056', 68);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user104', 67);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user012', 108);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user026', 106);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user101', 80);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user037', 22);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user011', 69);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user034', 7);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user057', 75);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user043', 59);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user038', 60);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user020', 31);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user003', 11);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user050', 115);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user010', 89);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user102', 50);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user118', 125);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user086', 42);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user015', 44);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user012', 71);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user100', 84);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user084', 98);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user091', 85);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user064', 115);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user071', 11);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user121', 89);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user113', 5);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user111', 121);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user040', 45);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user043', 47);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user004', 77);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user024', 26);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user003', 101);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user009', 125);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user086', 6);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user023', 32);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user004', 122);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user058', 83);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user047', 50);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user100', 31);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user020', 92);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user065', 13);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user035', 122);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user086', 103);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user005', 22);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user031', 101);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user030', 115);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user110', 115);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user110', 46);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user055', 41);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user078', 71);
+INSERT INTO Added_Meals (Username, RecipeID) VALUES ('user062', 63);
 
-// Generate Tag data (30 tags)
-function generateTags(count = 30) {
-  const cuisines = ['Italian', 'Chinese', 'Mexican', 'Indian', 'French', 'Japanese', 'Thai', 'Greek', 'Spanish', 'American',
-                    'Lebanese', 'Korean', 'Turkish', 'Vietnamese', 'Brazilian', 'Moroccan', 'Ethiopian', 'German', 'British', 'Caribbean'];
- 
-  const allergies = ['Gluten-Free', 'Dairy-Free', 'Nut-Free', 'Egg-Free', 'Soy-Free', 'Shellfish-Free', 'Fish-Free', 'Wheat-Free', 'Sesame-Free', 'None'];
- 
-  const mealTypes = ['Breakfast', 'Lunch', 'Dinner', 'Snack', 'Dessert', 'Appetizer', 'Soup', 'Salad', 'Main Course', 'Side Dish'];
- 
-  let tags = [];
- 
-  for (let i = 1; i <= count; i++) {
-    tags.push({
-      TagID: i,
-      Cuisine: i <= 20 ? cuisines[i-1] : null,
-      Allergy: i > 20 && i <= 30 ? allergies[i-21] : null,
-      MealType: i > 30 && i <= 40 ? mealTypes[i-31] : null
-    });
-  }
- 
-  return tags;
-}
 
-// Generate Meal data (45 meals)
-function generateMeals(count = 45) {
-  const mealNames = [
-    'Spaghetti Carbonara', 'Chicken Tikka Masala', 'Beef Tacos', 'Vegetable Stir Fry', 'French Onion Soup',
-    'Sushi Rolls', 'Pad Thai', 'Greek Salad', 'Paella', 'Cheeseburger', 'Falafel Wrap', 'Bibimbap',
-    'Turkish Kebab', 'Pho Soup', 'Feijoada', 'Moroccan Tagine', 'Doro Wat', 'Schnitzel', 'Fish and Chips',
-    'Jerk Chicken', 'Lasagna', 'Kung Pao Chicken', 'Enchiladas', 'Butter Chicken', 'Coq au Vin',
-    'Tempura', 'Green Curry', 'Moussaka', 'Gazpacho', 'Mac and Cheese', 'Tabbouleh', 'Bulgogi',
-    'Baklava', 'Fresh Spring Rolls', 'Moqueca', 'Couscous', 'Injera with Wat', 'Sauerbraten',
-    'Shepherd Pie', 'Coconut Rice and Beans', 'Risotto', 'Sweet and Sour Pork', 'Chilaquiles',
-    'Samosas', 'Ratatouille'
-];
- 
-  const difficulties = ['Easy', 'Medium', 'Hard'];
- 
-  let meals = [];
-  const startDate = new Date(2023, 0, 1);
-  const endDate = new Date();
- 
-  for (let i = 1; i <= count; i++) {
-    const prepTime = randomInt(5, 60);
-    const cookTime = randomInt(10, 120);
-   
-    meals.push({
-      RecipeID: i,
-      Name: mealNames[i-1] || `Recipe ${i}`,
-      DateCreated: formatDate(randomDate(startDate, endDate)),
-      PrepTime: prepTime,
-      CookTime: cookTime,
-      Difficulty: randomElement(difficulties),
-      Ingredients: `Ingredient 1, Ingredient 2, Ingredient 3, Ingredient 4, Ingredient 5 for recipe ${i}`,
-      Instructions: `Step 1: Do this\nStep 2: Do that\nStep 3: Finish cooking for recipe ${i}`,
-      FavoriteStatus: randomBoolean()
-    });
-  }
- 
-  return meals;
-}
+-- Insert statements for table: Alert
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (1, 17, 'user003', '2021-11-23 00:59:06', 'Security', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (2, 108, 'user015', '2023-10-02 15:43:02', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (3, 11, 'user044', '2021-05-26 09:14:01', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (4, 69, 'user070', '2022-03-29 18:32:00', 'Security', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (5, 72, 'user100', '2023-01-03 23:31:47', 'Security', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (6, 23, 'user032', '2022-03-27 01:12:26', 'System', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (7, 92, 'user080', '2024-04-23 11:51:53', 'Performance', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (8, 101, 'user094', '2022-07-05 01:29:07', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (9, 18, 'user103', '2021-10-26 07:38:09', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (10, 29, 'user082', '2020-04-18 18:36:04', 'Performance', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (11, 112, 'user042', '2020-01-04 00:45:28', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (12, 77, 'user098', '2024-12-29 21:47:44', 'System', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (13, 63, 'user031', '2024-10-23 06:49:15', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (14, 30, 'user050', '2021-03-24 14:21:29', 'System', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (15, 13, 'user084', '2024-02-26 15:56:13', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (16, 87, 'user024', '2023-12-25 16:13:30', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (17, 108, 'user112', '2020-08-22 23:09:58', 'System', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (18, 59, 'user116', '2020-08-22 16:56:25', 'Security', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (19, 20, 'user034', '2023-12-16 08:17:05', 'System', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (20, 61, 'user064', '2024-02-25 23:09:53', 'Security', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (21, 10, 'user073', '2020-03-31 11:57:08', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (22, 80, 'user115', '2022-04-30 12:11:14', 'Performance', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (23, 41, 'user054', '2024-11-17 07:33:43', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (24, 69, 'user116', '2022-07-14 13:24:48', 'Performance', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (25, 109, 'user069', '2022-12-06 13:56:34', 'Performance', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (26, 79, 'user099', '2023-01-26 23:15:49', 'System', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (27, 32, 'user097', '2020-01-15 11:54:39', 'System', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (28, 1, 'user060', '2021-01-04 06:44:59', 'System', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (29, 43, 'user042', '2021-12-22 22:23:03', 'System', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (30, 26, 'user087', '2024-03-13 13:58:30', 'System', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (31, 109, 'user044', '2021-05-10 12:17:10', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (32, 6, 'user065', '2021-06-09 07:38:22', 'Security', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (33, 56, 'user050', '2023-08-25 09:50:28', 'System', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (34, 118, 'user042', '2022-08-16 18:45:20', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (35, 67, 'user100', '2021-03-04 07:03:23', 'Performance', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (36, 99, 'user056', '2023-08-08 08:48:17', 'Performance', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (37, 9, 'user075', '2024-10-26 09:19:43', 'Security', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (38, 115, 'user028', '2022-12-20 21:32:20', 'System', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (39, 69, 'user125', '2022-09-17 19:24:44', 'Security', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (40, 123, 'user025', '2020-05-26 03:26:33', 'Security', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (41, 117, 'user087', '2023-03-12 23:28:44', 'Security', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (42, 67, 'user076', '2023-07-05 00:42:51', 'Performance', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (43, 117, 'user068', '2023-12-14 05:07:35', 'System', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (44, 108, 'user048', '2023-04-02 16:16:35', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (45, 55, 'user050', '2022-11-13 15:16:16', 'Performance', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (46, 123, 'user037', '2022-06-09 10:36:03', 'System', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (47, 93, 'user102', '2023-02-05 23:35:15', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (48, 62, 'user031', '2024-10-19 05:51:20', 'System', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (49, 77, 'user112', '2024-06-08 12:04:31', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (50, 65, 'user098', '2020-09-16 05:13:53', 'Security', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (51, 15, 'user085', '2021-08-25 00:28:46', 'Security', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (52, 33, 'user122', '2024-08-27 08:47:55', 'Performance', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (53, 94, 'user021', '2024-12-22 11:00:17', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (54, 104, 'user012', '2020-08-25 03:00:06', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (55, 50, 'user033', '2021-02-22 12:56:02', 'Performance', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (56, 30, 'user052', '2021-02-27 16:20:12', 'Performance', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (57, 67, 'user048', '2024-10-08 05:54:35', 'System', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (58, 81, 'user043', '2021-09-22 17:42:28', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (59, 101, 'user049', '2023-08-29 20:40:42', 'Performance', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (60, 3, 'user025', '2023-02-27 19:03:47', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (61, 29, 'user112', '2022-12-15 03:24:54', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (62, 43, 'user036', '2023-08-07 05:42:47', 'System', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (63, 120, 'user037', '2023-12-16 22:36:08', 'Performance', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (64, 83, 'user098', '2021-09-30 12:25:22', 'System', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (65, 11, 'user121', '2024-02-25 02:06:16', 'Performance', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (66, 11, 'user004', '2022-12-28 04:28:22', 'System', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (67, 29, 'user013', '2023-07-22 09:31:34', 'Security', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (68, 121, 'user122', '2023-09-20 04:07:58', 'System', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (69, 98, 'user017', '2020-05-19 00:00:35', 'Performance', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (70, 23, 'user011', '2021-08-22 20:06:24', 'Performance', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (71, 79, 'user031', '2022-08-11 22:41:35', 'System', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (72, 34, 'user025', '2024-02-17 09:07:18', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (73, 110, 'user091', '2022-11-26 08:16:34', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (74, 28, 'user032', '2022-06-26 19:12:14', 'System', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (75, 110, 'user064', '2024-07-18 10:13:22', 'System', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (76, 6, 'user001', '2020-10-21 02:18:52', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (77, 100, 'user042', '2022-07-28 22:30:04', 'Security', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (78, 20, 'user047', '2020-10-03 20:22:30', 'Performance', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (79, 45, 'user027', '2024-01-04 10:39:58', 'System', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (80, 43, 'user028', '2024-04-19 05:16:23', 'Performance', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (81, 102, 'user036', '2023-12-01 03:29:03', 'System', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (82, 6, 'user096', '2023-08-05 22:35:29', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (83, 34, 'user028', '2024-01-30 02:13:52', 'Security', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (84, 17, 'user003', '2022-08-24 14:04:55', 'Performance', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (85, 53, 'user057', '2024-11-17 10:08:20', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (86, 77, 'user084', '2023-11-01 02:08:43', 'System', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (87, 86, 'user115', '2023-06-08 19:04:36', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (88, 19, 'user105', '2022-09-16 17:27:59', 'Performance', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (89, 64, 'user113', '2022-08-27 09:51:47', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (90, 99, 'user104', '2024-10-24 23:02:07', 'Security', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (91, 43, 'user020', '2023-12-31 05:24:39', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (92, 85, 'user030', '2023-01-02 14:10:49', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (93, 56, 'user112', '2024-05-31 16:40:08', 'Security', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (94, 113, 'user107', '2024-03-03 15:37:07', 'System', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (95, 7, 'user039', '2024-11-23 15:14:21', 'Security', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (96, 118, 'user049', '2023-10-12 17:39:59', 'Security', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (97, 20, 'user117', '2022-02-03 17:41:15', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (98, 37, 'user037', '2021-11-18 12:46:28', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (99, 48, 'user070', '2024-11-24 10:38:57', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (100, 109, 'user113', '2021-03-28 18:23:23', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (101, 57, 'user087', '2021-11-19 06:11:05', 'Security', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (102, 46, 'user090', '2022-09-02 22:37:12', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (103, 5, 'user078', '2020-04-30 07:32:45', 'Performance', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (104, 79, 'user019', '2024-04-18 11:56:51', 'System', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (105, 25, 'user089', '2022-04-24 03:38:14', 'System', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (106, 74, 'user068', '2024-05-09 00:29:45', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (107, 77, 'user044', '2021-04-03 00:45:08', 'System', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (108, 71, 'user044', '2024-09-05 04:28:30', 'Performance', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (109, 81, 'user038', '2021-03-03 16:18:51', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (110, 17, 'user070', '2022-10-24 10:46:02', 'Performance', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (111, 46, 'user035', '2021-08-02 23:11:31', 'Security', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (112, 67, 'user054', '2020-12-27 07:19:40', 'System', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (113, 64, 'user097', '2021-10-12 19:56:54', 'Performance', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (114, 71, 'user001', '2023-11-28 08:40:53', 'Security', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (115, 63, 'user075', '2023-02-21 13:39:51', 'Performance', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (116, 76, 'user123', '2022-12-29 02:14:23', 'Performance', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (117, 115, 'user102', '2024-08-19 08:34:46', 'Security', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (118, 75, 'user066', '2021-04-18 00:34:08', 'System', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (119, 57, 'user108', '2022-11-25 02:18:34', 'System', 'Resolved');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (120, 38, 'user001', '2023-04-22 02:59:16', 'Performance', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (121, 48, 'user021', '2022-08-31 09:02:06', 'Security', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (122, 14, 'user046', '2022-12-27 12:49:13', 'Performance', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (123, 93, 'user052', '2022-12-02 09:08:17', 'System', 'In Progress');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (124, 103, 'user026', '2022-11-21 09:40:13', 'System', 'New');
+INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES (125, 88, 'user062', '2022-03-05 02:47:30', 'Performance', 'In Progress');
 
-// Generate Meal_Tag associations (75 associations)
-function generateMealTags(meals, tags, count = 75) {
-  let mealTags = [];
-  const usedPairs = new Set();
- 
-  for (let i = 0; i < count; i++) {
-    const recipeID = randomInt(1, meals.length);
-    const tagID = randomInt(1, tags.length);
-    const pair = `${recipeID}-${tagID}`;
-   
-    if (!usedPairs.has(pair)) {
-      usedPairs.add(pair);
-      mealTags.push({
-        RecipeID: recipeID,
-        TagID: tagID
-      });
-    } else {
-      i--; // Try again
-    }
-  }
- 
-  return mealTags;
-}
 
-// Generate Blog data (30 blogs)
-function generateBlogs(users, meals, count = 30) {
-  const blogTitles = [
-    'My Favorite Summer Recipe', 'How to Master Italian Cooking', 'Quick Weeknight Dinners',
-    'Baking Tips for Beginners', 'Healthy Meal Prep Ideas', 'Cooking with Seasonal Ingredients',
-    'International Cuisine at Home', 'Budget-Friendly Recipes', 'Vegan Alternatives for Everyone',
-    'Cooking with Kids', 'Advanced Techniques for Home Chefs', 'My Food Journey',
-    'Restaurant-Style Recipes', 'Holiday Meal Planning', 'Breakfast Ideas for Busy Mornings',
-    'Comfort Food Classics', 'Desserts to Impress', 'Grilling Tips and Tricks',
-    'Sustainable Cooking Practices', 'One-Pot Meal Wonders', 'Spices and Herbs Guide',
-    'Traditional Family Recipes', 'Cooking Without Waste', 'Dinner Party Menu Ideas',
-    'Food Photography Tips', 'Kitchen Equipment Essentials', 'Cooking for Special Diets',
-    'Fusion Cuisine Experiments', 'Meal Planning for the Week', 'My Culinary Disasters and Triumphs'
-  ];
- 
-  let blogs = [];
-  const startDate = new Date(2023, 0, 1);
-  const endDate = new Date();
- 
-  for (let i = 1; i <= count; i++) {
-    blogs.push({
-      BlogID: i,
-      PublishDate: formatDateTime(randomDate(startDate, endDate)),
-      Content: `This is the content for blog post ${i}. It contains information about cooking, recipes, and food experiences.`,
-      Title: blogTitles[i-1] || `Blog Post ${i}`,
-      Username: users[randomInt(0, users.length - 1)].Username,
-      RecipeID: randomInt(1, meals.length)
-    });
-  }
- 
-  return blogs;
-}
+-- Insert statements for table: Blog
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (1, '2021-08-16 09:03:01', 'This is the content of blog post 1.', 'Blog Title 1', 'user004', 96);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (2, '2022-09-11 07:34:08', 'This is the content of blog post 2.', 'Blog Title 2', 'user054', 23);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (3, '2020-04-13 13:09:54', 'This is the content of blog post 3.', 'Blog Title 3', 'user003', 26);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (4, '2023-11-24 12:50:05', 'This is the content of blog post 4.', 'Blog Title 4', 'user031', 52);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (5, '2023-07-15 21:39:32', 'This is the content of blog post 5.', 'Blog Title 5', 'user063', 121);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (6, '2024-02-14 10:42:55', 'This is the content of blog post 6.', 'Blog Title 6', 'user078', 119);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (7, '2024-06-24 01:28:11', 'This is the content of blog post 7.', 'Blog Title 7', 'user046', 88);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (8, '2024-03-04 18:44:04', 'This is the content of blog post 8.', 'Blog Title 8', 'user048', 70);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (9, '2021-12-17 19:09:51', 'This is the content of blog post 9.', 'Blog Title 9', 'user096', 78);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (10, '2020-07-22 06:52:51', 'This is the content of blog post 10.', 'Blog Title 10', 'user069', 117);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (11, '2021-03-10 10:30:31', 'This is the content of blog post 11.', 'Blog Title 11', 'user052', 40);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (12, '2020-03-05 09:49:56', 'This is the content of blog post 12.', 'Blog Title 12', 'user026', 115);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (13, '2024-12-23 19:43:41', 'This is the content of blog post 13.', 'Blog Title 13', 'user111', 80);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (14, '2021-09-16 07:24:31', 'This is the content of blog post 14.', 'Blog Title 14', 'user098', 82);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (15, '2021-03-19 05:00:16', 'This is the content of blog post 15.', 'Blog Title 15', 'user020', 31);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (16, '2021-10-25 22:26:12', 'This is the content of blog post 16.', 'Blog Title 16', 'user072', 79);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (17, '2021-04-12 21:25:07', 'This is the content of blog post 17.', 'Blog Title 17', 'user096', 36);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (18, '2021-12-24 22:45:45', 'This is the content of blog post 18.', 'Blog Title 18', 'user034', 58);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (19, '2023-04-02 04:43:18', 'This is the content of blog post 19.', 'Blog Title 19', 'user082', 59);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (20, '2020-09-16 07:46:01', 'This is the content of blog post 20.', 'Blog Title 20', 'user116', 107);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (21, '2020-03-21 01:38:40', 'This is the content of blog post 21.', 'Blog Title 21', 'user031', 71);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (22, '2024-12-09 07:23:24', 'This is the content of blog post 22.', 'Blog Title 22', 'user074', 87);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (23, '2021-09-08 06:51:49', 'This is the content of blog post 23.', 'Blog Title 23', 'user025', 93);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (24, '2021-03-23 05:10:07', 'This is the content of blog post 24.', 'Blog Title 24', 'user104', 115);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (25, '2023-05-18 05:38:21', 'This is the content of blog post 25.', 'Blog Title 25', 'user070', 70);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (26, '2021-12-19 12:10:27', 'This is the content of blog post 26.', 'Blog Title 26', 'user092', 93);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (27, '2022-01-09 05:06:03', 'This is the content of blog post 27.', 'Blog Title 27', 'user055', 64);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (28, '2024-08-17 11:01:20', 'This is the content of blog post 28.', 'Blog Title 28', 'user029', 25);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (29, '2020-10-29 05:07:17', 'This is the content of blog post 29.', 'Blog Title 29', 'user123', 66);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (30, '2022-12-17 04:08:56', 'This is the content of blog post 30.', 'Blog Title 30', 'user002', 31);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (31, '2020-03-28 09:25:41', 'This is the content of blog post 31.', 'Blog Title 31', 'user090', 2);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (32, '2021-05-13 11:58:03', 'This is the content of blog post 32.', 'Blog Title 32', 'user114', 26);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (33, '2020-12-31 12:26:10', 'This is the content of blog post 33.', 'Blog Title 33', 'user044', 94);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (34, '2022-09-01 16:02:18', 'This is the content of blog post 34.', 'Blog Title 34', 'user074', 107);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (35, '2024-06-14 09:53:15', 'This is the content of blog post 35.', 'Blog Title 35', 'user052', 72);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (36, '2021-12-23 13:10:44', 'This is the content of blog post 36.', 'Blog Title 36', 'user039', 39);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (37, '2022-05-28 18:09:43', 'This is the content of blog post 37.', 'Blog Title 37', 'user040', 107);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (38, '2021-08-01 09:21:32', 'This is the content of blog post 38.', 'Blog Title 38', 'user051', 101);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (39, '2024-10-26 05:59:40', 'This is the content of blog post 39.', 'Blog Title 39', 'user018', 33);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (40, '2022-05-07 07:16:45', 'This is the content of blog post 40.', 'Blog Title 40', 'user122', 92);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (41, '2022-06-09 08:43:43', 'This is the content of blog post 41.', 'Blog Title 41', 'user090', 91);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (42, '2022-04-16 04:09:40', 'This is the content of blog post 42.', 'Blog Title 42', 'user010', 81);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (43, '2021-10-07 22:44:26', 'This is the content of blog post 43.', 'Blog Title 43', 'user033', 68);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (44, '2023-03-03 14:29:07', 'This is the content of blog post 44.', 'Blog Title 44', 'user076', 68);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (45, '2021-07-29 14:49:33', 'This is the content of blog post 45.', 'Blog Title 45', 'user125', 22);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (46, '2020-06-03 16:00:52', 'This is the content of blog post 46.', 'Blog Title 46', 'user115', 7);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (47, '2021-10-22 23:51:13', 'This is the content of blog post 47.', 'Blog Title 47', 'user006', 72);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (48, '2021-11-29 13:39:16', 'This is the content of blog post 48.', 'Blog Title 48', 'user113', 74);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (49, '2021-10-13 19:59:52', 'This is the content of blog post 49.', 'Blog Title 49', 'user011', 72);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (50, '2024-06-26 00:21:33', 'This is the content of blog post 50.', 'Blog Title 50', 'user072', 108);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (51, '2021-10-31 21:37:06', 'This is the content of blog post 51.', 'Blog Title 51', 'user051', 102);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (52, '2020-03-17 03:50:28', 'This is the content of blog post 52.', 'Blog Title 52', 'user014', 14);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (53, '2024-03-09 17:22:19', 'This is the content of blog post 53.', 'Blog Title 53', 'user011', 99);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (54, '2024-03-11 05:47:58', 'This is the content of blog post 54.', 'Blog Title 54', 'user105', 11);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (55, '2022-05-10 03:08:20', 'This is the content of blog post 55.', 'Blog Title 55', 'user024', 119);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (56, '2022-06-20 16:39:25', 'This is the content of blog post 56.', 'Blog Title 56', 'user114', 112);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (57, '2021-01-17 16:28:51', 'This is the content of blog post 57.', 'Blog Title 57', 'user106', 60);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (58, '2022-09-20 09:24:28', 'This is the content of blog post 58.', 'Blog Title 58', 'user014', 116);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (59, '2020-01-13 11:17:05', 'This is the content of blog post 59.', 'Blog Title 59', 'user089', 108);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (60, '2023-11-02 03:35:20', 'This is the content of blog post 60.', 'Blog Title 60', 'user019', 125);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (61, '2021-07-07 12:39:24', 'This is the content of blog post 61.', 'Blog Title 61', 'user062', 101);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (62, '2020-05-25 20:47:20', 'This is the content of blog post 62.', 'Blog Title 62', 'user022', 23);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (63, '2022-11-26 02:16:08', 'This is the content of blog post 63.', 'Blog Title 63', 'user032', 7);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (64, '2021-06-13 23:44:10', 'This is the content of blog post 64.', 'Blog Title 64', 'user016', 8);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (65, '2023-10-17 21:29:45', 'This is the content of blog post 65.', 'Blog Title 65', 'user040', 38);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (66, '2023-02-05 13:24:32', 'This is the content of blog post 66.', 'Blog Title 66', 'user058', 106);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (67, '2022-11-14 14:57:05', 'This is the content of blog post 67.', 'Blog Title 67', 'user010', 110);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (68, '2023-01-11 05:02:31', 'This is the content of blog post 68.', 'Blog Title 68', 'user065', 79);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (69, '2024-06-26 22:03:38', 'This is the content of blog post 69.', 'Blog Title 69', 'user057', 74);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (70, '2020-04-22 03:36:57', 'This is the content of blog post 70.', 'Blog Title 70', 'user048', 17);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (71, '2022-10-14 20:35:04', 'This is the content of blog post 71.', 'Blog Title 71', 'user022', 116);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (72, '2022-05-15 01:11:18', 'This is the content of blog post 72.', 'Blog Title 72', 'user014', 91);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (73, '2022-08-16 00:14:03', 'This is the content of blog post 73.', 'Blog Title 73', 'user093', 52);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (74, '2021-05-18 10:29:45', 'This is the content of blog post 74.', 'Blog Title 74', 'user107', 39);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (75, '2020-11-26 02:23:22', 'This is the content of blog post 75.', 'Blog Title 75', 'user022', 23);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (76, '2021-05-25 01:46:27', 'This is the content of blog post 76.', 'Blog Title 76', 'user029', 58);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (77, '2020-03-16 01:16:03', 'This is the content of blog post 77.', 'Blog Title 77', 'user009', 94);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (78, '2022-03-06 18:17:53', 'This is the content of blog post 78.', 'Blog Title 78', 'user054', 22);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (79, '2020-06-24 12:46:22', 'This is the content of blog post 79.', 'Blog Title 79', 'user032', 118);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (80, '2020-10-01 11:50:00', 'This is the content of blog post 80.', 'Blog Title 80', 'user068', 28);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (81, '2021-12-29 01:17:55', 'This is the content of blog post 81.', 'Blog Title 81', 'user060', 60);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (82, '2022-11-20 11:42:41', 'This is the content of blog post 82.', 'Blog Title 82', 'user050', 59);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (83, '2021-12-05 12:16:30', 'This is the content of blog post 83.', 'Blog Title 83', 'user025', 7);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (84, '2023-08-19 07:21:34', 'This is the content of blog post 84.', 'Blog Title 84', 'user010', 38);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (85, '2023-06-03 13:06:41', 'This is the content of blog post 85.', 'Blog Title 85', 'user028', 77);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (86, '2024-02-01 16:31:07', 'This is the content of blog post 86.', 'Blog Title 86', 'user047', 59);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (87, '2023-07-22 22:45:32', 'This is the content of blog post 87.', 'Blog Title 87', 'user107', 56);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (88, '2021-01-20 01:06:58', 'This is the content of blog post 88.', 'Blog Title 88', 'user056', 103);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (89, '2024-12-20 21:03:19', 'This is the content of blog post 89.', 'Blog Title 89', 'user121', 78);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (90, '2022-04-11 19:35:29', 'This is the content of blog post 90.', 'Blog Title 90', 'user083', 13);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (91, '2023-05-17 06:27:21', 'This is the content of blog post 91.', 'Blog Title 91', 'user121', 120);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (92, '2021-07-22 21:23:15', 'This is the content of blog post 92.', 'Blog Title 92', 'user061', 102);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (93, '2024-05-01 09:26:05', 'This is the content of blog post 93.', 'Blog Title 93', 'user108', 2);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (94, '2024-11-27 01:16:58', 'This is the content of blog post 94.', 'Blog Title 94', 'user105', 18);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (95, '2024-05-22 19:48:10', 'This is the content of blog post 95.', 'Blog Title 95', 'user021', 90);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (96, '2024-07-18 09:43:35', 'This is the content of blog post 96.', 'Blog Title 96', 'user031', 34);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (97, '2022-05-21 12:42:58', 'This is the content of blog post 97.', 'Blog Title 97', 'user067', 44);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (98, '2024-06-01 05:30:26', 'This is the content of blog post 98.', 'Blog Title 98', 'user088', 7);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (99, '2024-10-06 07:33:21', 'This is the content of blog post 99.', 'Blog Title 99', 'user123', 104);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (100, '2020-08-25 21:16:17', 'This is the content of blog post 100.', 'Blog Title 100', 'user072', 46);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (101, '2023-10-17 16:55:26', 'This is the content of blog post 101.', 'Blog Title 101', 'user004', 35);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (102, '2024-05-06 03:50:28', 'This is the content of blog post 102.', 'Blog Title 102', 'user042', 113);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (103, '2024-12-16 10:07:12', 'This is the content of blog post 103.', 'Blog Title 103', 'user055', 66);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (104, '2024-05-03 02:46:26', 'This is the content of blog post 104.', 'Blog Title 104', 'user070', 104);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (105, '2022-01-28 15:46:46', 'This is the content of blog post 105.', 'Blog Title 105', 'user104', 85);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (106, '2021-05-08 20:21:01', 'This is the content of blog post 106.', 'Blog Title 106', 'user059', 16);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (107, '2020-08-02 03:30:53', 'This is the content of blog post 107.', 'Blog Title 107', 'user034', 120);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (108, '2020-03-21 17:07:05', 'This is the content of blog post 108.', 'Blog Title 108', 'user034', 66);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (109, '2023-10-26 09:35:46', 'This is the content of blog post 109.', 'Blog Title 109', 'user035', 124);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (110, '2024-09-14 02:08:58', 'This is the content of blog post 110.', 'Blog Title 110', 'user066', 64);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (111, '2023-08-06 04:22:01', 'This is the content of blog post 111.', 'Blog Title 111', 'user108', 56);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (112, '2021-10-16 03:31:03', 'This is the content of blog post 112.', 'Blog Title 112', 'user016', 71);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (113, '2022-03-08 04:30:43', 'This is the content of blog post 113.', 'Blog Title 113', 'user068', 23);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (114, '2023-02-01 23:44:01', 'This is the content of blog post 114.', 'Blog Title 114', 'user046', 65);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (115, '2021-07-11 16:22:06', 'This is the content of blog post 115.', 'Blog Title 115', 'user002', 20);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (116, '2023-10-21 11:32:14', 'This is the content of blog post 116.', 'Blog Title 116', 'user041', 123);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (117, '2020-04-29 09:51:54', 'This is the content of blog post 117.', 'Blog Title 117', 'user123', 100);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (118, '2022-12-19 21:42:11', 'This is the content of blog post 118.', 'Blog Title 118', 'user123', 105);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (119, '2021-04-02 05:51:56', 'This is the content of blog post 119.', 'Blog Title 119', 'user065', 76);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (120, '2024-04-14 12:28:04', 'This is the content of blog post 120.', 'Blog Title 120', 'user106', 112);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (121, '2024-11-09 17:53:25', 'This is the content of blog post 121.', 'Blog Title 121', 'user104', 48);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (122, '2021-08-15 05:25:58', 'This is the content of blog post 122.', 'Blog Title 122', 'user114', 110);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (123, '2022-01-16 10:47:12', 'This is the content of blog post 123.', 'Blog Title 123', 'user079', 32);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (124, '2021-04-22 21:25:08', 'This is the content of blog post 124.', 'Blog Title 124', 'user093', 70);
+INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES (125, '2021-05-25 12:37:22', 'This is the content of blog post 125.', 'Blog Title 125', 'user086', 48);
 
-// Generate Blog_Meal associations (40 associations)
-function generateBlogMeals(blogs, meals, count = 40) {
-  let blogMeals = [];
-  const usedPairs = new Set();
- 
-  for (let i =.0; i < count; i++) {
-    const blogID = randomInt(1, blogs.length);
-    const recipeID = randomInt(1, meals.length);
-    const pair = `${blogID}-${recipeID}`;
-   
-    if (!usedPairs.has(pair)) {
-      usedPairs.add(pair);
-      blogMeals.push({
-        BlogID: blogID,
-        RecipeID: recipeID
-      });
-    } else {
-      i--; // Try again
-    }
-  }
- 
-  return blogMeals;
-}
 
-// Generate Saved_Meals associations (60 associations)
-function generateSavedMeals(users, meals, count = 60) {
-  let savedMeals = [];
-  const usedPairs = new Set();
- 
-  for (let i = 0; i < count; i++) {
-    const username = users[randomInt(0, users.length - 1)].Username;
-    const recipeID = randomInt(1, meals.length);
-    const pair = `${username}-${recipeID}`;
-   
-    if (!usedPairs.has(pair)) {
-      usedPairs.add(pair);
-      savedMeals.push({
-        Username: username,
-        RecipeID: recipeID
-      });
-    } else {
-      i--; // Try again
-    }
-  }
- 
-  return savedMeals;
-}
+-- Insert statements for table: Blog_Meal
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (34, 31);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (4, 1);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (76, 29);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (23, 1);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (24, 83);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (90, 81);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (9, 21);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (24, 109);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (91, 120);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (43, 107);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (11, 46);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (81, 38);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (92, 114);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (2, 61);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (30, 83);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (28, 28);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (93, 26);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (94, 81);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (57, 107);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (106, 92);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (57, 19);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (50, 15);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (103, 13);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (113, 39);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (12, 50);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (117, 119);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (80, 124);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (61, 72);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (8, 118);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (12, 48);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (86, 88);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (84, 63);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (46, 97);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (7, 96);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (13, 87);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (1, 32);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (87, 64);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (42, 2);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (75, 10);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (44, 106);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (16, 75);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (6, 63);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (80, 33);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (2, 45);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (102, 31);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (44, 91);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (74, 16);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (73, 8);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (110, 35);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (110, 81);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (85, 64);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (39, 8);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (10, 85);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (125, 14);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (123, 112);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (9, 21);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (31, 29);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (125, 31);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (54, 56);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (112, 7);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (78, 50);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (61, 31);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (29, 17);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (86, 57);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (34, 75);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (78, 121);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (94, 40);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (14, 80);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (68, 50);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (102, 82);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (7, 55);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (37, 2);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (71, 57);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (65, 110);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (93, 52);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (93, 16);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (105, 115);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (28, 52);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (79, 24);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (29, 125);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (64, 94);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (88, 75);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (11, 4);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (84, 71);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (111, 99);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (80, 124);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (14, 40);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (103, 67);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (40, 89);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (98, 71);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (10, 91);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (91, 1);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (69, 34);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (75, 38);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (56, 1);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (76, 52);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (51, 5);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (106, 17);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (26, 69);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (122, 32);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (11, 21);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (34, 116);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (49, 60);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (108, 5);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (49, 65);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (90, 97);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (49, 61);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (15, 84);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (122, 51);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (102, 97);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (38, 30);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (49, 74);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (97, 18);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (1, 51);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (4, 7);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (124, 26);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (106, 119);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (10, 13);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (2, 61);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (78, 12);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (7, 20);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (92, 69);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (33, 84);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (70, 54);
+INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES (4, 3);
 
-// Generate Added_Meals associations (60 associations)
-function generateAddedMeals(users, meals, count = 60) {
-  let addedMeals = [];
-  const usedPairs = new Set();
- 
-  for (let i = 0; i < count; i++) {
-    const username = users[randomInt(0, users.length - 1)].Username;
-    const recipeID = randomInt(1, meals.length);
-    const pair = `${username}-${recipeID}`;
-   
-    if (!usedPairs.has(pair)) {
-      usedPairs.add(pair);
-      addedMeals.push({
-        Username: username,
-        RecipeID: recipeID
-      });
-    } else {
-      i--; // Try again
-    }
-  }
- 
-  return addedMeals;
-}
 
-// Generate DemographicGroupData (15 groups)
-function generateDemographicGroups(count = 15) {
-  const groupTypes = ['Age', 'Gender', 'Income', 'Education', 'Occupation'];
-  const groupValues = {
-    'Age': ['18-24', '25-34', '35-44', '45-54', '55-64', '65+'],
-    'Gender': ['Male', 'Female', 'Non-binary', 'Other'],
-    'Income': ['Low', 'Medium', 'High', 'Very High'],
-    'Education': ['High School', 'Associates', 'Bachelors', 'Masters', 'Doctorate'],
-    'Occupation': ['Student', 'Professional', 'Service', 'Management', 'Retired', 'Other']
-  };
- 
-  let demographicGroups = [];
- 
-  for (let i = 1; i <= count; i++) {
-    const groupType = groupTypes[Math.floor((i-1) / 3)];
-    const possibleValues = groupValues[groupType];
-    const valueIndex = (i-1) % possibleValues.length;
-   
-    demographicGroups.push({
-      GroupID: i,
-      GroupType: groupType,
-      GroupValue: possibleValues[valueIndex]
-    });
-  }
- 
-  return demographicGroups;
-}
+-- Insert statements for table: CategoryData
+INSERT INTO CategoryData (CategoryID, Name) VALUES (1, 'Category 1');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (2, 'Category 2');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (3, 'Category 3');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (4, 'Category 4');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (5, 'Category 5');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (6, 'Category 6');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (7, 'Category 7');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (8, 'Category 8');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (9, 'Category 9');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (10, 'Category 10');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (11, 'Category 11');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (12, 'Category 12');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (13, 'Category 13');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (14, 'Category 14');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (15, 'Category 15');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (16, 'Category 16');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (17, 'Category 17');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (18, 'Category 18');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (19, 'Category 19');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (20, 'Category 20');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (21, 'Category 21');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (22, 'Category 22');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (23, 'Category 23');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (24, 'Category 24');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (25, 'Category 25');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (26, 'Category 26');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (27, 'Category 27');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (28, 'Category 28');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (29, 'Category 29');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (30, 'Category 30');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (31, 'Category 31');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (32, 'Category 32');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (33, 'Category 33');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (34, 'Category 34');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (35, 'Category 35');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (36, 'Category 36');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (37, 'Category 37');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (38, 'Category 38');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (39, 'Category 39');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (40, 'Category 40');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (41, 'Category 41');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (42, 'Category 42');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (43, 'Category 43');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (44, 'Category 44');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (45, 'Category 45');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (46, 'Category 46');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (47, 'Category 47');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (48, 'Category 48');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (49, 'Category 49');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (50, 'Category 50');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (51, 'Category 51');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (52, 'Category 52');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (53, 'Category 53');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (54, 'Category 54');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (55, 'Category 55');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (56, 'Category 56');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (57, 'Category 57');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (58, 'Category 58');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (59, 'Category 59');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (60, 'Category 60');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (61, 'Category 61');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (62, 'Category 62');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (63, 'Category 63');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (64, 'Category 64');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (65, 'Category 65');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (66, 'Category 66');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (67, 'Category 67');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (68, 'Category 68');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (69, 'Category 69');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (70, 'Category 70');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (71, 'Category 71');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (72, 'Category 72');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (73, 'Category 73');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (74, 'Category 74');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (75, 'Category 75');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (76, 'Category 76');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (77, 'Category 77');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (78, 'Category 78');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (79, 'Category 79');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (80, 'Category 80');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (81, 'Category 81');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (82, 'Category 82');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (83, 'Category 83');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (84, 'Category 84');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (85, 'Category 85');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (86, 'Category 86');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (87, 'Category 87');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (88, 'Category 88');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (89, 'Category 89');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (90, 'Category 90');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (91, 'Category 91');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (92, 'Category 92');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (93, 'Category 93');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (94, 'Category 94');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (95, 'Category 95');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (96, 'Category 96');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (97, 'Category 97');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (98, 'Category 98');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (99, 'Category 99');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (100, 'Category 100');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (101, 'Category 101');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (102, 'Category 102');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (103, 'Category 103');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (104, 'Category 104');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (105, 'Category 105');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (106, 'Category 106');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (107, 'Category 107');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (108, 'Category 108');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (109, 'Category 109');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (110, 'Category 110');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (111, 'Category 111');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (112, 'Category 112');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (113, 'Category 113');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (114, 'Category 114');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (115, 'Category 115');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (116, 'Category 116');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (117, 'Category 117');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (118, 'Category 118');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (119, 'Category 119');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (120, 'Category 120');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (121, 'Category 121');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (122, 'Category 122');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (123, 'Category 123');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (124, 'Category 124');
+INSERT INTO CategoryData (CategoryID, Name) VALUES (125, 'Category 125');
 
-// Generate UserDemographic associations (75 associations)
-function generateUserDemographics(users, demographicGroups, count = 75) {
-  let userDemographics = [];
-  const usedPairs = new Set();
- 
-  for (let i = 0; i < count; i++) {
-    const userID = users[randomInt(0, users.length - 1)].Username;
-    const groupID = randomInt(1, demographicGroups.length);
-    const pair = `${userID}-${groupID}`;
-   
-    if (!usedPairs.has(pair)) {
-      usedPairs.add(pair);
-      userDemographics.push({
-        UserID: userID,
-        GroupID: groupID
-      });
-    } else {
-      i--; // Try again
-    }
-  }
- 
-  return userDemographics;
-}
 
-// Generate CategoryData (10 categories)
-function generateCategories(count = 10) {
-  const categoryNames = ['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Snack', 'Appetizer', 'Main Course', 'Side Dish', 'Drink', 'Bakery'];
- 
-  let categories = [];
- 
-  for (let i = 1; i <= count; i++) {
-    categories.push({
-      CategoryID: i,
-      Name: categoryNames[i-1] || `Category ${i}`
-    });
-  }
- 
-  return categories;
-}
+-- Insert statements for table: DemographicGroupData
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (1, 'Age Group', 'Value_70');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (2, 'Age Group', 'Value_82');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (3, 'Location', 'Value_54');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (4, 'Age Group', 'Value_53');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (5, 'Location', 'Value_41');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (6, 'Income', 'Value_29');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (7, 'Age Group', 'Value_97');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (8, 'Interest', 'Value_94');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (9, 'Age Group', 'Value_33');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (10, 'Age Group', 'Value_6');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (11, 'Age Group', 'Value_73');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (12, 'Age Group', 'Value_91');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (13, 'Interest', 'Value_2');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (14, 'Age Group', 'Value_6');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (15, 'Interest', 'Value_85');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (16, 'Location', 'Value_31');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (17, 'Age Group', 'Value_34');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (18, 'Interest', 'Value_86');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (19, 'Location', 'Value_78');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (20, 'Income', 'Value_56');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (21, 'Location', 'Value_42');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (22, 'Income', 'Value_38');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (23, 'Age Group', 'Value_87');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (24, 'Age Group', 'Value_34');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (25, 'Age Group', 'Value_38');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (26, 'Interest', 'Value_45');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (27, 'Income', 'Value_32');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (28, 'Interest', 'Value_57');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (29, 'Location', 'Value_9');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (30, 'Location', 'Value_44');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (31, 'Income', 'Value_37');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (32, 'Age Group', 'Value_29');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (33, 'Location', 'Value_31');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (34, 'Income', 'Value_64');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (35, 'Income', 'Value_17');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (36, 'Interest', 'Value_11');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (37, 'Income', 'Value_40');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (38, 'Interest', 'Value_44');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (39, 'Age Group', 'Value_60');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (40, 'Income', 'Value_79');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (41, 'Interest', 'Value_66');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (42, 'Interest', 'Value_44');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (43, 'Income', 'Value_75');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (44, 'Age Group', 'Value_4');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (45, 'Location', 'Value_14');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (46, 'Interest', 'Value_74');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (47, 'Interest', 'Value_62');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (48, 'Location', 'Value_88');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (49, 'Location', 'Value_96');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (50, 'Income', 'Value_95');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (51, 'Location', 'Value_19');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (52, 'Location', 'Value_44');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (53, 'Income', 'Value_14');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (54, 'Interest', 'Value_49');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (55, 'Age Group', 'Value_24');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (56, 'Location', 'Value_47');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (57, 'Interest', 'Value_75');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (58, 'Location', 'Value_25');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (59, 'Interest', 'Value_62');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (60, 'Interest', 'Value_81');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (61, 'Age Group', 'Value_33');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (62, 'Income', 'Value_29');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (63, 'Age Group', 'Value_20');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (64, 'Income', 'Value_20');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (65, 'Age Group', 'Value_75');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (66, 'Income', 'Value_22');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (67, 'Age Group', 'Value_28');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (68, 'Income', 'Value_17');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (69, 'Income', 'Value_58');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (70, 'Interest', 'Value_17');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (71, 'Age Group', 'Value_36');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (72, 'Income', 'Value_32');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (73, 'Location', 'Value_41');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (74, 'Interest', 'Value_57');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (75, 'Age Group', 'Value_31');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (76, 'Income', 'Value_8');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (77, 'Income', 'Value_24');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (78, 'Location', 'Value_13');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (79, 'Location', 'Value_78');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (80, 'Interest', 'Value_6');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (81, 'Location', 'Value_48');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (82, 'Income', 'Value_39');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (83, 'Income', 'Value_1');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (84, 'Location', 'Value_87');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (85, 'Age Group', 'Value_5');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (86, 'Income', 'Value_12');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (87, 'Interest', 'Value_1');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (88, 'Location', 'Value_86');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (89, 'Interest', 'Value_61');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (90, 'Income', 'Value_87');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (91, 'Interest', 'Value_63');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (92, 'Interest', 'Value_81');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (93, 'Location', 'Value_30');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (94, 'Age Group', 'Value_73');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (95, 'Interest', 'Value_28');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (96, 'Interest', 'Value_13');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (97, 'Age Group', 'Value_5');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (98, 'Location', 'Value_90');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (99, 'Age Group', 'Value_41');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (100, 'Interest', 'Value_38');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (101, 'Location', 'Value_61');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (102, 'Income', 'Value_33');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (103, 'Location', 'Value_48');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (104, 'Location', 'Value_34');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (105, 'Location', 'Value_51');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (106, 'Age Group', 'Value_82');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (107, 'Location', 'Value_8');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (108, 'Income', 'Value_18');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (109, 'Interest', 'Value_65');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (110, 'Age Group', 'Value_57');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (111, 'Location', 'Value_43');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (112, 'Income', 'Value_79');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (113, 'Location', 'Value_4');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (114, 'Location', 'Value_35');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (115, 'Interest', 'Value_58');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (116, 'Location', 'Value_80');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (117, 'Location', 'Value_86');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (118, 'Age Group', 'Value_8');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (119, 'Age Group', 'Value_47');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (120, 'Location', 'Value_36');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (121, 'Income', 'Value_85');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (122, 'Location', 'Value_16');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (123, 'Age Group', 'Value_28');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (124, 'Age Group', 'Value_22');
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES (125, 'Income', 'Value_97');
 
-// Generate RecipeData (40 recipes)
-function generateRecipeData(categories, count = 40) {
-  const recipeNames = [
-    'Classic Pancakes', 'Avocado Toast', 'Chicken Soup', 'Chocolate Cake', 'Trail Mix',
-    'Bruschetta', 'Grilled Salmon', 'Roasted Vegetables', 'Smoothie', 'Banana Bread',
-    'Eggs Benedict', 'Caesar Salad', 'Beef Stew', 'Tiramisu', 'Protein Balls',
-    'Caprese Skewers', 'Lasagna', 'Garlic Mashed Potatoes', 'Iced Coffee', 'Cinnamon Rolls',
-    'Breakfast Burrito', 'Poke Bowl', 'Chicken Parmesan', 'Apple Pie', 'Hummus and Veggies',
-    'Stuffed Mushrooms', 'Butter Chicken', 'Sweet Potato Fries', 'Lemonade', 'Sourdough Bread',
-    'French Toast', 'Greek Salad', 'Chili Con Carne', 'Cheesecake', 'Popcorn',
-    'Shrimp Cocktail', 'Beef Wellington', 'Coleslaw', 'Matcha Latte', 'Croissants'
-  ];
- 
-  let recipes = [];
- 
-  for (let i = 1; i <= count; i++) {
-    recipes.push({
-      RecipeID: i,
-      Name: recipeNames[i-1] || `Recipe Data ${i}`,
-      SavedStatus: randomBoolean(),
-      CategoryID: randomInt(1, categories.length),
-      ViewCount: randomInt(0, 10000)
-    });
-  }
- 
-  return recipes;
-}
 
-// Generate Interaction data (80 interactions)
-function generateInteractions(users, recipeData, count = 80) {
-  const interactionTypes = ['View', 'Save', 'Rate', 'Comment', 'Share'];
- 
-  let interactions = [];
-  const startDate = new Date(2023, 0, 1);
-  const endDate = new Date();
- 
-  for (let i = 1; i <= count; i++) {
-    interactions.push({
-      InteractionID: i,
-      UserID: users[randomInt(0, users.length - 1)].Username,
-      RecipeID: randomInt(1, recipeData.length),
-      InteractionType: randomElement(interactionTypes),
-      Timestamp: formatDateTime(randomDate(startDate, endDate))
-    });
-  }
- 
-  return interactions;
-}
+-- Insert statements for table: Follows
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user119', 'user068', '2021-01-25');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user071', 'user078', '2024-10-26');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user094', 'user026', '2021-05-05');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user059', 'user121', '2024-10-11');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user082', 'user036', '2022-02-09');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user001', 'user068', '2020-02-09');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user009', 'user039', '2023-05-25');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user073', 'user054', '2023-07-03');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user119', 'user109', '2020-02-12');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user020', 'user062', '2020-01-20');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user076', 'user023', '2021-01-27');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user032', 'user015', '2021-01-20');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user119', 'user028', '2023-09-30');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user101', 'user110', '2022-06-08');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user106', 'user119', '2023-02-24');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user095', 'user024', '2024-10-27');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user055', 'user076', '2020-09-04');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user027', 'user075', '2024-02-12');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user044', 'user046', '2024-05-17');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user093', 'user008', '2022-07-19');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user121', 'user035', '2021-02-18');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user026', 'user036', '2020-01-10');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user005', 'user045', '2024-03-27');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user040', 'user060', '2022-09-28');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user092', 'user029', '2024-01-12');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user113', 'user062', '2024-05-08');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user021', 'user045', '2024-09-16');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user035', 'user041', '2020-01-20');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user081', 'user037', '2023-03-20');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user082', 'user017', '2024-02-09');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user009', 'user013', '2021-04-03');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user042', 'user053', '2021-11-15');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user041', 'user015', '2021-06-06');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user076', 'user010', '2021-12-15');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user064', 'user054', '2023-07-01');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user018', 'user034', '2023-10-04');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user043', 'user084', '2020-06-24');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user118', 'user016', '2024-02-24');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user083', 'user106', '2022-09-01');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user073', 'user002', '2024-03-03');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user103', 'user019', '2020-12-13');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user090', 'user010', '2023-11-29');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user111', 'user108', '2023-08-20');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user019', 'user082', '2022-12-05');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user040', 'user120', '2020-07-25');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user048', 'user102', '2022-06-13');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user080', 'user082', '2023-06-17');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user040', 'user059', '2020-03-08');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user040', 'user068', '2023-09-10');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user090', 'user071', '2020-08-16');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user077', 'user110', '2021-02-14');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user053', 'user094', '2024-02-29');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user083', 'user047', '2020-12-03');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user025', 'user021', '2023-05-11');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user066', 'user083', '2022-09-25');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user011', 'user023', '2021-05-02');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user113', 'user107', '2021-10-17');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user101', 'user098', '2020-09-24');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user101', 'user046', '2022-11-27');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user111', 'user088', '2022-02-09');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user076', 'user080', '2020-08-09');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user073', 'user044', '2023-09-04');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user050', 'user047', '2022-01-09');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user086', 'user075', '2023-09-20');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user012', 'user114', '2023-10-02');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user027', 'user087', '2021-12-12');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user124', 'user101', '2024-01-17');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user047', 'user110', '2020-02-12');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user086', 'user035', '2022-07-17');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user054', 'user108', '2021-07-05');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user022', 'user017', '2021-04-24');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user030', 'user019', '2023-02-11');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user013', 'user065', '2020-08-22');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user075', 'user107', '2021-09-27');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user026', 'user024', '2020-04-12');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user052', 'user104', '2023-08-18');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user110', 'user059', '2021-09-21');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user096', 'user094', '2023-02-18');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user095', 'user088', '2024-02-27');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user022', 'user059', '2023-01-07');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user039', 'user026', '2024-09-09');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user021', 'user045', '2020-03-16');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user052', 'user073', '2021-03-27');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user114', 'user041', '2024-05-03');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user106', 'user050', '2022-11-17');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user027', 'user114', '2020-03-29');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user015', 'user028', '2024-06-18');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user054', 'user085', '2024-02-04');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user011', 'user026', '2020-10-31');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user032', 'user092', '2020-07-15');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user079', 'user108', '2023-05-23');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user020', 'user035', '2021-05-24');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user102', 'user038', '2020-01-17');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user030', 'user041', '2024-09-16');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user109', 'user006', '2022-03-19');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user019', 'user094', '2022-03-04');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user119', 'user073', '2023-12-11');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user118', 'user020', '2024-06-12');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user111', 'user118', '2023-11-05');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user055', 'user102', '2024-04-11');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user119', 'user044', '2024-03-02');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user072', 'user070', '2021-01-11');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user084', 'user056', '2021-07-03');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user010', 'user116', '2024-08-19');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user074', 'user061', '2023-06-09');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user087', 'user035', '2024-04-08');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user029', 'user065', '2024-11-12');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user067', 'user074', '2022-04-11');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user050', 'user109', '2020-03-05');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user011', 'user019', '2021-09-07');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user123', 'user014', '2023-04-24');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user040', 'user109', '2023-09-18');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user101', 'user036', '2021-03-29');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user084', 'user033', '2020-07-24');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user108', 'user035', '2020-02-22');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user084', 'user016', '2024-11-02');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user060', 'user049', '2020-07-15');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user015', 'user093', '2020-09-15');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user083', 'user080', '2021-03-12');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user082', 'user124', '2022-12-01');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user063', 'user098', '2022-07-25');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user018', 'user022', '2024-04-22');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user006', 'user010', '2024-06-13');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user042', 'user030', '2022-02-01');
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES ('user109', 'user055', '2021-01-16');
 
-// Generate LogEntry data (25 logs)
-function generateLogEntries(count = 25) {
-  const errorMessages = [
-    'Database connection failed', 'Query timeout', 'Invalid input detected',
-    'Authentication error', 'Permission denied', 'Resource not found',
-    'Data validation failed', 'API rate limit exceeded', 'Service unavailable',
-    'Memory allocation error'
-  ];
- 
-  const severityLevels = ['Info', 'Warning', 'Error', 'Critical'];
-  const sources = ['Web Server', 'Database', 'API Gateway', 'Authentication Service', 'Recipe Service'];
- 
-  let logEntries = [];
-  const startDate = new Date(2023, 0, 1);
-  const endDate = new Date();
- 
-  for (let i = 1; i <= count; i++) {
-    logEntries.push({
-      LogID: i,
-      Timestamp: formatDateTime(randomDate(startDate, endDate)),
-      ErrorMessage: randomElement(errorMessages),
-      SeverityLevel: randomElement(severityLevels),
-      Source: randomElement(sources),
-      Details: `Detailed information about log entry ${i}`
-    });
-  }
- 
-  return logEntries;
-}
 
-// Generate IssueReport data (15 issues)
-function generateIssueReports(count = 15) {
-  const reporters = ['System', 'UserFeedback', 'Admin', 'DevTeam', 'QA'];
-  const statuses = ['Open', 'In Progress', 'Resolved', 'Closed', 'Reopened'];
- 
-  let issueReports = [];
-  const startDate = new Date(2023, 0, 1);
-  const endDate = new Date();
- 
-  for (let i = 1; i <= count; i++) {
-    issueReports.push({
-      IssueID: i,
-      Reports: `Report details for issue ${i}`,
-      ReportedBy: randomElement(reporters),
-      Description: `Description of issue ${i}`,
-      Status: randomElement(statuses),
-      Timestamp: formatDateTime(randomDate(startDate, endDate))
-    });
-  }
- 
-  return issueReports;
-}
+-- Insert statements for table: Interaction
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (1, 'user053', 104, 'Like', '2022-12-28 09:29:16');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (2, 'user045', 27, 'Like', '2020-02-24 03:20:46');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (3, 'user104', 12, 'Share', '2020-07-25 03:01:48');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (4, 'user020', 46, 'Like', '2023-12-01 18:03:07');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (5, 'user063', 23, 'Comment', '2020-06-20 09:47:47');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (6, 'user005', 125, 'Like', '2024-07-25 09:10:10');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (7, 'user107', 26, 'Share', '2024-08-24 03:01:38');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (8, 'user043', 95, 'Share', '2021-01-03 00:07:42');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (9, 'user084', 61, 'Like', '2020-10-02 12:21:49');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (10, 'user039', 85, 'Like', '2024-08-13 18:29:42');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (11, 'user065', 88, 'Like', '2023-10-11 21:10:31');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (12, 'user019', 57, 'Comment', '2020-02-15 22:56:06');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (13, 'user064', 82, 'Comment', '2024-04-03 18:33:56');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (14, 'user043', 7, 'Comment', '2021-04-08 21:21:35');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (15, 'user039', 5, 'Comment', '2020-09-10 01:46:05');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (16, 'user037', 17, 'Share', '2022-01-04 22:46:54');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (17, 'user039', 59, 'Share', '2022-01-28 08:21:10');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (18, 'user012', 98, 'Like', '2020-07-27 09:42:22');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (19, 'user088', 120, 'Like', '2023-04-20 22:10:49');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (20, 'user042', 20, 'Share', '2021-01-26 14:47:17');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (21, 'user098', 93, 'Comment', '2024-03-23 14:54:58');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (22, 'user123', 98, 'Share', '2024-03-27 22:13:16');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (23, 'user033', 62, 'Share', '2022-10-25 08:56:34');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (24, 'user082', 17, 'Share', '2022-05-23 09:39:00');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (25, 'user073', 109, 'Share', '2023-09-21 08:13:16');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (26, 'user027', 87, 'Like', '2023-06-27 19:00:43');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (27, 'user002', 44, 'Comment', '2024-07-20 03:59:16');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (28, 'user070', 42, 'Like', '2021-12-24 23:54:41');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (29, 'user090', 73, 'Like', '2021-10-14 21:50:17');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (30, 'user037', 31, 'Share', '2021-01-10 03:48:31');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (31, 'user123', 13, 'Comment', '2024-01-17 05:13:41');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (32, 'user064', 35, 'Like', '2020-10-29 07:43:05');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (33, 'user081', 21, 'Share', '2021-06-17 15:23:31');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (34, 'user092', 71, 'Comment', '2021-02-26 18:25:12');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (35, 'user028', 11, 'Share', '2022-10-24 18:17:57');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (36, 'user095', 43, 'Comment', '2021-06-01 03:14:58');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (37, 'user061', 28, 'Like', '2022-05-24 09:30:40');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (38, 'user125', 6, 'Share', '2023-07-17 04:22:25');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (39, 'user066', 1, 'Share', '2020-06-26 18:25:40');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (40, 'user074', 114, 'Share', '2020-09-04 21:07:16');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (41, 'user121', 1, 'Like', '2022-03-18 16:46:45');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (42, 'user012', 16, 'Like', '2024-10-16 08:26:30');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (43, 'user100', 113, 'Comment', '2021-03-09 01:00:30');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (44, 'user071', 52, 'Share', '2020-06-16 21:13:59');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (45, 'user116', 43, 'Comment', '2022-10-30 12:23:24');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (46, 'user029', 23, 'Comment', '2020-01-02 19:44:49');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (47, 'user110', 1, 'Share', '2024-12-01 10:30:41');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (48, 'user039', 33, 'Like', '2021-06-28 09:19:14');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (49, 'user099', 104, 'Share', '2020-04-02 11:57:05');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (50, 'user041', 20, 'Like', '2022-03-30 09:26:20');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (51, 'user070', 78, 'Share', '2021-09-10 09:34:10');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (52, 'user040', 25, 'Share', '2024-08-24 22:57:10');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (53, 'user071', 3, 'Comment', '2024-03-30 03:20:16');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (54, 'user080', 105, 'Share', '2020-01-16 18:34:12');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (55, 'user001', 60, 'Share', '2020-11-01 23:20:52');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (56, 'user043', 15, 'Share', '2022-02-22 13:07:28');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (57, 'user031', 48, 'Comment', '2022-12-05 16:33:49');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (58, 'user094', 75, 'Comment', '2023-03-21 03:22:46');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (59, 'user035', 33, 'Share', '2021-03-15 11:48:26');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (60, 'user122', 73, 'Like', '2021-10-11 23:09:02');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (61, 'user073', 79, 'Like', '2024-01-13 13:49:34');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (62, 'user009', 13, 'Share', '2020-06-02 12:43:18');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (63, 'user104', 85, 'Like', '2024-12-07 21:01:32');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (64, 'user024', 48, 'Comment', '2023-04-10 16:39:49');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (65, 'user090', 89, 'Comment', '2024-04-02 12:46:38');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (66, 'user097', 19, 'Like', '2024-04-13 16:43:20');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (67, 'user096', 53, 'Comment', '2023-11-05 06:03:41');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (68, 'user063', 47, 'Share', '2023-07-18 17:54:34');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (69, 'user044', 18, 'Share', '2020-11-20 10:03:23');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (70, 'user080', 123, 'Comment', '2022-01-22 12:32:04');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (71, 'user122', 19, 'Comment', '2021-05-11 19:29:37');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (72, 'user040', 28, 'Like', '2024-10-15 05:08:10');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (73, 'user005', 95, 'Share', '2023-12-22 21:24:16');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (74, 'user098', 26, 'Like', '2024-11-26 20:30:18');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (75, 'user079', 67, 'Comment', '2022-01-29 15:34:40');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (76, 'user034', 74, 'Comment', '2020-01-27 13:43:12');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (77, 'user076', 11, 'Comment', '2021-05-04 06:27:15');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (78, 'user054', 54, 'Like', '2021-02-22 22:09:48');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (79, 'user001', 92, 'Like', '2021-05-13 20:03:17');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (80, 'user011', 60, 'Share', '2020-04-06 06:44:33');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (81, 'user015', 21, 'Share', '2023-08-17 21:46:12');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (82, 'user120', 63, 'Like', '2022-05-20 01:13:46');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (83, 'user070', 96, 'Comment', '2023-07-24 13:14:43');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (84, 'user053', 117, 'Share', '2020-09-01 00:20:28');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (85, 'user010', 19, 'Share', '2024-02-13 20:17:34');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (86, 'user048', 87, 'Share', '2021-12-13 03:46:57');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (87, 'user042', 47, 'Share', '2023-04-18 23:10:07');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (88, 'user113', 21, 'Like', '2023-12-23 20:11:33');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (89, 'user123', 28, 'Comment', '2021-12-27 12:38:06');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (90, 'user079', 39, 'Like', '2024-07-26 14:37:22');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (91, 'user058', 51, 'Share', '2020-03-19 12:26:57');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (92, 'user120', 52, 'Like', '2023-07-30 23:16:47');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (93, 'user006', 13, 'Like', '2021-08-27 15:03:57');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (94, 'user113', 8, 'Share', '2020-08-21 07:26:15');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (95, 'user029', 103, 'Share', '2024-10-29 13:00:49');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (96, 'user098', 70, 'Like', '2020-11-09 23:40:18');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (97, 'user030', 25, 'Share', '2021-09-05 08:18:04');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (98, 'user049', 35, 'Share', '2024-04-12 14:35:11');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (99, 'user061', 97, 'Like', '2021-02-14 18:00:47');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (100, 'user086', 107, 'Comment', '2021-06-17 02:39:51');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (101, 'user011', 51, 'Share', '2023-06-07 08:37:58');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (102, 'user020', 3, 'Comment', '2020-09-27 20:18:41');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (103, 'user082', 105, 'Like', '2024-02-22 21:08:07');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (104, 'user010', 7, 'Share', '2022-02-06 01:42:59');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (105, 'user087', 63, 'Comment', '2020-04-13 11:24:56');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (106, 'user123', 91, 'Share', '2022-08-15 15:20:02');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (107, 'user013', 61, 'Comment', '2022-06-26 01:50:32');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (108, 'user042', 9, 'Like', '2021-10-01 22:17:35');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (109, 'user027', 68, 'Comment', '2021-05-26 03:55:44');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (110, 'user031', 23, 'Like', '2022-02-18 22:30:29');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (111, 'user101', 60, 'Comment', '2022-10-07 12:52:34');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (112, 'user112', 52, 'Comment', '2024-04-07 17:24:50');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (113, 'user101', 62, 'Comment', '2020-09-28 02:20:43');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (114, 'user008', 97, 'Like', '2024-07-04 05:23:36');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (115, 'user118', 101, 'Like', '2022-06-08 17:33:52');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (116, 'user005', 24, 'Like', '2022-07-03 21:41:22');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (117, 'user079', 124, 'Comment', '2022-12-15 10:43:22');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (118, 'user087', 103, 'Like', '2023-01-08 21:25:14');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (119, 'user070', 107, 'Like', '2023-09-05 21:06:38');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (120, 'user019', 18, 'Like', '2020-11-27 17:25:26');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (121, 'user050', 122, 'Like', '2022-06-05 21:30:00');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (122, 'user115', 21, 'Share', '2024-05-05 17:52:03');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (123, 'user002', 31, 'Comment', '2022-06-02 05:02:37');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (124, 'user054', 83, 'Share', '2022-10-06 07:20:05');
+INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES (125, 'user119', 96, 'Share', '2021-04-18 02:27:52');
 
-// Generate LogEntry_IssueReport associations (20 associations)
-function generateLogIssueReports(logEntries, issueReports, count = 20) {
-  let logIssueReports = [];
-  const usedPairs = new Set();
- 
-  for (let i = 0; i < count; i++) {
-    const logID = randomInt(1, logEntries.length);
-    const issueID = randomInt(1, issueReports.length);
-    const pair = `${logID}-${issueID}`;
-   
-    if (!usedPairs.has(pair)) {
-      usedPairs.add(pair);
-      logIssueReports.push({
-        LogID: logID,
-        IssueID: issueID
-      });
-    } else {
-      i--; // Try again
-    }
-  }
- 
-  return logIssueReports;
-}
 
-// Generate Alert data (20 alerts)
-function generateAlerts(logEntries, users, count = 20) {
-  const alertTypes = ['System', 'Security', 'Performance', 'Error', 'Warning'];
-  const statuses = ['New', 'Acknowledged', 'In Progress', 'Resolved', 'Closed'];
- 
-  let alerts = [];
-  const startDate = new Date(2023, 0, 1);
-  const endDate = new Date();
- 
-  for (let i = 1; i <= count; i++) {
-    alerts.push({
-      AlertID: i,
-      LogID: randomInt(1, logEntries.length),
-      AssignedTo: users[randomInt(0, users.length - 1)].Username,
-      Timestamp: formatDateTime(randomDate(startDate, endDate)),
-      Type: randomElement(alertTypes),
-      Status: randomElement(statuses)
-    });
-  }
- 
-  return alerts;
-}
+-- Insert statements for table: IssueReport
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (1, 'Report info 1', 'user105', 'Issue description 1', 'Closed', '2023-07-23 09:08:00');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (2, 'Report info 2', 'user040', 'Issue description 2', 'In Progress', '2023-05-14 23:40:23');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (3, 'Report info 3', 'user080', 'Issue description 3', 'In Progress', '2021-12-12 22:48:28');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (4, 'Report info 4', 'user122', 'Issue description 4', 'Open', '2022-06-16 23:43:29');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (5, 'Report info 5', 'user001', 'Issue description 5', 'Open', '2020-11-02 02:45:09');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (6, 'Report info 6', 'user007', 'Issue description 6', 'Open', '2021-08-15 04:19:15');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (7, 'Report info 7', 'user109', 'Issue description 7', 'In Progress', '2021-05-03 11:35:37');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (8, 'Report info 8', 'user033', 'Issue description 8', 'Closed', '2023-03-03 16:06:17');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (9, 'Report info 9', 'user018', 'Issue description 9', 'In Progress', '2024-08-04 16:02:16');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (10, 'Report info 10', 'user040', 'Issue description 10', 'In Progress', '2020-05-02 23:52:57');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (11, 'Report info 11', 'user086', 'Issue description 11', 'In Progress', '2021-08-05 01:57:45');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (12, 'Report info 12', 'user070', 'Issue description 12', 'In Progress', '2022-10-08 18:48:59');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (13, 'Report info 13', 'user023', 'Issue description 13', 'Closed', '2022-11-20 22:46:37');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (14, 'Report info 14', 'user042', 'Issue description 14', 'Open', '2023-05-02 07:54:31');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (15, 'Report info 15', 'user073', 'Issue description 15', 'Open', '2024-05-03 11:41:16');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (16, 'Report info 16', 'user035', 'Issue description 16', 'Closed', '2023-11-13 10:42:51');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (17, 'Report info 17', 'user068', 'Issue description 17', 'In Progress', '2024-11-16 17:11:00');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (18, 'Report info 18', 'user112', 'Issue description 18', 'In Progress', '2022-10-20 23:40:59');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (19, 'Report info 19', 'user119', 'Issue description 19', 'Closed', '2020-06-24 16:12:40');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (20, 'Report info 20', 'user121', 'Issue description 20', 'In Progress', '2024-09-20 18:58:57');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (21, 'Report info 21', 'user040', 'Issue description 21', 'Closed', '2021-01-28 19:26:18');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (22, 'Report info 22', 'user098', 'Issue description 22', 'Open', '2021-09-02 09:09:04');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (23, 'Report info 23', 'user125', 'Issue description 23', 'Closed', '2024-04-29 16:55:48');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (24, 'Report info 24', 'user106', 'Issue description 24', 'In Progress', '2021-04-04 03:01:36');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (25, 'Report info 25', 'user035', 'Issue description 25', 'Open', '2022-04-22 03:37:59');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (26, 'Report info 26', 'user062', 'Issue description 26', 'In Progress', '2024-12-12 19:28:07');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (27, 'Report info 27', 'user043', 'Issue description 27', 'Closed', '2021-11-24 19:08:03');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (28, 'Report info 28', 'user027', 'Issue description 28', 'Closed', '2021-09-17 13:18:47');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (29, 'Report info 29', 'user089', 'Issue description 29', 'Open', '2021-05-22 06:15:54');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (30, 'Report info 30', 'user010', 'Issue description 30', 'Open', '2021-06-22 00:51:00');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (31, 'Report info 31', 'user119', 'Issue description 31', 'Open', '2024-11-03 03:11:57');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (32, 'Report info 32', 'user023', 'Issue description 32', 'Open', '2023-06-14 13:17:33');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (33, 'Report info 33', 'user002', 'Issue description 33', 'In Progress', '2022-09-27 11:42:22');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (34, 'Report info 34', 'user085', 'Issue description 34', 'Closed', '2020-08-24 23:53:49');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (35, 'Report info 35', 'user043', 'Issue description 35', 'Closed', '2020-02-04 05:02:19');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (36, 'Report info 36', 'user086', 'Issue description 36', 'Closed', '2021-09-23 08:11:32');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (37, 'Report info 37', 'user063', 'Issue description 37', 'Closed', '2024-01-17 07:31:52');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (38, 'Report info 38', 'user096', 'Issue description 38', 'In Progress', '2020-03-28 18:18:16');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (39, 'Report info 39', 'user119', 'Issue description 39', 'In Progress', '2024-02-21 19:22:04');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (40, 'Report info 40', 'user036', 'Issue description 40', 'In Progress', '2024-03-21 14:49:16');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (41, 'Report info 41', 'user045', 'Issue description 41', 'Open', '2024-06-28 11:20:04');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (42, 'Report info 42', 'user011', 'Issue description 42', 'Closed', '2020-03-04 01:11:56');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (43, 'Report info 43', 'user034', 'Issue description 43', 'Closed', '2020-11-10 01:47:07');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (44, 'Report info 44', 'user003', 'Issue description 44', 'In Progress', '2021-06-25 08:44:11');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (45, 'Report info 45', 'user118', 'Issue description 45', 'In Progress', '2021-07-08 18:44:24');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (46, 'Report info 46', 'user017', 'Issue description 46', 'Closed', '2023-04-20 00:51:31');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (47, 'Report info 47', 'user023', 'Issue description 47', 'Open', '2024-10-14 16:01:22');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (48, 'Report info 48', 'user078', 'Issue description 48', 'Closed', '2020-07-02 22:14:27');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (49, 'Report info 49', 'user084', 'Issue description 49', 'In Progress', '2023-10-17 06:21:13');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (50, 'Report info 50', 'user040', 'Issue description 50', 'In Progress', '2020-07-23 22:21:15');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (51, 'Report info 51', 'user103', 'Issue description 51', 'In Progress', '2022-05-12 10:41:17');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (52, 'Report info 52', 'user120', 'Issue description 52', 'In Progress', '2023-07-21 20:31:02');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (53, 'Report info 53', 'user003', 'Issue description 53', 'Open', '2024-05-29 07:26:47');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (54, 'Report info 54', 'user004', 'Issue description 54', 'In Progress', '2020-12-23 20:45:44');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (55, 'Report info 55', 'user105', 'Issue description 55', 'Open', '2020-10-25 11:10:31');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (56, 'Report info 56', 'user096', 'Issue description 56', 'Closed', '2021-08-16 15:08:36');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (57, 'Report info 57', 'user062', 'Issue description 57', 'Open', '2021-05-20 11:42:07');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (58, 'Report info 58', 'user105', 'Issue description 58', 'In Progress', '2021-08-01 04:08:15');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (59, 'Report info 59', 'user053', 'Issue description 59', 'In Progress', '2021-04-08 19:53:05');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (60, 'Report info 60', 'user074', 'Issue description 60', 'Closed', '2020-07-06 23:57:19');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (61, 'Report info 61', 'user024', 'Issue description 61', 'Closed', '2023-01-20 08:21:26');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (62, 'Report info 62', 'user083', 'Issue description 62', 'Open', '2024-09-11 09:08:02');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (63, 'Report info 63', 'user066', 'Issue description 63', 'Closed', '2021-04-27 23:01:27');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (64, 'Report info 64', 'user003', 'Issue description 64', 'Closed', '2020-06-10 20:10:27');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (65, 'Report info 65', 'user034', 'Issue description 65', 'In Progress', '2023-05-03 19:34:28');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (66, 'Report info 66', 'user051', 'Issue description 66', 'Open', '2021-03-02 13:31:22');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (67, 'Report info 67', 'user001', 'Issue description 67', 'Closed', '2020-08-25 19:57:46');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (68, 'Report info 68', 'user086', 'Issue description 68', 'Open', '2024-04-09 18:07:58');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (69, 'Report info 69', 'user113', 'Issue description 69', 'Open', '2021-07-06 10:46:02');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (70, 'Report info 70', 'user059', 'Issue description 70', 'Closed', '2020-09-03 23:59:50');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (71, 'Report info 71', 'user008', 'Issue description 71', 'In Progress', '2024-11-27 23:43:44');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (72, 'Report info 72', 'user003', 'Issue description 72', 'Closed', '2023-01-13 08:53:23');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (73, 'Report info 73', 'user076', 'Issue description 73', 'Open', '2023-01-05 16:37:52');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (74, 'Report info 74', 'user097', 'Issue description 74', 'Closed', '2021-09-09 13:20:44');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (75, 'Report info 75', 'user029', 'Issue description 75', 'In Progress', '2020-02-18 07:24:30');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (76, 'Report info 76', 'user122', 'Issue description 76', 'Open', '2020-12-12 23:45:42');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (77, 'Report info 77', 'user041', 'Issue description 77', 'Open', '2020-12-26 17:58:47');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (78, 'Report info 78', 'user053', 'Issue description 78', 'In Progress', '2020-09-04 13:04:55');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (79, 'Report info 79', 'user094', 'Issue description 79', 'Open', '2024-12-30 03:29:24');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (80, 'Report info 80', 'user016', 'Issue description 80', 'In Progress', '2024-11-02 10:17:18');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (81, 'Report info 81', 'user027', 'Issue description 81', 'Open', '2021-09-11 01:41:28');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (82, 'Report info 82', 'user122', 'Issue description 82', 'In Progress', '2023-02-12 21:53:24');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (83, 'Report info 83', 'user089', 'Issue description 83', 'Open', '2021-01-19 13:25:11');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (84, 'Report info 84', 'user017', 'Issue description 84', 'Open', '2021-06-07 15:41:21');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (85, 'Report info 85', 'user077', 'Issue description 85', 'Open', '2022-08-17 00:07:06');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (86, 'Report info 86', 'user052', 'Issue description 86', 'Closed', '2023-10-18 07:14:18');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (87, 'Report info 87', 'user063', 'Issue description 87', 'In Progress', '2024-01-30 08:42:53');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (88, 'Report info 88', 'user124', 'Issue description 88', 'In Progress', '2022-10-03 22:40:29');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (89, 'Report info 89', 'user031', 'Issue description 89', 'Closed', '2024-09-30 04:35:05');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (90, 'Report info 90', 'user067', 'Issue description 90', 'In Progress', '2022-09-02 02:00:43');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (91, 'Report info 91', 'user087', 'Issue description 91', 'Open', '2020-02-02 04:02:19');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (92, 'Report info 92', 'user102', 'Issue description 92', 'Open', '2020-09-02 13:23:26');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (93, 'Report info 93', 'user095', 'Issue description 93', 'Open', '2021-11-29 10:53:15');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (94, 'Report info 94', 'user093', 'Issue description 94', 'Open', '2024-04-22 19:36:23');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (95, 'Report info 95', 'user048', 'Issue description 95', 'In Progress', '2022-03-07 05:03:39');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (96, 'Report info 96', 'user026', 'Issue description 96', 'In Progress', '2022-07-05 00:13:05');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (97, 'Report info 97', 'user037', 'Issue description 97', 'In Progress', '2022-08-18 10:17:26');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (98, 'Report info 98', 'user058', 'Issue description 98', 'In Progress', '2024-09-01 13:49:40');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (99, 'Report info 99', 'user035', 'Issue description 99', 'In Progress', '2021-04-19 09:12:47');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (100, 'Report info 100', 'user075', 'Issue description 100', 'Closed', '2020-10-18 16:33:23');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (101, 'Report info 101', 'user011', 'Issue description 101', 'In Progress', '2023-01-06 06:35:58');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (102, 'Report info 102', 'user107', 'Issue description 102', 'In Progress', '2020-02-25 02:17:09');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (103, 'Report info 103', 'user061', 'Issue description 103', 'Open', '2021-01-28 14:29:40');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (104, 'Report info 104', 'user020', 'Issue description 104', 'In Progress', '2021-07-13 12:08:17');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (105, 'Report info 105', 'user037', 'Issue description 105', 'Open', '2022-11-25 22:55:01');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (106, 'Report info 106', 'user075', 'Issue description 106', 'In Progress', '2020-06-06 19:28:47');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (107, 'Report info 107', 'user074', 'Issue description 107', 'Closed', '2020-10-06 09:44:43');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (108, 'Report info 108', 'user071', 'Issue description 108', 'In Progress', '2021-12-18 10:59:36');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (109, 'Report info 109', 'user103', 'Issue description 109', 'Open', '2024-09-29 02:58:12');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (110, 'Report info 110', 'user089', 'Issue description 110', 'Closed', '2023-08-25 19:19:12');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (111, 'Report info 111', 'user111', 'Issue description 111', 'In Progress', '2024-07-05 21:03:42');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (112, 'Report info 112', 'user029', 'Issue description 112', 'Open', '2023-11-30 05:39:22');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (113, 'Report info 113', 'user028', 'Issue description 113', 'Open', '2021-04-05 20:17:40');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (114, 'Report info 114', 'user116', 'Issue description 114', 'Open', '2020-07-26 11:13:40');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (115, 'Report info 115', 'user018', 'Issue description 115', 'In Progress', '2021-10-15 16:44:19');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (116, 'Report info 116', 'user109', 'Issue description 116', 'Closed', '2020-09-27 17:27:09');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (117, 'Report info 117', 'user052', 'Issue description 117', 'In Progress', '2021-08-26 19:42:43');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (118, 'Report info 118', 'user011', 'Issue description 118', 'Open', '2024-02-12 14:03:22');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (119, 'Report info 119', 'user100', 'Issue description 119', 'Closed', '2024-05-14 08:35:49');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (120, 'Report info 120', 'user070', 'Issue description 120', 'In Progress', '2021-04-02 19:08:27');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (121, 'Report info 121', 'user108', 'Issue description 121', 'Closed', '2023-04-15 15:18:13');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (122, 'Report info 122', 'user066', 'Issue description 122', 'Open', '2020-09-21 16:05:02');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (123, 'Report info 123', 'user096', 'Issue description 123', 'In Progress', '2023-03-31 12:12:19');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (124, 'Report info 124', 'user051', 'Issue description 124', 'Closed', '2022-04-03 08:01:59');
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES (125, 'Report info 125', 'user038', 'Issue description 125', 'Closed', '2023-11-08 19:53:02');
 
-// Convert object array to CSV string
-function objectArrayToCSV(data) {
-  if (data.length === 0) return '';
- 
-  const headers = Object.keys(data[0]);
-  const csvRows = [];
- 
-  // Add header row
-  csvRows.push(headers.join(','));
- 
-  // Add data rows
-  for (const row of data) {
-    const values = headers.map(header => {
-      const value = row[header];
-      // Handle null values, strings with commas, and other special cases
-      if (value === null || value === undefined) return '';
-      if (typeof value === 'string' && (value.includes(',') || value.includes('"') || value.includes('\n'))) {
-        return `"${value.replace(/"/g, '""')}"`;
-      }
-      return value;
-    });
-    csvRows.push(values.join(','));
-  }
- 
-  return csvRows.join('\n');
-}
 
-// Generate all data and convert to CSV
-function generateAllData() {
-  // Generate the base data
-  const users = generateUsers(50);
-  const tags = generateTags(30);
-  const meals = generateMeals(45);
-  const demographicGroups = generateDemographicGroups(15);
-  const categories = generateCategories(10);
-  const recipeData = generateRecipeData(categories, 40);
-  const logEntries = generateLogEntries(25);
-  const issueReports = generateIssueReports(15);
- 
-  // Generate the relationship data
-  const mealTags = generateMealTags(meals, tags, 75);
-  const blogs = generateBlogs(users, meals, 30);
-  const blogMeals = generateBlogMeals(blogs, meals, 40);
-  const savedMeals = generateSavedMeals(users, meals, 60);
-  const addedMeals = generateAddedMeals(users, meals, 60);
-  const userDemographics = generateUserDemographics(users, demographicGroups, 75);
-  const interactions = generateInteractions(users, recipeData, 80);
-  const logIssueReports = generateLogIssueReports(logEntries, issueReports, 20);
-  const alerts = generateAlerts(logEntries, users, 20);
- 
-  // Return all data as CSV strings
-  return {
-    User: objectArrayToCSV(users),
-    Tag: objectArrayToCSV(tags),
-    Meal: objectArrayToCSV(meals),
-    Meal_Tag: objectArrayToCSV(mealTags),
-    Blog: objectArrayToCSV(blogs),
-    Blog_Meal: objectArrayToCSV(blogMeals),
-    Saved_Meals: objectArrayToCSV(savedMeals),
-    Added_Meals: objectArrayToCSV(addedMeals),
-    DemographicGroupData: objectArrayToCSV(demographicGroups),
-    UserDemographic: objectArrayToCSV(userDemographics),
-    CategoryData: objectArrayToCSV(categories),
-    RecipeData: objectArrayToCSV(recipeData),
-    Interaction: objectArrayToCSV(interactions),
-    LogEntry: objectArrayToCSV(logEntries),
-    IssueReport: objectArrayToCSV(issueReports),
-    LogEntry_IssueReport: objectArrayToCSV(logIssueReports),
-    Alert: objectArrayToCSV(alerts)
-  };
-}
+-- Insert statements for table: LogEntry
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (1, '2020-07-16 20:27:38', 'Error message 1', 'High', 'AuthService', 'Details for error 1');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (2, '2023-09-20 22:29:33', 'Error message 2', 'Low', 'APIHandler', 'Details for error 2');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (3, '2023-05-29 06:31:05', 'Error message 3', 'Medium', 'DBConnector', 'Details for error 3');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (4, '2023-03-21 08:35:27', 'Error message 4', 'Low', 'InputValidator', 'Details for error 4');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (5, '2022-08-24 08:26:53', 'Error message 5', 'Low', 'DBConnector', 'Details for error 5');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (6, '2023-04-30 09:40:08', 'Error message 6', 'Low', 'AuthService', 'Details for error 6');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (7, '2020-02-19 19:57:25', 'Error message 7', 'High', 'APIHandler', 'Details for error 7');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (8, '2022-03-13 21:34:37', 'Error message 8', 'High', 'AuthService', 'Details for error 8');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (9, '2023-02-13 05:16:57', 'Error message 9', 'High', 'InputValidator', 'Details for error 9');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (10, '2023-09-06 08:52:27', 'Error message 10', 'Low', 'AuthService', 'Details for error 10');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (11, '2023-06-14 19:18:11', 'Error message 11', 'High', 'AuthService', 'Details for error 11');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (12, '2022-04-04 04:52:23', 'Error message 12', 'Medium', 'AuthService', 'Details for error 12');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (13, '2023-07-29 21:10:01', 'Error message 13', 'Low', 'DBConnector', 'Details for error 13');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (14, '2021-12-17 06:04:35', 'Error message 14', 'Medium', 'AuthService', 'Details for error 14');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (15, '2023-10-11 01:11:39', 'Error message 15', 'Low', 'AuthService', 'Details for error 15');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (16, '2024-11-13 22:22:19', 'Error message 16', 'Low', 'InputValidator', 'Details for error 16');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (17, '2020-02-09 09:09:30', 'Error message 17', 'High', 'DBConnector', 'Details for error 17');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (18, '2023-08-03 02:45:11', 'Error message 18', 'Medium', 'DBConnector', 'Details for error 18');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (19, '2024-11-22 16:27:34', 'Error message 19', 'High', 'InputValidator', 'Details for error 19');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (20, '2021-07-11 05:31:57', 'Error message 20', 'Low', 'APIHandler', 'Details for error 20');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (21, '2020-12-07 23:29:48', 'Error message 21', 'High', 'DBConnector', 'Details for error 21');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (22, '2020-05-23 23:32:59', 'Error message 22', 'High', 'DBConnector', 'Details for error 22');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (23, '2020-04-21 02:21:44', 'Error message 23', 'Low', 'DBConnector', 'Details for error 23');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (24, '2022-06-05 11:31:24', 'Error message 24', 'High', 'APIHandler', 'Details for error 24');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (25, '2020-05-07 16:14:30', 'Error message 25', 'High', 'InputValidator', 'Details for error 25');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (26, '2023-09-26 16:29:57', 'Error message 26', 'Low', 'DBConnector', 'Details for error 26');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (27, '2022-05-28 07:03:13', 'Error message 27', 'Low', 'AuthService', 'Details for error 27');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (28, '2020-01-31 17:57:35', 'Error message 28', 'Medium', 'AuthService', 'Details for error 28');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (29, '2020-08-27 09:26:38', 'Error message 29', 'Medium', 'InputValidator', 'Details for error 29');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (30, '2021-03-01 08:19:31', 'Error message 30', 'Low', 'AuthService', 'Details for error 30');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (31, '2021-12-05 05:44:02', 'Error message 31', 'Low', 'DBConnector', 'Details for error 31');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (32, '2023-12-28 06:11:08', 'Error message 32', 'Medium', 'AuthService', 'Details for error 32');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (33, '2020-10-06 23:42:03', 'Error message 33', 'Low', 'InputValidator', 'Details for error 33');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (34, '2022-12-06 07:50:46', 'Error message 34', 'High', 'InputValidator', 'Details for error 34');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (35, '2024-07-13 18:45:42', 'Error message 35', 'Low', 'APIHandler', 'Details for error 35');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (36, '2020-06-23 18:56:02', 'Error message 36', 'High', 'APIHandler', 'Details for error 36');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (37, '2023-06-16 22:39:06', 'Error message 37', 'Medium', 'AuthService', 'Details for error 37');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (38, '2020-10-22 01:10:49', 'Error message 38', 'Low', 'AuthService', 'Details for error 38');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (39, '2023-07-01 08:17:40', 'Error message 39', 'High', 'APIHandler', 'Details for error 39');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (40, '2022-08-09 20:49:11', 'Error message 40', 'Low', 'APIHandler', 'Details for error 40');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (41, '2023-12-28 16:14:14', 'Error message 41', 'High', 'DBConnector', 'Details for error 41');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (42, '2020-07-06 01:18:58', 'Error message 42', 'High', 'AuthService', 'Details for error 42');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (43, '2024-10-11 05:38:14', 'Error message 43', 'Low', 'InputValidator', 'Details for error 43');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (44, '2022-08-12 07:49:17', 'Error message 44', 'High', 'DBConnector', 'Details for error 44');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (45, '2020-03-15 18:42:59', 'Error message 45', 'Medium', 'DBConnector', 'Details for error 45');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (46, '2023-06-01 02:21:04', 'Error message 46', 'High', 'DBConnector', 'Details for error 46');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (47, '2021-02-14 23:08:45', 'Error message 47', 'High', 'APIHandler', 'Details for error 47');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (48, '2024-11-08 17:12:57', 'Error message 48', 'Low', 'DBConnector', 'Details for error 48');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (49, '2023-07-12 20:10:26', 'Error message 49', 'Low', 'DBConnector', 'Details for error 49');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (50, '2021-03-16 18:15:35', 'Error message 50', 'High', 'InputValidator', 'Details for error 50');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (51, '2020-08-03 07:22:35', 'Error message 51', 'High', 'DBConnector', 'Details for error 51');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (52, '2022-07-07 01:32:35', 'Error message 52', 'High', 'AuthService', 'Details for error 52');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (53, '2021-07-24 21:56:37', 'Error message 53', 'Medium', 'DBConnector', 'Details for error 53');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (54, '2023-11-09 16:21:33', 'Error message 54', 'Medium', 'AuthService', 'Details for error 54');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (55, '2021-03-30 02:42:20', 'Error message 55', 'Medium', 'APIHandler', 'Details for error 55');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (56, '2023-06-15 17:46:35', 'Error message 56', 'Medium', 'AuthService', 'Details for error 56');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (57, '2022-05-22 06:59:42', 'Error message 57', 'Low', 'DBConnector', 'Details for error 57');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (58, '2020-04-09 02:07:02', 'Error message 58', 'High', 'InputValidator', 'Details for error 58');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (59, '2022-01-18 00:03:31', 'Error message 59', 'Low', 'DBConnector', 'Details for error 59');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (60, '2023-07-04 23:03:46', 'Error message 60', 'Low', 'InputValidator', 'Details for error 60');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (61, '2021-07-10 00:58:40', 'Error message 61', 'Medium', 'APIHandler', 'Details for error 61');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (62, '2020-01-06 06:30:17', 'Error message 62', 'Medium', 'DBConnector', 'Details for error 62');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (63, '2023-07-10 15:54:50', 'Error message 63', 'Low', 'DBConnector', 'Details for error 63');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (64, '2020-04-27 06:48:16', 'Error message 64', 'Low', 'DBConnector', 'Details for error 64');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (65, '2020-09-23 16:51:53', 'Error message 65', 'High', 'APIHandler', 'Details for error 65');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (66, '2021-07-12 04:22:03', 'Error message 66', 'Low', 'APIHandler', 'Details for error 66');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (67, '2020-02-04 22:06:21', 'Error message 67', 'Low', 'APIHandler', 'Details for error 67');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (68, '2022-10-24 22:11:25', 'Error message 68', 'High', 'DBConnector', 'Details for error 68');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (69, '2022-05-15 15:29:38', 'Error message 69', 'High', 'AuthService', 'Details for error 69');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (70, '2024-09-03 04:40:10', 'Error message 70', 'High', 'DBConnector', 'Details for error 70');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (71, '2023-01-23 10:11:36', 'Error message 71', 'High', 'APIHandler', 'Details for error 71');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (72, '2022-02-16 21:27:09', 'Error message 72', 'Medium', 'AuthService', 'Details for error 72');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (73, '2023-01-17 00:32:15', 'Error message 73', 'Low', 'AuthService', 'Details for error 73');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (74, '2022-10-20 04:54:28', 'Error message 74', 'Low', 'AuthService', 'Details for error 74');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (75, '2021-06-14 23:21:37', 'Error message 75', 'High', 'APIHandler', 'Details for error 75');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (76, '2022-05-14 19:33:59', 'Error message 76', 'Medium', 'APIHandler', 'Details for error 76');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (77, '2021-01-28 06:47:33', 'Error message 77', 'Medium', 'InputValidator', 'Details for error 77');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (78, '2023-05-02 12:11:46', 'Error message 78', 'Low', 'AuthService', 'Details for error 78');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (79, '2022-09-04 14:38:35', 'Error message 79', 'Medium', 'InputValidator', 'Details for error 79');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (80, '2022-05-28 19:43:49', 'Error message 80', 'Medium', 'AuthService', 'Details for error 80');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (81, '2023-03-14 21:17:57', 'Error message 81', 'Medium', 'InputValidator', 'Details for error 81');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (82, '2020-05-21 10:25:36', 'Error message 82', 'High', 'InputValidator', 'Details for error 82');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (83, '2023-05-20 11:38:51', 'Error message 83', 'High', 'APIHandler', 'Details for error 83');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (84, '2024-04-14 01:32:54', 'Error message 84', 'Medium', 'DBConnector', 'Details for error 84');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (85, '2024-06-16 10:25:27', 'Error message 85', 'Low', 'AuthService', 'Details for error 85');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (86, '2024-10-20 23:12:36', 'Error message 86', 'Medium', 'AuthService', 'Details for error 86');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (87, '2022-02-25 23:58:45', 'Error message 87', 'Low', 'AuthService', 'Details for error 87');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (88, '2022-12-30 21:45:42', 'Error message 88', 'Medium', 'InputValidator', 'Details for error 88');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (89, '2020-01-15 07:49:21', 'Error message 89', 'High', 'DBConnector', 'Details for error 89');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (90, '2020-03-21 09:36:09', 'Error message 90', 'High', 'InputValidator', 'Details for error 90');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (91, '2021-12-10 22:47:07', 'Error message 91', 'Medium', 'AuthService', 'Details for error 91');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (92, '2020-11-29 23:14:19', 'Error message 92', 'Medium', 'AuthService', 'Details for error 92');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (93, '2022-11-15 21:16:39', 'Error message 93', 'High', 'APIHandler', 'Details for error 93');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (94, '2020-07-18 18:05:48', 'Error message 94', 'High', 'DBConnector', 'Details for error 94');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (95, '2022-03-15 11:52:38', 'Error message 95', 'High', 'DBConnector', 'Details for error 95');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (96, '2024-05-21 22:11:24', 'Error message 96', 'Medium', 'InputValidator', 'Details for error 96');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (97, '2022-07-25 01:41:50', 'Error message 97', 'Medium', 'APIHandler', 'Details for error 97');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (98, '2022-05-10 09:33:07', 'Error message 98', 'High', 'DBConnector', 'Details for error 98');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (99, '2024-01-19 19:12:55', 'Error message 99', 'High', 'APIHandler', 'Details for error 99');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (100, '2020-11-13 07:14:29', 'Error message 100', 'Low', 'APIHandler', 'Details for error 100');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (101, '2021-11-13 00:55:49', 'Error message 101', 'High', 'InputValidator', 'Details for error 101');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (102, '2021-06-13 07:41:27', 'Error message 102', 'Medium', 'APIHandler', 'Details for error 102');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (103, '2024-09-29 23:59:17', 'Error message 103', 'Medium', 'AuthService', 'Details for error 103');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (104, '2024-09-13 06:57:38', 'Error message 104', 'Medium', 'InputValidator', 'Details for error 104');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (105, '2021-11-22 11:32:45', 'Error message 105', 'High', 'DBConnector', 'Details for error 105');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (106, '2023-03-03 07:06:12', 'Error message 106', 'Low', 'AuthService', 'Details for error 106');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (107, '2022-03-15 22:22:51', 'Error message 107', 'Medium', 'InputValidator', 'Details for error 107');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (108, '2021-06-29 08:47:21', 'Error message 108', 'Low', 'InputValidator', 'Details for error 108');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (109, '2022-02-08 13:59:32', 'Error message 109', 'Low', 'InputValidator', 'Details for error 109');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (110, '2022-10-28 12:49:38', 'Error message 110', 'Medium', 'APIHandler', 'Details for error 110');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (111, '2023-08-16 01:47:34', 'Error message 111', 'High', 'InputValidator', 'Details for error 111');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (112, '2021-01-09 04:32:59', 'Error message 112', 'High', 'DBConnector', 'Details for error 112');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (113, '2023-09-27 13:44:21', 'Error message 113', 'High', 'APIHandler', 'Details for error 113');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (114, '2024-06-14 17:44:23', 'Error message 114', 'Low', 'AuthService', 'Details for error 114');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (115, '2024-02-27 00:40:45', 'Error message 115', 'Low', 'AuthService', 'Details for error 115');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (116, '2020-04-22 21:17:58', 'Error message 116', 'High', 'AuthService', 'Details for error 116');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (117, '2023-08-15 08:35:54', 'Error message 117', 'Medium', 'AuthService', 'Details for error 117');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (118, '2022-10-18 07:11:23', 'Error message 118', 'High', 'AuthService', 'Details for error 118');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (119, '2021-11-13 11:20:50', 'Error message 119', 'Medium', 'AuthService', 'Details for error 119');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (120, '2021-07-07 09:54:47', 'Error message 120', 'High', 'InputValidator', 'Details for error 120');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (121, '2024-05-12 15:47:29', 'Error message 121', 'High', 'APIHandler', 'Details for error 121');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (122, '2023-11-01 12:40:29', 'Error message 122', 'Medium', 'AuthService', 'Details for error 122');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (123, '2020-06-08 00:08:45', 'Error message 123', 'Low', 'DBConnector', 'Details for error 123');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (124, '2024-07-09 00:57:00', 'Error message 124', 'High', 'APIHandler', 'Details for error 124');
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES (125, '2023-08-26 08:40:43', 'Error message 125', 'High', 'InputValidator', 'Details for error 125');
 
-// Execute the data generation
-const allCSVData = generateAllData();
 
-// Print sample of each table
-for (const [tableName, csvData] of Object.entries(allCSVData)) {
-  const lines = csvData.split('\n');
-  console.log(`\n=== ${tableName} (${lines.length - 1} rows) ===`);
-  console.log(lines[0]); // Header
-  console.log(lines.length > 1 ? lines[1] : 'No data'); // First data row if exists
-  // Count total
-}
+-- Insert statements for table: LogEntry_IssueReport
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (84, 44);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (89, 49);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (40, 59);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (81, 101);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (7, 118);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (117, 68);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (57, 61);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (93, 116);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (83, 74);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (66, 82);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (11, 100);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (117, 80);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (47, 93);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (9, 58);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (120, 34);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (72, 76);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (29, 15);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (107, 89);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (92, 40);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (45, 15);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (42, 101);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (89, 123);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (33, 90);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (21, 28);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (104, 120);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (37, 5);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (119, 109);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (122, 35);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (31, 78);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (33, 69);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (100, 115);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (95, 4);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (63, 53);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (40, 44);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (117, 19);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (34, 90);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (27, 34);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (114, 69);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (32, 108);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (53, 67);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (121, 45);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (11, 65);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (15, 5);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (110, 108);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (80, 64);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (61, 125);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (76, 77);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (49, 103);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (29, 101);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (65, 116);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (74, 38);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (43, 9);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (107, 21);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (24, 60);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (55, 71);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (68, 44);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (79, 106);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (15, 89);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (18, 75);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (49, 40);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (23, 9);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (7, 77);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (20, 50);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (37, 25);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (56, 83);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (17, 113);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (105, 108);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (30, 95);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (44, 47);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (122, 15);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (5, 8);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (63, 29);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (67, 55);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (53, 25);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (119, 64);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (47, 53);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (118, 18);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (14, 6);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (17, 125);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (18, 123);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (1, 32);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (103, 108);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (72, 89);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (12, 33);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (71, 32);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (56, 1);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (108, 9);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (44, 53);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (102, 123);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (105, 18);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (25, 49);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (48, 14);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (93, 125);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (91, 53);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (99, 109);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (30, 64);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (88, 80);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (49, 110);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (35, 116);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (95, 125);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (6, 39);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (1, 19);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (18, 44);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (18, 68);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (81, 73);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (42, 53);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (29, 5);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (60, 68);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (82, 18);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (55, 88);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (95, 13);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (81, 15);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (9, 83);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (117, 109);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (89, 70);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (38, 3);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (54, 17);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (48, 13);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (30, 78);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (30, 2);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (91, 106);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (71, 3);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (43, 8);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (29, 25);
+INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES (13, 41);
 
-// Total number of rows across all tables
-const totalRows = Object.values(allCSVData)
-  .reduce((sum, csv) => sum + csv.split('\n').length - 1, 0);
 
-console.log(`\nTotal rows across all tables: ${totalRows}`);
+-- Insert statements for table: Meal
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (1, 'Meal 1', '2024-10-01', 57, 118, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 1; Step 2 for meal 1.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (2, 'Meal 2', '2021-12-17', 19, 42, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 2; Step 2 for meal 2.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (3, 'Meal 3', '2023-04-14', 33, 97, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 3; Step 2 for meal 3.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (4, 'Meal 4', '2021-12-14', 43, 71, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 4; Step 2 for meal 4.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (5, 'Meal 5', '2023-11-30', 5, 105, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 5; Step 2 for meal 5.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (6, 'Meal 6', '2024-09-02', 7, 103, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 6; Step 2 for meal 6.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (7, 'Meal 7', '2023-07-24', 21, 42, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 7; Step 2 for meal 7.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (8, 'Meal 8', '2024-10-31', 21, 113, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 8; Step 2 for meal 8.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (9, 'Meal 9', '2022-12-03', 20, 6, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 9; Step 2 for meal 9.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (10, 'Meal 10', '2021-05-12', 32, 64, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 10; Step 2 for meal 10.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (11, 'Meal 11', '2022-07-04', 42, 79, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 11; Step 2 for meal 11.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (12, 'Meal 12', '2024-09-24', 16, 77, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 12; Step 2 for meal 12.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (13, 'Meal 13', '2023-09-19', 8, 84, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 13; Step 2 for meal 13.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (14, 'Meal 14', '2024-12-22', 8, 68, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 14; Step 2 for meal 14.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (15, 'Meal 15', '2020-07-11', 48, 40, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 15; Step 2 for meal 15.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (16, 'Meal 16', '2023-03-31', 42, 70, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 16; Step 2 for meal 16.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (17, 'Meal 17', '2020-04-08', 47, 100, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 17; Step 2 for meal 17.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (18, 'Meal 18', '2020-03-26', 26, 92, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 18; Step 2 for meal 18.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (19, 'Meal 19', '2024-03-20', 20, 28, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 19; Step 2 for meal 19.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (20, 'Meal 20', '2022-12-27', 29, 64, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 20; Step 2 for meal 20.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (21, 'Meal 21', '2023-03-17', 50, 61, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 21; Step 2 for meal 21.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (22, 'Meal 22', '2020-03-31', 34, 118, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 22; Step 2 for meal 22.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (23, 'Meal 23', '2020-12-13', 59, 77, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 23; Step 2 for meal 23.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (24, 'Meal 24', '2022-06-29', 32, 65, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 24; Step 2 for meal 24.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (25, 'Meal 25', '2022-04-09', 18, 51, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 25; Step 2 for meal 25.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (26, 'Meal 26', '2023-09-20', 26, 7, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 26; Step 2 for meal 26.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (27, 'Meal 27', '2021-08-06', 8, 53, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 27; Step 2 for meal 27.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (28, 'Meal 28', '2024-02-24', 51, 30, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 28; Step 2 for meal 28.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (29, 'Meal 29', '2024-06-30', 24, 49, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 29; Step 2 for meal 29.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (30, 'Meal 30', '2021-04-04', 46, 51, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 30; Step 2 for meal 30.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (31, 'Meal 31', '2020-06-17', 41, 110, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 31; Step 2 for meal 31.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (32, 'Meal 32', '2020-06-24', 13, 103, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 32; Step 2 for meal 32.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (33, 'Meal 33', '2023-10-06', 48, 35, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 33; Step 2 for meal 33.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (34, 'Meal 34', '2022-05-19', 9, 74, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 34; Step 2 for meal 34.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (35, 'Meal 35', '2022-11-24', 46, 33, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 35; Step 2 for meal 35.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (36, 'Meal 36', '2021-10-28', 47, 70, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 36; Step 2 for meal 36.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (37, 'Meal 37', '2022-03-08', 51, 118, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 37; Step 2 for meal 37.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (38, 'Meal 38', '2020-05-26', 44, 89, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 38; Step 2 for meal 38.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (39, 'Meal 39', '2022-11-22', 47, 21, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 39; Step 2 for meal 39.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (40, 'Meal 40', '2023-06-12', 40, 84, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 40; Step 2 for meal 40.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (41, 'Meal 41', '2024-11-27', 39, 17, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 41; Step 2 for meal 41.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (42, 'Meal 42', '2020-08-25', 45, 59, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 42; Step 2 for meal 42.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (43, 'Meal 43', '2021-06-18', 17, 32, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 43; Step 2 for meal 43.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (44, 'Meal 44', '2021-06-25', 23, 6, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 44; Step 2 for meal 44.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (45, 'Meal 45', '2024-12-06', 57, 57, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 45; Step 2 for meal 45.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (46, 'Meal 46', '2022-02-08', 31, 68, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 46; Step 2 for meal 46.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (47, 'Meal 47', '2021-05-26', 44, 79, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 47; Step 2 for meal 47.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (48, 'Meal 48', '2022-09-01', 54, 89, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 48; Step 2 for meal 48.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (49, 'Meal 49', '2021-08-27', 8, 23, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 49; Step 2 for meal 49.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (50, 'Meal 50', '2021-11-03', 8, 95, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 50; Step 2 for meal 50.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (51, 'Meal 51', '2022-10-05', 30, 29, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 51; Step 2 for meal 51.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (52, 'Meal 52', '2021-11-14', 55, 42, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 52; Step 2 for meal 52.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (53, 'Meal 53', '2023-04-09', 22, 6, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 53; Step 2 for meal 53.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (54, 'Meal 54', '2020-12-05', 9, 113, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 54; Step 2 for meal 54.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (55, 'Meal 55', '2024-05-31', 32, 105, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 55; Step 2 for meal 55.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (56, 'Meal 56', '2024-02-09', 17, 12, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 56; Step 2 for meal 56.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (57, 'Meal 57', '2024-12-06', 60, 29, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 57; Step 2 for meal 57.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (58, 'Meal 58', '2020-04-06', 54, 23, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 58; Step 2 for meal 58.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (59, 'Meal 59', '2020-02-21', 11, 14, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 59; Step 2 for meal 59.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (60, 'Meal 60', '2023-04-11', 49, 107, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 60; Step 2 for meal 60.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (61, 'Meal 61', '2024-02-10', 9, 60, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 61; Step 2 for meal 61.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (62, 'Meal 62', '2022-02-24', 9, 23, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 62; Step 2 for meal 62.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (63, 'Meal 63', '2023-06-26', 47, 61, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 63; Step 2 for meal 63.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (64, 'Meal 64', '2024-12-06', 9, 29, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 64; Step 2 for meal 64.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (65, 'Meal 65', '2022-06-18', 9, 50, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 65; Step 2 for meal 65.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (66, 'Meal 66', '2022-12-11', 28, 91, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 66; Step 2 for meal 66.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (67, 'Meal 67', '2020-07-23', 59, 53, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 67; Step 2 for meal 67.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (68, 'Meal 68', '2021-09-30', 12, 8, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 68; Step 2 for meal 68.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (69, 'Meal 69', '2021-05-31', 27, 55, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 69; Step 2 for meal 69.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (70, 'Meal 70', '2024-08-27', 54, 45, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 70; Step 2 for meal 70.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (71, 'Meal 71', '2022-10-23', 7, 80, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 71; Step 2 for meal 71.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (72, 'Meal 72', '2023-12-15', 45, 34, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 72; Step 2 for meal 72.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (73, 'Meal 73', '2023-04-24', 35, 108, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 73; Step 2 for meal 73.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (74, 'Meal 74', '2021-04-05', 29, 67, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 74; Step 2 for meal 74.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (75, 'Meal 75', '2022-06-18', 23, 55, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 75; Step 2 for meal 75.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (76, 'Meal 76', '2023-06-08', 25, 35, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 76; Step 2 for meal 76.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (77, 'Meal 77', '2023-05-15', 56, 23, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 77; Step 2 for meal 77.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (78, 'Meal 78', '2024-05-10', 57, 30, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 78; Step 2 for meal 78.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (79, 'Meal 79', '2021-07-22', 27, 85, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 79; Step 2 for meal 79.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (80, 'Meal 80', '2024-12-17', 52, 83, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 80; Step 2 for meal 80.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (81, 'Meal 81', '2022-10-15', 60, 41, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 81; Step 2 for meal 81.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (82, 'Meal 82', '2021-01-04', 25, 57, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 82; Step 2 for meal 82.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (83, 'Meal 83', '2022-01-04', 26, 33, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 83; Step 2 for meal 83.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (84, 'Meal 84', '2022-06-08', 13, 100, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 84; Step 2 for meal 84.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (85, 'Meal 85', '2022-07-26', 31, 99, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 85; Step 2 for meal 85.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (86, 'Meal 86', '2020-11-17', 14, 30, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 86; Step 2 for meal 86.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (87, 'Meal 87', '2021-06-16', 32, 23, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 87; Step 2 for meal 87.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (88, 'Meal 88', '2021-02-13', 18, 108, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 88; Step 2 for meal 88.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (89, 'Meal 89', '2021-08-31', 58, 80, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 89; Step 2 for meal 89.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (90, 'Meal 90', '2020-11-23', 28, 66, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 90; Step 2 for meal 90.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (91, 'Meal 91', '2021-08-31', 38, 101, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 91; Step 2 for meal 91.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (92, 'Meal 92', '2023-10-28', 48, 75, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 92; Step 2 for meal 92.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (93, 'Meal 93', '2020-09-23', 44, 93, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 93; Step 2 for meal 93.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (94, 'Meal 94', '2021-10-20', 51, 49, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 94; Step 2 for meal 94.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (95, 'Meal 95', '2022-11-09', 12, 6, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 95; Step 2 for meal 95.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (96, 'Meal 96', '2022-03-09', 30, 71, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 96; Step 2 for meal 96.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (97, 'Meal 97', '2022-04-15', 40, 67, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 97; Step 2 for meal 97.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (98, 'Meal 98', '2021-09-21', 21, 51, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 98; Step 2 for meal 98.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (99, 'Meal 99', '2024-08-05', 7, 60, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 99; Step 2 for meal 99.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (100, 'Meal 100', '2024-07-07', 53, 12, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 100; Step 2 for meal 100.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (101, 'Meal 101', '2022-09-06', 39, 45, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 101; Step 2 for meal 101.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (102, 'Meal 102', '2020-09-07', 33, 34, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 102; Step 2 for meal 102.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (103, 'Meal 103', '2024-10-07', 32, 20, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 103; Step 2 for meal 103.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (104, 'Meal 104', '2022-09-02', 19, 110, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 104; Step 2 for meal 104.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (105, 'Meal 105', '2023-03-26', 13, 87, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 105; Step 2 for meal 105.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (106, 'Meal 106', '2022-12-20', 49, 19, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 106; Step 2 for meal 106.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (107, 'Meal 107', '2022-01-05', 44, 88, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 107; Step 2 for meal 107.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (108, 'Meal 108', '2024-04-21', 22, 18, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 108; Step 2 for meal 108.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (109, 'Meal 109', '2024-02-09', 26, 105, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 109; Step 2 for meal 109.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (110, 'Meal 110', '2024-09-15', 8, 96, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 110; Step 2 for meal 110.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (111, 'Meal 111', '2021-03-21', 23, 13, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 111; Step 2 for meal 111.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (112, 'Meal 112', '2023-12-19', 46, 105, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 112; Step 2 for meal 112.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (113, 'Meal 113', '2020-02-25', 60, 25, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 113; Step 2 for meal 113.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (114, 'Meal 114', '2022-11-23', 53, 62, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 114; Step 2 for meal 114.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (115, 'Meal 115', '2024-10-11', 11, 44, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 115; Step 2 for meal 115.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (116, 'Meal 116', '2024-01-03', 24, 86, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 116; Step 2 for meal 116.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (117, 'Meal 117', '2022-04-11', 20, 44, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 117; Step 2 for meal 117.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (118, 'Meal 118', '2021-11-27', 44, 6, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 118; Step 2 for meal 118.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (119, 'Meal 119', '2020-02-17', 30, 84, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 119; Step 2 for meal 119.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (120, 'Meal 120', '2024-10-05', 43, 37, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 120; Step 2 for meal 120.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (121, 'Meal 121', '2021-01-29', 54, 96, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 121; Step 2 for meal 121.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (122, 'Meal 122', '2023-02-01', 49, 44, 'Medium', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 122; Step 2 for meal 122.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (123, 'Meal 123', '2023-09-10', 41, 59, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 123; Step 2 for meal 123.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (124, 'Meal 124', '2020-01-22', 47, 110, 'Hard', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 124; Step 2 for meal 124.');
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions) VALUES (125, 'Meal 125', '2022-05-24', 31, 94, 'Easy', 'IngredientA, IngredientB, IngredientC', 'Step 1 for meal 125; Step 2 for meal 125.');
 
-// Export a combined CSV for demonstration
-const combinedSample = `
-# Tummy Database Mock Data
-# Generated: ${new Date().toISOString()}
-# Total Tables: ${Object.keys(allCSVData).length}
-# Total Rows: ${totalRows}
 
-USER TABLE SAMPLE:
-${allCSVData.User.split('\n').slice(0, 6).join('\n')}
+-- Insert statements for table: Meal_Tag
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (38, 31);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (75, 16);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (120, 52);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (103, 14);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (106, 60);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (2, 95);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (112, 66);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (122, 47);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (53, 43);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (112, 10);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (55, 107);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (82, 17);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (115, 52);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (63, 118);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (55, 24);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (32, 98);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (11, 113);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (10, 53);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (62, 55);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (41, 67);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (20, 66);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (103, 95);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (99, 112);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (35, 119);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (110, 104);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (61, 60);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (80, 26);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (123, 82);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (48, 8);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (23, 58);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (49, 54);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (78, 123);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (96, 122);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (21, 106);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (32, 35);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (20, 85);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (75, 107);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (32, 49);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (106, 101);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (117, 48);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (80, 53);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (110, 65);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (26, 5);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (73, 56);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (41, 108);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (115, 35);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (114, 12);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (93, 83);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (65, 69);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (91, 107);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (8, 33);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (87, 6);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (106, 120);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (15, 54);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (41, 99);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (37, 104);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (89, 54);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (91, 84);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (33, 55);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (9, 32);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (74, 59);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (17, 76);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (91, 125);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (18, 2);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (25, 76);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (42, 49);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (82, 8);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (81, 49);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (6, 76);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (58, 79);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (78, 104);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (117, 78);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (84, 52);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (104, 38);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (53, 125);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (9, 46);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (7, 104);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (23, 103);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (34, 3);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (47, 110);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (24, 32);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (71, 50);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (39, 14);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (117, 2);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (62, 109);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (77, 91);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (47, 36);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (61, 88);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (97, 45);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (86, 100);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (16, 122);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (49, 94);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (107, 119);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (27, 95);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (42, 31);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (81, 89);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (45, 94);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (22, 97);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (56, 100);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (25, 119);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (7, 28);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (29, 95);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (47, 11);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (44, 88);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (91, 33);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (107, 47);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (27, 28);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (64, 45);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (57, 93);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (62, 36);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (47, 75);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (7, 77);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (35, 125);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (79, 15);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (97, 53);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (95, 120);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (63, 16);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (82, 79);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (92, 26);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (69, 35);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (53, 120);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (69, 61);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (21, 6);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (16, 8);
+INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (67, 56);
 
-MEAL TABLE SAMPLE:
-${allCSVData.Meal.split('\n').slice(0, 6).join('\n')}
 
-TAG TABLE SAMPLE:
-${allCSVData.Tag.split('\n').slice(0, 6).join('\n')}
+-- Insert statements for table: RecipeData
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (1, 'Recipe 1', TRUE, 8, 827);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (2, 'Recipe 2', FALSE, 10, 773);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (3, 'Recipe 3', TRUE, 116, 866);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (4, 'Recipe 4', FALSE, 31, 641);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (5, 'Recipe 5', TRUE, 1, 734);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (6, 'Recipe 6', FALSE, 55, 794);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (7, 'Recipe 7', FALSE, 103, 473);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (8, 'Recipe 8', FALSE, 18, 54);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (9, 'Recipe 9', FALSE, 80, 151);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (10, 'Recipe 10', FALSE, 29, 509);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (11, 'Recipe 11', TRUE, 16, 724);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (12, 'Recipe 12', TRUE, 113, 252);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (13, 'Recipe 13', FALSE, 71, 219);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (14, 'Recipe 14', FALSE, 52, 31);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (15, 'Recipe 15', TRUE, 107, 190);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (16, 'Recipe 16', FALSE, 81, 611);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (17, 'Recipe 17', TRUE, 57, 674);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (18, 'Recipe 18', FALSE, 91, 830);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (19, 'Recipe 19', FALSE, 6, 422);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (20, 'Recipe 20', FALSE, 83, 139);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (21, 'Recipe 21', FALSE, 15, 395);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (22, 'Recipe 22', FALSE, 122, 914);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (23, 'Recipe 23', FALSE, 20, 361);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (24, 'Recipe 24', TRUE, 86, 832);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (25, 'Recipe 25', TRUE, 55, 761);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (26, 'Recipe 26', TRUE, 112, 569);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (27, 'Recipe 27', TRUE, 5, 626);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (28, 'Recipe 28', TRUE, 62, 541);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (29, 'Recipe 29', FALSE, 28, 973);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (30, 'Recipe 30', FALSE, 29, 135);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (31, 'Recipe 31', FALSE, 83, 586);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (32, 'Recipe 32', FALSE, 54, 328);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (33, 'Recipe 33', FALSE, 51, 213);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (34, 'Recipe 34', FALSE, 79, 339);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (35, 'Recipe 35', FALSE, 17, 509);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (36, 'Recipe 36', FALSE, 100, 567);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (37, 'Recipe 37', TRUE, 63, 783);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (38, 'Recipe 38', TRUE, 39, 308);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (39, 'Recipe 39', TRUE, 77, 123);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (40, 'Recipe 40', TRUE, 76, 394);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (41, 'Recipe 41', FALSE, 79, 852);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (42, 'Recipe 42', FALSE, 115, 60);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (43, 'Recipe 43', FALSE, 116, 117);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (44, 'Recipe 44', FALSE, 31, 453);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (45, 'Recipe 45', TRUE, 92, 569);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (46, 'Recipe 46', TRUE, 3, 704);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (47, 'Recipe 47', FALSE, 118, 181);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (48, 'Recipe 48', TRUE, 103, 608);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (49, 'Recipe 49', TRUE, 42, 527);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (50, 'Recipe 50', TRUE, 121, 854);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (51, 'Recipe 51', FALSE, 81, 429);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (52, 'Recipe 52', TRUE, 106, 583);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (53, 'Recipe 53', FALSE, 54, 643);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (54, 'Recipe 54', TRUE, 25, 535);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (55, 'Recipe 55', FALSE, 16, 159);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (56, 'Recipe 56', FALSE, 33, 998);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (57, 'Recipe 57', TRUE, 69, 421);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (58, 'Recipe 58', FALSE, 53, 774);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (59, 'Recipe 59', FALSE, 114, 33);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (60, 'Recipe 60', FALSE, 93, 61);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (61, 'Recipe 61', FALSE, 123, 644);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (62, 'Recipe 62', TRUE, 113, 65);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (63, 'Recipe 63', FALSE, 96, 376);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (64, 'Recipe 64', TRUE, 62, 33);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (65, 'Recipe 65', FALSE, 94, 277);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (66, 'Recipe 66', TRUE, 121, 64);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (67, 'Recipe 67', TRUE, 45, 512);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (68, 'Recipe 68', TRUE, 60, 912);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (69, 'Recipe 69', TRUE, 57, 161);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (70, 'Recipe 70', TRUE, 57, 344);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (71, 'Recipe 71', TRUE, 36, 817);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (72, 'Recipe 72', FALSE, 25, 423);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (73, 'Recipe 73', FALSE, 90, 51);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (74, 'Recipe 74', FALSE, 18, 379);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (75, 'Recipe 75', FALSE, 65, 418);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (76, 'Recipe 76', TRUE, 39, 956);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (77, 'Recipe 77', FALSE, 84, 954);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (78, 'Recipe 78', FALSE, 39, 391);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (79, 'Recipe 79', FALSE, 15, 237);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (80, 'Recipe 80', TRUE, 71, 926);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (81, 'Recipe 81', TRUE, 48, 634);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (82, 'Recipe 82', TRUE, 50, 914);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (83, 'Recipe 83', FALSE, 57, 796);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (84, 'Recipe 84', FALSE, 63, 727);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (85, 'Recipe 85', TRUE, 61, 101);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (86, 'Recipe 86', FALSE, 14, 361);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (87, 'Recipe 87', FALSE, 66, 248);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (88, 'Recipe 88', TRUE, 90, 517);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (89, 'Recipe 89', FALSE, 70, 123);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (90, 'Recipe 90', TRUE, 34, 95);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (91, 'Recipe 91', TRUE, 58, 925);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (92, 'Recipe 92', FALSE, 27, 186);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (93, 'Recipe 93', FALSE, 64, 751);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (94, 'Recipe 94', FALSE, 13, 696);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (95, 'Recipe 95', TRUE, 45, 502);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (96, 'Recipe 96', FALSE, 116, 673);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (97, 'Recipe 97', TRUE, 65, 682);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (98, 'Recipe 98', FALSE, 91, 223);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (99, 'Recipe 99', FALSE, 65, 198);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (100, 'Recipe 100', TRUE, 5, 641);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (101, 'Recipe 101', TRUE, 27, 306);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (102, 'Recipe 102', TRUE, 24, 800);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (103, 'Recipe 103', TRUE, 73, 989);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (104, 'Recipe 104', FALSE, 97, 961);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (105, 'Recipe 105', FALSE, 105, 595);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (106, 'Recipe 106', FALSE, 41, 333);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (107, 'Recipe 107', FALSE, 18, 55);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (108, 'Recipe 108', TRUE, 74, 797);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (109, 'Recipe 109', TRUE, 64, 201);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (110, 'Recipe 110', TRUE, 23, 297);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (111, 'Recipe 111', TRUE, 69, 973);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (112, 'Recipe 112', FALSE, 78, 437);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (113, 'Recipe 113', FALSE, 90, 638);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (114, 'Recipe 114', TRUE, 88, 469);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (115, 'Recipe 115', TRUE, 109, 263);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (116, 'Recipe 116', FALSE, 2, 542);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (117, 'Recipe 117', TRUE, 63, 921);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (118, 'Recipe 118', FALSE, 86, 95);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (119, 'Recipe 119', TRUE, 50, 32);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (120, 'Recipe 120', TRUE, 99, 644);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (121, 'Recipe 121', TRUE, 26, 906);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (122, 'Recipe 122', TRUE, 120, 303);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (123, 'Recipe 123', FALSE, 5, 146);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (124, 'Recipe 124', TRUE, 82, 163);
+INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES (125, 'Recipe 125', FALSE, 41, 360);
 
-BLOG TABLE SAMPLE:
-${allCSVData.Blog.split('\n').slice(0, 6).join('\n')}
 
-INTERACTION TABLE SAMPLE:
-${allCSVData.Interaction.split('\n').slice(0, 6).join('\n')}
-`;
+-- Insert statements for table: Saved_Meals
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user059', 26);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user104', 91);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user071', 104);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user036', 22);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user019', 45);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user014', 7);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user114', 11);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user124', 42);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user028', 125);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user013', 124);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user009', 16);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user079', 11);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user101', 63);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user007', 12);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user109', 11);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user116', 108);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user061', 69);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user057', 24);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user038', 33);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user012', 7);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user011', 58);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user090', 38);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user104', 68);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user098', 100);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user125', 81);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user055', 20);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user083', 48);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user110', 67);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user079', 64);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user015', 120);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user090', 112);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user059', 14);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user055', 65);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user074', 53);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user004', 85);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user010', 34);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user066', 90);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user011', 35);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user020', 50);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user099', 10);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user018', 79);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user042', 119);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user079', 5);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user034', 15);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user103', 95);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user050', 90);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user113', 114);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user110', 66);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user085', 103);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user040', 80);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user085', 110);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user055', 104);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user003', 28);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user013', 48);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user114', 5);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user020', 75);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user050', 78);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user022', 86);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user050', 81);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user022', 33);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user110', 27);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user068', 110);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user095', 28);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user068', 111);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user007', 92);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user005', 106);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user080', 59);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user124', 34);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user101', 64);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user090', 70);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user111', 122);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user105', 122);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user090', 64);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user036', 94);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user056', 114);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user079', 112);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user100', 42);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user114', 33);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user018', 113);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user102', 20);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user076', 22);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user035', 57);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user125', 94);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user114', 115);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user124', 37);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user022', 19);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user068', 54);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user018', 44);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user042', 40);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user079', 124);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user004', 23);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user061', 39);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user073', 111);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user087', 3);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user046', 75);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user101', 53);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user121', 110);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user036', 99);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user012', 79);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user042', 62);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user109', 119);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user120', 99);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user059', 31);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user104', 78);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user068', 122);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user111', 65);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user068', 84);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user035', 123);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user101', 58);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user067', 44);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user082', 71);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user024', 106);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user042', 98);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user100', 110);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user052', 28);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user074', 7);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user026', 16);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user046', 58);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user079', 3);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user005', 115);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user094', 32);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user090', 90);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user041', 5);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user015', 71);
+INSERT INTO Saved_Meals (Username, RecipeID) VALUES ('user022', 13);
 
-console.log("\nGenerated mock data for Tummy database successfully!");
 
+-- Insert statements for table: Tag
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (1, 'Italian', 'Gluten', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (2, 'Chinese', 'Dairy', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (3, 'Mediterranean', 'Nuts', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (4, 'American', 'Soy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (5, 'Chinese', 'Dairy', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (6, 'American', 'Shellfish', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (7, 'Italian', 'Soy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (8, 'Mexican', 'Shellfish', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (9, 'Italian', 'Shellfish', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (10, 'Mexican', 'Shellfish', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (11, 'Chinese', 'Dairy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (12, 'Chinese', 'Nuts', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (13, 'Mediterranean', 'Dairy', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (14, 'American', 'Shellfish', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (15, 'Chinese', 'Dairy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (16, 'Chinese', 'Dairy', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (17, 'Mexican', 'Gluten', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (18, 'Italian', 'Nuts', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (19, 'Italian', 'Dairy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (20, 'Mexican', 'None', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (21, 'Mexican', 'Nuts', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (22, 'Mexican', 'Nuts', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (23, 'American', 'None', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (24, 'Mediterranean', 'Shellfish', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (25, 'American', 'Dairy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (26, 'Chinese', 'Soy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (27, 'Chinese', 'Gluten', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (28, 'Italian', 'Nuts', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (29, 'Chinese', 'Dairy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (30, 'American', 'Soy', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (31, 'Indian', 'Soy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (32, 'Chinese', 'Dairy', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (33, 'American', 'Soy', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (34, 'Mediterranean', 'Dairy', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (35, 'American', 'Gluten', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (36, 'American', 'Soy', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (37, 'Italian', 'Soy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (38, 'American', 'Soy', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (39, 'Chinese', 'Gluten', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (40, 'Indian', 'Nuts', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (41, 'American', 'Gluten', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (42, 'Italian', 'Soy', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (43, 'Indian', 'Gluten', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (44, 'French', 'Shellfish', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (45, 'American', 'Shellfish', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (46, 'Italian', 'Soy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (47, 'Mediterranean', 'Gluten', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (48, 'Italian', 'None', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (49, 'American', 'Gluten', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (50, 'Mediterranean', 'Nuts', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (51, 'Indian', 'Soy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (52, 'Chinese', 'None', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (53, 'Indian', 'Dairy', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (54, 'Chinese', 'Shellfish', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (55, 'Mexican', 'Soy', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (56, 'Indian', 'Soy', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (57, 'Indian', 'Shellfish', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (58, 'American', 'Soy', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (59, 'American', 'Shellfish', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (60, 'Mediterranean', 'Gluten', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (61, 'Italian', 'Gluten', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (62, 'American', 'Nuts', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (63, 'Chinese', 'Gluten', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (64, 'Italian', 'None', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (65, 'Italian', 'Shellfish', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (66, 'Italian', 'Dairy', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (67, 'Mediterranean', 'Soy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (68, 'Mediterranean', 'Dairy', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (69, 'American', 'Dairy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (70, 'Chinese', 'Soy', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (71, 'Mexican', 'Shellfish', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (72, 'Chinese', 'Nuts', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (73, 'Chinese', 'Gluten', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (74, 'Mediterranean', 'Soy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (75, 'French', 'None', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (76, 'Mediterranean', 'Soy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (77, 'French', 'None', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (78, 'French', 'Dairy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (79, 'Mexican', 'None', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (80, 'Italian', 'None', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (81, 'Indian', 'Dairy', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (82, 'Chinese', 'Nuts', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (83, 'American', 'Soy', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (84, 'Indian', 'None', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (85, 'French', 'Shellfish', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (86, 'American', 'Dairy', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (87, 'Mediterranean', 'Dairy', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (88, 'Mediterranean', 'None', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (89, 'Mexican', 'None', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (90, 'Mediterranean', 'None', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (91, 'Indian', 'None', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (92, 'Chinese', 'Nuts', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (93, 'Indian', 'Gluten', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (94, 'Mediterranean', 'Gluten', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (95, 'Chinese', 'Gluten', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (96, 'Indian', 'Gluten', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (97, 'Chinese', 'Shellfish', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (98, 'French', 'Shellfish', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (99, 'Chinese', 'Nuts', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (100, 'Indian', 'Gluten', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (101, 'Mexican', 'Gluten', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (102, 'Chinese', 'Dairy', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (103, 'Indian', 'Shellfish', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (104, 'French', 'Shellfish', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (105, 'Italian', 'Gluten', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (106, 'Chinese', 'Gluten', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (107, 'American', 'Gluten', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (108, 'American', 'None', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (109, 'Mediterranean', 'Shellfish', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (110, 'French', 'Shellfish', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (111, 'French', 'Nuts', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (112, 'French', 'Nuts', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (113, 'Chinese', 'Nuts', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (114, 'Chinese', 'Shellfish', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (115, 'Indian', 'Nuts', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (116, 'Mediterranean', 'Dairy', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (117, 'Italian', 'Shellfish', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (118, 'American', 'Shellfish', 'Breakfast');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (119, 'Mediterranean', 'Nuts', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (120, 'Mediterranean', 'Dairy', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (121, 'French', 'Nuts', 'Lunch');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (122, 'Mexican', 'Dairy', 'Dinner');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (123, 'Chinese', 'Nuts', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (124, 'Indian', 'Nuts', 'Snack');
+INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES (125, 'Indian', 'Nuts', 'Breakfast');
+
+
+-- Insert statements for table: User
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user001', 'Bruce', 'Allen', 'North', 'Moderate', 60, TRUE, 'This is the bio of Bruce Allen.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user002', 'Hal', 'Jordan', 'Central', 'Low', 32, TRUE, 'This is the bio of Hal Jordan.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user003', 'Arthur', 'Allen', 'Central', 'Active', 19, FALSE, 'This is the bio of Arthur Allen.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user004', 'Hal', 'Jordan', 'East', 'Moderate', 33, FALSE, 'This is the bio of Hal Jordan.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user005', 'Hal', 'Doe', 'Central', 'Active', 58, TRUE, 'This is the bio of Hal Doe.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user006', 'Arthur', 'Doe', 'South', 'Low', 40, FALSE, 'This is the bio of Arthur Doe.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user007', 'Bruce', 'Smith', 'East', 'Low', 68, TRUE, 'This is the bio of Bruce Smith.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user008', 'Hal', 'Prince', 'South', 'Active', 44, FALSE, 'This is the bio of Hal Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user009', 'Alice', 'Kent', 'West', 'Low', 30, TRUE, 'This is the bio of Alice Kent.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user010', 'Barry', 'Smith', 'North', 'Low', 41, TRUE, 'This is the bio of Barry Smith.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user011', 'Alice', 'Wayne', 'North', 'Moderate', 70, FALSE, 'This is the bio of Alice Wayne.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user012', 'John', 'Allen', 'North', 'Low', 61, FALSE, 'This is the bio of John Allen.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user013', 'Clark', 'Doe', 'East', 'Moderate', 33, TRUE, 'This is the bio of Clark Doe.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user014', 'John', 'Smith', 'North', 'Low', 26, TRUE, 'This is the bio of John Smith.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user015', 'Alice', 'Wayne', 'East', 'Active', 30, TRUE, 'This is the bio of Alice Wayne.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user016', 'Alice', 'Prince', 'North', 'Moderate', 70, FALSE, 'This is the bio of Alice Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user017', 'John', 'Smith', 'Central', 'Active', 49, TRUE, 'This is the bio of John Smith.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user018', 'Bruce', 'Smith', 'West', 'Active', 66, TRUE, 'This is the bio of Bruce Smith.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user019', 'Hal', 'Jordan', 'North', 'Active', 52, FALSE, 'This is the bio of Hal Jordan.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user020', 'Alice', 'Wayne', 'Central', 'Low', 57, TRUE, 'This is the bio of Alice Wayne.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user021', 'Clark', 'Doe', 'South', 'Active', 55, TRUE, 'This is the bio of Clark Doe.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user022', 'Barry', 'Prince', 'East', 'Low', 65, FALSE, 'This is the bio of Barry Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user023', 'Bruce', 'Smith', 'Central', 'Low', 53, TRUE, 'This is the bio of Bruce Smith.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user024', 'John', 'Curry', 'North', 'Active', 23, FALSE, 'This is the bio of John Curry.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user025', 'John', 'Doe', 'East', 'Active', 25, TRUE, 'This is the bio of John Doe.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user026', 'Barry', 'Jordan', 'West', 'Moderate', 67, FALSE, 'This is the bio of Barry Jordan.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user027', 'Bruce', 'Allen', 'West', 'Moderate', 30, TRUE, 'This is the bio of Bruce Allen.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user028', 'Hal', 'Curry', 'East', 'Active', 46, TRUE, 'This is the bio of Hal Curry.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user029', 'Arthur', 'Smith', 'Central', 'Low', 36, TRUE, 'This is the bio of Arthur Smith.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user030', 'Arthur', 'Smith', 'West', 'Active', 21, TRUE, 'This is the bio of Arthur Smith.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user031', 'Arthur', 'Doe', 'East', 'Active', 70, TRUE, 'This is the bio of Arthur Doe.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user032', 'Bruce', 'Smith', 'Central', 'Low', 49, FALSE, 'This is the bio of Bruce Smith.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user033', 'John', 'Prince', 'West', 'Active', 52, TRUE, 'This is the bio of John Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user034', 'Bruce', 'Wayne', 'East', 'Low', 41, FALSE, 'This is the bio of Bruce Wayne.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user035', 'Bruce', 'Prince', 'Central', 'Low', 43, TRUE, 'This is the bio of Bruce Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user036', 'Bruce', 'Allen', 'East', 'Active', 27, TRUE, 'This is the bio of Bruce Allen.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user037', 'Alice', 'Jordan', 'North', 'Low', 42, FALSE, 'This is the bio of Alice Jordan.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user038', 'Hal', 'Prince', 'South', 'Active', 19, FALSE, 'This is the bio of Hal Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user039', 'Hal', 'Kent', 'South', 'Active', 67, FALSE, 'This is the bio of Hal Kent.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user040', 'Alice', 'Curry', 'East', 'Active', 63, TRUE, 'This is the bio of Alice Curry.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user041', 'Clark', 'Allen', 'North', 'Active', 52, FALSE, 'This is the bio of Clark Allen.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user042', 'Bruce', 'Doe', 'North', 'Low', 31, TRUE, 'This is the bio of Bruce Doe.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user043', 'Bruce', 'Jordan', 'East', 'Moderate', 63, FALSE, 'This is the bio of Bruce Jordan.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user044', 'Alice', 'Prince', 'West', 'Low', 67, FALSE, 'This is the bio of Alice Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user045', 'Alice', 'Prince', 'East', 'Moderate', 68, FALSE, 'This is the bio of Alice Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user046', 'Arthur', 'Wayne', 'West', 'Active', 25, TRUE, 'This is the bio of Arthur Wayne.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user047', 'Barry', 'Doe', 'North', 'Moderate', 22, FALSE, 'This is the bio of Barry Doe.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user048', 'Alice', 'Allen', 'East', 'Moderate', 21, TRUE, 'This is the bio of Alice Allen.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user049', 'Hal', 'Doe', 'North', 'Low', 49, FALSE, 'This is the bio of Hal Doe.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user050', 'Clark', 'Kent', 'West', 'Active', 37, FALSE, 'This is the bio of Clark Kent.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user051', 'Arthur', 'Prince', 'West', 'Low', 55, TRUE, 'This is the bio of Arthur Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user052', 'John', 'Prince', 'Central', 'Active', 61, FALSE, 'This is the bio of John Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user053', 'Barry', 'Smith', 'West', 'Active', 46, FALSE, 'This is the bio of Barry Smith.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user054', 'Bruce', 'Curry', 'North', 'Active', 24, TRUE, 'This is the bio of Bruce Curry.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user055', 'Clark', 'Prince', 'East', 'Low', 40, FALSE, 'This is the bio of Clark Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user056', 'Hal', 'Prince', 'Central', 'Active', 26, TRUE, 'This is the bio of Hal Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user057', 'Hal', 'Kent', 'West', 'Active', 44, TRUE, 'This is the bio of Hal Kent.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user058', 'Arthur', 'Smith', 'North', 'Moderate', 68, TRUE, 'This is the bio of Arthur Smith.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user059', 'Arthur', 'Prince', 'North', 'Active', 41, FALSE, 'This is the bio of Arthur Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user060', 'Alice', 'Wayne', 'North', 'Active', 42, TRUE, 'This is the bio of Alice Wayne.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user061', 'Bruce', 'Wayne', 'West', 'Low', 58, TRUE, 'This is the bio of Bruce Wayne.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user062', 'Diana', 'Curry', 'North', 'Moderate', 24, FALSE, 'This is the bio of Diana Curry.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user063', 'Hal', 'Jordan', 'West', 'Low', 48, FALSE, 'This is the bio of Hal Jordan.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user064', 'Barry', 'Doe', 'North', 'Moderate', 53, FALSE, 'This is the bio of Barry Doe.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user065', 'Arthur', 'Wayne', 'South', 'Active', 41, FALSE, 'This is the bio of Arthur Wayne.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user066', 'Alice', 'Curry', 'East', 'Low', 36, FALSE, 'This is the bio of Alice Curry.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user067', 'Diana', 'Jordan', 'North', 'Active', 52, FALSE, 'This is the bio of Diana Jordan.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user068', 'Diana', 'Prince', 'West', 'Active', 53, TRUE, 'This is the bio of Diana Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user069', 'Barry', 'Jordan', 'Central', 'Low', 55, FALSE, 'This is the bio of Barry Jordan.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user070', 'Arthur', 'Allen', 'East', 'Low', 25, TRUE, 'This is the bio of Arthur Allen.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user071', 'Clark', 'Smith', 'North', 'Low', 43, TRUE, 'This is the bio of Clark Smith.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user072', 'Bruce', 'Wayne', 'North', 'Low', 32, FALSE, 'This is the bio of Bruce Wayne.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user073', 'John', 'Wayne', 'East', 'Moderate', 43, TRUE, 'This is the bio of John Wayne.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user074', 'Barry', 'Jordan', 'West', 'Moderate', 21, FALSE, 'This is the bio of Barry Jordan.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user075', 'Arthur', 'Kent', 'Central', 'Active', 56, FALSE, 'This is the bio of Arthur Kent.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user076', 'Arthur', 'Allen', 'Central', 'Active', 65, TRUE, 'This is the bio of Arthur Allen.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user077', 'Barry', 'Prince', 'East', 'Moderate', 20, TRUE, 'This is the bio of Barry Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user078', 'Arthur', 'Prince', 'South', 'Low', 35, TRUE, 'This is the bio of Arthur Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user079', 'Arthur', 'Curry', 'Central', 'Active', 40, TRUE, 'This is the bio of Arthur Curry.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user080', 'Alice', 'Kent', 'South', 'Moderate', 38, FALSE, 'This is the bio of Alice Kent.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user081', 'Clark', 'Kent', 'South', 'Low', 60, FALSE, 'This is the bio of Clark Kent.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user082', 'John', 'Kent', 'South', 'Moderate', 54, TRUE, 'This is the bio of John Kent.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user083', 'Hal', 'Kent', 'North', 'Low', 38, FALSE, 'This is the bio of Hal Kent.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user084', 'John', 'Prince', 'North', 'Active', 41, TRUE, 'This is the bio of John Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user085', 'Barry', 'Kent', 'Central', 'Active', 50, FALSE, 'This is the bio of Barry Kent.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user086', 'Arthur', 'Prince', 'West', 'Active', 43, TRUE, 'This is the bio of Arthur Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user087', 'John', 'Doe', 'East', 'Low', 62, FALSE, 'This is the bio of John Doe.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user088', 'Alice', 'Wayne', 'Central', 'Moderate', 19, FALSE, 'This is the bio of Alice Wayne.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user089', 'John', 'Doe', 'Central', 'Moderate', 69, FALSE, 'This is the bio of John Doe.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user090', 'Clark', 'Jordan', 'East', 'Active', 60, FALSE, 'This is the bio of Clark Jordan.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user091', 'Hal', 'Wayne', 'West', 'Moderate', 19, TRUE, 'This is the bio of Hal Wayne.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user092', 'Diana', 'Prince', 'North', 'Low', 57, FALSE, 'This is the bio of Diana Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user093', 'Clark', 'Kent', 'West', 'Moderate', 34, TRUE, 'This is the bio of Clark Kent.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user094', 'Hal', 'Jordan', 'North', 'Low', 33, FALSE, 'This is the bio of Hal Jordan.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user095', 'Arthur', 'Smith', 'North', 'Low', 37, FALSE, 'This is the bio of Arthur Smith.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user096', 'Arthur', 'Doe', 'Central', 'Moderate', 30, FALSE, 'This is the bio of Arthur Doe.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user097', 'Bruce', 'Jordan', 'North', 'Active', 49, TRUE, 'This is the bio of Bruce Jordan.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user098', 'John', 'Curry', 'West', 'Low', 59, TRUE, 'This is the bio of John Curry.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user099', 'Bruce', 'Doe', 'South', 'Moderate', 65, TRUE, 'This is the bio of Bruce Doe.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user100', 'Barry', 'Doe', 'Central', 'Low', 56, FALSE, 'This is the bio of Barry Doe.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user101', 'Arthur', 'Curry', 'Central', 'Moderate', 34, FALSE, 'This is the bio of Arthur Curry.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user102', 'Clark', 'Prince', 'South', 'Moderate', 58, TRUE, 'This is the bio of Clark Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user103', 'Alice', 'Kent', 'North', 'Moderate', 56, TRUE, 'This is the bio of Alice Kent.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user104', 'Barry', 'Prince', 'South', 'Moderate', 46, FALSE, 'This is the bio of Barry Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user105', 'Alice', 'Curry', 'South', 'Moderate', 41, FALSE, 'This is the bio of Alice Curry.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user106', 'Bruce', 'Kent', 'North', 'Moderate', 52, TRUE, 'This is the bio of Bruce Kent.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user107', 'Bruce', 'Kent', 'North', 'Moderate', 38, FALSE, 'This is the bio of Bruce Kent.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user108', 'Diana', 'Curry', 'East', 'Low', 28, TRUE, 'This is the bio of Diana Curry.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user109', 'Alice', 'Prince', 'East', 'Low', 28, TRUE, 'This is the bio of Alice Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user110', 'Diana', 'Wayne', 'South', 'Low', 61, FALSE, 'This is the bio of Diana Wayne.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user111', 'John', 'Curry', 'West', 'Active', 59, FALSE, 'This is the bio of John Curry.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user112', 'Arthur', 'Jordan', 'West', 'Active', 25, TRUE, 'This is the bio of Arthur Jordan.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user113', 'Barry', 'Wayne', 'North', 'Moderate', 70, TRUE, 'This is the bio of Barry Wayne.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user114', 'Clark', 'Curry', 'West', 'Moderate', 33, TRUE, 'This is the bio of Clark Curry.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user115', 'Bruce', 'Prince', 'North', 'Active', 60, TRUE, 'This is the bio of Bruce Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user116', 'Clark', 'Jordan', 'North', 'Active', 44, TRUE, 'This is the bio of Clark Jordan.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user117', 'Alice', 'Doe', 'North', 'Low', 61, FALSE, 'This is the bio of Alice Doe.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user118', 'Barry', 'Jordan', 'West', 'Active', 63, FALSE, 'This is the bio of Barry Jordan.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user119', 'Barry', 'Prince', 'Central', 'Active', 55, FALSE, 'This is the bio of Barry Prince.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user120', 'Bruce', 'Jordan', 'South', 'Moderate', 63, TRUE, 'This is the bio of Bruce Jordan.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user121', 'Diana', 'Doe', 'Central', 'Active', 33, TRUE, 'This is the bio of Diana Doe.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user122', 'Diana', 'Kent', 'Central', 'Active', 68, FALSE, 'This is the bio of Diana Kent.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user123', 'Hal', 'Allen', 'East', 'Moderate', 59, TRUE, 'This is the bio of Hal Allen.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user124', 'Hal', 'Smith', 'Central', 'Moderate', 65, TRUE, 'This is the bio of Hal Smith.');
+INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES ('user125', 'Hal', 'Prince', 'North', 'Low', 50, FALSE, 'This is the bio of Hal Prince.');
+
+
+-- Insert statements for table: UserDemographic
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user107', 98);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user005', 5);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user114', 44);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user107', 60);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user047', 94);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user030', 120);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user006', 70);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user017', 56);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user071', 12);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user125', 114);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user041', 116);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user017', 41);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user064', 101);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user094', 4);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user094', 108);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user062', 120);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user114', 61);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user031', 18);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user092', 95);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user105', 82);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user073', 118);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user095', 90);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user023', 22);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user055', 96);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user025', 61);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user011', 24);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user122', 112);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user099', 82);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user114', 125);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user011', 22);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user030', 38);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user011', 96);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user069', 43);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user086', 94);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user034', 120);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user065', 106);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user044', 2);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user104', 117);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user024', 115);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user013', 71);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user040', 16);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user102', 114);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user078', 37);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user054', 52);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user046', 74);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user104', 74);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user011', 49);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user108', 5);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user107', 47);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user094', 110);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user004', 84);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user004', 2);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user116', 35);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user009', 2);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user045', 69);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user101', 30);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user069', 115);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user104', 20);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user087', 81);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user118', 98);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user079', 45);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user067', 53);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user002', 8);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user108', 117);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user030', 74);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user017', 57);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user092', 107);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user002', 42);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user009', 90);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user034', 52);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user039', 56);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user095', 115);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user040', 104);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user039', 50);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user031', 62);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user070', 35);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user040', 113);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user020', 72);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user032', 107);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user111', 54);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user006', 5);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user035', 69);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user005', 107);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user062', 123);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user022', 83);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user020', 103);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user011', 122);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user107', 41);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user075', 36);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user065', 74);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user109', 109);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user069', 58);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user103', 110);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user002', 6);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user065', 42);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user083', 25);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user085', 68);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user076', 50);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user089', 73);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user042', 31);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user034', 82);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user062', 25);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user064', 89);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user040', 100);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user014', 34);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user035', 100);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user055', 75);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user095', 53);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user061', 1);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user037', 121);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user051', 107);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user030', 66);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user046', 24);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user078', 4);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user029', 32);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user006', 105);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user067', 94);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user011', 88);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user012', 82);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user094', 37);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user018', 25);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user045', 19);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user106', 108);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user051', 118);
+INSERT INTO UserDemographic (UserID, GroupID) VALUES ('user116', 10);
