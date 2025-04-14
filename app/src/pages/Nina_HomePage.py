@@ -23,7 +23,7 @@ st.write(f"### Bio: {st.session_state['bio']}")
 if st.button('Recipes', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/01_World_Bank_Viz.py')
+  st.switch_page('pages/Nina_Patel_Recipes.py')
 
 if st.button('View World Map Demo', 
              type='primary',

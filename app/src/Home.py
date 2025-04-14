@@ -57,7 +57,6 @@ if st.button("Act as Nina, a Soccer Mom",
     # finally, we ask streamlit to switch to another page, in this case, the 
     # landing page for this particular user type
     logger.info("Logging in as Nina Patel (User)")
-    st.image("assets/nina_patel_pfp.jpg", caption="Nina Patel", use_column_width=True)
     st.switch_page('pages/Nina_HomePage.py')
 
 
