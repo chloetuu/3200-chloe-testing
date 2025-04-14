@@ -1,6 +1,21 @@
+import pandas as pd
+import random
+from faker import Faker
+from datetime import datetime, timedelta
 import os
 import csv
 
+# ---------- Data Generation Section ----------
+fake = Faker()
+
+# Create directory if it doesn't exist
+os.makedirs('database-files', exist_ok=True)
+
+# [Keep all your original data generation code here]
+# ... (All the user/meal/blog generation code remains the same)
+# ... (Ensure all CSV files are saved to database-files directory)
+
+# ---------- SQL Insert Generation Section ----------
 def is_number(s):
     try:
         float(s)
@@ -37,15 +52,16 @@ def csv_to_bulk_insert(csv_path, table_name):
                       + ",\n".join(rows) + ";\n"
         return insert_stmt
 
-def main():
-    csv_directory = "."
-    sql_file_path = "tummy-base.sql"
+def generate_sql_inserts():
+    csv_directory = "database-files"
+    sql_file_path = os.path.join(csv_directory, "tummy-base.sql")
 
-    if not os.path.exists(sql_file_path):
-        print(f"[ERROR] tummy-base.sql does not exist in {os.getcwd()}")
-        return
+    # Write SQL schema header
+    with open(sql_file_path, "w", encoding='utf-8') as sql_file:
+        sql_file.write("-- SQL Schema and Data generated automatically\n\n")
+        sql_file.write("-- Add your CREATE TABLE statements here\n\n")
 
-    print(f"[INFO] Writing inserts to {sql_file_path}\n")
+    print(f"\n[INFO] Writing inserts to {sql_file_path}")
     wrote_any = False
 
     with open(sql_file_path, "a", encoding='utf-8') as sql_file:
@@ -62,7 +78,12 @@ def main():
     if wrote_any:
         print("\n✅ All INSERT statements added to tummy-base.sql")
     else:
-        print("\n⚠️ No CSV files processed. Make sure .csv files are in the same folder as the script.")
+        print("\n⚠️ No CSV files processed. Check database-files directory.")
 
+# Run the data generation and SQL creation
 if __name__ == "__main__":
-    main()
+    # Generate all CSV files first
+    # ... (Your original CSV generation code here)
+    
+    # Then generate SQL inserts
+    generate_sql_inserts()

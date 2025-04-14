@@ -1,126 +1,111 @@
 LogID,Timestamp,ErrorMessage,SeverityLevel,Source,Details
-1,2021-11-13 20:22:06,Error message 1,High,APIHandler,Details for error 1
-2,2022-10-10 08:35:58,Error message 2,Low,DBConnector,Details for error 2
-3,2024-05-28 16:52:05,Error message 3,High,DBConnector,Details for error 3
-4,2022-08-06 07:02:11,Error message 4,High,APIHandler,Details for error 4
-5,2021-12-04 03:09:49,Error message 5,Low,AuthService,Details for error 5
-6,2020-02-10 19:51:56,Error message 6,Medium,AuthService,Details for error 6
-7,2021-06-10 15:26:35,Error message 7,High,APIHandler,Details for error 7
-8,2020-11-09 13:22:25,Error message 8,High,APIHandler,Details for error 8
-9,2024-04-17 08:12:45,Error message 9,Medium,InputValidator,Details for error 9
-10,2023-12-22 22:37:39,Error message 10,Medium,DBConnector,Details for error 10
-11,2024-05-04 17:40:26,Error message 11,High,AuthService,Details for error 11
-12,2021-03-31 02:26:47,Error message 12,Low,APIHandler,Details for error 12
-13,2024-07-02 03:08:46,Error message 13,High,AuthService,Details for error 13
-14,2020-01-24 17:32:53,Error message 14,Medium,AuthService,Details for error 14
-15,2021-04-22 20:40:27,Error message 15,Medium,InputValidator,Details for error 15
-16,2020-06-05 08:35:57,Error message 16,Low,InputValidator,Details for error 16
-17,2022-07-02 01:51:21,Error message 17,Medium,DBConnector,Details for error 17
-18,2022-03-09 23:31:32,Error message 18,High,DBConnector,Details for error 18
-19,2021-04-04 08:53:22,Error message 19,Medium,DBConnector,Details for error 19
-20,2020-11-25 12:43:12,Error message 20,Low,AuthService,Details for error 20
-21,2024-01-03 20:22:01,Error message 21,Medium,APIHandler,Details for error 21
-22,2023-06-25 06:38:09,Error message 22,High,AuthService,Details for error 22
-23,2024-10-09 12:15:39,Error message 23,High,APIHandler,Details for error 23
-24,2023-06-02 04:31:32,Error message 24,Medium,InputValidator,Details for error 24
-25,2021-01-24 03:38:23,Error message 25,Medium,AuthService,Details for error 25
-26,2024-07-23 08:38:35,Error message 26,Medium,APIHandler,Details for error 26
-27,2023-10-18 08:54:15,Error message 27,High,AuthService,Details for error 27
-28,2021-06-22 06:13:46,Error message 28,Medium,DBConnector,Details for error 28
-29,2020-12-04 11:37:16,Error message 29,Medium,AuthService,Details for error 29
-30,2024-05-08 09:08:02,Error message 30,Medium,DBConnector,Details for error 30
-31,2024-11-17 01:55:33,Error message 31,Low,InputValidator,Details for error 31
-32,2024-09-25 09:50:24,Error message 32,Low,DBConnector,Details for error 32
-33,2024-02-17 16:36:30,Error message 33,Low,InputValidator,Details for error 33
-34,2021-08-21 07:00:20,Error message 34,High,AuthService,Details for error 34
-35,2024-05-25 03:19:42,Error message 35,Low,APIHandler,Details for error 35
-36,2023-10-01 01:00:38,Error message 36,Medium,AuthService,Details for error 36
-37,2023-07-31 21:57:57,Error message 37,High,AuthService,Details for error 37
-38,2020-08-08 22:22:19,Error message 38,Low,DBConnector,Details for error 38
-39,2022-01-14 01:57:36,Error message 39,Low,DBConnector,Details for error 39
-40,2020-11-25 07:25:27,Error message 40,Low,APIHandler,Details for error 40
-41,2023-11-09 18:13:23,Error message 41,High,APIHandler,Details for error 41
-42,2023-01-01 10:17:12,Error message 42,High,InputValidator,Details for error 42
-43,2023-09-12 18:01:24,Error message 43,High,APIHandler,Details for error 43
-44,2020-09-13 08:22:57,Error message 44,Medium,DBConnector,Details for error 44
-45,2021-02-06 12:14:32,Error message 45,Low,APIHandler,Details for error 45
-46,2021-05-26 00:48:39,Error message 46,High,DBConnector,Details for error 46
-47,2020-08-12 04:23:39,Error message 47,High,DBConnector,Details for error 47
-48,2021-12-12 04:11:26,Error message 48,High,DBConnector,Details for error 48
-49,2022-02-07 10:49:45,Error message 49,Medium,DBConnector,Details for error 49
-50,2024-02-21 20:54:25,Error message 50,High,AuthService,Details for error 50
-51,2023-10-02 23:36:02,Error message 51,Medium,DBConnector,Details for error 51
-52,2024-01-18 01:06:13,Error message 52,Low,InputValidator,Details for error 52
-53,2024-11-04 13:05:07,Error message 53,Medium,DBConnector,Details for error 53
-54,2024-03-20 04:09:20,Error message 54,High,DBConnector,Details for error 54
-55,2021-06-24 22:37:38,Error message 55,Low,AuthService,Details for error 55
-56,2020-11-11 11:59:07,Error message 56,High,InputValidator,Details for error 56
-57,2020-11-22 07:42:38,Error message 57,High,DBConnector,Details for error 57
-58,2023-05-10 00:23:09,Error message 58,High,APIHandler,Details for error 58
-59,2024-05-02 10:50:28,Error message 59,High,AuthService,Details for error 59
-60,2021-08-25 06:50:38,Error message 60,Medium,AuthService,Details for error 60
-61,2024-06-06 14:36:04,Error message 61,High,DBConnector,Details for error 61
-62,2024-01-26 22:22:04,Error message 62,High,AuthService,Details for error 62
-63,2021-05-12 19:15:58,Error message 63,High,APIHandler,Details for error 63
-64,2020-08-24 11:04:49,Error message 64,Low,AuthService,Details for error 64
-65,2021-04-16 17:12:57,Error message 65,High,InputValidator,Details for error 65
-66,2022-08-19 01:39:10,Error message 66,High,APIHandler,Details for error 66
-67,2020-07-30 11:22:53,Error message 67,High,DBConnector,Details for error 67
-68,2023-01-19 12:59:29,Error message 68,Medium,AuthService,Details for error 68
-69,2024-10-27 23:49:28,Error message 69,High,AuthService,Details for error 69
-70,2022-01-20 04:45:30,Error message 70,High,InputValidator,Details for error 70
-71,2024-01-04 09:19:16,Error message 71,Medium,InputValidator,Details for error 71
-72,2023-10-24 06:08:02,Error message 72,Low,InputValidator,Details for error 72
-73,2020-02-22 11:12:04,Error message 73,Medium,InputValidator,Details for error 73
-74,2020-05-06 03:29:39,Error message 74,High,DBConnector,Details for error 74
-75,2021-06-04 00:33:26,Error message 75,Low,AuthService,Details for error 75
-76,2024-07-03 15:02:35,Error message 76,Medium,InputValidator,Details for error 76
-77,2023-03-17 01:09:47,Error message 77,Low,AuthService,Details for error 77
-78,2021-10-17 15:25:09,Error message 78,Low,AuthService,Details for error 78
-79,2024-10-24 03:33:24,Error message 79,High,DBConnector,Details for error 79
-80,2023-04-18 06:43:35,Error message 80,Low,InputValidator,Details for error 80
-81,2022-12-22 20:07:52,Error message 81,High,AuthService,Details for error 81
-82,2020-03-29 22:59:04,Error message 82,Medium,AuthService,Details for error 82
-83,2023-04-20 13:41:28,Error message 83,Low,DBConnector,Details for error 83
-84,2024-02-03 19:32:44,Error message 84,Medium,AuthService,Details for error 84
-85,2020-06-23 01:35:24,Error message 85,High,DBConnector,Details for error 85
-86,2024-03-15 16:44:29,Error message 86,Medium,InputValidator,Details for error 86
-87,2024-01-07 01:48:31,Error message 87,High,AuthService,Details for error 87
-88,2023-10-24 05:46:46,Error message 88,Low,DBConnector,Details for error 88
-89,2024-03-31 00:18:57,Error message 89,High,DBConnector,Details for error 89
-90,2021-07-19 20:17:35,Error message 90,Low,DBConnector,Details for error 90
-91,2022-01-25 21:08:38,Error message 91,Low,DBConnector,Details for error 91
-92,2023-03-25 07:48:44,Error message 92,High,DBConnector,Details for error 92
-93,2022-10-17 18:39:19,Error message 93,Low,AuthService,Details for error 93
-94,2023-04-26 17:25:46,Error message 94,High,DBConnector,Details for error 94
-95,2020-10-15 07:28:23,Error message 95,Low,DBConnector,Details for error 95
-96,2021-02-24 07:52:13,Error message 96,Medium,APIHandler,Details for error 96
-97,2020-05-04 06:20:31,Error message 97,Low,APIHandler,Details for error 97
-98,2021-08-21 22:16:53,Error message 98,Low,AuthService,Details for error 98
-99,2023-08-13 00:48:38,Error message 99,Low,DBConnector,Details for error 99
-100,2023-06-19 17:09:33,Error message 100,Medium,AuthService,Details for error 100
-101,2021-10-26 00:23:01,Error message 101,Low,InputValidator,Details for error 101
-102,2024-06-16 13:57:51,Error message 102,High,DBConnector,Details for error 102
-103,2024-12-03 09:27:41,Error message 103,High,AuthService,Details for error 103
-104,2023-08-23 09:19:17,Error message 104,Medium,APIHandler,Details for error 104
-105,2020-04-06 13:45:58,Error message 105,Medium,APIHandler,Details for error 105
-106,2022-02-24 23:17:11,Error message 106,Low,DBConnector,Details for error 106
-107,2021-10-19 12:31:19,Error message 107,High,DBConnector,Details for error 107
-108,2024-10-14 15:52:43,Error message 108,Low,APIHandler,Details for error 108
-109,2022-01-17 04:40:32,Error message 109,Low,DBConnector,Details for error 109
-110,2020-08-29 11:13:52,Error message 110,Low,AuthService,Details for error 110
-111,2022-05-12 05:38:42,Error message 111,High,APIHandler,Details for error 111
-112,2023-05-28 08:18:41,Error message 112,High,InputValidator,Details for error 112
-113,2022-02-26 01:00:05,Error message 113,High,APIHandler,Details for error 113
-114,2024-02-28 19:51:10,Error message 114,Medium,AuthService,Details for error 114
-115,2023-11-06 17:07:19,Error message 115,High,APIHandler,Details for error 115
-116,2024-03-22 13:30:13,Error message 116,Low,DBConnector,Details for error 116
-117,2023-06-18 03:02:34,Error message 117,High,AuthService,Details for error 117
-118,2021-12-04 10:11:41,Error message 118,Low,AuthService,Details for error 118
-119,2024-11-18 21:23:37,Error message 119,High,AuthService,Details for error 119
-120,2023-03-31 08:03:51,Error message 120,Low,AuthService,Details for error 120
-121,2023-12-20 21:36:38,Error message 121,Medium,InputValidator,Details for error 121
-122,2024-01-21 18:59:47,Error message 122,Medium,AuthService,Details for error 122
-123,2022-01-21 23:41:08,Error message 123,Low,InputValidator,Details for error 123
-124,2022-05-22 15:19:22,Error message 124,Low,APIHandler,Details for error 124
-125,2024-11-05 03:09:45,Error message 125,Low,APIHandler,Details for error 125
+1,2020-02-26 17:55:49,Set herself involve well sister theory.,Low,bates-day.biz,"Raise send animal two fine. Hope out concern pattern act.
+Soldier real toward meet study today style prevent.
+Child through risk manage nice specific involve. Discussion green agree him.
+Situation goal specific fear. Yard score care kid your whatever. Win green push democratic yourself."
+2,2023-02-27 10:10:23,Bank positive challenge discover account talk cost.,Medium,rhodes.net,"At inside exist whether bed weight. Paper style with.
+Former down spend key look force.
+Baby product near fact. Realize four firm treatment do offer. Spring my choose firm.
+Forget ten many whom send suffer foreign top. Government party on. Move effort although TV walk believe."
+3,2023-07-22 18:18:09,College support possible society.,Critical,brown.com,"Drug positive meeting. Moment soon front produce.
+Including new shake serious. To east service amount if whom prove election.
+Total cell decade town. Their career military. Best left defense we cost kid win.
+Hair measure manage exactly. Its available matter have to culture."
+4,2023-11-25 02:27:27,Age free occur position tree child.,Critical,powers.com,"Perform skill spend dog condition teacher rather. Herself bag attack. Raise so child.
+Program store knowledge kid.
+Just improve rise research international film capital. Price sort play participant fact himself. History enough guy increase bank owner. Artist true stock great."
+5,2020-08-08 15:10:31,Pick ago peace life red herself purpose.,Medium,roberts-mclaughlin.info,"Forget collection fish that tough firm find. People tree reduce when state focus. Voice able occur shake time.
+Strategy they dream person. Wind upon represent talk fight week affect. Letter everything future."
+6,2020-09-18 01:54:19,Live teacher way team rate green nor.,Critical,porter.com,"Democrat explain large war right true page.
+Book record fast arm group dog. Coach view student apply notice notice. Hundred head stand provide offer national general.
+Number bit edge order ball room. Than guy shoulder discuss amount. Physical group case half also."
+7,2022-07-16 21:20:51,Couple minute case audience girl return.,Medium,hanson-branch.com,"Occur huge night myself big practice management sure. Job attorney board good rule well yeah.
+Indeed summer think list foreign. Vote race land cause. And ever care to shake red many.
+Thing clear bag. Himself son our full across how a. Increase part born street apply."
+8,2024-10-09 21:23:23,Clear change plan most own discover type.,Medium,thomas-castro.com,"First west paper impact sister billion. Operation film land decide. Job act school her.
+Place white race national benefit. Check figure weight actually everything. Edge decide tend really thing anything. Other eat quality picture parent test state."
+9,2024-05-02 22:55:44,Care keep coach real professional.,Low,collins.org,"Suddenly school might since fly. Trade point bank those.
+Which sell ahead east indicate which what. Power seat sound treat daughter. Fund smile law task scene senior catch writer.
+Without along most cause. Garden site guess energy parent want plant."
+10,2020-08-07 06:20:39,Technology how charge clear drive.,High,wright.biz,"True myself east walk success organization indeed. Range appear yard prepare.
+Great might others Mr education agent. During quality another bit education game reduce. Within special foreign nothing his whether money. Help box site camera front bit.
+Instead safe even."
+11,2021-05-27 15:09:47,Scientist state air resource forward speak.,Critical,stewart.info,"Sense truth gun everyone part even. Sing least article develop behind form. Character be key hand situation against.
+Your future laugh least. Three so view need field. Write care shoulder. Country wait improve defense he.
+Accept pull effect. Officer like buy sound."
+12,2022-03-02 07:43:17,Eye society sport color.,Low,johnson.com,"Series around performance same financial we point. Ago inside value fear painting me.
+Deep wrong its baby majority far technology. Process if guy explain receive lot idea. Thus perform fact song."
+13,2023-07-27 14:00:58,My sense Republican scientist.,Critical,lynch.com,"Maybe often produce decide fast week. Activity thousand pick part single purpose.
+Nation identify number weight food. Free old consider however issue month career make.
+Ability room chair. Establish soldier power imagine.
+Cut month keep. Race several of. Listen writer drive her hand."
+14,2023-07-02 00:39:28,Culture single continue call memory become better instead.,Critical,dennis.com,"Although they particular leader field method none.
+Response tough issue lawyer draw plan return.
+Because discuss with. Dream hand day class new some college.
+Certainly every may. Eye gas already above.
+Cost away event condition owner. College decide interest environment price everyone appear."
+15,2021-08-31 04:35:49,Local kind live indeed sea floor Congress wrong.,Medium,black-neal.info,"Majority nature system grow. Probably woman science sing. Fact same ten small.
+Behavior whole more cut media hospital camera. Admit player write simply only fine around.
+Career reality throughout hard such three culture. Kitchen benefit several relate assume off. Point clearly throw."
+16,2020-05-26 12:46:27,Matter old out market information strong officer simple.,High,ross.org,"Hot television American within street. Race wish threat commercial.
+Direction late person else. Author hot call music buy door still.
+Also ready budget want tax property may. Hospital computer score drop source detail.
+Today despite car. Per may affect couple miss difficult political."
+17,2021-01-03 08:03:59,Money between national chance relationship individual from morning.,Critical,williams-cortez.com,"Top moment positive girl commercial. Head put nearly finish future happy.
+Big protect deep nice.
+About life give paper size. Fly letter boy cover certain take. Ground million become bar stock.
+Card certain star get rest. War deal tend final herself. Whether in finish although his."
+18,2020-03-17 18:11:20,Certainly sign event low quality personal.,Medium,bauer.com,"Next trade part daughter begin more. Think run item admit image network. Give sit focus cover side adult.
+Window fall weight quality man. Get respond him most.
+Enough focus get age personal PM. East cost design baby.
+Development fly approach almost still store."
+19,2022-12-12 05:06:21,Success bar example happy fight.,Medium,flores.info,"A among purpose.
+Young kind little nation animal. Dog region because commercial view.
+Defense wait hospital raise modern ahead claim area. Foreign line red voice surface. Care may admit professional early direction language."
+20,2021-03-06 23:47:02,Necessary dinner commercial physical executive.,Critical,dawson-joseph.com,"Become mother not ability system Democrat. Successful course four rock rate.
+Team professor force feeling president also. As cell fill wear.
+Test should minute dream music. Generation trip miss reveal."
+21,2021-10-07 11:39:39,Benefit various game stock something decision.,Critical,wilson.com,"Agree evidence center throw as or call. Pattern still east year develop medical thank. Western response air too stop.
+My travel door season deal. Argue agreement listen. Drive popular hold ready listen speak door offer.
+Still arrive think possible protect project."
+22,2024-09-26 22:40:19,Natural just light hotel.,Critical,fuller.com,"Fish do little. Reach exactly form first apply. Nothing until behind traditional defense. Author year cultural of wish section difficult.
+Part dog identify real moment already. Per record policy attention she. Very most possible company card."
+23,2024-05-22 04:23:25,Meeting music space yard oil also admit.,Low,parker.biz,"Operation us rate less method. Kid often middle close bar. Meeting contain structure capital from system send.
+Grow party skill mean response similar man. Goal friend board analysis option.
+Team a ball decade. Great weight word message today together similar."
+24,2021-06-29 22:47:24,Real list life collection sister focus traditional low.,High,fernandez.com,"Article early top coach remain idea cover defense. Understand actually five executive near. Great sister foreign direction thing idea new senior. Make finish identify.
+Phone side exactly see church. Firm herself campaign base change."
+25,2022-08-15 02:21:38,Ask usually member officer.,High,bowen.biz,"Large truth one issue late husband. Out should treatment rule piece hear over black.
+Special plant many total head manage white. Enough big wait far son dream yeah.
+Let trial news modern meeting just. Smile bit control call far data. Include again standard."
+26,2025-04-06 04:05:27,Adult water case.,Low,fields.com,"Across song team create to. Central feel how.
+Crime of successful member.
+Ok final around performance author find. Threat material benefit.
+Thank technology contain here chair forget leader. Allow reality event health send. Truth matter fish say."
+27,2021-02-07 08:10:37,Great wife seek.,Medium,barry.net,"Sense partner speech you yourself but include peace. Very very these.
+Upon another ever nothing sister. Want election present like central community.
+Manager bring operation. First teach population street voice. Out grow best thank soon hotel million."
+28,2021-05-08 00:07:38,Window once age board total modern unit.,Medium,johnson-mcintosh.com,"Herself sort course hotel check involve weight. Politics husband because husband.
+Western gun score range stay month I. Knowledge suffer along charge travel level wall. Before drop degree part box thousand age.
+Total make audience about. Yeah cell morning hotel."
+29,2021-09-28 08:30:49,Force behavior newspaper leg teach.,Critical,hoffman-cunningham.info,"Operation here too.
+And shoulder down customer six once plant. Sell relationship listen.
+Rich ago list blood southern. Natural election ahead will name candidate whom.
+Next bar letter see teacher. Official town recognize total cup everything off."
+30,2021-08-23 16:33:14,Clearly whose this cell performance cut.,Critical,tapia.com,"Ok eat summer want current wrong. Chair career my should region area majority. Son baby treatment relate.
+Rather officer record require difference. House energy sort play be.
+Drive question nor manage president. Information up of paper doctor man."
+31,2021-03-28 18:51:25,Heart travel teacher admit police approach.,Low,johnson.net,"Hospital more but safe investment. Employee community social away. Democratic dark seat we response each.
+Region cultural cover whether accept according west ago. Heart present traditional play ahead across.
+Fly team stage last most raise position sing."
+32,2023-05-27 18:53:42,Tough affect this cell after serious southern.,Critical,cochran-smith.biz,"Thought media evidence green never dream. Simply huge class her box whole main. Discover young down six president.
+Similar within threat manage. Every easy investment tree away pressure task. Data mean laugh."
+33,2020-04-28 10:21:28,Name product why create cultural material.,Medium,patterson.com,"Color rest water despite result where do side. Under sing box into. Difficult little section order new right ready.
+Artist among dinner player leg. Serve change unit.
+Center chair skin manage. Too on rise avoid assume.
+Even some radio. We property impact."
+34,2020-11-12 02:25:01,Develop believe writer white nation.,Medium,hale.org,"North chair recognize.
+Water expect either officer article. Difficult beyond able probably hour tree serious. Turn establish sound could should important.
+Over sing sure traditional whom fire. Itself respond relationship whether partner less."
+35,2022-08-10 23:27:14,Stuff commercial trouble evening consumer spend season.,Low,hughes.biz,"Guess PM issue near source stand painting. Attack beyond occur cut miss discussion. Represent explain whatever majority door walk anything stock. Public computer vote answer film catch.
+Matter public cup staff possible. Father between sort weight way meet."

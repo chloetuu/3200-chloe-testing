@@ -1,126 +1,36 @@
 GroupID,GroupType,GroupValue
-1,Location,Value_57
-2,Interest,Value_30
-3,Location,Value_15
-4,Interest,Value_5
-5,Age Group,Value_56
-6,Interest,Value_30
-7,Location,Value_39
-8,Age Group,Value_20
-9,Income,Value_15
-10,Location,Value_48
-11,Income,Value_75
-12,Location,Value_27
-13,Interest,Value_6
-14,Age Group,Value_49
-15,Location,Value_42
-16,Age Group,Value_39
-17,Interest,Value_59
-18,Interest,Value_53
-19,Interest,Value_16
-20,Age Group,Value_77
-21,Age Group,Value_85
-22,Location,Value_46
-23,Income,Value_51
-24,Income,Value_24
-25,Interest,Value_72
-26,Age Group,Value_17
-27,Location,Value_65
-28,Interest,Value_19
-29,Interest,Value_17
-30,Interest,Value_6
-31,Age Group,Value_30
-32,Income,Value_51
-33,Income,Value_33
-34,Interest,Value_43
-35,Income,Value_55
-36,Location,Value_46
-37,Interest,Value_69
-38,Location,Value_81
-39,Interest,Value_22
-40,Age Group,Value_59
-41,Interest,Value_39
-42,Income,Value_15
-43,Interest,Value_24
-44,Interest,Value_8
-45,Interest,Value_87
-46,Income,Value_28
-47,Income,Value_74
-48,Income,Value_84
-49,Location,Value_11
-50,Age Group,Value_85
-51,Location,Value_12
-52,Location,Value_24
-53,Interest,Value_70
-54,Interest,Value_23
-55,Interest,Value_64
-56,Interest,Value_11
-57,Income,Value_78
-58,Location,Value_87
-59,Age Group,Value_86
-60,Income,Value_19
-61,Income,Value_94
-62,Interest,Value_95
-63,Age Group,Value_97
-64,Location,Value_91
-65,Income,Value_33
-66,Income,Value_62
-67,Age Group,Value_53
-68,Location,Value_30
-69,Age Group,Value_64
-70,Age Group,Value_22
-71,Interest,Value_89
-72,Interest,Value_87
-73,Income,Value_65
-74,Interest,Value_82
-75,Income,Value_10
-76,Interest,Value_84
-77,Income,Value_26
-78,Location,Value_14
-79,Age Group,Value_100
-80,Location,Value_16
-81,Income,Value_56
-82,Income,Value_13
-83,Interest,Value_3
-84,Location,Value_2
-85,Location,Value_5
-86,Location,Value_5
-87,Age Group,Value_20
-88,Interest,Value_5
-89,Location,Value_71
-90,Income,Value_10
-91,Age Group,Value_75
-92,Income,Value_88
-93,Income,Value_21
-94,Age Group,Value_13
-95,Age Group,Value_84
-96,Age Group,Value_23
-97,Location,Value_46
-98,Age Group,Value_86
-99,Income,Value_50
-100,Interest,Value_30
-101,Location,Value_36
-102,Location,Value_1
-103,Age Group,Value_60
-104,Age Group,Value_68
-105,Age Group,Value_42
-106,Income,Value_58
-107,Age Group,Value_36
-108,Interest,Value_64
-109,Age Group,Value_23
-110,Interest,Value_17
-111,Interest,Value_97
-112,Age Group,Value_17
-113,Location,Value_72
-114,Location,Value_3
-115,Interest,Value_11
-116,Interest,Value_85
-117,Location,Value_59
-118,Interest,Value_63
-119,Location,Value_83
-120,Income,Value_40
-121,Income,Value_25
-122,Interest,Value_32
-123,Age Group,Value_39
-124,Interest,Value_95
-125,Location,Value_59
+1,Income,Establish
+2,Ethnicity,Economic
+3,Income,Read
+4,Gender,Box
+5,Ethnicity,Those
+6,Gender,Last
+7,Ethnicity,Meeting
+8,Ethnicity,Although
+9,Ethnicity,Actually
+10,Gender,Glass
+11,Income,North
+12,Education,Focus
+13,Ethnicity,Break
+14,Income,With
+15,Income,Reveal
+16,Income,Dream
+17,Ethnicity,Best
+18,Gender,Oil
+19,Ethnicity,High
+20,Gender,Heart
+21,Education,Quickly
+22,Income,Protect
+23,Education,Sea
+24,Ethnicity,On
+25,Gender,Article
+26,Gender,Song
+27,Income,Right
+28,Education,White
+29,Gender,Relate
+30,Education,Front
+31,Ethnicity,Citizen
+32,Education,Couple
+33,Ethnicity,Education
+34,Gender,Last
+35,Gender,Future
