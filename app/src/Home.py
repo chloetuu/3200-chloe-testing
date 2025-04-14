@@ -52,10 +52,14 @@ if st.button("Act as Nina, a Soccer Mom",
     # we add the first name of the user (so it can be displayed on 
     # subsequent pages). 
     st.session_state['first_name'] = 'Nina'
+    # setting the bio of the users
+    st.session_state['bio'] = 'I am a stay at home mom who has 3 children who have different dietary restrictions! Follow me to follow my journey :)'
     # finally, we ask streamlit to switch to another page, in this case, the 
     # landing page for this particular user type
     logger.info("Logging in as Nina Patel (User)")
+    st.image("assets/nina_patel_pfp.jpg", caption="Nina Patel", use_column_width=True)
     st.switch_page('pages/Nina_HomePage.py')
+
 
 if st.button('Act as Jade, Backend Developer', 
             type = 'primary', 

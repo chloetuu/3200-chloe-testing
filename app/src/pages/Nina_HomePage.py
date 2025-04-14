@@ -7,17 +7,18 @@ from modules.nav import SideBarLinks
 st.set_page_config(layout = 'wide')
 
 # Initialize Bio if it doesn't exist yet
-if 'Bio' not in st.session_state:
-    st.session_state['Bio'] = 'This is a default bio.'
+if 'bio' not in st.session_state:
+    st.session_state['bio'] = 'This is a default bio.'
 
 
 # Show appropriate sidebar links for the role of the currently logged in user
+st.sidebar.image("assets/nina_patel_pfp.jpg", caption="Nina Patel", width=150)
 SideBarLinks()
 
-st.title(f"Welcome Nina Patel, {st.session_state['first_name']}.")
+st.title(f"Welcome {st.session_state['first_name']}.")
 st.write('')
 st.write('')
-st.write(f"### bio: {st.session_state['Bio']}")
+st.write(f"### Bio: {st.session_state['bio']}")
 
 if st.button('Recipes', 
              type='primary',
