@@ -9,70 +9,60 @@ def is_number(s):
         return False
 
 def format_value(value):
-    # Handle boolean values represented as text
     if value.lower() == 'true':
         return 'TRUE'
     elif value.lower() == 'false':
         return 'FALSE'
-    # If it's numeric, return as-is without quotes
+    if value == '':
+        return 'NULL'
     if is_number(value):
         return value
-    # Otherwise, enclose the value in single quotes and escape inner single quotes by doubling them.
     return "'" + value.replace("'", "''") + "'"
 
-def csv_to_insert(csv_path, table_name):
-    """
-    Reads the CSV file at csv_path and creates
-    a list of SQL INSERT statements for the given table_name.
-    """
-    statements = []
+def csv_to_bulk_insert(csv_path, table_name):
     with open(csv_path, newline='', encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile)
         columns = reader.fieldnames
+        rows = []
         for row in reader:
-            cols = ", ".join(columns)
-            # Format each value accordingly.
-            vals = ", ".join(format_value(row[col]) for col in columns)
-            statement = f"INSERT INTO {table_name} ({cols}) VALUES ({vals});"
-            statements.append(statement)
-    return statements
+            values = ", ".join(format_value(row[col]) for col in columns)
+            rows.append(f"({values})")
+        
+        if not rows:
+            print(f"[SKIP] No data in {csv_path}")
+            return ""  # Skip empty CSVs
 
-def process_all_csvs(directory):
-    """
-    Process every CSV file in the specified directory.
-    Returns a dictionary with keys as table names and values as a list of SQL statements.
-    Assumes that the CSV filename (without extension) is the table name.
-    """
-    sql_statements = {}
-    for filename in os.listdir(directory):
-        if filename.lower().endswith(".csv"):
-            table_name = os.path.splitext(filename)[0]
-            csv_path = os.path.join(directory, filename)
-            statements = csv_to_insert(csv_path, table_name)
-            sql_statements[table_name] = statements
-            print(f"Processed {filename}: {len(statements)} rows")
-    return sql_statements
+        insert_stmt = f"\n-- Insert statements for table: {table_name}\n" \
+                      f"INSERT INTO {table_name} ({', '.join(columns)}) VALUES\n" \
+                      + ",\n".join(rows) + ";\n"
+        return insert_stmt
 
 def main():
-    print("Starting script...")
-
-    # Use the current directory since the script, CSVs and tummy-base.sql are together.
     csv_directory = "."
-    
-    # Process all CSV files in the current directory.
-    all_inserts = process_all_csvs(csv_directory)
-
-    # Path to the SQL file (in the same directory)
     sql_file_path = "tummy-base.sql"
-    
-    # Append the INSERT statements for each table into tummy-base.sql.
+
+    if not os.path.exists(sql_file_path):
+        print(f"[ERROR] tummy-base.sql does not exist in {os.getcwd()}")
+        return
+
+    print(f"[INFO] Writing inserts to {sql_file_path}\n")
+    wrote_any = False
+
     with open(sql_file_path, "a", encoding='utf-8') as sql_file:
-        for table, statements in all_inserts.items():
-            sql_file.write(f"\n\n-- Insert statements for table: {table}\n")
-            for stmt in statements:
-                sql_file.write(stmt + "\n")
-    
-    print(f"All CSV data has been appended as INSERT statements to {sql_file_path}")
+        for filename in os.listdir(csv_directory):
+            if filename.endswith(".csv"):
+                table_name = os.path.splitext(filename)[0]
+                csv_path = os.path.join(csv_directory, filename)
+                insert_block = csv_to_bulk_insert(csv_path, table_name)
+                if insert_block:
+                    sql_file.write(insert_block)
+                    print(f"[DONE] {filename} -> {table_name}")
+                    wrote_any = True
+
+    if wrote_any:
+        print("\n✅ All INSERT statements added to tummy-base.sql")
+    else:
+        print("\n⚠️ No CSV files processed. Make sure .csv files are in the same folder as the script.")
 
 if __name__ == "__main__":
     main()
