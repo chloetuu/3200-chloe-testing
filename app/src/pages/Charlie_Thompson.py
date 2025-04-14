@@ -8,28 +8,10 @@ st.set_page_config(layout = 'wide')
 
 # Show appropriate sidebar links for the role of the currently logged in user
 st.sidebar.image("assets/Charlie_pfp.jpeg", caption="fitwithcharlie", width=200)
+
 SideBarLinks()
 
 st.title(f"Welcome {st.session_state['first_name']}.")
-st.write('')
-st.write('')
-st.write(f"### Bio: {st.session_state['bio']}")
-
-if st.button('Favorite Recipes', 
-             type='primary',
-             use_container_width=True):
-  st.switch_page('pages/01_World_Bank_Viz.py')
-
-if st.button('Explore All Recipes', 
-             type='primary',
-             use_container_width=True):
-  st.switch_page('pages/02_Map_Demo.py')
-
-if st.button('Blog', 
-             type='primary',
-             use_container_width=True):
-  st.switch_page('pages/02_Map_Demo.py')
-
 
 # Adds the followers and following count 
 follower_count = 12000
@@ -43,8 +25,7 @@ with col_b:
 
 st.write('')
 st.write('')
-st.write(f"### Bio: {st.session_state['bio']}")
-
+st.write(f"***Bio:*** {st.session_state['bio']}")
 
 
 col1, col2, col3 = st.columns([3, 1, 0.75])  

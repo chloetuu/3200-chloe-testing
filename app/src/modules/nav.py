@@ -19,6 +19,10 @@ def FavoriteRecipes():
 def ExploreRecipes():
     st.sidebar.page_link("pages/Nina_Patel_Recipes.py", label="Explore All Recipes", icon="🍔")
 
+#### ---------------------- Specific to Charlie ----------------------------
+
+def Blogs(): 
+    st.sidebar.page_link("pages/Blogs.py", label="Blogs", icon="📚")
 
 
 #### ------------------------ Examples for Role of pol_strat_advisor ------------------------
@@ -103,6 +107,12 @@ def SideBarLinks(show_home=False):
         if st.session_state["first_name"].lower() == "nina":
             FavoriteRecipes()
             ExploreRecipes()
+
+        # if the user is Charlie, show their Favorite Recipes page 
+        if st.session_state["first_name"].lower() == "Charlie":
+            FavoriteRecipes()
+            ExploreRecipes()
+            Blogs()
             
 
     if st.session_state["authenticated"]:

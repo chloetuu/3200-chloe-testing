@@ -4,7 +4,7 @@ from backend.db_connection import db
 from backend.customers.customer_routes import customers
 from backend.products.products_routes import products
 from backend.simple.simple_routes import simple_routes
-from backend.meals.meals_routes import meals
+from api.backend.meals.recipes_routes import meals
 import os
 from dotenv import load_dotenv
 
