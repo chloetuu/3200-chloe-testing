@@ -38,6 +38,7 @@ st.title('Tummi')
 st.write('\n\n')
 st.write('### HI! As which user would you like to log in?')
 
+
 # For each of the user personas for which we are implementing
 # functionality, we put a button on the screen that the user 
 # can click to MIMIC logging in as that mock user. 
@@ -89,3 +90,18 @@ if st.button("Act as Charlie, an Influencer",
     # finally, we ask streamlit to switch to another page, in this case, the landing page for this particular user type
     logger.info("Logging in as Charlie Thompson (User)")
     st.switch_page('pages/Charlie_Thompson.py')
+
+col1, col2, col3 = st.columns([3, 1, 0.75])  
+with col3:
+    st.write('')     
+    st.write('') 
+    st.write('')     
+    st.write('')
+    st.write('')
+    st.write('')
+    st.write('')
+    st.write('')
+    st.write('')
+    st.write('')
+    st.image("assets/Tummi_logo.png", width=150, caption="Tummi")
+
