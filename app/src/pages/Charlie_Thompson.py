@@ -15,20 +15,23 @@ st.write('')
 st.write('')
 st.write(f"### Bio: {st.session_state['bio']}")
 
-if st.button('Favorite Recipes', 
-             type='primary',
-             use_container_width=True):
-  st.switch_page('pages/01_World_Bank_Viz.py')
 
-if st.button('Explore All Recipes', 
-             type='primary',
-             use_container_width=True):
-  st.switch_page('pages/02_Map_Demo.py')
+def HomeNav():
+    st.sidebar.page_link("Home.py", label="Home", icon="🏠")
 
-if st.button('Blog', 
-             type='primary',
-             use_container_width=True):
-  st.switch_page('pages/02_Map_Demo.py')
+
+def AboutPageNav():
+    st.sidebar.page_link("pages/30_About.py", label="About", icon="🧠")
+
+def FavoriteRecipes(): 
+    st.sidebar.page_link("pages/Charlie_Thompson_Recipes.py", label="Favorite Recipes", icon="❤️")
+
+def ExploreRecipes():
+    st.sidebar.page_link("pages/Nina_Patel_Recipes.py", label="Explore All Recipes", icon="🍔")
+
+def FavoriteRecipes(): 
+    st.sidebar.page_link("pages/Blogs.py", label="Blogs", icon="📚")
+
 
 
 # Adds the followers and following count 
