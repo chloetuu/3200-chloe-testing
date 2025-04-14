@@ -38,6 +38,7 @@ st.title('Tummi')
 st.write('\n\n')
 st.write('### HI! As which user would you like to log in?')
 
+
 # For each of the user personas for which we are implementing
 # functionality, we put a button on the screen that the user 
 # can click to MIMIC logging in as that mock user. 
@@ -48,14 +49,16 @@ if st.button("Act as Nina, a Soccer Mom",
     # when user clicks the button, they are now considered authenticated
     st.session_state['authenticated'] = True
     # we set the role of the current user
-    st.session_state['role'] = 'pol_strat_advisor'
+    st.session_state['role'] = 'Stay at home mother'
     # we add the first name of the user (so it can be displayed on 
-    # subsequent pages). 
-    st.session_state['first_name'] = 'John'
+    st.session_state['first_name'] = 'Nina'
+    # setting the bio of the users
+    st.session_state['bio'] = 'I am a stay at home mom who has 3 children who have different dietary restrictions! Follow me to follow my journey :)'
     # finally, we ask streamlit to switch to another page, in this case, the 
     # landing page for this particular user type
-    logger.info("Logging in as Political Strategy Advisor Persona")
-    st.switch_page('pages/00_Pol_Strat_Home.py')
+    logger.info("Logging in as Nina Patel (User)")
+    st.switch_page('pages/Nina_HomePage.py')
+
 
 if st.button('Act as Jade, Backend Developer', 
             type = 'primary', 
@@ -73,5 +76,32 @@ if st.button('Act as James, a Data Analyst',
     st.session_state['first_name'] = 'SysAdmin'
     st.switch_page('pages/20_Admin_Home.py')
 
+if st.button("Act as Charlie, an Influencer",
+             type = 'primary',
+             use_container_width=True):
+    # when user clicks the button, they are now considered authenticated
+    st.session_state['authenticated'] = True
+    # we set the role of the current user
+    st.session_state['role'] = 'Follow my fitness journey'
+    # we add the first name of the user (so it can be displayed on subsequent pages).
+    st.session_state['first_name'] = 'Charlie'
+    # setting the bio of the users
+    st.session_state['bio'] = 'Fueled by flavor, powered by gains. Follow me on Instagram and Youtube @fitwithcharlie for more content'
+    # finally, we ask streamlit to switch to another page, in this case, the landing page for this particular user type
+    logger.info("Logging in as Charlie Thompson (User)")
+    st.switch_page('pages/Charlie_Thompson.py')
 
+col1, col2, col3 = st.columns([3, 1, 0.75])  
+with col3:
+    st.write('')     
+    st.write('') 
+    st.write('')     
+    st.write('')
+    st.write('')
+    st.write('')
+    st.write('')
+    st.write('')
+    st.write('')
+    st.write('')
+    st.image("assets/Tummi_logo.png", width=150, caption="Tummi")
 

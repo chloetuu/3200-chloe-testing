@@ -13,6 +13,13 @@ def HomeNav():
 def AboutPageNav():
     st.sidebar.page_link("pages/30_About.py", label="About", icon="🧠")
 
+def FavoriteRecipes(): 
+    st.sidebar.page_link("pages/Nina_FavRecipes.py", label="Favorite Recipes", icon="❤️")
+
+def ExploreRecipes():
+    st.sidebar.page_link("pages/Nina_Patel_Recipes.py", label="Explore All Recipes", icon="🍔")
+
+
 
 #### ------------------------ Examples for Role of pol_strat_advisor ------------------------
 def PolStratAdvHomeNav():
@@ -62,8 +69,7 @@ def SideBarLinks(show_home=False):
     This function handles adding links to the sidebar of the app based upon the logged-in user's role, which was put in the streamlit session_state object when logging in.
     """
 
-    # add a logo to the sidebar always
-    st.sidebar.image("assets/logo.png", width=150)
+    
 
     # If there is no logged in user, redirect to the Home (Landing) page
     if "authenticated" not in st.session_state:
@@ -80,8 +86,8 @@ def SideBarLinks(show_home=False):
         # Show World Bank Link and Map Demo Link if the user is a political strategy advisor role.
         if st.session_state["role"] == "pol_strat_advisor":
             PolStratAdvHomeNav()
-            Profile_Page()
-            Recipe_Page()
+            WorldBankVizNav()
+            MapDemoNav()
 
         # If the user role is usaid worker, show the Api Testing page
         if st.session_state["role"] == "usaid_worker":
@@ -93,8 +99,11 @@ def SideBarLinks(show_home=False):
         if st.session_state["role"] == "administrator":
             AdminPageNav()
 
-    # Always show the About page at the bottom of the list of links
-    AboutPageNav()
+        # if the user is Nina, show their Favorite Recipes page 
+        if st.session_state["first_name"].lower() == "nina":
+            FavoriteRecipes()
+            ExploreRecipes()
+            
 
     if st.session_state["authenticated"]:
         # Always show a logout button if there is a logged in user
@@ -102,3 +111,4 @@ def SideBarLinks(show_home=False):
             del st.session_state["role"]
             del st.session_state["authenticated"]
             st.switch_page("Home.py")
+            
