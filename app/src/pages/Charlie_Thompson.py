@@ -20,12 +20,12 @@ st.write('')
 st.write('')
 st.write(f"### Bio: {st.session_state['bio']}")
 
-if st.button('Recipes', 
+if st.button('Favorite Recipes', 
              type='primary',
              use_container_width=True):
   st.switch_page('pages/01_World_Bank_Viz.py')
 
-if st.button('View World Map Demo', 
+if st.button('Explore All Recipes', 
              type='primary',
              use_container_width=True):
   st.switch_page('pages/02_Map_Demo.py')
