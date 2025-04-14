@@ -12,7 +12,7 @@ if 'bio' not in st.session_state:
 
 
 # Show appropriate sidebar links for the role of the currently logged in user
-st.sidebar.image("assets/nina_patel_pfp.jpg", caption="Charlie Thompson", width=150)
+st.sidebar.image("assets/Charlie_pfp.jpeg", caption="Charlie Thompson", width=200)
 SideBarLinks()
 
 st.title(f"Welcome {st.session_state['first_name']}.")

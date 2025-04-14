@@ -13,6 +13,9 @@ def HomeNav():
 def AboutPageNav():
     st.sidebar.page_link("pages/30_About.py", label="About", icon="🧠")
 
+def FavoriteRecipes(): 
+    st.sidebar.page_link("pages/Nina_FavRecipes.py", label="Favorite Recipes", icon="❤️")
+
 
 #### ------------------------ Examples for Role of pol_strat_advisor ------------------------
 def PolStratAdvHomeNav():
@@ -94,8 +97,9 @@ def SideBarLinks(show_home=False):
         if st.session_state["role"] == "administrator":
             AdminPageNav()
 
-    # Always show the About page at the bottom of the list of links
-    AboutPageNav()
+        # if the user is Nina, show their Favorite Recipes page 
+        if st.session_state["first_name"].lower() == "nina":
+            FavoriteRecipes()
 
     if st.session_state["authenticated"]:
         # Always show a logout button if there is a logged in user
@@ -103,3 +107,4 @@ def SideBarLinks(show_home=False):
             del st.session_state["role"]
             del st.session_state["authenticated"]
             st.switch_page("Home.py")
+            
