@@ -86,7 +86,7 @@ if st.button("Act as Charlie, an Influencer",
     # we add the first name of the user (so it can be displayed on subsequent pages).
     st.session_state['first_name'] = 'Charlie'
     # setting the bio of the users
-    st.session_state['bio'] = 'Follow my fitness journey'
+    st.session_state['bio'] = 'Fueled by flavor, powered by gains. Follow me on Instagram and Youtube @fitwithcharlie for more content'
     # finally, we ask streamlit to switch to another page, in this case, the landing page for this particular user type
     logger.info("Logging in as Charlie Thompson (User)")
     st.switch_page('pages/Charlie_Thompson.py')
