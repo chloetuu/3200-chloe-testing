@@ -46,3 +46,14 @@ def add_meal():
     db.get_db().commit()
 
     return 'Meal added!'
+
+@meals.route('/meals/<int:recipe_id>', methods=['DELETE'])
+def delete_meal(recipe_id):
+    current_app.logger.info(f'DELETE /meals/{recipe_id} route called')
+
+    query = '''DELETE FROM Meal WHERE RecipeID = %s'''
+    cursor = db.get_db().cursor()
+    cursor.execute(query, (recipe_id,))
+    db.get_db().commit()
+    
+    return 'Meal deleted!'
