@@ -48,14 +48,14 @@ if st.button("Act as Nina, a Soccer Mom",
     # when user clicks the button, they are now considered authenticated
     st.session_state['authenticated'] = True
     # we set the role of the current user
-    st.session_state['role'] = 'pol_strat_advisor'
+    st.session_state['role'] = 'Stay at home mother'
     # we add the first name of the user (so it can be displayed on 
     # subsequent pages). 
-    st.session_state['first_name'] = 'John'
+    st.session_state['first_name'] = 'Nina'
     # finally, we ask streamlit to switch to another page, in this case, the 
     # landing page for this particular user type
-    logger.info("Logging in as Political Strategy Advisor Persona")
-    st.switch_page('pages/00_Pol_Strat_Home.py')
+    logger.info("Logging in as Nina Patel (User)")
+    st.switch_page('pages/Nina_HomePage.py')
 
 if st.button('Act as Jade, Backend Developer', 
             type = 'primary', 
@@ -72,6 +72,7 @@ if st.button('Act as James, a Data Analyst',
     st.session_state['role'] = 'administrator'
     st.session_state['first_name'] = 'SysAdmin'
     st.switch_page('pages/20_Admin_Home.py')
+
 
 
 
