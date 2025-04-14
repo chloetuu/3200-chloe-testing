@@ -28,14 +28,14 @@ def PolStratAdvHomeNav():
     )
 
 
-def WorldBankVizNav():
+def Profile_Page():
     st.sidebar.page_link(
-        "pages/01_World_Bank_Viz.py", label="World Bank Visualization", icon="🏦"
+        "pages/01_Profile_Page.py", label="Profile Page", icon="🏦"
     )
 
 
-def MapDemoNav():
-    st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")
+def Recipe_Page():
+    st.sidebar.page_link("pages/02_Recipe_Page.py", label="Map Demonstration", icon="🗺️")
 
 
 ## ------------------------ Examples for Role of usaid_worker ------------------------
@@ -88,7 +88,6 @@ def SideBarLinks(show_home=False):
             PolStratAdvHomeNav()
             WorldBankVizNav()
             MapDemoNav()
-            st.sidebar.image("assets/nina_patel_pfp.jpg", width=150)
 
         # If the user role is usaid worker, show the Api Testing page
         if st.session_state["role"] == "usaid_worker":
