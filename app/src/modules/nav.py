@@ -109,7 +109,8 @@ def SideBarLinks(show_home=False):
             ExploreRecipes()
 
         # if the user is Charlie, show their Favorite Recipes page 
-        if st.session_state["first_name"].lower() == "Charlie":
+        if st.session_state["first_name"].lower() == "charlie":
+
             FavoriteRecipes()
             ExploreRecipes()
             Blogs()
