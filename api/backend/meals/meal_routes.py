@@ -10,9 +10,9 @@ from flask import current_app
 from backend.db_connection import db
 from backend.ml_models.model01 import predict
 
-meals = Blueprint('meals', __name__ )
+recipes = Blueprint('recipes', __name__ )
 
-@meals.route('/meals', methods=['GET'])
+@recipes.route('/recipes', methods=['GET'])
 def get_all_meals():
     cursor = db.get_db().cursor()
     the_query = '''
@@ -27,10 +27,10 @@ def get_all_meals():
     the_response.mimetype='application/json'
     return the_response
 
-@meals.route('/meals', methods=['POST'])
-def add_meal():
-    current_app.logger.info('POST /meals route')
-    meal_info = request.json
+@recipes.route('/recipes', methods=['POST'])
+def add_recipe():
+    current_app.logger.info('POST /recipexs route')
+    recipe_info = request.json
     username = meal_info['username']
     meal_name = meal_info['meal_name']
     calories = meal_info['calories']

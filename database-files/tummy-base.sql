@@ -12,16 +12,8 @@ CREATE TABLE User (
     Age INT,
     InclusionStatus BOOLEAN,
     Bio TEXT
-);
-
--- Table: Follows 
-CREATE TABLE Follows (
-    follower_id VARCHAR(50),
-    followee_id VARCHAR(50),
-    follow_date DATE DEFAULT CURRENT_DATE,
-    PRIMARY KEY (follower_id, followee_id),
-    FOREIGN KEY (follower_id) REFERENCES User(Username),
-    FOREIGN KEY (followee_id) REFERENCES User(Username)
+    follower_id INT, 
+    followee_id INT
 );
 
 -- Table: Tag
@@ -76,8 +68,8 @@ CREATE TABLE Blog_Meal (
     FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID)
 );
 
--- Table: Saved_Meals (Many-to-Many)
-CREATE TABLE Saved_Meals (
+-- Table: Tried_Meals (Many-to-Many)
+CREATE TABLE Tried_Meals (
     Username VARCHAR(50),
     RecipeID INT,
     PRIMARY KEY (Username, RecipeID),
@@ -85,8 +77,8 @@ CREATE TABLE Saved_Meals (
     FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID)
 );
 
--- Table: Added_Meals (Many-to-Many)
-CREATE TABLE Added_Meals (
+-- Table: Favorited_Meals (Many-to-Many)
+CREATE TABLE Favorited_Meals (
     Username VARCHAR(50),
     RecipeID INT,
     PRIMARY KEY (Username, RecipeID),
