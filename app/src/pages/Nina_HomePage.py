@@ -12,7 +12,7 @@ SideBarLinks()
 st.title(f"Welcome Nina Patel, {st.session_state['first_name']}.")
 st.write('')
 st.write('')
-st.write('### What would you like to cook today?')
+st.write(f"### bio: {st.session_state['Bio']}")
 
 if st.button('Recipes', 
              type='primary',

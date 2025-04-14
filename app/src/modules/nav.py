@@ -63,7 +63,7 @@ def SideBarLinks(show_home=False):
     """
 
     # add a logo to the sidebar always
-    st.sidebar.image("assets/logo.png", width=150)
+    
 
     # If there is no logged in user, redirect to the Home (Landing) page
     if "authenticated" not in st.session_state:
@@ -82,6 +82,7 @@ def SideBarLinks(show_home=False):
             PolStratAdvHomeNav()
             WorldBankVizNav()
             MapDemoNav()
+            st.sidebar.image("assets/nina_patel_pfp.jpg", width=150)
 
         # If the user role is usaid worker, show the Api Testing page
         if st.session_state["role"] == "usaid_worker":
