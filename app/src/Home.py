@@ -68,13 +68,21 @@ if st.button('Act as Jade, Backend Developer',
     st.session_state['first_name'] = 'Jade'
     st.switch_page('pages/Jade_Home.py')
 
-if st.button('Act as James, a Data Analyst', 
-            type = 'primary', 
-            use_container_width=True):
+if st.button("Act as James, a Data Analyst",
+             type='primary',
+             use_container_width=True):
+    # user is now authenticated
     st.session_state['authenticated'] = True
-    st.session_state['role'] = 'administrator'
-    st.session_state['first_name'] = 'SysAdmin'
-    st.switch_page('pages/20_Admin_Home.py')
+    # define the user role
+    st.session_state['role'] = 'Data Analyst'
+    # user's first name
+    st.session_state['first_name'] = 'James'
+    # user bio
+    st.session_state['bio'] = 'As a data analyst, I uncover trends in nutrition engagement and flagged ingredients to improve community health tools.'
+    # log the action
+    logger.info("Logging in as James Okoro (User)")
+    # go to the actual user page
+    st.switch_page("pages/James_Okoro.py")
 
 if st.button("Act as Charlie, an Influencer",
              type = 'primary',
