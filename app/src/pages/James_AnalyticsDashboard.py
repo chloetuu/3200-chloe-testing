@@ -9,15 +9,11 @@ st.title("📊 Analytics Dashboard")
 st.markdown("**Last updated:** March 25th, 2025")
 
 # Back nav in sidebar
-st.sidebar.page_link("pages/James_Homepage.py", label="⬅️ Back to James Homepage")
-
-st.title("Analytics Dashboard")
-st.write("This is a placeholder for James' analytics dashboard.")
+st.sidebar.page_link("pages/James_Home.py", label="⬅️ Back to James Homepage")  # ← Update to actual filename!
 
 # Sidebar Filters
 with st.sidebar:
     st.header("Filters")
-    
     age_group = st.selectbox("Age Group", [">18", "18–24", "25–34", "35–44", "45–54", "55+"])
     region = st.selectbox("Region", ["Northeast", "South", "Midwest", "West"])
     timeframe = st.selectbox("Timeframe", ["Day", "Week", "Month", "6 Months", "Year"])
@@ -45,7 +41,7 @@ with col1:
 
 # --- Overall Engagement Line Chart ---
 with col2:
-    st.subheader("Overall Engagement")
+    st.subheader("Overall Engagement Over Time")
     timeline = list(range(10))
     line_views = [1000, 3000, 5000, 2000, 2500, 6000, 7000, 8000, 10000, 12000]
     line_saves = [500, 1500, 3000, 1200, 1800, 4000, 4500, 5000, 7000, 8000]
@@ -62,10 +58,10 @@ with col2:
 with col3:
     st.subheader("Top Recipes")
 
-    def recipe_card(rank, name, image_file):
+    def recipe_card(rank, name, image_url):
         st.markdown(f"**{rank}. {name}**")
-        st.image(image_file, width=120)
-        st.button(f"View details", key=name)
+        st.image(image_url, width=120)
+        st.button("View details", key=name)
 
     recipe_card("★ 1", "Acai Smoothie Bowl", "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/A%C3%A7a%C3%AD_na_Tigela.jpg/640px-A%C3%A7a%C3%AD_na_Tigela.jpg")
     recipe_card("2", "Tiramisu Cake", "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Tiramisu_-_Raffaele_Diomede.jpg/640px-Tiramisu_-_Raffaele_Diomede.jpg")
@@ -73,5 +69,4 @@ with col3:
 
 # --- Export Button ---
 st.markdown("---")
-st.download_button("📄 Export as PDF/PNG", data="(pretend there's a file)", file_name="analytics_export.pdf")
-
+st.download_button("📄 Export as PDF/PNG", data="Report data placeholder", file_name="analytics_export.pdf")
