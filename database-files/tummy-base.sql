@@ -18,7 +18,7 @@ CREATE TABLE User (
 CREATE TABLE Follows (
     follower_id VARCHAR(50),
     followee_id VARCHAR(50),
-    follow_date DATE DEFAULT CURRENT_DATE,
+    follow_date TIMESTAMP,
     PRIMARY KEY (follower_id, followee_id),
     FOREIGN KEY (follower_id) REFERENCES User(Username),
     FOREIGN KEY (followee_id) REFERENCES User(Username)
