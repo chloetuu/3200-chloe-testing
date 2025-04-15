@@ -8,7 +8,7 @@ from modules.nav import SideBarLinks
 
 
 # Show appropriate sidebar links for the role of the currently logged in user
-st.sidebar.image("assets/Charlie_pfp.jpeg", caption="fitwithcharlie", width=100)
+st.sidebar.image("assets/Charlie_pfp.jpeg", caption="fitwithcharlie", width=200)
 
 SideBarLinks()
 
