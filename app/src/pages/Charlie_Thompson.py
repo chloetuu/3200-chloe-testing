@@ -4,10 +4,24 @@ logger = logging.getLogger(__name__)
 import streamlit as st
 from modules.nav import SideBarLinks
 
+import install pillow
+
+from PIL import Image
+
+# Open an image
+img = Image.open("Charlie_pfp.jpeg")
+
+# Define crop box: (left, upper, right, lower)
+cropped = img.crop((100, 100, 400, 400))
+
+# Save the cropped image
+cropped.save("cropped_image.png")
+
+
 st.set_page_config(layout = 'wide')
 
 # Show appropriate sidebar links for the role of the currently logged in user
-st.sidebar.image("assets/Charlie_pfp.jpeg", caption="fitwithcharlie", width=200)
+st.sidebar.image("assets/cropped", caption="fitwithcharlie", width=100)
 
 SideBarLinks()
 

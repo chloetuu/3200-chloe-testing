@@ -8,6 +8,12 @@ st.set_page_config(page_title="Analytics Dashboard", layout="wide")
 st.title("📊 Analytics Dashboard")
 st.markdown("**Last updated:** March 25th, 2025")
 
+# Back nav in sidebar
+st.sidebar.page_link("pages/James_Homepage.py", label="⬅️ Back to James Homepage")
+
+st.title("Analytics Dashboard")
+st.write("This is a placeholder for James' analytics dashboard.")
+
 # Sidebar Filters
 with st.sidebar:
     st.header("Filters")

@@ -5,6 +5,13 @@ st.set_page_config(page_title="Data Editing", layout="wide")
 
 st.title("🛠️ Data Editing & Management")
 
+
+# Back nav in sidebar
+st.sidebar.page_link("pages/James_Homepage.py", label="⬅️ Back to James Homepage")
+
+st.title("Data Editing Page")
+st.write("This is a placeholder for James' data editing tools.")
+
 # --- Simulated Dataset ---
 @st.cache_data
 def load_data():
