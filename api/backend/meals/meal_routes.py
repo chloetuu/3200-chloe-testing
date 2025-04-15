@@ -59,3 +59,50 @@ def delete_meal(recipe_id):
     db.get_db().commit()
     
     return 'Meal deleted!'
+
+@meals.route('/top-recipes', methods=['GET'])
+def get_top_recipes():
+    cursor = db.get_db().cursor()
+    query = '''
+        SELECT RecipeID, Title, Category, Views, Saves
+        FROM Recipes
+        ORDER BY Views DESC
+        LIMIT 4
+    '''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    return jsonify(data)
+
+@meals.route('/flagged-recipes', methods=['GET'])
+def get_flagged_recipes():
+    cursor = db.get_db().cursor()
+    query = '''
+        SELECT RecipeID, Title, Category, Views, Saves, Flagged
+        FROM Recipes
+        WHERE Flagged = TRUE
+    '''
+    cursor.execute(query)
+    data = cursor.fetchall()
+    return jsonify(data)
+
+@meals.route('/recipes/<int:recipe_id>', methods=['PUT'])
+def update_recipe(recipe_id):
+    recipe_info = request.json
+    title = recipe_info['title']
+    category = recipe_info['category']
+    views = recipe_info['views']
+    saves = recipe_info['saves']
+    flagged = recipe_info['flagged']
+
+    query = '''
+        UPDATE Recipes
+        SET Title = %s, Category = %s, Views = %s, Saves = %s, Flagged = %s
+        WHERE RecipeID = %s
+    '''
+    cursor = db.get_db().cursor()
+    cursor.execute(query, (title, category, views, saves, flagged, recipe_id))
+    db.get_db().commit()
+
+    return jsonify({"message": "Recipe updated successfully"})
+
+
