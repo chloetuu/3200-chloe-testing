@@ -63,6 +63,12 @@ def ClassificationNav():
         "pages/13_Classification.py", label="Classification Demo", icon="🌺"
     )
 
+#### ------------------------ Specific to James ------------------------
+def JamesNav():
+    st.sidebar.page_link("pages/James_Homepage.py", label="James Home", icon="📊")
+    st.sidebar.page_link("pages/AnalyticsDashboard.py", label="Analytics Dashboard", icon="📈")
+    st.sidebar.page_link("pages/DataEditing.py", label="Data Editing", icon="🛠️")
+
 
 #### ------------------------ System Admin Role ------------------------
 def AdminPageNav():
@@ -119,6 +125,10 @@ def SideBarLinks(show_home=False):
             FavoriteRecipes()
             ExploreRecipes()
             Blogs()
+
+        # if the user is James, show his dashboard links
+        if st.session_state["first_name"].lower() == "james":
+            JamesNav()
             
 
     if st.session_state["authenticated"]:
