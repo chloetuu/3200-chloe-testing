@@ -17,8 +17,8 @@ meals = Blueprint('meals', __name__ )
 def get_all_meals():
     cursor = db.get_db().cursor()
     the_query = '''
-    SELECT Username, MealName, Calories, MealTime, Notes
-    FROM Meals
+    SELECT *
+    FROM Meal
 '''
     cursor.execute(the_query)
     theData = cursor.fetchall()
@@ -46,7 +46,7 @@ def add_meal():
     cursor.execute(query, data)
     db.get_db().commit()
 
-    return jsonify(theData)
+    return 'Meal(s) added!'
 
 # Deletes a meal 
 @meals.route('/meals/<int:recipe_id>', methods=['DELETE'])

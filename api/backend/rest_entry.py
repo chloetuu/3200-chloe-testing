@@ -3,13 +3,8 @@ from flask import Flask
 from backend.db_connection import db
 from backend.customers.customer_routes import customers
 from backend.products.products_routes import products
-<<<<<<< HEAD
 # from backend.simple.simple_routes import simple_routes
 from backend.meals.meal_routes import meals
-=======
-from backend.simple.simple_routes import simple_routes
-from api.backend.meals.meal_routes_routes import meals
->>>>>>> 345bd193c203d0cf6a96dbd57eb11975b0199845
 import os
 from dotenv import load_dotenv
 
