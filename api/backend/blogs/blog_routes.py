@@ -6,15 +6,15 @@ from flask import current_app
 from backend.db_connection import db
 from backend.ml_models.model01 import predict
 
-meals = Blueprint('blogs', __name__ )
+blogs = Blueprint('blogs', __name__ )
 
 # Gets all meals 
-@meals.route('/blogs', methods=['GET'])
+@blogs.route('/blogs', methods=['GET'])
 def get_all_blogs():
     cursor = db.get_db().cursor()
     the_query = '''
     SELECT *
-    FROM Blog Meal
+    FROM Blogs
 '''
     cursor.execute(the_query)
     theData = cursor.fetchall()
