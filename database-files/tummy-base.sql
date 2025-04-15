@@ -83,7 +83,6 @@ CREATE TABLE Saved_Meals (
     FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID)
 );
 
--- Table: Favorites 
 CREATE TABLE Favorites (
     Username VARCHAR(50),
     RecipeID INT,
