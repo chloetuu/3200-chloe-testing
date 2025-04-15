@@ -82,7 +82,7 @@ if st.button("Act as James, a Data Analyst",
     # log the action
     logger.info("Logging in as James Okoro (User)")
     # go to the actual user page
-    st.switch_page("pages/James_Okoro.py")
+    st.switch_page("pages/James_Homepage.py")
 
 if st.button("Act as Charlie, an Influencer",
              type = 'primary',
