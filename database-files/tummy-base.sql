@@ -18,9 +18,16 @@ CREATE TABLE User (
 CREATE TABLE Follows (
     follower_id VARCHAR(50),
     followee_id VARCHAR(50),
+<<<<<<< HEAD
     follow_date DATE DEFAULT CURRENT_DATE,
+=======
+<<<<<<< HEAD
+    follow_date DATE DEFAULT (CURRENT_DATE),
+=======
+    follow_date TIMESTAMP,
+>>>>>>> 9549aee8ef1634b78f7b2ec91ae0bb227641d44b
+>>>>>>> 5a293116636c69fd102b97c6db8f9275ead02fed
     PRIMARY KEY (follower_id, followee_id),
-    FOREIGN KEY (follower_id) REFERENCES User(Username),
     FOREIGN KEY (followee_id) REFERENCES User(Username)
 );
 
