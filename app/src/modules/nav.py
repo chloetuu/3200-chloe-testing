@@ -43,13 +43,18 @@ def Recipe_Page():
 
 
 ## ------------------------ Examples for Role of usaid_worker ------------------------
-def ApiTestNav():
-    st.sidebar.page_link("pages/12_API_Test.py", label="Test the API", icon="🛜")
-
-
-def PredictionNav():
+def BackendNav():
     st.sidebar.page_link(
-        "pages/11_Prediction.py", label="Regression Prediction", icon="📈"
+        "pages/Jade_Home.py", label="Backend Developer Home", icon="👤"
+    )
+
+def ApiDashboardNav():
+    st.sidebar.page_link("pages/Jade_Api_Dashboard.py", label="API Dashboard", icon="🛜")
+
+
+def GraphNav():
+    st.sidebar.page_link(
+        "pages/Jade_Time.py", label="Time Series Graph", icon="📈"
     )
 
 
@@ -94,10 +99,10 @@ def SideBarLinks(show_home=False):
             MapDemoNav()
 
         # If the user role is usaid worker, show the Api Testing page
-        if st.session_state["role"] == "usaid_worker":
-            PredictionNav()
-            ApiTestNav()
-            ClassificationNav()
+        if st.session_state["role"] == "backend_developer":
+            BackendNav()
+            ApiDashboardNav()
+            GraphNav()
 
         # If the user is an administrator, give them access to the administrator pages
         if st.session_state["role"] == "administrator":

@@ -64,9 +64,9 @@ if st.button('Act as Jade, Backend Developer',
             type = 'primary', 
             use_container_width=True):
     st.session_state['authenticated'] = True
-    st.session_state['role'] = 'usaid_worker'
-    st.session_state['first_name'] = 'Mohammad'
-    st.switch_page('pages/10_USAID_Worker_Home.py')
+    st.session_state['role'] = 'backend_developer'
+    st.session_state['first_name'] = 'Jade'
+    st.switch_page('pages/Jade_Home.py')
 
 if st.button('Act as James, a Data Analyst', 
             type = 'primary', 
