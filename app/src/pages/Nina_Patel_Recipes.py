@@ -13,7 +13,7 @@ try:
 
     if meals:
         for i, meal in enumerate(meals):
-            st.image(f"assets/{i % 2}.png", width=100)
+            st.image(f"assets/{i % 8}.png", width=350)
             st.markdown(f"### {meal['Name']}")
             st.markdown(
                 f"""
