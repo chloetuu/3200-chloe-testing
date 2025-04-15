@@ -4,12 +4,11 @@ logger = logging.getLogger(__name__)
 import streamlit as st
 from modules.nav import SideBarLinks
 
-import install pillow
 
 
 
 # Show appropriate sidebar links for the role of the currently logged in user
-st.sidebar.image("assets/Charlie_pfp", caption="fitwithcharlie", width=100)
+st.sidebar.image("assets/Charlie_pfp.jpeg", caption="fitwithcharlie", width=100)
 
 SideBarLinks()
 
