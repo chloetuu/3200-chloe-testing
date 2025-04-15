@@ -22,7 +22,7 @@ def ExploreRecipes():
 #### ---------------------- Specific to Charlie ----------------------------
 
 def Blogs(): 
-    st.sidebar.page_link("pages/Blogs.py", label="Blogs", icon="📚")
+    st.sidebar.page_link("pages/blog_routes.py", label="Blogs", icon="📚")
 
 
 #### ------------------------ Examples for Role of pol_strat_advisor ------------------------
