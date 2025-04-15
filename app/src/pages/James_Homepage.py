@@ -19,9 +19,9 @@ st.write("### What would you like to do today?")
 if st.button('Analytics Dashboard', 
              type='primary',
              use_container_width=True):
-    st.switch_page('pages/AnalyticsDashboard.py')  # Adjust if your filename is different
+    st.switch_page('pages/James_AnalyticsDashboard.py')  # Adjust if your filename is different
 
 if st.button('Data Editing Page', 
              type='primary',
              use_container_width=True):
-    st.switch_page('pages/DataEditing.py')  # Adjust if your filename is different
+    st.switch_page('pages/James_DataEditing.py')  # Adjust if your filename is different

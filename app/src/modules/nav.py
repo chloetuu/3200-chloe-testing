@@ -66,8 +66,12 @@ def ClassificationNav():
 #### ------------------------ Specific to James ------------------------
 def JamesNav():
     st.sidebar.page_link("pages/James_Homepage.py", label="James Home", icon="📊")
-    st.sidebar.page_link("pages/AnalyticsDashboard.py", label="Analytics Dashboard", icon="📈")
-    st.sidebar.page_link("pages/DataEditing.py", label="Data Editing", icon="🛠️")
+    
+def AnalystBoard():    
+    st.sidebar.page_link("pages/James_AnalyticsDashboard.py", label="Analytics Dashboard", icon="📈")
+
+def DataEditing():    
+    st.sidebar.page_link("pages/James_DataEditing.py", label="Data Editing", icon="🛠️")
 
 
 #### ------------------------ System Admin Role ------------------------
@@ -129,6 +133,8 @@ def SideBarLinks(show_home=False):
         # if the user is James, show his dashboard links
         if st.session_state["first_name"].lower() == "james":
             JamesNav()
+            AnalystBoard()
+            DataEditing()
             
 
     if st.session_state["authenticated"]:
