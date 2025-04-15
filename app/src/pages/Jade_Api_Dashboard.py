@@ -18,15 +18,12 @@ st.title('API Dashboard')
 # create a 2 column layout
 col1, col2, col3 = st.columns(3)
 
-# -----------------------------
-# COLUMN 1: Website "donut" chart
-# -----------------------------
 with col1:
     st.subheader("Website")
     
     # Sample data
     labels_website = ["Good", "Moderate", "Bad"]
-    values_website = [115, 22, 44]  # example: 115 "good", 22 "moderate", 44 "bad"
+    values_website = [115, 22, 44] 
 
     fig1, ax1 = plt.subplots()
     
@@ -46,9 +43,6 @@ with col1:
     
     st.pyplot(fig1)
 
-# -----------------------------
-# COLUMN 2: Databases "donut" chart
-# -----------------------------
 with col2:
     st.subheader("Databases")
     
@@ -70,9 +64,7 @@ with col2:
     
     st.pyplot(fig2)
 
-# -----------------------------
-# COLUMN 3: API Downtime line chart
-# -----------------------------
+
 with col3:
     st.subheader("API Downtime")
 
@@ -88,12 +80,9 @@ with col3:
     # Use Streamlit's built-in line_chart
     st.line_chart(downtime_df)
 
-# -------------------------------------------------------------
-# User Reported Issues (below the 3 columns)
-# -------------------------------------------------------------
 st.subheader("User Reported Issues")
 
-# Hardcode a few sample issues
+
 issues_data = {
     "Date": ["3/20", "3/18", "3/14"],
     "Issue": ["Cannot Save Recipe", "Log-in Issue", "Account Deletion Requests"],
