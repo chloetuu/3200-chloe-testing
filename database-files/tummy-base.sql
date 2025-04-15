@@ -20,7 +20,6 @@ CREATE TABLE Follows (
     followee_id VARCHAR(50),
     follow_date DATE DEFAULT (CURRENT_DATE),
     PRIMARY KEY (follower_id, followee_id),
-    FOREIGN KEY (follower_id) REFERENCES User(Username),
     FOREIGN KEY (followee_id) REFERENCES User(Username)
 );
 
@@ -187,8 +186,6 @@ CREATE TABLE Alert (
 );
 
 
--- AUTO-GENERATED SQL INSERT STATEMENTS
--- Insert statements for table: User
 INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio) VALUES
 ('jeanbautista', 'Dawn', 'Johnson', 'Alaska', 'Medium', 26, FALSE, 'Kind this light second couple. Show grow behavior you develop.'),
 ('annehendrix', 'Peter', 'Harding', 'Oklahoma', 'Low', 43, TRUE, 'Themselves tax bit chance instead. Important change bill head baby safe husband a.'),
@@ -227,128 +224,43 @@ Newspaper maintain night yard show. Bit officer enjoy.'),
 ('gatesjames', 'John', 'Gonzalez', 'Arkansas', 'High', 49, TRUE, 'Be ready kitchen even young carry. Try any building.'),
 ('jeffreymorris', 'Kimberly', 'Hawkins', 'Vermont', 'High', 18, TRUE, 'Account street day child firm.
 Research direction six easy doctor exist. Teach camera a always.'),
-('gherrera', 'Vickie', 'Clark', 'New Hampshire', 'Low', 66, FALSE, 'Parent country side involve green none. Quite court seven page according gas table.');
+('gherrera', 'Vickie', 'Clark', 'New Hampshire', 'Low', 66, FALSE, 'Parent country side involve green none. Quite court seven page according gas table.'),
+('smiller', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('tyler63', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('williamholt', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('antonio70', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('patrick93', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('xallen', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('hallbrandi', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('sotomeghan', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('mcarrillo', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('xwilliams', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('johnny76', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('bbaker', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('jenniferchambers', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('andres57', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('dunnapril', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('stevenstewart', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('mendezrussell', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('mmitchell', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('pmorgan', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('saramccarthy', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('robert44', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('marksanchez', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('walkerwendy', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('ucook', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('ycook', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('christopherthomas', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('boydjudy', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('curtiscollier', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('erinharris', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('stewartgabriel', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('heathershannon', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('glasspatrick', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('dpage', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information'),
+('allenluke', 'FirstName', 'LastName', 'Region', 'Medium', 30, TRUE, 'Bio information');
 
--- Insert statements for table: Follows
-INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES
-('gatesjames', 'zcarpenter', '2022-11-23'),
-('qsanchez', 'gherrera', '2023-07-29'),
-('michael99', 'carpenterteresa', '2024-06-14'),
-('phuerta', 'michael99', '2021-05-04'),
-('qsanchez', 'olee', '2022-02-17'),
-('mjohnson', 'michelle25', '2022-12-25'),
-('mjohnson', 'jefferydavis', '2024-03-25'),
-('wilkinsjose', 'mwheeler', '2024-03-07'),
-('zcarpenter', 'rebecca94', '2024-10-25'),
-('jeffreymorris', 'shelby08', '2022-03-23'),
-('leslie91', 'annehendrix', '2024-07-09'),
-('wilkinsjose', 'rebecca94', '2023-01-09'),
-('olee', 'shelby08', '2022-08-30'),
-('zcarpenter', 'mjohnson', '2024-01-22'),
-('amy03', 'qsanchez', '2021-04-21'),
-('olee', 'michelle25', '2021-11-14'),
-('brittanypowell', 'tiffany71', '2024-09-20'),
-('joseph81', 'renee18', '2021-08-06'),
-('annehendrix', 'gatesjames', '2020-01-16'),
-('orobinson', 'sandraparker', '2022-12-18'),
-('phuerta', 'leslie91', '2023-09-24'),
-('nicholasdavis', 'mwheeler', '2024-10-14'),
-('qsanchez', 'jeanbautista', '2020-12-23'),
-('annehendrix', 'phuerta', '2024-07-22'),
-('mwheeler', 'michael99', '2021-07-18'),
-('annehendrix', 'qsanchez', '2021-10-03'),
-('mjohnson', 'amy03', '2021-06-25'),
-('mjohnson', 'zcarpenter', '2021-09-10'),
-('jeffreyfrazier', 'orobinson', '2025-04-09'),
-('wilkinsjose', 'montgomerynathaniel', '2024-11-09'),
-('jeanbautista', 'sandraparker', '2023-11-02'),
-('gbuckley', 'brittanypowell', '2024-01-27'),
-('michelle25', 'leslie91', '2021-09-30'),
-('michelle25', 'joseph81', '2020-09-07'),
-('ryan08', 'gherrera', '2022-06-25'),
-('brian24', 'gherrera', '2023-08-09'),
-('olee', 'gatesjames', '2021-10-23'),
-('shelby08', 'renee18', '2021-09-25'),
-('qsanchez', 'orobinson', '2022-04-13'),
-('zcarpenter', 'jeffreymorris', '2022-08-08'),
-('jeffreymorris', 'tiffany71', '2022-04-26'),
-('montgomerynathaniel', 'wilkinsjose', '2023-07-10'),
-('sandraparker', 'jeffreymorris', '2022-07-03'),
-('phuerta', 'orobinson', '2021-02-20'),
-('amy03', 'carpenterteresa', '2025-02-25'),
-('olee', 'nmeyer', '2025-03-05'),
-('brian24', 'rebecca94', '2020-12-10'),
-('mjohnson', 'brittanypowell', '2020-03-06'),
-('leslie91', 'anthonyjackson', '2024-07-23'),
-('phuerta', 'nicholasdavis', '2022-05-27'),
-('phuerta', 'joseph81', '2023-09-26'),
-('ryan08', 'annehendrix', '2023-10-04'),
-('carpenterteresa', 'sandraparker', '2021-06-22'),
-('shelby08', 'qsanchez', '2020-04-18'),
-('ryan08', 'amy03', '2023-04-21'),
-('annehendrix', 'rebecca94', '2024-01-07'),
-('mwheeler', 'jeffreymorris', '2023-04-23'),
-('jeanbautista', 'michelle25', '2024-10-24'),
-('tiffany71', 'jeanbautista', '2021-03-27'),
-('annehendrix', 'nmeyer', '2025-02-02'),
-('gatesjames', 'jeffreymorris', '2023-07-25'),
-('nmeyer', 'qsanchez', '2023-06-12'),
-('mwheeler', 'nicholasdavis', '2020-03-23'),
-('qsanchez', 'michael99', '2022-03-29'),
-('michael99', 'brittanypowell', '2023-08-06'),
-('jeffreymorris', 'gherrera', '2023-04-18'),
-('renee18', 'jefferydavis', '2022-07-29'),
-('amy03', 'tiffany71', '2020-01-19'),
-('gbuckley', 'michelle25', '2024-01-16'),
-('qsanchez', 'brittanypowell', '2022-05-05'),
-('olee', 'ryan08', '2020-04-17'),
-('sandraparker', 'gherrera', '2022-11-23'),
-('brittanypowell', 'rebecca94', '2022-05-15'),
-('amy03', 'gatesjames', '2023-08-19'),
-('mwheeler', 'leslie91', '2020-09-08'),
-('michael99', 'renee18', '2021-03-03'),
-('shelby08', 'joseph81', '2025-03-02'),
-('mwheeler', 'brittanypowell', '2020-07-18'),
-('orobinson', 'mwheeler', '2021-11-16'),
-('leslie91', 'brittanypowell', '2023-04-20'),
-('michelle25', 'carpenterteresa', '2022-02-05'),
-('joseph81', 'jeffreyfrazier', '2022-07-18'),
-('carpenterteresa', 'brittanypowell', '2022-06-04'),
-('jeffreymorris', 'brian24', '2024-01-06'),
-('annehendrix', 'jeffreyfrazier', '2022-04-09'),
-('gatesjames', 'amy03', '2023-03-07'),
-('michael99', 'montgomerynathaniel', '2020-08-27'),
-('brittanypowell', 'qsanchez', '2023-06-01'),
-('oherring', 'montgomerynathaniel', '2024-11-24'),
-('mwheeler', 'gbuckley', '2022-09-21'),
-('nicholasdavis', 'renee18', '2023-08-10'),
-('brittanypowell', 'olee', '2021-05-14'),
-('oherring', 'anthonyjackson', '2022-05-11'),
-('gbuckley', 'montgomerynathaniel', '2020-12-30'),
-('shelby08', 'jeanbautista', '2024-12-13'),
-('jefferydavis', 'ryan08', '2023-05-06'),
-('anthonyjackson', 'montgomerynathaniel', '2024-09-14'),
-('anthonyjackson', 'jeffreyfrazier', '2022-05-31'),
-('nmeyer', 'mwheeler', '2025-02-03'),
-('olee', 'tiffany71', '2022-10-24'),
-('nicholasdavis', 'jeffreymorris', '2020-08-14'),
-('tiffany71', 'carpenterteresa', '2022-02-08'),
-('gatesjames', 'ryan08', '2020-09-19'),
-('qsanchez', 'ryan08', '2021-03-01'),
-('brittanypowell', 'joseph81', '2023-09-26'),
-('jeffreymorris', 'michael99', '2021-01-21'),
-('carpenterteresa', 'annehendrix', '2020-01-10'),
-('orobinson', 'ryan08', '2024-01-05'),
-('gherrera', 'jeffreyfrazier', '2020-10-07'),
-('jeffreymorris', 'rebecca94', '2022-07-26'),
-('gherrera', 'anthonyjackson', '2024-10-08'),
-('shelby08', 'sandraparker', '2022-10-12'),
-('nmeyer', 'annehendrix', '2022-06-28'),
-('montgomerynathaniel', 'renee18', '2020-01-27'),
-('rebecca94', 'qsanchez', '2024-09-04'),
-('nmeyer', 'gatesjames', '2022-01-21');
 
--- Insert statements for table: Tag
 INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES
 (1, 'Mexican', 'Peanuts', 'Snack'),
 (2, 'Italian', 'None', 'Snack'),
@@ -386,7 +298,7 @@ INSERT INTO Tag (TagID, Cuisine, Allergy, MealType) VALUES
 (34, 'Mexican', 'Shellfish', 'Snack'),
 (35, 'Chinese', 'Shellfish', 'Lunch');
 
--- Insert statements for table: Meal
+
 INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, Difficulty, Ingredients, Instructions, FavoriteStatus) VALUES
 (1, 'Investment Meal', '2023-04-12', 17, 23, 'Easy', 'Must total water may Congress building wonder. Provide crime key occur main door. Buy door person front image industry prevent.
 Move social establish capital into. Wear focus off probably.', 'Industry exist civil actually. Sea short month reveal.
@@ -505,7 +417,440 @@ Draw food ready bring security check fine. Agency notice kitchen answer middle p
 Artist agreement appear. Particular necessary up good.
 Dog lead forward sing step future. My choose beautiful so indicate.', FALSE);
 
--- Insert statements for table: Meal_Tag
+
+INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES
+(1, 'Income', 'Establish'),
+(2, 'Ethnicity', 'Economic'),
+(3, 'Income', 'Read'),
+(4, 'Gender', 'Box'),
+(5, 'Ethnicity', 'Those'),
+(6, 'Gender', 'Last'),
+(7, 'Ethnicity', 'Meeting'),
+(8, 'Ethnicity', 'Although'),
+(9, 'Ethnicity', 'Actually'),
+(10, 'Gender', 'Glass'),
+(11, 'Income', 'North'),
+(12, 'Education', 'Focus'),
+(13, 'Ethnicity', 'Break'),
+(14, 'Income', 'With'),
+(15, 'Income', 'Reveal'),
+(16, 'Income', 'Dream'),
+(17, 'Ethnicity', 'Best'),
+(18, 'Gender', 'Oil'),
+(19, 'Ethnicity', 'High'),
+(20, 'Gender', 'Heart'),
+(21, 'Education', 'Quickly'),
+(22, 'Income', 'Protect'),
+(23, 'Education', 'Sea'),
+(24, 'Ethnicity', 'On'),
+(25, 'Gender', 'Article'),
+(26, 'Gender', 'Song'),
+(27, 'Income', 'Right'),
+(28, 'Education', 'White'),
+(29, 'Gender', 'Relate'),
+(30, 'Education', 'Front'),
+(31, 'Ethnicity', 'Citizen'),
+(32, 'Education', 'Couple'),
+(33, 'Ethnicity', 'Education'),
+(34, 'Gender', 'Last'),
+(35, 'Gender', 'Future');
+
+
+INSERT INTO CategoryData (CategoryID, Name) VALUES
+(1, 'Nice'),
+(2, 'Everybody'),
+(3, 'Push'),
+(4, 'Score'),
+(5, 'Skin'),
+(6, 'Little'),
+(7, 'Ask'),
+(8, 'Mother'),
+(9, 'International'),
+(10, 'Strong'),
+(11, 'Role'),
+(12, 'Thing'),
+(13, 'Bed'),
+(14, 'Serious'),
+(15, 'Save'),
+(16, 'Authority'),
+(17, 'Second'),
+(18, 'Relate'),
+(19, 'Choose'),
+(20, 'Idea'),
+(21, 'Near'),
+(22, 'Price'),
+(23, 'Skill'),
+(24, 'Someone'),
+(25, 'Oil'),
+(26, 'Style'),
+(27, 'Magazine'),
+(28, 'Simply'),
+(29, 'Beyond'),
+(30, 'Drug'),
+(31, 'Per'),
+(32, 'Always'),
+(33, 'Environment'),
+(34, 'Open'),
+(35, 'Up');
+
+
+INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES
+(1, '2020-02-26 17:55:49', 'Set herself involve well sister theory.', 'Low', 'bates-day.biz', 'Raise send animal two fine. Hope out concern pattern act.
+Soldier real toward meet study today style prevent.
+Child through risk manage nice specific involve. Discussion green agree him.
+Situation goal specific fear. Yard score care kid your whatever. Win green push democratic yourself.'),
+(2, '2023-02-27 10:10:23', 'Bank positive challenge discover account talk cost.', 'Medium', 'rhodes.net', 'At inside exist whether bed weight. Paper style with.
+Former down spend key look force.
+Baby product near fact. Realize four firm treatment do offer. Spring my choose firm.
+Forget ten many whom send suffer foreign top. Government party on. Move effort although TV walk believe.'),
+(3, '2023-07-22 18:18:09', 'College support possible society.', 'Critical', 'brown.com', 'Drug positive meeting. Moment soon front produce.
+Including new shake serious. To east service amount if whom prove election.
+Total cell decade town. Their career military. Best left defense we cost kid win.
+Hair measure manage exactly. Its available matter have to culture.'),
+(4, '2023-11-25 02:27:27', 'Age free occur position tree child.', 'Critical', 'powers.com', 'Perform skill spend dog condition teacher rather. Herself bag attack. Raise so child.
+Program store knowledge kid.
+Just improve rise research international film capital. Price sort play participant fact himself. History enough guy increase bank owner. Artist true stock great.'),
+(5, '2020-08-08 15:10:31', 'Pick ago peace life red herself purpose.', 'Medium', 'roberts-mclaughlin.info', 'Forget collection fish that tough firm find. People tree reduce when state focus. Voice able occur shake time.
+Strategy they dream person. Wind upon represent talk fight week affect. Letter everything future.'),
+(6, '2020-09-18 01:54:19', 'Live teacher way team rate green nor.', 'Critical', 'porter.com', 'Democrat explain large war right true page.
+Book record fast arm group dog. Coach view student apply notice notice. Hundred head stand provide offer national general.
+Number bit edge order ball room. Than guy shoulder discuss amount. Physical group case half also.'),
+(7, '2022-07-16 21:20:51', 'Couple minute case audience girl return.', 'Medium', 'hanson-branch.com', 'Occur huge night myself big practice management sure. Job attorney board good rule well yeah.
+Indeed summer think list foreign. Vote race land cause. And ever care to shake red many.
+Thing clear bag. Himself son our full across how a. Increase part born street apply.'),
+(8, '2024-10-09 21:23:23', 'Clear change plan most own discover type.', 'Medium', 'thomas-castro.com', 'First west paper impact sister billion. Operation film land decide. Job act school her.
+Place white race national benefit. Check figure weight actually everything. Edge decide tend really thing anything. Other eat quality picture parent test state.'),
+(9, '2024-05-02 22:55:44', 'Care keep coach real professional.', 'Low', 'collins.org', 'Suddenly school might since fly. Trade point bank those.
+Which sell ahead east indicate which what. Power seat sound treat daughter. Fund smile law task scene senior catch writer.
+Without along most cause. Garden site guess energy parent want plant.'),
+(10, '2020-08-07 06:20:39', 'Technology how charge clear drive.', 'High', 'wright.biz', 'True myself east walk success organization indeed. Range appear yard prepare.
+Great might others Mr education agent. During quality another bit education game reduce. Within special foreign nothing his whether money. Help box site camera front bit.
+Instead safe even.'),
+(11, '2021-05-27 15:09:47', 'Scientist state air resource forward speak.', 'Critical', 'stewart.info', 'Sense truth gun everyone part even. Sing least article develop behind form. Character be key hand situation against.
+Your future laugh least. Three so view need field. Write care shoulder. Country wait improve defense he.
+Accept pull effect. Officer like buy sound.'),
+(12, '2022-03-02 07:43:17', 'Eye society sport color.', 'Low', 'johnson.com', 'Series around performance same financial we point. Ago inside value fear painting me.
+Deep wrong its baby majority far technology. Process if guy explain receive lot idea. Thus perform fact song.'),
+(13, '2023-07-27 14:00:58', 'My sense Republican scientist.', 'Critical', 'lynch.com', 'Maybe often produce decide fast week. Activity thousand pick part single purpose.
+Nation identify number weight food. Free old consider however issue month career make.
+Ability room chair. Establish soldier power imagine.
+Cut month keep. Race several of. Listen writer drive her hand.'),
+(14, '2023-07-02 00:39:28', 'Culture single continue call memory become better instead.', 'Critical', 'dennis.com', 'Although they particular leader field method none.
+Response tough issue lawyer draw plan return.
+Because discuss with. Dream hand day class new some college.
+Certainly every may. Eye gas already above.
+Cost away event condition owner. College decide interest environment price everyone appear.'),
+(15, '2021-08-31 04:35:49', 'Local kind live indeed sea floor Congress wrong.', 'Medium', 'black-neal.info', 'Majority nature system grow. Probably woman science sing. Fact same ten small.
+Behavior whole more cut media hospital camera. Admit player write simply only fine around.
+Career reality throughout hard such three culture. Kitchen benefit several relate assume off. Point clearly throw.'),
+(16, '2020-05-26 12:46:27', 'Matter old out market information strong officer simple.', 'High', 'ross.org', 'Hot television American within street. Race wish threat commercial.
+Direction late person else. Author hot call music buy door still.
+Also ready budget want tax property may. Hospital computer score drop source detail.
+Today despite car. Per may affect couple miss difficult political.'),
+(17, '2021-01-03 08:03:59', 'Money between national chance relationship individual from morning.', 'Critical', 'williams-cortez.com', 'Top moment positive girl commercial. Head put nearly finish future happy.
+Big protect deep nice.
+About life give paper size. Fly letter boy cover certain take. Ground million become bar stock.
+Card certain star get rest. War deal tend final herself. Whether in finish although his.'),
+(18, '2020-03-17 18:11:20', 'Certainly sign event low quality personal.', 'Medium', 'bauer.com', 'Next trade part daughter begin more. Think run item admit image network. Give sit focus cover side adult.
+Window fall weight quality man. Get respond him most.
+Enough focus get age personal PM. East cost design baby.
+Development fly approach almost still store.'),
+(19, '2022-12-12 05:06:21', 'Success bar example happy fight.', 'Medium', 'flores.info', 'A among purpose.
+Young kind little nation animal. Dog region because commercial view.
+Defense wait hospital raise modern ahead claim area. Foreign line red voice surface. Care may admit professional early direction language.'),
+(20, '2021-03-06 23:47:02', 'Necessary dinner commercial physical executive.', 'Critical', 'dawson-joseph.com', 'Become mother not ability system Democrat. Successful course four rock rate.
+Team professor force feeling president also. As cell fill wear.
+Test should minute dream music. Generation trip miss reveal.'),
+(21, '2021-10-07 11:39:39', 'Benefit various game stock something decision.', 'Critical', 'wilson.com', 'Agree evidence center throw as or call. Pattern still east year develop medical thank. Western response air too stop.
+My travel door season deal. Argue agreement listen. Drive popular hold ready listen speak door offer.
+Still arrive think possible protect project.'),
+(22, '2024-09-26 22:40:19', 'Natural just light hotel.', 'Critical', 'fuller.com', 'Fish do little. Reach exactly form first apply. Nothing until behind traditional defense. Author year cultural of wish section difficult.
+Part dog identify real moment already. Per record policy attention she. Very most possible company card.'),
+(23, '2024-05-22 04:23:25', 'Meeting music space yard oil also admit.', 'Low', 'parker.biz', 'Operation us rate less method. Kid often middle close bar. Meeting contain structure capital from system send.
+Grow party skill mean response similar man. Goal friend board analysis option.
+Team a ball decade. Great weight word message today together similar.'),
+(24, '2021-06-29 22:47:24', 'Real list life collection sister focus traditional low.', 'High', 'fernandez.com', 'Article early top coach remain idea cover defense. Understand actually five executive near. Great sister foreign direction thing idea new senior. Make finish identify.
+Phone side exactly see church. Firm herself campaign base change.'),
+(25, '2022-08-15 02:21:38', 'Ask usually member officer.', 'High', 'bowen.biz', 'Large truth one issue late husband. Out should treatment rule piece hear over black.
+Special plant many total head manage white. Enough big wait far son dream yeah.
+Let trial news modern meeting just. Smile bit control call far data. Include again standard.'),
+(26, '2025-04-06 04:05:27', 'Adult water case.', 'Low', 'fields.com', 'Across song team create to. Central feel how.
+Crime of successful member.
+Ok final around performance author find. Threat material benefit.
+Thank technology contain here chair forget leader. Allow reality event health send. Truth matter fish say.'),
+(27, '2021-02-07 08:10:37', 'Great wife seek.', 'Medium', 'barry.net', 'Sense partner speech you yourself but include peace. Very very these.
+Upon another ever nothing sister. Want election present like central community.
+Manager bring operation. First teach population street voice. Out grow best thank soon hotel million.'),
+(28, '2021-05-08 00:07:38', 'Window once age board total modern unit.', 'Medium', 'johnson-mcintosh.com', 'Herself sort course hotel check involve weight. Politics husband because husband.
+Western gun score range stay month I. Knowledge suffer along charge travel level wall. Before drop degree part box thousand age.
+Total make audience about. Yeah cell morning hotel.'),
+(29, '2021-09-28 08:30:49', 'Force behavior newspaper leg teach.', 'Critical', 'hoffman-cunningham.info', 'Operation here too.
+And shoulder down customer six once plant. Sell relationship listen.
+Rich ago list blood southern. Natural election ahead will name candidate whom.
+Next bar letter see teacher. Official town recognize total cup everything off.'),
+(30, '2021-08-23 16:33:14', 'Clearly whose this cell performance cut.', 'Critical', 'tapia.com', 'Ok eat summer want current wrong. Chair career my should region area majority. Son baby treatment relate.
+Rather officer record require difference. House energy sort play be.
+Drive question nor manage president man.
+Information up of paper doctor man.'),
+(31, '2021-03-28 18:51:25', 'Heart travel teacher admit police approach.', 'Low', 'johnson.net', 'Hospital more but safe investment. Employee community social away. Democratic dark seat we response each.
+Region cultural cover whether accept according west ago. Heart present traditional play ahead across.
+Fly team stage last most raise position sing.'),
+(32, '2023-05-27 18:53:42', 'Tough affect this cell after serious southern.', 'Critical', 'cochran-smith.biz', 'Thought media evidence green never dream. Simply huge class her box whole main. Discover young down six president.
+Similar within threat manage. Every easy investment tree away pressure task. Data mean laugh.'),
+(33, '2020-04-28 10:21:28', 'Name product why create cultural material.', 'Medium', 'patterson.com', 'Color rest water despite result where do side. Under sing box into. Difficult little section order new right ready.
+Artist among dinner player leg. Serve change unit.
+Center chair skin manage. Too on rise avoid assume.
+Even some radio. We property impact.'),
+(34, '2020-11-12 02:25:01', 'Develop believe writer white nation.', 'Medium', 'hale.org', 'North chair recognize.
+Water expect either officer article. Difficult beyond able probably hour tree serious. Turn establish sound could should important.
+Over sing sure traditional whom fire. Itself respond relationship whether partner less.'),
+(35, '2022-08-10 23:27:14', 'Stuff commercial trouble evening consumer spend season.', 'Low', 'hughes.biz', 'Guess PM issue near source stand painting. Attack beyond occur cut miss discussion. Represent explain whatever majority door walk anything stock. Public computer vote answer film catch.
+Matter public cup staff possible. Father between sort weight way meet.');
+
+
+INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES
+(1, 'Method question loss thing. Yet because picture camera blood threat sure. Budget back raise drop meeting true prepare what.', 'xsmith', 'Foreign religious media green piece leave. Middle man left under commercial old. Above drive really company knowledge.
+Leg leave course skin apply sing attorney population.
+Community develop choose body though. Government defense political else nothing in hospital.', 'Closed', '2020-08-10 00:58:42'),
+(2, 'Mention difference bar test sure. Manage newspaper option suddenly. Change region despite gun sort.', 'martinezzachary', 'Worry great high treatment also artist friend quickly. Enter future operation thing player traditional foreign agency. Reason begin admit example miss dream rest. Involve officer create important act party take.
+Team method add. International five deep stock. Hit enter especially recognize every.', 'Closed', '2020-05-24 14:05:50'),
+(3, 'Possible begin western term throughout. Window system see current compare.
+Glass yourself actually. Explain phone left capital audience. Wait note machine forward eye listen on.', 'rstewart', 'Ask wind difference. Save choose learn. Artist growth own food.
+Natural decision mission listen response. Half head fall such land always.
+Whether try interview two place. Door opportunity time wait. Magazine job under win job her always. Knowledge step decide myself them.', 'Resolved', '2021-01-18 08:18:59'),
+(4, 'Seek state task. Way practice garden stop meet ability least.
+Million play dream recent Democrat attorney. Money such newspaper yard music.', 'hberger', 'Guy change economic. Couple so from you area.
+Direction attack degree hand determine school. Simple outside bit source phone society.
+High reduce machine especially determine. Herself professor music career key mean music. Financial near performance see.', 'Open', '2024-05-24 09:33:30'),
+(5, 'Watch piece require market rule recognize wall. Explain whom customer.
+Team production while yeah those word score chair. Talk upon add smile. Short garden should carry.', 'rothjose', 'East itself market. Table thus defense.
+Amount black after most chair writer court. Hand half truth amount west material low. Develop model have.
+Any value against record seven key. Sometimes into within customer movie learn cell.', 'In Progress', '2020-01-27 16:01:42'),
+(6, 'Song boy international indicate. Apply together catch guess. Must weight article apply some truth. Continue all system arm these top pay.', 'yodermichael', 'Development bag kitchen exactly southern mind care treatment.
+Chance break security over what trip smile. Bill main cell. Mouth store provide animal. Six pick worry member according.', 'Closed', '2022-01-09 03:07:23'),
+(7, 'Outside always account cost wear care in. Table catch thus white method start. Reality author PM almost make.
+Through easy one tough. Item cold team individual clearly wonder career so.', 'david07', 'Bag item Mrs state time rather woman low. Discover cause program bag close business.
+New glass city agency position good. From effort night town. Two bit green investment size majority order. Nearly order follow million little stage.', 'Closed', '2021-07-04 08:02:15'),
+(8, 'Something moment material investment ok.
+Outside save reduce six. Deep interest before matter sister.', 'sanderson', 'Share less tree environment check someone break.
+Open special around parent full pull goal. Minute boy major.
+Piece control information down statement travel talk. Discuss reason bad sound statement. Suffer left certainly.
+Although can large middle require official. Sit strong nothing treat.', 'Open', '2023-01-20 22:42:55'),
+(9, 'Ago that hot consider affect. Knowledge throw from all.
+Agent cold also each might. Shoulder bring focus dog see money activity. Serious catch future service safe able.', 'bjensen', 'Peace us fight huge enter financial. Allow full wish term would.
+Reflect test exactly miss fall value later us. Almost dinner cold especially find cup no. Letter hundred south organization probably.', 'Closed', '2024-10-09 10:54:21'),
+(10, 'Probably know dark a early sure southern opportunity. Later cost recognize area conference. Series effort likely part television receive.
+Weight region someone themselves analysis maybe pick current.', 'tuckerkevin', 'Save information treat until strategy start specific maybe. Order wait teach only write. Day help all friend hair very relate.
+Year around you whole send trial citizen face. Never citizen bill.
+College will car of often treat.', 'Resolved', '2024-12-02 10:38:33'),
+(11, 'International stuff president American majority product improve. A need move use kid size suddenly. Line senior leader since truth.', 'eharmon', 'Fight media thank near agreement. Medical them best foot all once. Suggest population receive however good word attorney.
+Look quickly consider people. Where attention force century life far woman. Spend include radio model trip.', 'In Progress', '2021-11-10 06:55:14'),
+(12, 'Sort two behavior young. Impact ground police we carry poor cause most. Book poor none use.', 'alexis68', 'Beautiful worker building international. Evening lose event. Start answer board alone factor kind painting.
+Discuss top human foot least seven. Their drug analysis foot.
+Best interesting body time. Energy option per much argue foreign policy although.', 'Closed', '2021-08-08 01:46:20'),
+(13, 'Hotel sound world wonder movement. Plant development society class.
+Hot again conference year put party.
+Recognize effort car picture design serve ago few. Body although institution I.', 'kathrynknight', 'Difference page few appear against. Bad somebody process bank difference.
+Boy sea couple cost provide. Support realize push result. Mrs case reason nature.', 'Closed', '2021-02-16 08:29:47'),
+(14, 'Future time thousand enter. Area bill want who. Meeting who especially find suddenly end drive. Recent task indicate.', 'hollymiller', 'Do feeling project benefit. Identify attorney still well camera.
+Performance thousand him meeting. Answer once bed occur pick reflect rest inside. Fly rich institution interest outside understand purpose.
+Woman term hair such home project face real. Score plant item growth item.', 'Open', '2020-12-09 02:14:49'),
+(15, 'Congress buy spend himself. Agree security quality glass once I.
+Three little store for prevent key guy. Issue interest focus control note organization. Mind wide audience son able work which.', 'johnsontrevor', 'Add effect meeting through. Contain police citizen could.
+Rich us vote science hair knowledge. Rule over economy charge add management. Allow address market share form none. Exist serve well later.
+Fall try toward sing commercial one anything. Sometimes building Mrs exist couple look dog.', 'Resolved', '2020-12-03 03:38:21'),
+(16, 'There Congress trip performance property police.
+Off maintain mission worker ago. Yeah yard mention seven edge. Huge often red pass behavior investment.', 'robertsonbrian', 'But her media plant. Item think expert fill would.
+Eye energy join threat. Yet five detail image activity. At oil executive process tell today.', 'Open', '2022-09-23 19:05:59'),
+(17, 'Color west marriage effect throw early. Some property new only war hit. Clearly office oil because. Practice news try when.', 'douglaslutz', 'Yard certainly tell growth pay future training. Politics art girl situation.
+Hope area contain. Avoid adult really hope. Speech Congress expert sister rise firm book.
+Toward trip election year outside open. Almost soldier nation believe tend teacher.', 'Open', '2024-07-12 13:48:46'),
+(18, 'More continue enough.
+Else small church dinner table. Surface then analysis side smile strategy. Conference quality understand finally entire.', 'fzuniga', 'Say explain dog sell public direction interview. What another level section page many stay.
+Open speak support special floor news. Sure professor together project. Make society too girl ask away.
+And contain eye hundred sort glass last skill. Senior subject either.', 'Resolved', '2024-07-24 17:21:25'),
+(19, 'Relationship mention Republican both color force. Spring vote case court. Office would task PM difference wall through.', 'amberaustin', 'Produce season but make language anyone feel. Might institution institution I health agent open. Others garden better.
+Away within hold real safe. Pick table involve set around.
+Million loss local decision rate indicate. Question over open keep drop. Plan involve power.', 'Closed', '2023-03-24 09:12:48'),
+(20, 'City radio speak feel agreement drive physical. Population huge affect.
+Record certainly natural different still population. Industry may bed cause seem.', 'ymclaughlin', 'Chair leg Mr heavy. Sister walk amount front themselves. Huge few group road.
+Painting short only generation news bed. Direction suggest day.
+Compare later part. History myself door nature. Hospital be water between purpose entire table. Lead produce medical value.', 'Resolved', '2023-10-07 22:58:19'),
+(21, 'Season point most push daughter nothing.
+Administration participant else chance. Culture situation system foreign. Become site effort find though act.', 'jessica01', 'Great not similar green. Raise western keep billion behavior. Step dog not measure.
+Evidence police pull attention. Drug teacher bill reason analysis physical lose. Seem rather north talk before.
+Share author away policy lead human. Actually give public outside soon. Set worry join name.', 'In Progress', '2025-01-21 08:58:57'),
+(22, 'Woman however step hold appear. Smile laugh car against.
+Open newspaper least why. Whatever rest future late above. Ready dark each support act.', 'deannafrost', 'Member site grow because war. Now organization lay role appear only cup. Feel glass born boy soon finally recently.
+Lawyer win top game travel to. Break kid quality prepare reason. Send whether firm others.', 'In Progress', '2023-04-29 18:56:44'),
+(23, 'To none outside return term type lay. Itself song dream turn environment physical its modern.
+Sound reach argue always program matter administration. Summer hear information several series.', 'pittmanbailey', 'Growth high among anything against professional. Two thing yet design particular indicate. Interesting maybe blood yeah way human.
+After participant lot color perform allow study.
+Company expert policy. Ability hotel morning choice other until then. Support course enough require degree maintain.', 'In Progress', '2020-11-05 18:49:57'),
+(24, 'Place much who community show.
+Up as option majority hotel red their. International marriage assume purpose try late fall.', 'robert49', 'Visit leader skill there yard. Relate recently big fill you hot. Try set around what star wind church he. Option poor figure including against glass.
+Ahead per foot house push choice.
+Speak several feel listen travel professional. National relate bar. Energy capital upon control.', 'Closed', '2021-01-05 15:27:21'),
+(25, 'Drop smile century ask player more. Go next indeed make international before. Beat example let hot.', 'coryroth', 'Suddenly although simple key history west bed. Pressure according surface recent different foot glass.
+Purpose east sister age total practice practice. Assume seem fine stage.
+How before member admit become under. Discussion result agree entire.', 'In Progress', '2022-06-02 03:05:26'),
+(26, 'Production money decision guess significant. Later ok process wife process. Dark high shake special common hospital paper.
+Truth spend out white discuss.', 'wayne47', 'Company no just. Natural drive over theory benefit experience.
+Expect until minute ever. Store care feel beautiful professor no.
+Task east their couple. Identify senior team industry law.
+Would too cultural collection accept cold. Edge no bank organization PM blood.', 'In Progress', '2024-10-24 17:04:49'),
+(27, 'System hot when near finally. Suddenly gun experience third fund everyone.
+Race its provide window he. Certainly born if push significant.', 'mary29', 'Agent interest beat consumer food trouble more arm. About benefit maintain none.
+Let later oil consider west. Man defense even return become people.
+Change probably move report. Pretty step explain oil. Laugh guy quite itself store.', 'Open', '2025-02-12 15:22:02'),
+(28, 'Red also test trial week add.
+Ask compare same like right theory. Perhaps his prepare appear above how. Finish loss also thank industry. Change sister personal study suddenly summer.', 'troy26', 'Low finally military watch fast age bit reduce. Thousand process role behind lawyer you professional newspaper. Its activity attorney listen police work reach. Hundred head lawyer.
+House site name value anyone. Attorney continue nearly Mrs. Hand should ten station.', 'Closed', '2021-07-22 17:06:11'),
+(29, 'Weight four system place still offer. Official option check response member my enough.', 'ecalderon', 'Allow civil tree your situation. Character son miss store trouble. Say policy feeling other whole. Begin occur field now hour.
+All site strategy usually role prove. Ground born girl consumer claim.', 'Open', '2024-05-22 23:55:56'),
+(30, 'Senior page religious word bed.
+While ball defense bag from upon among.
+Per rate morning keep investment. Item ok I. Drive per security maintain positive.', 'garciapaul', 'Might too newspaper leave accept school water never. Without key range agent reality nice food. Official join same standard international popular.
+Despite represent management look. Economy church hospital certain cell type represent. Management right sign until party break.', 'In Progress', '2022-11-03 23:53:39'),
+(31, 'Music until bag bit crime baby stop need. Close standard find Mr assume first some.
+Modern study radio sell however. Think crime nature seek may state.', 'michael65', 'Catch contain under. Effort that successful future read image weight just. Heavy listen upon just market step beat.
+Before occur customer their. Particularly beautiful ask card condition. Manage feeling manage company.
+Everybody stay make American trip. Help wall over fall day think.', 'Open', '2024-02-12 23:07:52'),
+(32, 'Join data general nice front appear. Concern serious draw page kid class.', 'wcarr', 'American language place hand method old next. Quickly least represent whom reach look part. Hope them yard wind fire.
+Level window its analysis.
+Brother rock growth we certain.
+Six finish seven really. Modern lead great close often dinner thought. Agent house test try result.', 'In Progress', '2022-01-29 06:33:32'),
+(33, 'Special her technology particularly scientist. Pay past suddenly more effect. Sound same away listen alone.
+Born west value. Wait investment interest cause public body sing.', 'sarmstrong', 'Coach well individual mean. Attack lose maybe successful. Them lead market herself good course against.
+Sell listen allow side investment threat year. Music almost air word. Event west would wall sort them.
+Career return administration staff spring place interest. Together coach let.', 'Closed', '2024-07-26 23:27:42'),
+(34, 'State general nature street. Author work speak support. Technology summer born stop test how after.
+Pull leg herself listen individual goal person. Miss nothing former look pattern up.', 'rgoodman', 'College model agency Mr activity environment. Act dream surface me.
+Another least candidate per offer. Present then somebody artist.
+Focus away their card public range role. Forward themselves identify next example. Public card show difference.', 'Open', '2024-09-27 23:18:14'),
+(35, 'Finally cause day my chair. Citizen evidence become nothing Democrat shoulder market.
+Station watch old stage message right month. Light evening to.
+Still before growth story.', 'aguirrericky', 'West international into store situation quickly pass. Collection either put shoulder.
+Sound near ever carry. Together full woman future vote speak chance.
+Option however sure knowledge. Often foot measure especially. Government wear turn back drive agreement.', 'Resolved', '2021-10-22 13:06:57');
+
+
+INSERT INTO Follows (follower_id, followee_id, follow_date) VALUES
+('gatesjames', 'zcarpenter', '2022-11-23'),
+('qsanchez', 'gherrera', '2023-07-29'),
+('michael99', 'carpenterteresa', '2024-06-14'),
+('phuerta', 'michael99', '2021-05-04'),
+('qsanchez', 'olee', '2022-02-17'),
+('mjohnson', 'michelle25', '2022-12-25'),
+('mjohnson', 'jefferydavis', '2024-03-25'),
+('wilkinsjose', 'mwheeler', '2024-03-07'),
+('zcarpenter', 'rebecca94', '2024-10-25'),
+('jeffreymorris', 'shelby08', '2022-03-23'),
+('leslie91', 'annehendrix', '2024-07-09'),
+('wilkinsjose', 'rebecca94', '2023-01-09'),
+('olee', 'shelby08', '2022-08-30'),
+('zcarpenter', 'mjohnson', '2024-01-22'),
+('amy03', 'qsanchez', '2021-04-21'),
+('olee', 'michelle25', '2021-11-14'),
+('brittanypowell', 'tiffany71', '2024-09-20'),
+('joseph81', 'renee18', '2021-08-06'),
+('annehendrix', 'gatesjames', '2020-01-16'),
+('orobinson', 'sandraparker', '2022-12-18'),
+('phuerta', 'leslie91', '2023-09-24'),
+('nicholasdavis', 'mwheeler', '2024-10-14'),
+('qsanchez', 'jeanbautista', '2020-12-23'),
+('annehendrix', 'phuerta', '2024-07-22'),
+('mwheeler', 'michael99', '2021-07-18'),
+('annehendrix', 'qsanchez', '2021-10-03'),
+('mjohnson', 'amy03', '2021-06-25'),
+('mjohnson', 'zcarpenter', '2021-09-10'),
+('jeffreyfrazier', 'orobinson', '2025-04-09'),
+('wilkinsjose', 'montgomerynathaniel', '2024-11-09'),
+('jeanbautista', 'sandraparker', '2023-11-02'),
+('gbuckley', 'brittanypowell', '2024-01-27'),
+('michelle25', 'leslie91', '2021-09-30'),
+('michelle25', 'joseph81', '2020-09-07'),
+('ryan08', 'gherrera', '2022-06-25'),
+('brian24', 'gherrera', '2023-08-09'),
+('olee', 'gatesjames', '2021-10-23'),
+('shelby08', 'renee18', '2021-09-25'),
+('qsanchez', 'orobinson', '2022-04-13'),
+('zcarpenter', 'jeffreymorris', '2022-08-08'),
+('jeffreymorris', 'tiffany71', '2022-04-26'),
+('montgomerynathaniel', 'wilkinsjose', '2023-07-10'),
+('sandraparker', 'jeffreymorris', '2022-07-03'),
+('phuerta', 'orobinson', '2021-02-20'),
+('amy03', 'carpenterteresa', '2025-02-25'),
+('olee', 'nmeyer', '2025-03-05'),
+('brian24', 'rebecca94', '2020-12-10'),
+('mjohnson', 'brittanypowell', '2020-03-06'),
+('leslie91', 'anthonyjackson', '2024-07-23'),
+('phuerta', 'nicholasdavis', '2022-05-27'),
+('phuerta', 'joseph81', '2023-09-26'),
+('ryan08', 'annehendrix', '2023-10-04'),
+('carpenterteresa', 'sandraparker', '2021-06-22'),
+('shelby08', 'qsanchez', '2020-04-18'),
+('ryan08', 'amy03', '2023-04-21'),
+('annehendrix', 'rebecca94', '2024-01-07'),
+('mwheeler', 'jeffreymorris', '2023-04-23'),
+('jeanbautista', 'michelle25', '2024-10-24'),
+('tiffany71', 'jeanbautista', '2021-03-27'),
+('annehendrix', 'nmeyer', '2025-02-02'),
+('gatesjames', 'jeffreymorris', '2023-07-25'),
+('nmeyer', 'qsanchez', '2023-06-12'),
+('mwheeler', 'nicholasdavis', '2020-03-23'),
+('qsanchez', 'michael99', '2022-03-29'),
+('michael99', 'brittanypowell', '2023-08-06'),
+('jeffreymorris', 'gherrera', '2023-04-18'),
+('renee18', 'jefferydavis', '2022-07-29'),
+('amy03', 'tiffany71', '2020-01-19'),
+('gbuckley', 'michelle25', '2024-01-16'),
+('qsanchez', 'brittanypowell', '2022-05-05'),
+('olee', 'ryan08', '2020-04-17'),
+('brittanypowell', 'rebecca94', '2022-05-15'),
+('amy03', 'gatesjames', '2023-08-19'),
+('mwheeler', 'leslie91', '2020-09-08'),
+('michael99', 'renee18', '2021-03-03'),
+('shelby08', 'joseph81', '2025-03-02'),
+('mwheeler', 'brittanypowell', '2020-07-18'),
+('orobinson', 'mwheeler', '2021-11-16'),
+('leslie91', 'brittanypowell', '2023-04-20'),
+('michelle25', 'carpenterteresa', '2022-02-05'),
+('joseph81', 'jeffreyfrazier', '2022-07-18'),
+('carpenterteresa', 'brittanypowell', '2022-06-04'),
+('jeffreymorris', 'brian24', '2024-01-06'),
+('annehendrix', 'jeffreyfrazier', '2022-04-09'),
+('gatesjames', 'amy03', '2023-03-07'),
+('michael99', 'montgomerynathaniel', '2020-08-27'),
+('brittanypowell', 'qsanchez', '2023-06-01'),
+('oherring', 'montgomerynathaniel', '2024-11-24'),
+('mwheeler', 'gbuckley', '2022-09-21'),
+('nicholasdavis', 'renee18', '2023-08-10'),
+('brittanypowell', 'olee', '2021-05-14'),
+('oherring', 'anthonyjackson', '2022-05-11'),
+('gbuckley', 'montgomerynathaniel', '2020-12-30'),
+('shelby08', 'jeanbautista', '2024-12-13'),
+('jefferydavis', 'ryan08', '2023-05-06'),
+('anthonyjackson', 'montgomerynathaniel', '2024-09-14'),
+('anthonyjackson', 'jeffreyfrazier', '2022-05-31'),
+('nmeyer', 'mwheeler', '2025-02-03'),
+('olee', 'tiffany71', '2022-10-24'),
+('nicholasdavis', 'jeffreymorris', '2020-08-14'),
+('tiffany71', 'carpenterteresa', '2022-02-08'),
+('gatesjames', 'ryan08', '2020-09-19'),
+('qsanchez', 'ryan08', '2021-03-01'),
+('jeffreymorris', 'michael99', '2021-01-21'),
+('carpenterteresa', 'annehendrix', '2020-01-10'),
+('orobinson', 'ryan08', '2024-01-05'),
+('gherrera', 'jeffreyfrazier', '2020-10-07'),
+('jeffreymorris', 'rebecca94', '2022-07-26'),
+('gherrera', 'anthonyjackson', '2024-10-08'),
+('shelby08', 'sandraparker', '2022-10-12'),
+('nmeyer', 'annehendrix', '2022-06-28'),
+('montgomerynathaniel', 'renee18', '2020-01-27'),
+('rebecca94', 'qsanchez', '2024-09-04'),
+('nmeyer', 'gatesjames', '2022-01-21');
+
 INSERT INTO Meal_Tag (RecipeID, TagID) VALUES
 (19, 16),
 (1, 24),
@@ -649,7 +994,8 @@ INSERT INTO Meal_Tag (RecipeID, TagID) VALUES
 (9, 2),
 (29, 13);
 
--- Insert statements for table: Blog
+
+
 INSERT INTO Blog (BlogID, PublishDate, Content, Title, Username, RecipeID) VALUES
 (1, '2025-04-06 15:48:40', 'Pay order analysis gun. Paper phone federal kind local majority also. Threat green animal position.
 Unit morning music moment per personal marriage full. Situation throughout quickly loss be.
@@ -780,7 +1126,7 @@ Item mean third. Politics visit enjoy arm including. Easy wife alone pick skin.
 Group clearly beautiful employee.
 Much look despite energy develop consider reality work.', 'End huge hospital often authority.', 'mendezrussell', 33),
 (28, '2024-03-15 06:23:41', 'Ten each together animal recently author. Record past human second sit set boy.
-Themselves everybody sit push class. Garden member ready news poor thank great mother. Your now military rise military.
+Themselves everybody sit push class involve weight. Garden member ready news poor thank great mother. Your now military rise military.
 Process its decision nation. Hold on factor responsibility reason. Local up nor week couple stay anyone professor.
 Whom will build field sure.
 Physical before finish begin. Determine fund fish herself. Stand specific strategy push could test.', 'Country keep physical.', 'mmitchell', 18),
@@ -819,7 +1165,7 @@ Allow get decide join get future. Environmental much scene like present American
 Human sit recently art consumer some talk ahead. Worker with technology that seek boy. Analysis kind somebody deal safe night second.
 Moment miss area yet court campaign. Participant edge interest note art everything most.', 'Interesting election cover suffer drive.', 'sotomeghan', 21);
 
--- Insert statements for table: Blog_Meal
+
 INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES
 (17, 6),
 (13, 27),
@@ -963,7 +1309,7 @@ INSERT INTO Blog_Meal (BlogID, RecipeID) VALUES
 (6, 21),
 (29, 27);
 
--- Insert statements for table: Saved_Meals
+
 INSERT INTO Saved_Meals (Username, RecipeID) VALUES
 ('mmitchell', 18),
 ('mjohnson', 9),
@@ -1108,7 +1454,7 @@ INSERT INTO Saved_Meals (Username, RecipeID) VALUES
 ('dpage', 34),
 ('jenniferchambers', 32);
 
--- Insert statements for table: Added_Meals
+
 INSERT INTO Added_Meals (Username, RecipeID) VALUES
 ('smiller', 8),
 ('tyler63', 19),
@@ -1249,45 +1595,7 @@ INSERT INTO Added_Meals (Username, RecipeID) VALUES
 ('mcarrillo', 10),
 ('pmorgan', 35);
 
--- Insert statements for table: DemographicGroupData
-INSERT INTO DemographicGroupData (GroupID, GroupType, GroupValue) VALUES
-(1, 'Income', 'Establish'),
-(2, 'Ethnicity', 'Economic'),
-(3, 'Income', 'Read'),
-(4, 'Gender', 'Box'),
-(5, 'Ethnicity', 'Those'),
-(6, 'Gender', 'Last'),
-(7, 'Ethnicity', 'Meeting'),
-(8, 'Ethnicity', 'Although'),
-(9, 'Ethnicity', 'Actually'),
-(10, 'Gender', 'Glass'),
-(11, 'Income', 'North'),
-(12, 'Education', 'Focus'),
-(13, 'Ethnicity', 'Break'),
-(14, 'Income', 'With'),
-(15, 'Income', 'Reveal'),
-(16, 'Income', 'Dream'),
-(17, 'Ethnicity', 'Best'),
-(18, 'Gender', 'Oil'),
-(19, 'Ethnicity', 'High'),
-(20, 'Gender', 'Heart'),
-(21, 'Education', 'Quickly'),
-(22, 'Income', 'Protect'),
-(23, 'Education', 'Sea'),
-(24, 'Ethnicity', 'On'),
-(25, 'Gender', 'Article'),
-(26, 'Gender', 'Song'),
-(27, 'Income', 'Right'),
-(28, 'Education', 'White'),
-(29, 'Gender', 'Relate'),
-(30, 'Education', 'Front'),
-(31, 'Ethnicity', 'Citizen'),
-(32, 'Education', 'Couple'),
-(33, 'Ethnicity', 'Education'),
-(34, 'Gender', 'Last'),
-(35, 'Gender', 'Future');
 
--- Insert statements for table: UserDemographic
 INSERT INTO UserDemographic (UserID, GroupID) VALUES
 ('saramccarthy', 16),
 ('hallbrandi', 28),
@@ -1435,45 +1743,6 @@ INSERT INTO UserDemographic (UserID, GroupID) VALUES
 ('antonio70', 11);
 
 
--- Insert statements for table: CategoryData
-INSERT INTO CategoryData (CategoryID, Name) VALUES
-(1, 'Nice'),
-(2, 'Everybody'),
-(3, 'Push'),
-(4, 'Score'),
-(5, 'Skin'),
-(6, 'Little'),
-(7, 'Ask'),
-(8, 'Mother'),
-(9, 'International'),
-(10, 'Strong'),
-(11, 'Role'),
-(12, 'Thing'),
-(13, 'Bed'),
-(14, 'Serious'),
-(15, 'Save'),
-(16, 'Authority'),
-(17, 'Second'),
-(18, 'Relate'),
-(19, 'Choose'),
-(20, 'Idea'),
-(21, 'Near'),
-(22, 'Price'),
-(23, 'Skill'),
-(24, 'Someone'),
-(25, 'Oil'),
-(26, 'Style'),
-(27, 'Magazine'),
-(28, 'Simply'),
-(29, 'Beyond'),
-(30, 'Drug'),
-(31, 'Per'),
-(32, 'Always'),
-(33, 'Environment'),
-(34, 'Open'),
-(35, 'Up');
-
--- Insert statements for table: RecipeData
 INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALUES
 (1, 'Pressure Dish', TRUE, 6, 584),
 (2, 'Pressure Dish', TRUE, 3, 3871),
@@ -1512,7 +1781,6 @@ INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount) VALU
 (35, 'Blood Dish', TRUE, 7, 107);
 
 
--- Insert statements for table: Interaction
 INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Timestamp) VALUES
 (1, 'bbaker', 6, 'Like', '2020-09-23 08:20:11'),
 (2, 'johnny76', 9, 'Share', '2024-05-19 17:11:12'),
@@ -1551,249 +1819,6 @@ INSERT INTO Interaction (InteractionID, UserID, RecipeID, InteractionType, Times
 (35, 'bbaker', 11, 'Share', '2024-05-20 20:57:41');
 
 
--- Insert statements for table: LogEntry
-INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES
-(1, '2020-02-26 17:55:49', 'Set herself involve well sister theory.', 'Low', 'bates-day.biz', 'Raise send animal two fine. Hope out concern pattern act.
-Soldier real toward meet study today style prevent.
-Child through risk manage nice specific involve. Discussion green agree him.
-Situation goal specific fear. Yard score care kid your whatever. Win green push democratic yourself.'),
-(2, '2023-02-27 10:10:23', 'Bank positive challenge discover account talk cost.', 'Medium', 'rhodes.net', 'At inside exist whether bed weight. Paper style with.
-Former down spend key look force.
-Baby product near fact. Realize four firm treatment do offer. Spring my choose firm.
-Forget ten many whom send suffer foreign top. Government party on. Move effort although TV walk believe.'),
-(3, '2023-07-22 18:18:09', 'College support possible society.', 'Critical', 'brown.com', 'Drug positive meeting. Moment soon front produce.
-Including new shake serious. To east service amount if whom prove election.
-Total cell decade town. Their career military. Best left defense we cost kid win.
-Hair measure manage exactly. Its available matter have to culture.'),
-(4, '2023-11-25 02:27:27', 'Age free occur position tree child.', 'Critical', 'powers.com', 'Perform skill spend dog condition teacher rather. Herself bag attack. Raise so child.
-Program store knowledge kid.
-Just improve rise research international film capital. Price sort play participant fact himself. History enough guy increase bank owner. Artist true stock great.'),
-(5, '2020-08-08 15:10:31', 'Pick ago peace life red herself purpose.', 'Medium', 'roberts-mclaughlin.info', 'Forget collection fish that tough firm find. People tree reduce when state focus. Voice able occur shake time.
-Strategy they dream person. Wind upon represent talk fight week affect. Letter everything future.'),
-(6, '2020-09-18 01:54:19', 'Live teacher way team rate green nor.', 'Critical', 'porter.com', 'Democrat explain large war right true page.
-Book record fast arm group dog. Coach view student apply notice notice. Hundred head stand provide offer national general.
-Number bit edge order ball room. Than guy shoulder discuss amount. Physical group case half also.'),
-(7, '2022-07-16 21:20:51', 'Couple minute case audience girl return.', 'Medium', 'hanson-branch.com', 'Occur huge night myself big practice management sure. Job attorney board good rule well yeah.
-Indeed summer think list foreign. Vote race land cause. And ever care to shake red many.
-Thing clear bag. Himself son our full across how a. Increase part born street apply.'),
-(8, '2024-10-09 21:23:23', 'Clear change plan most own discover type.', 'Medium', 'thomas-castro.com', 'First west paper impact sister billion. Operation film land decide. Job act school her.
-Place white race national benefit. Check figure weight actually everything. Edge decide tend really thing anything. Other eat quality picture parent test state.'),
-(9, '2024-05-02 22:55:44', 'Care keep coach real professional.', 'Low', 'collins.org', 'Suddenly school might since fly. Trade point bank those.
-Which sell ahead east indicate which what. Power seat sound treat daughter. Fund smile law task scene senior catch writer.
-Without along most cause. Garden site guess energy parent want plant.'),
-(10, '2020-08-07 06:20:39', 'Technology how charge clear drive.', 'High', 'wright.biz', 'True myself east walk success organization indeed. Range appear yard prepare.
-Great might others Mr education agent. During quality another bit education game reduce. Within special foreign nothing his whether money. Help box site camera front bit.
-Instead safe even.'),
-(11, '2021-05-27 15:09:47', 'Scientist state air resource forward speak.', 'Critical', 'stewart.info', 'Sense truth gun everyone part even. Sing least article develop behind form. Character be key hand situation against.
-Your future laugh least. Three so view need field. Write care shoulder. Country wait improve defense he.
-Accept pull effect. Officer like buy sound.'),
-(12, '2022-03-02 07:43:17', 'Eye society sport color.', 'Low', 'johnson.com', 'Series around performance same financial we point. Ago inside value fear painting me.
-Deep wrong its baby majority far technology. Process if guy explain receive lot idea. Thus perform fact song.'),
-(13, '2023-07-27 14:00:58', 'My sense Republican scientist.', 'Critical', 'lynch.com', 'Maybe often produce decide fast week. Activity thousand pick part single purpose.
-Nation identify number weight food. Free old consider however issue month career make.
-Ability room chair. Establish soldier power imagine.
-Cut month keep. Race several of. Listen writer drive her hand.'),
-(14, '2023-07-02 00:39:28', 'Culture single continue call memory become better instead.', 'Critical', 'dennis.com', 'Although they particular leader field method none.
-Response tough issue lawyer draw plan return.
-Because discuss with. Dream hand day class new some college.
-Certainly every may. Eye gas already above.
-Cost away event condition owner. College decide interest environment price everyone appear.'),
-(15, '2021-08-31 04:35:49', 'Local kind live indeed sea floor Congress wrong.', 'Medium', 'black-neal.info', 'Majority nature system grow. Probably woman science sing. Fact same ten small.
-Behavior whole more cut media hospital camera. Admit player write simply only fine around.
-Career reality throughout hard such three culture. Kitchen benefit several relate assume off. Point clearly throw.'),
-(16, '2020-05-26 12:46:27', 'Matter old out market information strong officer simple.', 'High', 'ross.org', 'Hot television American within street. Race wish threat commercial.
-Direction late person else. Author hot call music buy door still.
-Also ready budget want tax property may. Hospital computer score drop source detail.
-Today despite car. Per may affect couple miss difficult political.'),
-(17, '2021-01-03 08:03:59', 'Money between national chance relationship individual from morning.', 'Critical', 'williams-cortez.com', 'Top moment positive girl commercial. Head put nearly finish future happy.
-Big protect deep nice.
-About life give paper size. Fly letter boy cover certain take. Ground million become bar stock.
-Card certain star get rest. War deal tend final herself. Whether in finish although his.'),
-(18, '2020-03-17 18:11:20', 'Certainly sign event low quality personal.', 'Medium', 'bauer.com', 'Next trade part daughter begin more. Think run item admit image network. Give sit focus cover side adult.
-Window fall weight quality man. Get respond him most.
-Enough focus get age personal PM. East cost design baby.
-Development fly approach almost still store.'),
-(19, '2022-12-12 05:06:21', 'Success bar example happy fight.', 'Medium', 'flores.info', 'A among purpose.
-Young kind little nation animal. Dog region because commercial view.
-Defense wait hospital raise modern ahead claim area. Foreign line red voice surface. Care may admit professional early direction language.'),
-(20, '2021-03-06 23:47:02', 'Necessary dinner commercial physical executive.', 'Critical', 'dawson-joseph.com', 'Become mother not ability system Democrat. Successful course four rock rate.
-Team professor force feeling president also. As cell fill wear.
-Test should minute dream music. Generation trip miss reveal.'),
-(21, '2021-10-07 11:39:39', 'Benefit various game stock something decision.', 'Critical', 'wilson.com', 'Agree evidence center throw as or call. Pattern still east year develop medical thank. Western response air too stop.
-My travel door season deal. Argue agreement listen. Drive popular hold ready listen speak door offer.
-Still arrive think possible protect project.'),
-(22, '2024-09-26 22:40:19', 'Natural just light hotel.', 'Critical', 'fuller.com', 'Fish do little. Reach exactly form first apply. Nothing until behind traditional defense. Author year cultural of wish section difficult.
-Part dog identify real moment already. Per record policy attention she. Very most possible company card.'),
-(23, '2024-05-22 04:23:25', 'Meeting music space yard oil also admit.', 'Low', 'parker.biz', 'Operation us rate less method. Kid often middle close bar. Meeting contain structure capital from system send.
-Grow party skill mean response similar man. Goal friend board analysis option.
-Team a ball decade. Great weight word message today together similar.'),
-(24, '2021-06-29 22:47:24', 'Real list life collection sister focus traditional low.', 'High', 'fernandez.com', 'Article early top coach remain idea cover defense. Understand actually five executive near. Great sister foreign direction thing idea new senior. Make finish identify.
-Phone side exactly see church. Firm herself campaign base change.'),
-(25, '2022-08-15 02:21:38', 'Ask usually member officer.', 'High', 'bowen.biz', 'Large truth one issue late husband. Out should treatment rule piece hear over black.
-Special plant many total head manage white. Enough big wait far son dream yeah.
-Let trial news modern meeting just. Smile bit control call far data. Include again standard.'),
-(26, '2025-04-06 04:05:27', 'Adult water case.', 'Low', 'fields.com', 'Across song team create to. Central feel how.
-Crime of successful member.
-Ok final around performance author find. Threat material benefit.
-Thank technology contain here chair forget leader. Allow reality event health send. Truth matter fish say.'),
-(27, '2021-02-07 08:10:37', 'Great wife seek.', 'Medium', 'barry.net', 'Sense partner speech you yourself but include peace. Very very these.
-Upon another ever nothing sister. Want election present like central community.
-Manager bring operation. First teach population street voice. Out grow best thank soon hotel million.'),
-(28, '2021-05-08 00:07:38', 'Window once age board total modern unit.', 'Medium', 'johnson-mcintosh.com', 'Herself sort course hotel check involve weight. Politics husband because husband.
-Western gun score range stay month I. Knowledge suffer along charge travel level wall. Before drop degree part box thousand age.
-Total make audience about. Yeah cell morning hotel.'),
-(29, '2021-09-28 08:30:49', 'Force behavior newspaper leg teach.', 'Critical', 'hoffman-cunningham.info', 'Operation here too.
-And shoulder down customer six once plant. Sell relationship listen.
-Rich ago list blood southern. Natural election ahead will name candidate whom.
-Next bar letter see teacher. Official town recognize total cup everything off.'),
-(30, '2021-08-23 16:33:14', 'Clearly whose this cell performance cut.', 'Critical', 'tapia.com', 'Ok eat summer want current wrong. Chair career my should region area majority. Son baby treatment relate.
-Rather officer record require difference. House energy sort play be.
-Drive question nor manage president. Information up of paper doctor man.'),
-(31, '2021-03-28 18:51:25', 'Heart travel teacher admit police approach.', 'Low', 'johnson.net', 'Hospital more but safe investment. Employee community social away. Democratic dark seat we response each.
-Region cultural cover whether accept according west ago. Heart present traditional play ahead across.
-Fly team stage last most raise position sing.'),
-(32, '2023-05-27 18:53:42', 'Tough affect this cell after serious southern.', 'Critical', 'cochran-smith.biz', 'Thought media evidence green never dream. Simply huge class her box whole main. Discover young down six president.
-Similar within threat manage. Every easy investment tree away pressure task. Data mean laugh.'),
-(33, '2020-04-28 10:21:28', 'Name product why create cultural material.', 'Medium', 'patterson.com', 'Color rest water despite result where do side. Under sing box into. Difficult little section order new right ready.
-Artist among dinner player leg. Serve change unit.
-Center chair skin manage. Too on rise avoid assume.
-Even some radio. We property impact.'),
-(34, '2020-11-12 02:25:01', 'Develop believe writer white nation.', 'Medium', 'hale.org', 'North chair recognize.
-Water expect either officer article. Difficult beyond able probably hour tree serious. Turn establish sound could should important.
-Over sing sure traditional whom fire. Itself respond relationship whether partner less.'),
-(35, '2022-08-10 23:27:14', 'Stuff commercial trouble evening consumer spend season.', 'Low', 'hughes.biz', 'Guess PM issue near source stand painting. Attack beyond occur cut miss discussion. Represent explain whatever majority door walk anything stock. Public computer vote answer film catch.
-Matter public cup staff possible. Father between sort weight way meet.');
-
-
--- Insert statements for table: IssueReport
-INSERT INTO IssueReport (IssueID, Reports, ReportedBy, Description, Status, Timestamp) VALUES
-(1, 'Method question loss thing. Yet because picture camera blood threat sure. Budget back raise drop meeting true prepare what.', 'xsmith', 'Foreign religious media green piece leave. Middle man left under commercial old. Above drive really company knowledge.
-Leg leave course skin apply sing attorney population.
-Community develop choose body though. Government defense political else nothing in hospital.', 'Closed', '2020-08-10 00:58:42'),
-(2, 'Mention difference bar test sure. Manage newspaper option suddenly. Change region despite gun sort.', 'martinezzachary', 'Worry great high treatment also artist friend quickly. Enter future operation thing player traditional foreign agency. Reason begin admit example miss dream rest. Involve officer create important act party take.
-Team method add. International five deep stock. Hit enter especially recognize every.', 'Closed', '2020-05-24 14:05:50'),
-(3, 'Possible begin western term throughout. Window system see current compare.
-Glass yourself actually. Explain phone left capital audience. Wait note machine forward eye listen on.', 'rstewart', 'Ask wind difference. Save choose learn. Artist growth own food.
-Natural decision mission listen response. Half head fall such land always.
-Whether try interview two place. Door opportunity time wait. Magazine job under win job her always. Knowledge step decide myself them.', 'Resolved', '2021-01-18 08:18:59'),
-(4, 'Seek state task. Way practice garden stop meet ability least.
-Million play dream recent Democrat attorney. Money such newspaper yard music.', 'hberger', 'Guy change economic. Couple so from you area.
-Direction attack degree hand determine school. Simple outside bit source phone society.
-High reduce machine especially determine. Herself professor music career key mean music. Financial near performance see.', 'Open', '2024-05-24 09:33:30'),
-(5, 'Watch piece require market rule recognize wall. Explain whom customer.
-Team production while yeah those word score chair. Talk upon add smile. Short garden should carry.', 'rothjose', 'East itself market. Table thus defense.
-Amount black after most chair writer court. Hand half truth amount west material low. Develop model have.
-Any value against record seven key. Sometimes into within customer movie learn cell.', 'In Progress', '2020-01-27 16:01:42'),
-(6, 'Song boy international indicate. Apply together catch guess. Must weight article apply some truth. Continue all system arm these top pay.', 'yodermichael', 'Development bag kitchen exactly southern mind care treatment.
-Chance break security over what trip smile. Bill main cell. Mouth store provide animal. Six pick worry member according.', 'Closed', '2022-01-09 03:07:23'),
-(7, 'Outside always account cost wear care in. Table catch thus white method start. Reality author PM almost make.
-Through easy one tough. Item cold team individual clearly wonder career so.', 'david07', 'Bag item Mrs state time rather woman low. Discover cause program bag close business.
-New glass city agency position good. From effort night town. Two bit green investment size majority order. Nearly order follow million little stage.', 'Closed', '2021-07-04 08:02:15'),
-(8, 'Something moment material investment ok.
-Outside save reduce six. Deep interest before matter sister.', 'sanderson', 'Share less tree environment check someone break.
-Open special around parent full pull goal. Minute boy major.
-Piece control information down statement travel talk. Discuss reason bad sound statement. Suffer left certainly.
-Although can large middle require official. Sit strong nothing treat.', 'Open', '2023-01-20 22:42:55'),
-(9, 'Ago that hot consider affect. Knowledge throw from all.
-Agent cold also each might. Shoulder bring focus dog see money activity. Serious catch future service safe able.', 'bjensen', 'Peace us fight huge enter financial. Allow full wish term would.
-Reflect test exactly miss fall value later us. Almost dinner cold especially find cup no. Letter hundred south organization probably.', 'Closed', '2024-10-09 10:54:21'),
-(10, 'Probably know dark a early sure southern opportunity. Later cost recognize area conference. Series effort likely part television receive.
-Weight region someone themselves analysis maybe pick current.', 'tuckerkevin', 'Save information treat until strategy start specific maybe. Order wait teach only write. Day help all friend hair very relate.
-Year around you whole send trial citizen face. Never citizen bill.
-College will car of often treat.', 'Resolved', '2024-12-02 10:38:33'),
-(11, 'International stuff president American majority product improve. A need move use kid size suddenly. Line senior leader since truth.', 'eharmon', 'Fight media thank near agreement. Medical them best foot all once. Suggest population receive however good word attorney.
-Look quickly consider people. Where attention force century life far woman. Spend include radio model trip.', 'In Progress', '2021-11-10 06:55:14'),
-(12, 'Sort two behavior young. Impact ground police we carry poor cause most. Book poor none use.', 'alexis68', 'Beautiful worker building international. Evening lose event. Start answer board alone factor kind painting.
-Discuss top human foot least seven. Their drug analysis foot.
-Best interesting body time. Energy option per much argue foreign policy although.', 'Closed', '2021-08-08 01:46:20'),
-(13, 'Hotel sound world wonder movement. Plant development society class.
-Hot again conference year put party.
-Recognize effort car picture design serve ago few. Body although institution I.', 'kathrynknight', 'Difference page few appear against. Bad somebody process bank difference.
-Boy sea couple cost provide. Support realize push result. Mrs case reason nature.', 'Closed', '2021-02-16 08:29:47'),
-(14, 'Future time thousand enter. Area bill want who. Meeting who especially find suddenly end drive. Recent task indicate.', 'hollymiller', 'Do feeling project benefit. Identify attorney still well camera.
-Performance thousand him meeting. Answer once bed occur pick reflect rest inside. Fly rich institution interest outside understand purpose.
-Woman term hair such home project face real. Score plant item growth item.', 'Open', '2020-12-09 02:14:49'),
-(15, 'Congress buy spend himself. Agree security quality glass once I.
-Three little store for prevent key guy. Issue interest focus control note organization. Mind wide audience son able work which.', 'johnsontrevor', 'Add effect meeting through. Contain police citizen could.
-Rich us vote science hair knowledge. Rule over economy charge add management. Allow address market share form none. Exist serve well later.
-Fall try toward sing commercial one anything. Sometimes building Mrs exist couple look dog.', 'Resolved', '2020-12-03 03:38:21'),
-(16, 'There Congress trip performance property police.
-Off maintain mission worker ago. Yeah yard mention seven edge. Huge often red pass behavior investment.', 'robertsonbrian', 'But her media plant. Item think expert fill would.
-Eye energy join threat. Yet five detail image activity. At oil executive process tell today.', 'Open', '2022-09-23 19:05:59'),
-(17, 'Color west marriage effect throw early. Some property new only war hit. Clearly office oil because. Practice news try when.', 'douglaslutz', 'Yard certainly tell growth pay future training. Politics art girl situation.
-Hope area contain. Avoid adult really hope. Speech Congress expert sister rise firm book.
-Toward trip election year outside open. Almost soldier nation believe tend teacher.', 'Open', '2024-07-12 13:48:46'),
-(18, 'More continue enough.
-Else small church dinner table. Surface then analysis side smile strategy. Conference quality understand finally entire.', 'fzuniga', 'Say explain dog sell public direction interview. What another level section page many stay.
-Open speak support special floor news. Sure professor together project. Make society too girl ask away.
-And contain eye hundred sort glass last skill. Senior subject either.', 'Resolved', '2024-07-24 17:21:25'),
-(19, 'Relationship mention Republican both color force. Spring vote case court. Office would task PM difference wall through.', 'amberaustin', 'Produce season but make language anyone feel. Might institution institution I health agent open. Others garden better.
-Away within hold real safe. Pick table involve set around.
-Million loss local decision rate indicate. Question over open keep drop. Plan involve power.', 'Closed', '2023-03-24 09:12:48'),
-(20, 'City radio speak feel agreement drive physical. Population huge affect.
-Record certainly natural different still population. Industry may bed cause seem.', 'ymclaughlin', 'Chair leg Mr heavy. Sister walk amount front themselves. Huge few group road.
-Painting short only generation news bed. Direction suggest day.
-Compare later part. History myself door nature. Hospital be water between purpose entire table. Lead produce medical value.', 'Resolved', '2023-10-07 22:58:19'),
-(21, 'Season point most push daughter nothing.
-Administration participant else chance. Culture situation system foreign. Become site effort find though act.', 'jessica01', 'Great not similar green. Raise western keep billion behavior. Step dog not measure.
-Evidence police pull attention. Drug teacher bill reason analysis physical lose. Seem rather north talk before.
-Share author away policy lead human. Actually give public outside soon. Set worry join name.', 'In Progress', '2025-01-21 08:58:57'),
-(22, 'Woman however step hold appear. Smile laugh car against.
-Open newspaper least why. Whatever rest future late above. Ready dark each support act.', 'deannafrost', 'Member site grow because war. Now organization lay role appear only cup. Feel glass born boy soon finally recently.
-Lawyer win top game travel to. Break kid quality prepare reason. Send whether firm others.', 'In Progress', '2023-04-29 18:56:44'),
-(23, 'To none outside return term type lay. Itself song dream turn environment physical its modern.
-Sound reach argue always program matter administration. Summer hear information several series.', 'pittmanbailey', 'Growth high among anything against professional. Two thing yet design particular indicate. Interesting maybe blood yeah way human.
-After participant lot color perform allow study.
-Company expert policy. Ability hotel morning choice other until then. Support course enough require degree maintain.', 'In Progress', '2020-11-05 18:49:57'),
-(24, 'Place much who community show.
-Up as option majority hotel red their. International marriage assume purpose try late fall.', 'robert49', 'Visit leader skill there yard. Relate recently big fill you hot. Try set around what star wind church he. Option poor figure including against glass.
-Ahead per foot house push choice.
-Speak several feel listen travel professional. National relate bar. Energy capital upon control.', 'Closed', '2021-01-05 15:27:21'),
-(25, 'Drop smile century ask player more. Go next indeed make international before. Beat example let hot.', 'coryroth', 'Suddenly although simple key history west bed. Pressure according surface recent different foot glass.
-Purpose east sister age total practice practice. Assume seem fine stage.
-How before member admit become under. Discussion result agree entire.', 'In Progress', '2022-06-02 03:05:26'),
-(26, 'Production money decision guess significant. Later ok process wife process. Dark high shake special common hospital paper.
-Truth spend out white discuss.', 'wayne47', 'Company no just. Natural drive over theory benefit experience.
-Expect until minute ever. Store care feel beautiful professor no.
-Task east their couple. Identify senior team industry law.
-Would too cultural collection accept cold. Edge no bank organization PM blood.', 'In Progress', '2024-10-24 17:04:49'),
-(27, 'System hot when near finally. Suddenly gun experience third fund everyone.
-Race its provide window he. Certainly born if push significant.', 'mary29', 'Agent interest beat consumer food trouble more arm. About benefit maintain none.
-Let later oil consider west. Man defense even return become people.
-Change probably move report. Pretty step explain oil. Laugh guy quite itself store.', 'Open', '2025-02-12 15:22:02'),
-(28, 'Red also test trial week add.
-Ask compare same like right theory. Perhaps his prepare appear above how. Finish loss also thank industry. Change sister personal study suddenly summer.', 'troy26', 'Low finally military watch fast age bit reduce. Thousand process role behind lawyer you professional newspaper. Its activity attorney listen police work reach. Hundred head lawyer.
-House site name value anyone. Attorney continue nearly Mrs. Hand should ten station.', 'Closed', '2021-07-22 17:06:11'),
-(29, 'Weight four system place still offer. Official option check response member my enough.', 'ecalderon', 'Allow civil tree your situation. Character son miss store trouble. Say policy feeling other whole. Begin occur field now hour.
-All site strategy usually role prove. Ground born girl consumer claim.', 'Open', '2024-05-22 23:55:56'),
-(30, 'Senior page religious word bed.
-While ball defense bag from upon among.
-Per rate morning keep investment. Item ok I. Drive per security maintain positive.', 'garciapaul', 'Might too newspaper leave accept school water never. Without key range agent reality nice food. Official join same standard international popular.
-Despite represent management look. Economy church hospital certain cell type represent. Management right sign until party break.', 'In Progress', '2022-11-03 23:53:39'),
-(31, 'Music until bag bit crime baby stop need. Close standard find Mr assume first some.
-Modern study radio sell however. Think crime nature seek may state.', 'michael65', 'Catch contain under. Effort that successful future read image weight just. Heavy listen upon just market step beat.
-Before occur customer their. Particularly beautiful ask card condition. Manage feeling manage company.
-Everybody stay make American trip. Help wall over fall day think.', 'Open', '2024-02-12 23:07:52'),
-(32, 'Join data general nice front appear. Concern serious draw page kid class.', 'wcarr', 'American language place hand method old next. Quickly least represent whom reach look part. Hope them yard wind fire.
-Level window its analysis.
-Brother rock growth we certain.
-Six finish seven really. Modern lead great close often dinner thought. Agent house test try result.', 'In Progress', '2022-01-29 06:33:32'),
-(33, 'Special her technology particularly scientist. Pay past suddenly more effect. Sound same away listen alone.
-Born west value. Wait investment interest cause public body sing.', 'sarmstrong', 'Coach well individual mean. Attack lose maybe successful. Them lead market herself good course against.
-Sell listen allow side investment threat year. Music almost air word. Event west would wall sort them.
-Career return administration staff spring place interest. Together coach let.', 'Closed', '2024-07-26 23:27:42'),
-(34, 'State general nature street. Author work speak support. Technology summer born stop test how after.
-Pull leg herself listen individual goal person. Miss nothing former look pattern up.', 'rgoodman', 'College model agency Mr activity environment. Act dream surface me.
-Another least candidate per offer. Present then somebody artist.
-Focus away their card public range role. Forward themselves identify next example. Public card show difference.', 'Open', '2024-09-27 23:18:14'),
-(35, 'Finally cause day my chair. Citizen evidence become nothing Democrat shoulder market.
-Station watch old stage message right month. Light evening to.
-Still before growth story.', 'aguirrericky', 'West international into store situation quickly pass. Collection either put shoulder.
-Sound near ever carry. Together full woman future vote speak chance.
-Option however sure knowledge. Often foot measure especially. Government wear turn back drive agreement.', 'Resolved', '2021-10-22 13:06:57');
-
-
--- Insert statements for table: LogEntry_IssueReport
 INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES
 (23, 8),
 (35, 8),
@@ -1940,7 +1965,7 @@ INSERT INTO LogEntry_IssueReport (LogID, IssueID) VALUES
 (22, 9),
 (23, 26);
 
--- Insert statements for table: Alert
+
 INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES
 (1, 35, 'walkerwendy', '2024-09-18 02:43:24', 'User', 'New'),
 (2, 8, 'xwilliams', '2024-09-24 20:53:03', 'Performance', 'Dismissed'),
@@ -1961,20 +1986,4 @@ INSERT INTO Alert (AlertID, LogID, AssignedTo, Timestamp, Type, Status) VALUES
 (17, 34, 'mmitchell', '2022-03-14 15:44:29', 'System', 'Acknowledged'),
 (18, 18, 'williamholt', '2022-08-30 15:41:01', 'Performance', 'Dismissed'),
 (19, 19, 'marksanchez', '2024-01-02 11:16:21', 'Security', 'Resolved'),
-(20, 28, 'erinharris', '2020-05-27 03:02:00', 'Performance', 'Acknowledged'),
-(21, 34, 'robert44', '2023-05-28 04:46:25', 'Security', 'Acknowledged'),
-(22, 34, 'walkerwendy', '2020-04-22 19:42:48', 'Performance', 'New'),
-(23, 11, 'stewartgabriel', '2020-12-23 17:06:48', 'System', 'Dismissed'),
-(24, 20, 'mmitchell', '2023-09-17 18:41:45', 'System', 'Acknowledged'),
-(25, 32, 'johnny76', '2020-09-12 07:21:53', 'Performance', 'Resolved'),
-(26, 25, 'boydjudy', '2024-12-06 03:20:43', 'Security', 'Resolved'),
-(27, 3, 'hallbrandi', '2023-10-20 16:09:54', 'Performance', 'New'),
-(28, 17, 'dunnapril', '2021-01-08 13:05:30', 'Security', 'Resolved'),
-(29, 17, 'heathershannon', '2022-08-21 14:38:23', 'User', 'Resolved'),
-(30, 20, 'allenluke', '2023-02-15 03:12:34', 'Security', 'Dismissed'),
-(31, 34, 'tyler63', '2020-04-14 06:07:00', 'Security', 'Acknowledged'),
-(32, 1, 'ucook', '2020-04-03 17:18:32', 'Security', 'Dismissed'),
-(33, 5, 'mendezrussell', '2024-12-16 21:58:47', 'User', 'New'),
-(34, 1, 'andres57', '2023-10-13 06:53:53', 'System', 'Dismissed'),
-(35, 26, 'boydjudy', '2023-02-08 00:19:52', 'User', 'Resolved');
-
+(20, 28, 'erinharris', '2020-05-27 03:02:00', 'Security', 'Resolved');
