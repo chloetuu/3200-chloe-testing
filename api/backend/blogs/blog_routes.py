@@ -14,7 +14,7 @@ def get_all_blogs():
     cursor = db.get_db().cursor()
     the_query = '''
     SELECT *
-    FROM Blogs
+    FROM Blog
 '''
     cursor.execute(the_query)
     data = cursor.fetchall()
@@ -34,7 +34,7 @@ def add_blog():
     meal_time = meal_info['meal_time']
     notes = meal_info.get('notes', '')  
 
-    query = '''INSERT INTO Blogs (Username, MealName, Calories, MealTime, Notes)
+    query = '''INSERT INTO Blog (Username, MealName, Calories, MealTime, Notes)
                VALUES (%s, %s, %s, %s, %s)'''
     data = (username, meal_name, calories, meal_time, notes)
     
