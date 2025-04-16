@@ -6,6 +6,8 @@ from backend.products.products_routes import products
 #from backend.simple.simple_routes import simple_routes  # Uncomment if needed
 from backend.meals.meal_routes import meals
 from backend.favorites.favorites_routes import favorites
+from backend.error.error_routes import issues
+
 import os
 from dotenv import load_dotenv
 
@@ -42,10 +44,6 @@ def create_app():
     # http://ip.address:port/
     # Example: localhost: 8001
 
-    @app.route("/")
-    def welcome(): 
-        return "<h1> Welcome to the Summer 2025 CS 3200 Project Template Repo</h1>"
-    
     
     # Example route for testing streamlit
     @app.route("/data")
@@ -74,6 +72,7 @@ def create_app():
     app.register_blueprint(products,    url_prefix='/p')
     app.register_blueprint(meals,       url_prefix='/m')
     app.register_blueprint(favorites,   url_prefix='/f')
+    app.register_blueprint(issues,   url_prefix='/l')
     
     
 

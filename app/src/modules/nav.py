@@ -20,7 +20,7 @@ def ExploreRecipes():
     st.sidebar.page_link("pages/Nina_Patel_Recipes.py", label="Explore All Recipes", icon="🍔")
 
 def testNina():
-st.sidebar.page_link("pages/Nina_test.py", label="Categories", icon="😅")
+    st.sidebar.page_link("pages/Nina_test.py", label="Categories", icon="😅")
 
 #### ---------------------- Specific to Charlie ----------------------------
 
