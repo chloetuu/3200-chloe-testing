@@ -6,9 +6,9 @@ from flask import current_app
 from backend.db_connection import db
 from backend.ml_models.model01 import predict
 
-blogs = Blueprint('blogs', __name__ )
+blogs = Blueprint('/blogs', __name__ )
 
-# Gets all meals 
+# Gets all blogs 
 @blogs.route('/blogs', methods=['GET'])
 def get_all_blogs():
     cursor = db.get_db().cursor()
