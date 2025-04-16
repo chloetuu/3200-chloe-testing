@@ -8,20 +8,25 @@ from backend.db_connection import db
 
 favorites = Blueprint('favorites', __name__)
 
-# Gets all favorite meals
 @favorites.route('/favorites', methods=['GET'])
-def get_all_favorites():
+def get_favorite_meals():
     cursor = db.get_db().cursor()
+
     query = '''
-        SELECT * FROM Favorites
+        SELECT m.*
+        FROM SavedMeals s
+        JOIN Meals m ON s.RecipeID = m.RecipeID
+            AND s.Username = m.Username
     '''
     cursor.execute(query)
-    data = cursor.fetchall()
-    
-    response = make_response(jsonify(data))
+
+    result = cursor.fetchall()
+
+    response = make_response(jsonify(result))
     response.status_code = 200
     response.mimetype = 'application/json'
     return response
+
 
 # Adds a meal to favorites
 @favorites.route('/favorites', methods=['POST'])
@@ -32,7 +37,7 @@ def add_favorite():
     recipe_id = fav_info['recipe_id']
 
     query = '''
-        INSERT INTO Favorites (Username, RecipeID)
+        INSERT INTO Saved_Meals (Username, RecipeID)
         VALUES (%s, %s)
     '''
     cursor = db.get_db().cursor()
@@ -47,7 +52,7 @@ def delete_favorite(recipe_id):
     current_app.logger.info(f'DELETE /favorites/{recipe_id} route called')
 
     query = '''
-        DELETE FROM Favorites WHERE RecipeID = %s
+        DELETE FROM Saved_Meals WHERE RecipeID = %s
     '''
     cursor = db.get_db().cursor()
     cursor.execute(query, (recipe_id,))

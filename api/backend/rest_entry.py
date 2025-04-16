@@ -8,6 +8,8 @@ from backend.meals.meal_routes import meals
 import os
 from dotenv import load_dotenv
 
+# new changes
+from backend.blogs.blog_routes import blogs
 def create_app():
     app = Flask(__name__)
 
@@ -72,6 +74,7 @@ def create_app():
     app.register_blueprint(customers,   url_prefix='/c')
     app.register_blueprint(products,    url_prefix='/p')
     app.register_blueprint(meals,       url_prefix='/m')
+    app.register_blueprint(blogs,       url_prefix='/b')
     
     
 

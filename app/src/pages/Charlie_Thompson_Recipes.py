@@ -1,16 +1,16 @@
 import streamlit as st
-from modules.nav import SideBarLinks
+import requests
 
 st.set_page_config(layout="wide")
 
-st.title("📋 Explore All Meals")
+st.title("📋 Blogs")
 
 try:
     # 🔁 Call your Flask API endpoint
     response = requests.get("http://api:4000/b/blogs")  
     response.raise_for_status()
 
-    meals = response.json()
+    blogs = response.json()
 
     if meals:
         for i, meal in enumerate(meals):
