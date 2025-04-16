@@ -13,7 +13,7 @@ favorites = Blueprint('favorites', __name__)
 def get_all_favorites():
     cursor = db.get_db().cursor()
     query = '''
-        SELECT * FROM Favorites
+        SELECT * FROM Saved_Meals
     '''
     cursor.execute(query)
     data = cursor.fetchall()
@@ -32,7 +32,7 @@ def add_favorite():
     recipe_id = fav_info['recipe_id']
 
     query = '''
-        INSERT INTO Favorites (Username, RecipeID)
+        INSERT INTO Saved_Meals (Username, RecipeID)
         VALUES (%s, %s)
     '''
     cursor = db.get_db().cursor()
@@ -47,7 +47,7 @@ def delete_favorite(recipe_id):
     current_app.logger.info(f'DELETE /favorites/{recipe_id} route called')
 
     query = '''
-        DELETE FROM Favorites WHERE RecipeID = %s
+        DELETE FROM Saved_Meals WHERE RecipeID = %s
     '''
     cursor = db.get_db().cursor()
     cursor.execute(query, (recipe_id,))
