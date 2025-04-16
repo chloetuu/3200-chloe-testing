@@ -17,8 +17,8 @@ def get_all_blogs():
     FROM Blogs
 '''
     cursor.execute(the_query)
-    theData = cursor.fetchall()
-    the_response = make_response(jsonify(theData))
+    data = cursor.fetchall()
+    the_response = make_response(jsonify(data))
     the_response.status_code = 200 
     the_response.mimetype='application/json'
     return the_response
