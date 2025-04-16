@@ -97,8 +97,6 @@ def SideBarLinks(show_home=False):
     This function handles adding links to the sidebar of the app based upon the logged-in user's role, which was put in the streamlit session_state object when logging in.
     """
 
-    
-
     # If there is no logged in user, redirect to the Home (Landing) page
     if "authenticated" not in st.session_state:
         st.session_state.authenticated = False
@@ -110,7 +108,6 @@ def SideBarLinks(show_home=False):
 
     # Show the other page navigators depending on the users' role.
     if st.session_state["authenticated"]:
-
         # If the user role is usaid worker, show the Api Testing page
         if st.session_state["role"] == "backend_developer":
             BackendNav()
@@ -121,11 +118,14 @@ def SideBarLinks(show_home=False):
         if st.session_state["role"] == "administrator":
             AdminPageNav()
 
-        # if the user is Nina, show their Favorite Recipes page 
+        # if the user is Nina, show all her pages in the sidebar
         if st.session_state["first_name"].lower() == "nina":
-            FavoriteRecipes()
-            ExploreRecipes()
-            testNina()
+            st.sidebar.markdown("---")
+            st.sidebar.markdown("### Nina's Pages")
+            st.sidebar.page_link("pages/Nina_HomePage.py", label="Home", icon="🏠")
+            st.sidebar.page_link("pages/Nina_FavRecipes.py", label="Favorite Recipes", icon="❤️")
+            st.sidebar.page_link("pages/Nina_Patel_Recipes.py", label="Explore All Recipes", icon="🍔")
+            st.sidebar.page_link("pages/Nina_test.py", label="Categories", icon="😅")
 
         # if the user is Charlie, show their Favorite Recipes page 
         if st.session_state["first_name"].lower() == "charlie":

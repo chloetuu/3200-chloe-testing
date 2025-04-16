@@ -3,6 +3,7 @@ logger = logging.getLogger(__name__)
 
 import streamlit as st
 from modules.nav import SideBarLinks
+import requests
 
 st.set_page_config(layout = 'wide')
 
@@ -44,6 +45,23 @@ with col3:
     st.write('')
     st.write('')
     st.image("assets/Tummi_logo.png", width=150, caption="Tummi")
+
+# Add favorite button
+if st.button("❤️ Add to Favorites", key=f"fav_{meal['RecipeID']}"):
+    try:
+        response = requests.post(
+            "http://api:4000/f/favorites",
+            json={
+                "username": st.session_state['first_name'].lower(),
+                "recipe_id": meal['RecipeID']
+            }
+        )
+        if response.status_code in [200, 201]:  # Accept both 200 (already favorited) and 201 (newly added)
+            st.success(response.json()['message'])
+        else:
+            st.error("Failed to add to favorites. Please try again.")
+    except Exception as e:
+        st.error(f"Error adding to favorites: {str(e)}")
 
 
 

@@ -1,13 +1,13 @@
 import streamlit as st
 import requests
+from modules.nav import SideBarLinks
 
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide", page_title="Explore All Meals")
+
+# Show appropriate sidebar links for the role of the currently logged in user
+SideBarLinks()
+
 st.title("📋 Explore All Meals")
-
-# Add back button to sidebar
-with st.sidebar:
-    if st.button("🏠 Back to Home"):
-        st.switch_page("pages/Nina_HomePage.py")
 
 # Check if user is logged in
 if 'first_name' not in st.session_state:
@@ -47,8 +47,8 @@ try:
                                 "recipe_id": meal['RecipeID']
                             }
                         )
-                        if fav_response.status_code == 201:
-                            st.success("Added to favorites!")
+                        if fav_response.status_code in [200, 201]:  # Accept both 200 (already favorited) and 201 (newly added)
+                            st.success(fav_response.json()['message'])
                         else:
                             st.error("Failed to add to favorites. Please try again.")
                     except Exception as e:

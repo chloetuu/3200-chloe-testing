@@ -55,6 +55,22 @@ try:
                         st.write("**Instructions:**")
                         for step in meal['Instructions'].split(';'):
                             st.write(f"{step.strip()}")
+                        
+                        # Add delete button
+                        if st.button("🗑️ Remove from Favorites", key=f"delete_{meal['RecipeID']}"):
+                            try:
+                                # Call the favorites API to delete the meal
+                                delete_response = requests.delete(
+                                    f"http://api:4000/f/favorites/{meal['RecipeID']}"
+                                )
+                                if delete_response.status_code == 200:
+                                    st.success("Removed from favorites!")
+                                    # Refresh the page to show updated list
+                                    st.rerun()
+                                else:
+                                    st.error("Failed to remove from favorites. Please try again.")
+                            except Exception as e:
+                                st.error(f"Error removing from favorites: {str(e)}")
     else:
         st.error(f"Error fetching favorite meals: {response.text}")
 except Exception as e:

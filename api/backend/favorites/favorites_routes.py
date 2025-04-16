@@ -5,6 +5,7 @@
 
 from flask import Blueprint, request, jsonify, make_response, current_app
 from backend.db_connection import db
+import logging
 
 favorites = Blueprint('favorites', __name__)
 
@@ -87,7 +88,7 @@ def add_favorite():
 
         if already_favorited:
             current_app.logger.info(f'Meal {recipe_id} is already favorited by {username}')
-            return 'Meal is already in your favorites!', 200
+            return jsonify({'message': 'This meal is already in your favorites!'}), 200
 
         # Now add the meal to favorites
         query = '''
@@ -98,10 +99,10 @@ def add_favorite():
         db.get_db().commit()
         current_app.logger.info(f'Added meal {recipe_id} to favorites for user {username}')
 
-        return 'Meal added to Favorites!', 201
+        return jsonify({'message': 'Meal added to favorites!'}), 201
     except Exception as e:
         current_app.logger.error(f'Error in add_favorite: {str(e)}')
-        return str(e), 500
+        return jsonify({'error': str(e)}), 500
 
 @favorites.route('/favorites/check', methods=['GET'])
 def check_saved_meals():
@@ -189,13 +190,25 @@ def init_favorites():
 # Deletes a favorited meal
 @favorites.route('/favorites/<int:recipe_id>', methods=['DELETE'])
 def delete_favorite(recipe_id):
-    current_app.logger.info(f'DELETE /favorites/{recipe_id} route called')
-
-    query = '''
-        DELETE FROM Saved_Meals WHERE RecipeID = %s
-    '''
-    cursor = db.get_db().cursor()
-    cursor.execute(query, (recipe_id,))
-    db.get_db().commit()
-
-    return 'Meal removed from Favorites!', 200
+    try:
+        username = request.args.get('username')
+        if not username:
+            return jsonify({'error': 'Username is required'}), 400
+            
+        logging.info(f"Attempting to delete favorite meal {recipe_id} for user {username}")
+        
+        # Delete the favorite meal
+        cursor = db.get_db().cursor()
+        cursor.execute(
+            "DELETE FROM Saved_Meals WHERE Username = %s AND RecipeID = %s",
+            (username, recipe_id)
+        )
+        db.get_db().commit()
+        cursor.close()
+        
+        logging.info(f"Successfully deleted favorite meal {recipe_id} for user {username}")
+        return jsonify({'message': 'Favorite meal deleted successfully'}), 200
+        
+    except Exception as e:
+        logging.error(f"Error deleting favorite meal: {str(e)}")
+        return jsonify({'error': str(e)}), 500

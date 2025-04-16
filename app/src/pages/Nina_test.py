@@ -1,14 +1,14 @@
 import streamlit as st
 import requests
 from collections import defaultdict
+from modules.nav import SideBarLinks
 
 st.set_page_config(layout="wide", page_title="📋 Explore All Meals by Category")
-st.title("📋 Explore Meals by Category")
 
-# Add back button to sidebar
-with st.sidebar:
-    if st.button("🏠 Back to Home"):
-        st.switch_page("pages/Nina_HomePage.py")
+# Show appropriate sidebar links for the role of the currently logged in user
+SideBarLinks()
+
+st.title("📋 Explore Meals by Category")
 
 # --- Load Categories from Backend ---
 def fetch_categories():
