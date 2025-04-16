@@ -4,11 +4,9 @@ from collections import defaultdict
 
 st.set_page_config(layout="wide", page_title="📋 Explore All Meals by Category")
 
-st.title("📋 Explore Meals by Category")
-
 # --- API CALL ---
 try:
-    response = requests.get("http://api:4000/m/meals")  # Change to your actual API
+    response = requests.get("http://api:4000/m/meals")  # Update with your actual API
     response.raise_for_status()
     meals = response.json()
 
@@ -22,10 +20,13 @@ try:
         # Collect all categories
         all_categories = sorted(grouped_meals.keys())
 
-        # --- Sidebar Filters ---
+        # --- Sidebar Filters (MOVED UP HERE) ---
         with st.sidebar:
             st.header("🔍 Filter Meals")
             selected_categories = st.multiselect("Select Categories", all_categories, default=all_categories)
+
+        # --- Main Page Title (after sidebar) ---
+        st.title("📋 Explore Meals by Category")
 
         # --- Display Meals from Selected Categories ---
         for category in selected_categories:
@@ -42,7 +43,6 @@ try:
                     st.write(f"- 🍒 Ingredients: {meal['Ingredients']}")
                     st.write(f"- 🤩 Instructions: {meal['Instructions']}")
                     st.markdown("---")
-
     else:
         st.info("No meals found.")
 
