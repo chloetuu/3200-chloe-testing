@@ -25,7 +25,7 @@ def testNina():
 #### ---------------------- Specific to Charlie ----------------------------
 
 def Blogs(): 
-    st.sidebar.page_link("pages/Charlie_Thompson_Recipes.py", label="Blogs", icon="📚")
+    st.sidebar.page_link("pages/Blogs.py", label="Blogs", icon="📚")
 
 
 #### ------------------------ Examples for Role of pol_strat_advisor ------------------------
