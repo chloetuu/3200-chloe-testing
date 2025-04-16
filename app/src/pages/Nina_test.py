@@ -3,52 +3,63 @@ import requests
 from collections import defaultdict
 
 st.set_page_config(layout="wide", page_title="📋 Explore All Meals by Category")
-
 st.title("📋 Explore Meals by Category")
 
-try:
-    response = requests.get("http://api:4000/m/meals")
-    response.raise_for_status()
-    meals = response.json()
+# --- Load Categories from Backend ---
+def fetch_categories():
+    try:
+        response = requests.get("http://api:4000/categories")
+        response.raise_for_status()
+        return [cat["CategoryName"] for cat in response.json()]
+    except Exception as e:
+        st.sidebar.error(f"Error loading categories: {e}")
+        return []
 
-    if meals:
-        # Group meals by Category
-        grouped_meals = defaultdict(list)
-        for meal in meals:
-            category = meal.get("Category", "Uncategorized")
-            grouped_meals[category].append(meal)
+# --- Load Meals from Backend ---
+def fetch_meals():
+    try:
+        response = requests.get("http://api:4000/m/meals")
+        response.raise_for_status()
+        return response.json()
+    except Exception as e:
+        st.error(f"Could not connect to meals API: {e}")
+        return []
 
-        # Get list of unique categories
-        all_categories = sorted(grouped_meals.keys())
+# --- Fetch Data ---
+all_categories = fetch_categories()
+meals = fetch_meals()
 
-        # Make sure categories were found
-        if not all_categories:
-            st.warning("No categories found in meals.")
+if meals and all_categories:
+    # --- Sidebar Filters ---
+    with st.sidebar:
+        st.header("🔍 Filter Meals")
+        selected_categories = st.multiselect(
+            "Select Categories", all_categories, default=all_categories
+        )
+
+    # --- Group meals by Category ---
+    grouped_meals = defaultdict(list)
+    for meal in meals:
+        category = meal.get("Category", "Uncategorized")
+        grouped_meals[category].append(meal)
+
+    # --- Display Meals for Selected Categories ---
+    for category in selected_categories:
+        if category in grouped_meals:
+            meal_list = grouped_meals[category]
+            st.markdown(f"## 🍽️ {category}")
+            for i, meal in enumerate(meal_list):
+                st.image(f"assets/{i % 8}.png", width=350)
+                st.markdown(f"### {meal['Name']}")
+                st.write(f"- 🍽️ Prep Time: {meal['PrepTime']} minutes")
+                st.write(f"- 🕒 Cook Time: {meal['CookTime']} minutes")
+                st.write(f"- ⏰ Total Time: {meal['TotalTime']} minutes")
+                st.write(f"- 😊 Difficulty: {meal['Difficulty']}")
+                st.write(f"- 🍒 Ingredients: {meal['Ingredients']}")
+                st.write(f"- 🤩 Instructions: {meal['Instructions']}")
+                st.markdown("---")
         else:
-            # --- Sidebar Filters ---
-            with st.sidebar:
-                st.header("🔍 Filter Meals")
-                selected_categories = st.multiselect(
-                    "Select Categories", all_categories, default=all_categories
-                )
+            st.markdown(f"### ⚠️ No meals found in category: {category}")
 
-            # --- Display Meals from Selected Categories ---
-            for category in selected_categories:
-                meal_list = grouped_meals[category]
-                if meal_list:
-                    st.markdown(f"## 🍽️ {category}")
-                    for i, meal in enumerate(meal_list):
-                        st.image(f"assets/{i % 8}.png", width=350)
-                        st.markdown(f"### {meal['Name']}")
-                        st.write(f"- 🍽️ Prep Time: {meal['PrepTime']} minutes")
-                        st.write(f"- 🕒 Cook Time: {meal['CookTime']} minutes")
-                        st.write(f"- ⏰ Total Time: {meal['TotalTime']} minutes")
-                        st.write(f"- 😊 Difficulty: {meal['Difficulty']}")
-                        st.write(f"- 🍒 Ingredients: {meal['Ingredients']}")
-                        st.write(f"- 🤩 Instructions: {meal['Instructions']}")
-                        st.markdown("---")
-    else:
-        st.info("No meals found.")
-
-except requests.exceptions.RequestException as e:
-    st.error(f"Could not connect to API: {e}")
+elif not meals:
+    st.info("No meals found.")
