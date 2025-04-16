@@ -2,51 +2,60 @@
 # Sample categories blueprint of endpoints
 # Remove this file if you are not using it in your project
 ########################################################
-from flask import Blueprint
-from flask import request
-from flask import jsonify
-from flask import make_response
-from flask import current_app
+from flask import Blueprint, request, jsonify, current_app
 from backend.db_connection import db
-from backend.ml_models.model01 import predict
 
 #------------------------------------------------------------
 # Create a new Blueprint object, which is a collection of 
 # routes.
 categories = Blueprint('categories', __name__)
 
-# Get all customers from the system
 @categories.route('/categories', methods=['GET'])
-def get_categories():
-
+def get_all_categories():
     cursor = db.get_db().cursor()
-
-    cursor.execute('''
-                   SELECT * FROM CategoryData
-    ''')
+    current_app.logger.info('GET /categories called')
     
-    theData = cursor.fetchall()
-    
-    the_response = make_response(theData)
-    the_response.status_code = 200
-    the_response.mimetype = 'application/json'
-    return the_response
+    try:
+        cursor.execute('SELECT * FROM CategoryData')
+        categories = cursor.fetchall()
+        return jsonify(categories)
+    except Exception as e:
+        current_app.logger.error(f'Error fetching categories: {str(e)}')
+        return jsonify({'error': str(e)}), 500
 
-# Gets a single category from the system from the CategoryID
+@categories.route('/categories/init', methods=['POST'])
+def init_categories():
+    cursor = db.get_db().cursor()
+    current_app.logger.info('POST /categories/init called')
+    
+    try:
+        # Initialize categories
+        categories = [
+            "Appetizers", "Main Dishes", "Desserts", "Beverages", 
+            "Sides", "Breakfast", "Lunch", "Dinner"
+        ]
+        
+        for category in categories:
+            cursor.execute('INSERT IGNORE INTO CategoryData (Name) VALUES (%s)', (category,))
+        
+        db.get_db().commit()
+        current_app.logger.info('Successfully initialized categories')
+        return jsonify({'message': 'Categories initialized successfully'})
+    except Exception as e:
+        current_app.logger.error(f'Error initializing categories: {str(e)}')
+        return jsonify({'error': str(e)}), 500
+
 @categories.route('/categories/<int:category_id>', methods=['GET'])
-def get_category_by_id(category_id):
+def get_category(category_id):
     cursor = db.get_db().cursor()
+    current_app.logger.info(f'GET /categories/{category_id} called')
     
-    query = '''SELECT * FROM CategoryData WHERE CategoryID = %s'''
-    cursor.execute(query, (category_id,))
-    
-    result = cursor.fetchone()
-
-    if result:
-        response = make_response(jsonify(result))
-        response.status_code = 200
-    else:
-        response = make_response(jsonify({"error": "Category not found"}), 404)
-
-    response.mimetype = 'application/json'
-    return response
+    try:
+        cursor.execute('SELECT * FROM CategoryData WHERE CategoryID = %s', (category_id,))
+        category = cursor.fetchone()
+        if category:
+            return jsonify(category)
+        return jsonify({'error': 'Category not found'}), 404
+    except Exception as e:
+        current_app.logger.error(f'Error fetching category: {str(e)}')
+        return jsonify({'error': str(e)}), 500
