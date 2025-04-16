@@ -25,19 +25,17 @@ def add_log():
     current_app.logger.info('POST /log route')
     log_info = request.json
 
-    log_id = log_info['log_id']
     timestamp = log_info['timestamp']
     error_message = log_info['error_message']
     severity = log_info['severity']
     source = log_info['source']
     details = log_info['details']
-    notes = log_info.get('notes', '')
 
     query = '''
-        INSERT INTO IssueReport (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details, Notes)
-        VALUES (%s, %s, %s, %s, %s, %s, %s)
+        INSERT INTO LogEntry (Timestamp, ErrorMessage, SeverityLevel, Source, Details)
+        VALUES (%s, %s, %s, %s, %s)
     '''
-    data = (log_id, timestamp, error_message, severity, source, details, notes)
+    data = (timestamp, error_message, severity, source, details)
 
     cursor = db.get_db().cursor()
     cursor.execute(query, data)
