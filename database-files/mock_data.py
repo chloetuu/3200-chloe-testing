@@ -218,6 +218,9 @@ for i in range(1, 36):
 
 log_entries_df = pd.DataFrame(log_entries)
 
+# Save LogEntry data
+log_entries_df.to_csv("database-files/LogEntry.csv", index=False)
+
 # Generate IssueReport data (strong entity, 30-40 rows)
 issue_reports = []
 for i in range(1, 36):
@@ -258,7 +261,6 @@ alerts_df = pd.DataFrame(alerts)
 
 # Save final CSVs
 interactions_df.to_csv("database-files/Interaction.csv", index=False)
-log_entries_df.to_csv("database-files/LogEntry.csv", index=False)
 issue_reports_df.to_csv("database-files/IssueReport.csv", index=False)
 log_issue_links_df.to_csv("database-files/LogEntry_IssueReport.csv", index=False)
 alerts_df.to_csv("database-files/Alert.csv", index=False)

@@ -1,36 +1,19 @@
-GroupID,GroupType,GroupValue
-1,Income,Establish
-2,Ethnicity,Economic
-3,Income,Read
-4,Gender,Box
-5,Ethnicity,Those
-6,Gender,Last
-7,Ethnicity,Meeting
-8,Ethnicity,Although
-9,Ethnicity,Actually
-10,Gender,Glass
-11,Income,North
-12,Education,Focus
-13,Ethnicity,Break
-14,Income,With
-15,Income,Reveal
-16,Income,Dream
-17,Ethnicity,Best
-18,Gender,Oil
-19,Ethnicity,High
-20,Gender,Heart
-21,Education,Quickly
-22,Income,Protect
-23,Education,Sea
-24,Ethnicity,On
-25,Gender,Article
-26,Gender,Song
-27,Income,Right
-28,Education,White
-29,Gender,Relate
-30,Education,Front
-31,Ethnicity,Citizen
-32,Education,Couple
-33,Ethnicity,Education
-34,Gender,Last
-35,Gender,Future
+GroupType,GroupValue
+Age Group,18-25
+Age Group,26-35
+Age Group,36-45
+Age Group,46-55
+Age Group,56+
+Region,Northeast
+Region,Southeast
+Region,Midwest
+Region,Southwest
+Region,West
+Activity Level,Low
+Activity Level,Medium
+Activity Level,High
+Dietary Preference,Vegetarian
+Dietary Preference,Vegan
+Dietary Preference,Gluten-Free
+Dietary Preference,Dairy-Free
+Dietary Preference,None
