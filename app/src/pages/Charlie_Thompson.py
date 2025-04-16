@@ -7,14 +7,33 @@ from modules.nav import SideBarLinks
 # Set page configuration
 st.set_page_config(
     page_title="Charlie's Home",
-    page_icon="🏠",
-    layout="wide"
+    page_icon="��",
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
 
 # Initialize sidebar
 with st.sidebar:
+    # Display profile picture
     st.image("assets/Charlie_pfp.jpeg", caption="fitwithcharlie", width=200)
-    SideBarLinks()
+    
+    # Add section header
+    st.markdown("### Charlie's Pages")
+    
+    # Add navigation links directly
+    st.page_link("pages/Charlie_FavRecipes.py", label="Favorite Recipes", icon="❤️")
+    st.page_link("pages/Charlie_Thompson_Recipes.py", label="Explore All Recipes", icon="🍔")
+    st.page_link("pages/Charlie_Thompson_Recipes_Category.py", label="Explore Meals by Category", icon="🥗")
+    st.page_link("pages/Blogs.py", label="Blogs", icon="📚")
+    
+    # Add separator
+    st.markdown("---")
+    
+    # Add logout button
+    if st.button("Logout"):
+        del st.session_state["role"]
+        del st.session_state["authenticated"]
+        st.switch_page("Home.py")
 
 # Main content
 st.title(f"Welcome {st.session_state['first_name']}.")
