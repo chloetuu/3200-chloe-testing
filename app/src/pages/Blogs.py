@@ -52,7 +52,7 @@ with st.expander("Add New Blog"):
                 st.experimental_rerun()
 
 # Display existing blogs
-st.subheader("Existing Blogs")
+st.subheader("Posted Blogs")
 blogs = get_blogs()
 
 if blogs:
