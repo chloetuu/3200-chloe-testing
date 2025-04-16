@@ -5,6 +5,11 @@ from collections import defaultdict
 st.set_page_config(layout="wide", page_title="📋 Explore All Meals by Category")
 st.title("📋 Explore Meals by Category")
 
+# Add back button to sidebar
+with st.sidebar:
+    if st.button("🏠 Back to Home"):
+        st.switch_page("pages/Nina_HomePage.py")
+
 # --- Load Categories from Backend ---
 def fetch_categories():
     try:
