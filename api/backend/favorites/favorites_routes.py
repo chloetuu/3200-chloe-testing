@@ -8,20 +8,24 @@ from backend.db_connection import db
 
 favorites = Blueprint('favorites', __name__)
 
-# Gets all favorite meals
 @favorites.route('/favorites', methods=['GET'])
-def get_all_favorites():
+def get_favorite_meals():
     cursor = db.get_db().cursor()
+
     query = '''
-        SELECT * FROM Saved_Meals
+        SELECT m.*
+        FROM Favorites f
+        JOIN Meals m ON f.RecipeID = m.RecipeID
     '''
     cursor.execute(query)
-    data = cursor.fetchall()
-    
-    response = make_response(jsonify(data))
+
+    result = cursor.fetchall()
+
+    response = make_response(jsonify(result))
     response.status_code = 200
     response.mimetype = 'application/json'
     return response
+
 
 # Adds a meal to favorites
 @favorites.route('/favorites', methods=['POST'])
