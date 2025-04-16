@@ -141,11 +141,11 @@ def SideBarLinks(show_home=False):
             st.sidebar.page_link("pages/Nina_Patel_Recipes.py", label="Explore All Recipes", icon="🍔")
             st.sidebar.page_link("pages/Nina_test.py", label="Explore Meals by Category", icon="🥳")
 
-        # if the user is Charlie, show their Favorite Recipes page 
+        # if the user is Charlie, show their pages in the sidebar
         if st.session_state["first_name"].lower() == "charlie":
             st.sidebar.markdown("---")
             st.sidebar.markdown("### Charlie's Pages")
-            # Add all four navigation links for Charlie
+            # Add all navigation links for Charlie
             st.sidebar.page_link("pages/Charlie_FavRecipes.py", label="Favorite Recipes", icon="❤️")
             st.sidebar.page_link("pages/Charlie_Thompson_Recipes.py", label="Explore All Recipes", icon="🍔")
             st.sidebar.page_link("pages/Charlie_Thompson_Recipes_Category.py", label="Explore Meals by Category", icon="🥗")
