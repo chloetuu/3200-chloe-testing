@@ -13,20 +13,24 @@ logger = logging.getLogger(__name__)
 import streamlit as st
 from modules.nav import SideBarLinks
 
-# streamlit supports reguarl and wide layout (how the controls
+# streamlit supports regular and wide layout (how the controls
 # are organized/displayed on the screen).
-st.set_page_config(layout = 'wide')
+st.set_page_config(
+    page_title="Tummi - Home",
+    page_icon="🏠",
+    layout="wide"
+)
 
-# If a user is at this page, we assume they are not 
-# authenticated.  So we change the 'authenticated' value
-# in the streamlit session_state to false. 
-st.session_state['authenticated'] = False
-
-# Use the SideBarLinks function from src/modules/nav.py to control
-# the links displayed on the left-side panel. 
-# IMPORTANT: ensure src/.streamlit/config.toml sets
-# showSidebarNavigation = false in the [client] section
-SideBarLinks(show_home=True)
+# Initialize sidebar
+with st.sidebar:
+    # If a user is at this page, we assume they are not 
+    # authenticated.  So we change the 'authenticated' value
+    # in the streamlit session_state to false. 
+    st.session_state['authenticated'] = False
+    
+    # Use the SideBarLinks function from src/modules/nav.py to control
+    # the links displayed on the left-side panel. 
+    SideBarLinks(show_home=True)
 
 # ***************************************************
 #    The major content of this page
@@ -37,7 +41,6 @@ logger.info("Loading the Home page of the app")
 st.title('Tummi')
 st.write('\n\n')
 st.write('### HI! As which user would you like to log in?')
-
 
 # For each of the user personas for which we are implementing
 # functionality, we put a button on the screen that the user 
@@ -58,7 +61,6 @@ if st.button("Act as Nina, a Soccer Mom",
     # landing page for this particular user type
     logger.info("Logging in as Nina Patel (User)")
     st.switch_page('pages/Nina_HomePage.py')
-
 
 if st.button('Act as Jade, Backend Developer', 
             type = 'primary', 
@@ -99,6 +101,7 @@ if st.button("Act as Charlie, an Influencer",
     logger.info("Logging in as Charlie Thompson (User)")
     st.switch_page('pages/Charlie_Thompson.py')
 
+# Add Tummi logo
 col1, col2, col3 = st.columns([3, 1, 0.75])  
 with col3:
     st.write('')     

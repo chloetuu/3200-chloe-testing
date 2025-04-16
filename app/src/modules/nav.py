@@ -27,7 +27,7 @@ def CharlieExploreRecipes():
     st.sidebar.page_link("pages/Charlie_Thompson_Recipes.py", label="Explore All Recipes", icon="🍔")
 
 def CharlieExploreByCategory():
-    st.sidebar.page_link("pages/Nina_test.py", label="Explore Meals by Category", icon="🥗")
+    st.sidebar.page_link("pages/Charlie_Thompson_Recipes_Category.py", label="Explore Meals by Category", icon="🥗")
 
 def testNina():
     st.sidebar.page_link("pages/Nina_test.py", label="Categories", icon="😅")
@@ -143,6 +143,8 @@ def SideBarLinks(show_home=False):
 
         # if the user is Charlie, show their Favorite Recipes page 
         if st.session_state["first_name"].lower() == "charlie":
+            st.sidebar.markdown("---")
+            st.sidebar.markdown("### Charlie's Pages")
             CharlieFavoriteRecipes()
             CharlieExploreRecipes()
             CharlieExploreByCategory()
@@ -157,6 +159,7 @@ def SideBarLinks(show_home=False):
 
     if st.session_state["authenticated"]:
         # Always show a logout button if there is a logged in user
+        st.sidebar.markdown("---")
         if st.sidebar.button("Logout"):
             del st.session_state["role"]
             del st.session_state["authenticated"]
