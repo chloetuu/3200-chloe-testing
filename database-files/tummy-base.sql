@@ -75,23 +75,16 @@ CREATE TABLE Blog_Meal (
     FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID) ON DELETE CASCADE
 );
 
--- Table: Saved_Meals (Many-to-Many)
-CREATE TABLE Saved_Meals (
+-- Table: Favorites (Many-to-Many)
+CREATE TABLE Favorites (
     Username VARCHAR(50),
     RecipeID INT,
+    Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (Username, RecipeID),
     FOREIGN KEY (Username) REFERENCES User(Username) ON DELETE CASCADE,
     FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID) ON DELETE CASCADE
 );
 
--- Table: Favorites (Many-to-Many)
-CREATE TABLE Favorites (
-    Username VARCHAR(50),
-    RecipeID INT,
-    PRIMARY KEY (Username, RecipeID),
-    FOREIGN KEY (Username) REFERENCES User(Username) ON DELETE CASCADE,
-    FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID) ON DELETE CASCADE
-);
 
 -- Table: Added_Meals (Many-to-Many)
 CREATE TABLE Added_Meals (
