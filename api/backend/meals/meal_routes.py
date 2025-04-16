@@ -8,10 +8,11 @@ meals = Blueprint('meals', __name__)
 def get_all_meals():
     cursor = db.get_db().cursor()
     query = '''
-        SELECT m.*, c.Name as Category
+        SELECT m.*, GROUP_CONCAT(t.TagName) as Tags
         FROM Meal m
-        LEFT JOIN RecipeData r ON m.RecipeID = r.RecipeID
-        LEFT JOIN CategoryData c ON r.CategoryID = c.CategoryID
+        LEFT JOIN Meal_Tag mt ON m.RecipeID = mt.RecipeID
+        LEFT JOIN Tag t ON mt.TagID = t.TagID
+        GROUP BY m.RecipeID
     '''
     cursor.execute(query)
     data = cursor.fetchall()
@@ -26,38 +27,71 @@ def add_meal():
     current_app.logger.info('POST /meals route called')
     meal_info = request.json
 
-    recipe_id = meal_info['recipe_id']  # must be passed in explicitly
     name = meal_info['name']
     prep_time = meal_info['prep_time']
     cook_time = meal_info['cook_time']
+    total_time = prep_time + cook_time
     difficulty = meal_info['difficulty']
     ingredients = meal_info['ingredients']
     instructions = meal_info['instructions']
+    tags = meal_info.get('tags', [])  # Optional list of tag names
 
-    query = '''
-        INSERT INTO Meal (RecipeID, Name, PrepTime, CookTime, Difficulty, Ingredients, Instructions)
-        VALUES (%s, %s, %s, %s, %s, %s, %s)
-    '''
-    data = (recipe_id, name, prep_time, cook_time, difficulty, ingredients, instructions)
     cursor = db.get_db().cursor()
-    cursor.execute(query, data)
-    db.get_db().commit()
+    try:
+        # Insert into Meal table
+        query = '''
+            INSERT INTO Meal (Name, DateCreated, PrepTime, CookTime, TotalTime, 
+                            Difficulty, Ingredients, Instructions, ViewCount)
+            VALUES (%s, CURDATE(), %s, %s, %s, %s, %s, %s, 0)
+        '''
+        data = (name, prep_time, cook_time, total_time, difficulty, ingredients, instructions)
+        cursor.execute(query, data)
+        recipe_id = cursor.lastrowid
 
-    return 'Meal added successfully!', 201
+        # Add tags if provided
+        if tags:
+            # Get or create tags
+            for tag_name in tags:
+                # Check if tag exists
+                cursor.execute('SELECT TagID FROM Tag WHERE TagName = %s', (tag_name,))
+                result = cursor.fetchone()
+                if result:
+                    tag_id = result['TagID']
+                else:
+                    # Create new tag
+                    cursor.execute('INSERT INTO Tag (TagName) VALUES (%s)', (tag_name,))
+                    tag_id = cursor.lastrowid
+                
+                # Link tag to meal
+                cursor.execute('INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (%s, %s)', 
+                             (recipe_id, tag_id))
+
+        db.get_db().commit()
+        return jsonify({'message': 'Meal added successfully!', 'recipe_id': recipe_id}), 201
+    except Exception as e:
+        db.get_db().rollback()
+        current_app.logger.error(f'Error adding meal: {str(e)}')
+        return jsonify({'error': str(e)}), 500
 
 # Delete a meal by RecipeID
 @meals.route('/meals/<int:recipe_id>', methods=['DELETE'])
 def delete_meal(recipe_id):
     current_app.logger.info(f'DELETE /meals/{recipe_id} route called')
-
-    query = '''
-        DELETE FROM Meal WHERE RecipeID = %s
-    '''
     cursor = db.get_db().cursor()
-    cursor.execute(query, (recipe_id,))
-    db.get_db().commit()
-
-    return 'Meal deleted successfully!', 200
+    
+    try:
+        # Delete from Meal_Tag first (foreign key constraint)
+        cursor.execute('DELETE FROM Meal_Tag WHERE RecipeID = %s', (recipe_id,))
+        
+        # Delete from Meal
+        cursor.execute('DELETE FROM Meal WHERE RecipeID = %s', (recipe_id,))
+        
+        db.get_db().commit()
+        return jsonify({'message': 'Meal deleted successfully!'}), 200
+    except Exception as e:
+        db.get_db().rollback()
+        current_app.logger.error(f'Error deleting meal: {str(e)}')
+        return jsonify({'error': str(e)}), 500
 
 @meals.route('/meals/init', methods=['POST'])
 def init_meals():
@@ -65,11 +99,7 @@ def init_meals():
     current_app.logger.info('POST /meals/init called')
     
     try:
-        # Get category IDs
-        cursor.execute('SELECT CategoryID, Name FROM CategoryData')
-        category_map = {row['Name']: row['CategoryID'] for row in cursor.fetchall()}
-        
-        # Initialize some test meals with categories
+        # Initialize some test meals with tags
         test_meals = [
             {
                 'name': 'Acai Smoothie Bowl',
@@ -78,7 +108,7 @@ def init_meals():
                 'difficulty': 'Easy',
                 'ingredients': 'Acai puree; Granola; Banana; Berries; Honey',
                 'instructions': 'Blend acai puree. Top with granola, banana, berries, and honey.',
-                'category': 'Breakfast'
+                'tags': ['Healthy', 'Vegetarian', 'Quick']
             },
             {
                 'name': 'Tiramisu Cake',
@@ -87,7 +117,7 @@ def init_meals():
                 'difficulty': 'Medium',
                 'ingredients': 'Ladyfingers; Coffee; Mascarpone; Eggs; Sugar; Cocoa powder',
                 'instructions': 'Dip ladyfingers in coffee. Layer with mascarpone mixture. Dust with cocoa.',
-                'category': 'Desserts'
+                'tags': ['Dessert', 'Italian', 'No-Cook']
             },
             {
                 'name': 'Steak & Eggs',
@@ -96,35 +126,44 @@ def init_meals():
                 'difficulty': 'Medium',
                 'ingredients': 'Ribeye steak; Eggs; Butter; Salt; Pepper',
                 'instructions': 'Season and cook steak to desired doneness. Fry eggs. Serve together.',
-                'category': 'Breakfast'
+                'tags': ['High-Protein', 'Breakfast', 'Low-Carb']
             }
         ]
         
         for meal in test_meals:
             # Insert into Meal table
             cursor.execute('''
-                INSERT INTO Meal (Name, PrepTime, CookTime, Difficulty, Ingredients, Instructions)
-                VALUES (%s, %s, %s, %s, %s, %s)
+                INSERT INTO Meal (Name, DateCreated, PrepTime, CookTime, TotalTime,
+                                Difficulty, Ingredients, Instructions, ViewCount)
+                VALUES (%s, CURDATE(), %s, %s, %s, %s, %s, %s, 0)
             ''', (
                 meal['name'], meal['prep_time'], meal['cook_time'],
+                meal['prep_time'] + meal['cook_time'],
                 meal['difficulty'], meal['ingredients'], meal['instructions']
             ))
             
-            # Get the RecipeID of the inserted meal
             recipe_id = cursor.lastrowid
             
-            # Insert into RecipeData table with category
-            cursor.execute('''
-                INSERT INTO RecipeData (RecipeID, Name, SavedStatus, CategoryID, ViewCount)
-                VALUES (%s, %s, %s, %s, %s)
-            ''', (
-                recipe_id, meal['name'], 0,
-                category_map[meal['category']], 0
-            ))
+            # Add tags
+            for tag_name in meal['tags']:
+                # Check if tag exists
+                cursor.execute('SELECT TagID FROM Tag WHERE TagName = %s', (tag_name,))
+                result = cursor.fetchone()
+                if result:
+                    tag_id = result['TagID']
+                else:
+                    # Create new tag
+                    cursor.execute('INSERT INTO Tag (TagName) VALUES (%s)', (tag_name,))
+                    tag_id = cursor.lastrowid
+                
+                # Link tag to meal
+                cursor.execute('INSERT INTO Meal_Tag (RecipeID, TagID) VALUES (%s, %s)', 
+                             (recipe_id, tag_id))
         
         db.get_db().commit()
         current_app.logger.info('Successfully initialized test data for meals')
         return jsonify({'message': 'Test meals initialized successfully'})
     except Exception as e:
+        db.get_db().rollback()
         current_app.logger.error(f'Error initializing test meals: {str(e)}')
         return jsonify({'error': str(e)}), 500

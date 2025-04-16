@@ -2,6 +2,20 @@ import streamlit as st
 import requests
 import json
 from modules.nav import SideBarLinks
+from datetime import datetime
+
+def format_date(date_str):
+    try:
+        # Try parsing the API date format
+        date = datetime.strptime(date_str, '%a, %d %b %Y %H:%M:%S GMT')
+        return date.strftime('%B %d, %Y')
+    except:
+        # If that fails, try direct format
+        try:
+            date = datetime.strptime(date_str, '%Y-%m-%d')
+            return date.strftime('%B %d, %Y')
+        except:
+            return date_str  # Return original if parsing fails
 
 st.set_page_config(layout="wide", page_title="My Favorite Meals")
 
@@ -36,37 +50,59 @@ try:
         else:
             st.write(f"Found {len(meals)} favorite meals!")
             
+            # Add search functionality
+            search = st.text_input("🔍 Search your favorites", "")
+            
+            # Filter meals based on search
+            if search:
+                meals = [meal for meal in meals if search.lower() in meal['Name'].lower()]
+            
             for meal in meals:
                 with st.expander(f"🍽️ {meal['Name']}"):
-                    col1, col2 = st.columns(2)
+                    col1, col2 = st.columns([3, 1])
                     
                     with col1:
-                        # Add image for the meal
                         st.image(f"assets/{meal['RecipeID'] % 8}.png", width=350)
-                        st.write(f"- 🍽️ Prep Time: {meal['PrepTime']} minutes")
-                        st.write(f"- 🕒 Cook Time: {meal['CookTime']} minutes")
-                        st.write(f"- ⏰ Total Time: {meal['TotalTime']} minutes")
-                        st.write(f"- 😊 Difficulty: {meal['Difficulty']}")
                         
-                        st.write("**Ingredients:**")
-                        for ingredient in meal['Ingredients'].split(';'):
-                            st.write(f"- {ingredient.strip()}")
+                        # Display tags if available
+                        if meal.get('Tags'):
+                            tags = meal['Tags'].split(',')
+                            st.write("🏷️ Tags:", ", ".join(tags))
+                        
+                        # Format date if available
+                        if 'DateCreated' in meal:
+                            formatted_date = format_date(meal['DateCreated'])
+                            st.write(f"📅 Created: {formatted_date}")
+                        
+                        st.write(f"⏱️ Preparation: {meal['PrepTime']} minutes")
+                        st.write(f"🔥 Cooking: {meal['CookTime']} minutes")
+                        st.write(f"⏰ Total Time: {meal['TotalTime']} minutes")
+                        st.write(f"📊 Difficulty: {meal['Difficulty']}")
+                        
+                        # Display ingredients in a more organized way
+                        st.write("🧂 **Ingredients:**")
+                        ingredients = [ing.strip() for ing in meal['Ingredients'].split(';')]
+                        for ingredient in ingredients:
+                            st.write(f"  • {ingredient}")
+                        
+                        # Display instructions as numbered steps
+                        st.write("📝 **Instructions:**")
+                        instructions = [inst.strip() for inst in meal['Instructions'].split('.') if inst.strip()]
+                        for i, instruction in enumerate(instructions, 1):
+                            st.write(f"  {i}. {instruction}")
+                        
+                        if 'ViewCount' in meal:
+                            st.write(f"👀 Views: {meal['ViewCount']}")
                     
                     with col2:
-                        st.write("**Instructions:**")
-                        for step in meal['Instructions'].split(';'):
-                            st.write(f"{step.strip()}")
-                        
                         # Add delete button
                         if st.button("🗑️ Remove from Favorites", key=f"delete_{meal['RecipeID']}"):
                             try:
-                                # Call the favorites API to delete the meal
                                 delete_response = requests.delete(
                                     f"http://api:4000/f/favorites/{meal['RecipeID']}?username={st.session_state['first_name'].lower()}"
                                 )
                                 if delete_response.status_code == 200:
                                     st.success("Removed from favorites!")
-                                    # Refresh the page to show updated list
                                     st.rerun()
                                 else:
                                     st.error("Failed to remove from favorites. Please try again.")
