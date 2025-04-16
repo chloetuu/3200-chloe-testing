@@ -26,6 +26,9 @@ def CharlieFavoriteRecipes():
 def CharlieExploreRecipes():
     st.sidebar.page_link("pages/Charlie_Thompson_Recipes.py", label="Explore All Recipes", icon="🍔")
 
+def CharlieExploreByCategory():
+    st.sidebar.page_link("pages/Charlie_Thompson_Recipes_Category.py", label="Explore Meals by Category", icon="🥗")
+
 def testNina():
     st.sidebar.page_link("pages/Nina_test.py", label="Categories", icon="😅")
 
@@ -142,6 +145,7 @@ def SideBarLinks(show_home=False):
         if st.session_state["first_name"].lower() == "charlie":
             CharlieFavoriteRecipes()
             CharlieExploreRecipes()
+            CharlieExploreByCategory()
             Blogs()
 
         # if the user is James, show his dashboard links
