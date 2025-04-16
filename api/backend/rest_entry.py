@@ -7,6 +7,7 @@ from backend.products.products_routes import products
 from backend.meals.meal_routes import meals
 from backend.favorites.favorites_routes import favorites 
 from backend.categories.category_routes import categories
+from backend.error.error_routes import issues
 import os
 from dotenv import load_dotenv
 
@@ -78,6 +79,7 @@ def create_app():
     app.register_blueprint(meals,       url_prefix='/m')
     app.register_blueprint(blogs,       url_prefix='/b')
     app.register_blueprint(favorites,   url_prefix='/f')
+    app.register_blueprint(issues,      url_prefix='/l')
     
     
 

@@ -115,7 +115,7 @@ def SideBarLinks(show_home=False):
         elif st.session_state["first_name"].lower() == "charlie":
             st.sidebar.image("assets/Charlie_pfp.jpeg", caption="fitwithcharlie", width=200)
         elif st.session_state["first_name"].lower() == "jade":
-            st.sidebar.image("assets/jade_pfp.jpg", caption="@jade_dev", width=150)
+            st.sidebar.image("assets/Tummi_logo.png", caption="@jade_dev", width=150)
         elif st.session_state["first_name"].lower() == "james":
             st.sidebar.image("assets/james_pfp.jpg", caption="@james_analyst", width=150)
 

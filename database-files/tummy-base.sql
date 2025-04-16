@@ -15,6 +15,39 @@ CREATE TABLE User (
     InclusionStatus BOOLEAN
 );
 
+-- LogEntry Table
+CREATE TABLE LogEntry (
+    LogID INT PRIMARY KEY AUTO_INCREMENT,
+    Timestamp TIMESTAMP,
+    SeverityLevel VARCHAR(50),
+    Source VARCHAR(100),
+    Details TEXT,
+    ErrorMessage TEXT
+);
+
+-- Alert Table
+CREATE TABLE Alert (
+    AlertID INT PRIMARY KEY,
+    Type VARCHAR(50),
+    Timestamp TIMESTAMP,
+    AssignedTo VARCHAR(50),
+    LogID INT,
+    FOREIGN KEY (AssignedTo) REFERENCES User(Username),
+    FOREIGN KEY (LogID) REFERENCES LogEntry(LogID)
+);
+
+-- IssueReport Table
+CREATE TABLE IssueReport (
+    IssueID INT PRIMARY KEY,
+    Status VARCHAR(50),
+    Description TEXT,
+    Timestamp TIMESTAMP,
+    ReportedBy VARCHAR(50),
+    LogID INT,
+    FOREIGN KEY (ReportedBy) REFERENCES User(Username),
+    FOREIGN KEY (LogID) REFERENCES LogEntry(LogID)
+);
+
 -- Meal Table
 CREATE TABLE Meal (
     RecipeID INT PRIMARY KEY,
@@ -36,23 +69,15 @@ CREATE TABLE Blog (
     Content TEXT,
     PublishDate DATE,
     Username VARCHAR(50),
-    FOREIGN KEY (Username) REFERENCES User(Username)
+    RecipeID INT,
+    FOREIGN KEY (Username) REFERENCES User(Username),
+    FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID)
 );
 
 -- Tag Table
 CREATE TABLE Tag (
     TagID INT PRIMARY KEY,
     TagName VARCHAR(50)
-);
-
--- Favorites Bridge Table (User <-> Meal)
-CREATE TABLE Favorites (
-    Username VARCHAR(50),
-    RecipeID INT,
-    Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (Username, RecipeID),
-    FOREIGN KEY (Username) REFERENCES User(Username),
-    FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID)
 );
 
 -- Meal_Tag Bridge Table (Meal <-> Tag)
@@ -62,6 +87,15 @@ CREATE TABLE Meal_Tag (
     PRIMARY KEY (RecipeID, TagID),
     FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID),
     FOREIGN KEY (TagID) REFERENCES Tag(TagID)
+);
+
+-- Saved_Meals Bridge Table (User <-> Meal)
+CREATE TABLE Saved_Meals (
+    Username VARCHAR(50),
+    RecipeID INT,
+    PRIMARY KEY (Username, RecipeID),
+    FOREIGN KEY (Username) REFERENCES User(Username),
+    FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID)
 );
 
 -- Interaction Table
@@ -74,40 +108,6 @@ CREATE TABLE Interaction (
     FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID),
     FOREIGN KEY (UserID) REFERENCES User(Username)
 );
-
--- Alert Table
-CREATE TABLE Alert (
-    AlertID INT PRIMARY KEY,
-    Type VARCHAR(50),
-    Timestamp TIMESTAMP,
-    AssignedTo VARCHAR(50),
-    LogID INT,
-    FOREIGN KEY (AssignedTo) REFERENCES User(Username),
-    FOREIGN KEY (LogID) REFERENCES LogEntry(LogID)
-);
-
--- LogEntry Table
-CREATE TABLE LogEntry (
-    LogID INT PRIMARY KEY,
-    Timestamp TIMESTAMP,
-    SeverityLevel VARCHAR(50),
-    Source VARCHAR(100),
-    Details TEXT,
-    ErrorMessage TEXT
-);
-
--- IssueReport Table
-CREATE TABLE IssueReport (
-    IssueID INT PRIMARY KEY,
-    Status VARCHAR(50),
-    Description TEXT,
-    Timestamp TIMESTAMP,
-    ReportedBy VARCHAR(50),
-    LogID INT,
-    FOREIGN KEY (ReportedBy) REFERENCES User(Username),
-    FOREIGN KEY (LogID) REFERENCES LogEntry(LogID)
-);
-
 
 -- Insert statements for table: User
 INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, Bio) VALUES
@@ -169,6 +169,39 @@ INSERT INTO Tag (TagID, TagName) VALUES
 (17, 'Dessert'),
 (18, 'Snack');
 
+-- Insert statements for table: Meal
+INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, TotalTime, Difficulty, Ingredients, Instructions, ViewCount) VALUES
+(1, 'Spaghetti Carbonara', '2024-03-01', 15, 20, 35, 'Medium', 'Pasta, eggs, pancetta, parmesan', 'Cook pasta, mix with sauce.', 150),
+(2, 'Chicken Tacos', '2024-03-02', 20, 25, 45, 'Easy', 'Chicken, tortillas, vegetables', 'Cook chicken, assemble tacos.', 200),
+(3, 'Tiramisu', '2024-03-03', 30, 0, 30, 'Medium', 'Ladyfingers, coffee, mascarpone', 'Layer ingredients and chill.', 180),
+(4, 'Butter Chicken', '2024-03-04', 30, 40, 70, 'Hard', 'Chicken, tomatoes, cream, spices', 'Cook chicken in sauce.', 120),
+(5, 'Greek Salad', '2024-03-05', 15, 0, 15, 'Easy', 'Cucumber, tomato, feta, olives', 'Chop and mix ingredients.', 90),
+(6, 'Beef Stir Fry', '2024-03-06', 20, 15, 35, 'Medium', 'Beef, vegetables, soy sauce', 'Stir-fry all ingredients.', 110),
+(7, 'Margherita Pizza', '2024-03-07', 20, 15, 35, 'Medium', 'Dough, tomato sauce, mozzarella', 'Top dough and bake.', 250),
+(8, 'Avocado Toast', '2024-03-08', 10, 5, 15, 'Easy', 'Bread, avocado, eggs', 'Toast bread, top with avocado.', 300),
+(9, 'Chicken Curry', '2024-03-09', 25, 35, 60, 'Medium', 'Chicken, curry paste, coconut milk', 'Cook chicken in curry sauce.', 140),
+(10, 'Chocolate Cake', '2024-03-10', 30, 40, 70, 'Hard', 'Flour, sugar, cocoa, eggs', 'Mix and bake ingredients.', 220),
+(11, 'Pasta Primavera', '2024-03-11', 15, 15, 30, 'Easy', 'Pasta, vegetables, cream', 'Cook pasta, mix with vegetables.', 95),
+(12, 'Beef Stew', '2024-03-12', 20, 120, 140, 'Hard', 'Beef, vegetables, broth', 'Simmer ingredients for hours.', 85),
+(13, 'Caesar Salad', '2024-03-13', 15, 0, 15, 'Easy', 'Romaine, croutons, dressing', 'Toss ingredients together.', 110),
+(14, 'Pancakes', '2024-03-14', 10, 15, 25, 'Easy', 'Flour, milk, eggs, sugar', 'Mix and cook on griddle.', 180),
+(15, 'Sushi Rolls', '2024-03-15', 30, 20, 50, 'Hard', 'Rice, fish, vegetables, seaweed', 'Roll ingredients in seaweed.', 160),
+(16, 'Chicken Soup', '2024-03-16', 20, 60, 80, 'Medium', 'Chicken, vegetables, broth', 'Simmer ingredients together.', 75),
+(17, 'Lasagna', '2024-03-17', 30, 45, 75, 'Hard', 'Pasta, meat, cheese, sauce', 'Layer and bake ingredients.', 190),
+(18, 'Fruit Smoothie', '2024-03-18', 10, 0, 10, 'Easy', 'Fruits, yogurt, milk', 'Blend all ingredients.', 200),
+(19, 'Beef Burgers', '2024-03-19', 15, 15, 30, 'Easy', 'Beef, buns, toppings', 'Form patties and grill.', 240),
+(20, 'Chocolate Chip Cookies', '2024-03-20', 15, 12, 27, 'Easy', 'Flour, sugar, chocolate chips', 'Mix and bake dough.', 280),
+(21, 'Fish and Chips', '2024-03-21', 20, 20, 40, 'Medium', 'Fish, potatoes, batter', 'Fry fish and potatoes.', 130),
+(22, 'Vegetable Stir Fry', '2024-03-22', 15, 10, 25, 'Easy', 'Vegetables, soy sauce', 'Stir-fry vegetables.', 100),
+(23, 'Ratatouille', '2024-03-23', 25, 45, 70, 'Hard', 'Zucchini, eggplant, tomato, bell pepper', 'Slice and bake with herbs.', 100),
+(24, 'Egg Fried Noodles', '2024-03-24', 15, 10, 25, 'Easy', 'Noodles, egg, scallions, soy sauce', 'Stir-fry all ingredients together.', 135),
+(25, 'Omelette', '2024-03-25', 10, 5, 15, 'Easy', 'Eggs, cheese, vegetables', 'Whisk eggs and cook in skillet.', 125),
+(26, 'Shakshuka', '2024-03-26', 20, 25, 45, 'Medium', 'Tomato sauce, eggs, bell peppers, onions', 'Simmer sauce and poach eggs in it.', 80),
+(27, 'Biryani', '2024-03-27', 40, 45, 85, 'Hard', 'Rice, chicken, spices, yogurt', 'Layer and cook ingredients.', 115),
+(28, 'Pho', '2024-03-28', 30, 60, 90, 'Hard', 'Beef broth, rice noodles, herbs', 'Simmer broth and assemble bowls.', 95),
+(29, 'Pesto Pasta', '2024-03-29', 15, 15, 30, 'Easy', 'Pasta, basil, garlic, olive oil, pine nuts', 'Blend pesto. Mix with pasta.', 165),
+(30, 'Clam Chowder', '2024-03-30', 20, 40, 60, 'Medium', 'Clams, potatoes, cream, onions, bacon', 'Simmer ingredients and serve hot.', 140);
+
 -- Insert statements for table: Meal_Tag
 INSERT INTO Meal_Tag (RecipeID, TagID) VALUES
 (1, 1),
@@ -223,39 +256,6 @@ INSERT INTO Meal_Tag (RecipeID, TagID) VALUES
 (20, 16),
 (20, 10),
 (20, 12);
-
--- Insert statements for table: Meal
-INSERT INTO Meal (RecipeID, Name, DateCreated, PrepTime, CookTime, TotalTime, Difficulty, Ingredients, Instructions, ViewCount) VALUES
-(1, 'Spaghetti Carbonara', '2024-03-01', 15, 20, 35, 'Easy', 'Spaghetti, eggs, pancetta, parmesan, black pepper', 'Boil pasta. Cook pancetta. Mix with eggs and cheese off heat.', 120),
-(2, 'Chicken Tikka Masala', '2024-03-02', 30, 40, 70, 'Medium', 'Chicken, yogurt, tomato sauce, spices', 'Marinate chicken. Cook in sauce. Serve with rice.', 95),
-(3, 'Sushi Rolls', '2024-03-03', 45, 0, 45, 'Hard', 'Sushi rice, nori, fish, vegetables', 'Roll ingredients in nori. Slice and serve with soy sauce.', 80),
-(4, 'Pancakes', '2024-03-04', 10, 15, 25, 'Easy', 'Flour, eggs, milk, sugar, baking powder', 'Mix ingredients. Cook on griddle until golden.', 200),
-(5, 'Beef Tacos', '2024-03-05', 20, 15, 35, 'Medium', 'Ground beef, taco shells, lettuce, cheese, salsa', 'Cook beef. Assemble tacos with toppings.', 150),
-(6, 'Pad Thai', '2024-03-06', 25, 20, 45, 'Hard', 'Rice noodles, shrimp, tofu, egg, tamarind sauce', 'Stir-fry ingredients. Add sauce and noodles.', 130),
-(7, 'Caesar Salad', '2024-03-07', 15, 0, 15, 'Easy', 'Romaine, croutons, Caesar dressing, parmesan', 'Toss all ingredients and serve chilled.', 110),
-(8, 'Baked Salmon', '2024-03-08', 10, 25, 35, 'Easy', 'Salmon, lemon, garlic, herbs', 'Bake salmon with seasoning.', 140),
-(9, 'Tom Yum Soup', '2024-03-09', 15, 30, 45, 'Medium', 'Shrimp, lemongrass, lime, chili, mushrooms', 'Simmer ingredients and season.', 90),
-(10, 'Chocolate Cake', '2024-03-10', 30, 40, 70, 'Medium', 'Flour, cocoa powder, eggs, sugar, butter', 'Mix ingredients. Bake until done.', 160),
-(11, 'Greek Salad', '2024-03-11', 10, 0, 10, 'Easy', 'Cucumber, tomato, feta, olives, olive oil', 'Combine ingredients and drizzle with oil.', 100),
-(12, 'Fried Rice', '2024-03-12', 15, 20, 35, 'Easy', 'Rice, vegetables, egg, soy sauce', 'Fry ingredients in wok.', 180),
-(13, 'Hamburger', '2024-03-13', 20, 15, 35, 'Medium', 'Beef patty, bun, lettuce, tomato, cheese', 'Grill patty and assemble burger.', 170),
-(14, 'Lasagna', '2024-03-14', 40, 45, 85, 'Hard', 'Lasagna noodles, meat sauce, cheese', 'Layer ingredients and bake.', 95),
-(15, 'Miso Soup', '2024-03-15', 10, 10, 20, 'Easy', 'Miso paste, tofu, seaweed, green onion', 'Simmer ingredients in broth.', 75),
-(16, 'Chicken Alfredo', '2024-03-16', 20, 25, 45, 'Medium', 'Chicken, pasta, cream, parmesan', 'Cook pasta and sauce. Combine with chicken.', 125),
-(17, 'Spring Rolls', '2024-03-17', 30, 0, 30, 'Hard', 'Rice paper, vegetables, shrimp', 'Roll ingredients and serve with sauce.', 60),
-(18, 'BBQ Ribs', '2024-03-18', 15, 120, 135, 'Hard', 'Pork ribs, BBQ sauce, spices', 'Bake or grill with sauce.', 85),
-(19, 'Apple Pie', '2024-03-19', 30, 50, 80, 'Medium', 'Apples, flour, sugar, butter, cinnamon', 'Prepare filling and crust. Bake.', 145),
-(20, 'Tuna Sandwich', '2024-03-20', 10, 0, 10, 'Easy', 'Tuna, mayo, bread, lettuce', 'Mix filling. Assemble sandwich.', 155),
-(21, 'Curry Udon', '2024-03-21', 20, 25, 45, 'Medium', 'Udon noodles, curry roux, beef, vegetables', 'Simmer ingredients in curry broth.', 105),
-(22, 'Bulgogi', '2024-03-22', 30, 15, 45, 'Medium', 'Beef, soy sauce, garlic, sesame oil', 'Marinate beef. Grill and serve with rice.', 115),
-(23, 'Ratatouille', '2024-03-23', 25, 45, 70, 'Hard', 'Zucchini, eggplant, tomato, bell pepper', 'Slice and bake with herbs.', 100),
-(24, 'Egg Fried Noodles', '2024-03-24', 15, 10, 25, 'Easy', 'Noodles, egg, scallions, soy sauce', 'Stir-fry all ingredients together.', 135),
-(25, 'Omelette', '2024-03-25', 10, 5, 15, 'Easy', 'Eggs, cheese, vegetables', 'Whisk eggs and cook in skillet.', 125),
-(26, 'Shakshuka', '2024-03-26', 20, 25, 45, 'Medium', 'Tomato sauce, eggs, bell peppers, onions', 'Simmer sauce and poach eggs in it.', 80),
-(27, 'Biryani', '2024-03-27', 40, 45, 85, 'Hard', 'Rice, chicken, spices, yogurt', 'Layer and cook ingredients.', 115),
-(28, 'Pho', '2024-03-28', 30, 60, 90, 'Hard', 'Beef broth, rice noodles, herbs', 'Simmer broth and assemble bowls.', 95),
-(29, 'Pesto Pasta', '2024-03-29', 15, 15, 30, 'Easy', 'Pasta, basil, garlic, olive oil, pine nuts', 'Blend pesto. Mix with pasta.', 165),
-(30, 'Clam Chowder', '2024-03-30', 20, 40, 60, 'Medium', 'Clams, potatoes, cream, onions, bacon', 'Simmer ingredients and serve hot.', 140);
 
 -- Insert statements for table: LogEntry
 INSERT INTO LogEntry (LogID, Timestamp, ErrorMessage, SeverityLevel, Source, Details) VALUES
@@ -362,7 +362,6 @@ Special new discuss easy first cold the top.
 Year international side economy suggest positive. Close site safe beyond.'),
 (35, '2024-08-01 23:18:24', 'Know least case half behavior policy according plant.', 'High', 'marquez.com', 'Generation rise hospital protect gun history continue. Success them rule president staff through lead husband.
 Positive position successful in leave everyone. Fire happen low movie father sure name international.');
-
 
 -- Insert statements for table: Blog
 INSERT INTO Blog (PublishDate, Content, Title, Username, RecipeID) VALUES
