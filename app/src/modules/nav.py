@@ -107,6 +107,7 @@ def AdminPageNav():
 
 # --------------------------------Links Function -----------------------------------------------
 def SideBarLinks(show_home=False):
+<<<<<<< HEAD
     """Display sidebar links based on user authentication and role."""
     with st.sidebar:
         if st.session_state.get('authenticated'):
@@ -115,6 +116,63 @@ def SideBarLinks(show_home=False):
                 st.image("assets/Charlie_pfp.jpeg", caption="fitwithcharlie", width=200)
             elif st.session_state.get('first_name') == 'Nina':
                 st.image("assets/Nina_pfp.jpeg", caption="ninapatel", width=200)
+=======
+    """
+    This function handles adding links to the sidebar of the app based upon the logged-in user's role, which was put in the streamlit session_state object when logging in.
+    """
+
+    # If there is no logged in user, redirect to the Home (Landing) page
+    if "authenticated" not in st.session_state:
+        st.session_state.authenticated = False
+        st.switch_page("Home.py")
+
+    if show_home:
+        # Show the Home page link (the landing page)
+        HomeNav()
+
+    # Show the other page navigators depending on the users' role.
+    if st.session_state["authenticated"]:
+        # Display user profile picture based on who is logged in
+        if st.session_state["first_name"].lower() == "nina":
+            st.sidebar.image("assets/nina_patel_pfp.jpg", caption="@soccermom123", width=150)
+        elif st.session_state["first_name"].lower() == "charlie":
+            st.sidebar.image("assets/Charlie_pfp.jpeg", caption="fitwithcharlie", width=200)
+        elif st.session_state["first_name"].lower() == "jade":
+            st.sidebar.image("assets/Tummi_logo.png", caption="@jade_dev", width=150)
+        elif st.session_state["first_name"].lower() == "james":
+            st.sidebar.image("assets/james_pfp.jpg", caption="@james_analyst", width=150)
+
+        # If the user role is usaid worker, show the Api Testing page
+        if st.session_state["role"] == "backend_developer":
+            BackendNav()
+            ApiDashboardNav()
+            GraphNav()
+
+        # If the user is an administrator, give them access to the administrator pages
+        if st.session_state["role"] == "administrator":
+            AdminPageNav()
+
+        # if the user is Nina, show all her pages in the sidebar
+        if st.session_state["first_name"].lower() == "nina":
+            st.sidebar.markdown("---")
+            st.sidebar.markdown("### Nina's Pages")
+            st.sidebar.page_link("pages/Nina_HomePage.py", label="Home", icon="🏠")
+            st.sidebar.page_link("pages/Nina_FavRecipes.py", label="Favorite Recipes", icon="❤️")
+            st.sidebar.page_link("pages/Nina_Patel_Recipes.py", label="Explore All Recipes", icon="🍔")
+            st.sidebar.page_link("pages/Nina_test.py", label="Explore Meals by Category", icon="🥳")
+
+        # if the user is Charlie, show their Favorite Recipes page 
+        if st.session_state["first_name"].lower() == "charlie":
+            CharlieFavoriteRecipes()
+            CharlieExploreRecipes()
+            Blogs()
+
+        # if the user is James, show his dashboard links
+        if st.session_state["first_name"].lower() == "james":
+            JamesNav()
+            AnalystBoard()
+            DataEditing()
+>>>>>>> bd1b75ec7fb5b196e5cec0a3b7f332ec95b63125
             
             st.write(f"### {st.session_state.get('first_name', 'User')}'s Pages")
             
