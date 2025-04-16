@@ -145,10 +145,11 @@ def SideBarLinks(show_home=False):
         if st.session_state["first_name"].lower() == "charlie":
             st.sidebar.markdown("---")
             st.sidebar.markdown("### Charlie's Pages")
-            CharlieFavoriteRecipes()
-            CharlieExploreRecipes()
-            CharlieExploreByCategory()
-            Blogs()
+            # Add all four navigation links for Charlie
+            st.sidebar.page_link("pages/Charlie_FavRecipes.py", label="Favorite Recipes", icon="❤️")
+            st.sidebar.page_link("pages/Charlie_Thompson_Recipes.py", label="Explore All Recipes", icon="🍔")
+            st.sidebar.page_link("pages/Charlie_Thompson_Recipes_Category.py", label="Explore Meals by Category", icon="🥗")
+            st.sidebar.page_link("pages/Blogs.py", label="Blogs", icon="📚")
 
         # if the user is James, show his dashboard links
         if st.session_state["first_name"].lower() == "james":
