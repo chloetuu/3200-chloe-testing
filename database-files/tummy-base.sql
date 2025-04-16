@@ -1,158 +1,111 @@
-
+-- Drop and create the Tummy database
 DROP DATABASE IF EXISTS Tummy;
 CREATE DATABASE Tummy;
 USE Tummy;
 
--- Table: User
+-- User Table
 CREATE TABLE User (
     Username VARCHAR(50) PRIMARY KEY,
     FirstName VARCHAR(50),
     LastName VARCHAR(50),
     Region VARCHAR(50),
-    ActivityLevel VARCHAR(50),
     Age INT,
-    Bio TEXT
+    Bio TEXT,
+    ActivityLevel VARCHAR(50),
+    InclusionStatus BOOLEAN
 );
 
--- Table: Follows
-CREATE TABLE Follows (
-    follower_id VARCHAR(50),
-    followee_id VARCHAR(50),
-    follow_date DATE DEFAULT (CURRENT_DATE),
-    PRIMARY KEY (follower_id, followee_id),
-    FOREIGN KEY (follower_id) REFERENCES User(Username) ON DELETE CASCADE,
-    FOREIGN KEY (followee_id) REFERENCES User(Username) ON DELETE CASCADE
-);
-
--- Table: Tag
-CREATE TABLE Tag (
-    TagID INT AUTO_INCREMENT PRIMARY KEY,
-    Cuisine VARCHAR(50),
-    Allergy VARCHAR(50),
-    MealType VARCHAR(50)
-);
-
--- Table: Meal
+-- Meal Table
 CREATE TABLE Meal (
-    RecipeID INT AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(50) NOT NULL,
-    DateCreated DATE DEFAULT (CURRENT_DATE),
+    RecipeID INT PRIMARY KEY,
+    Name VARCHAR(100),
+    DateCreated DATE,
     PrepTime INT,
     CookTime INT,
-    TotalTime INT GENERATED ALWAYS AS (PrepTime + CookTime) STORED,
-    Difficulty VARCHAR(20) NOT NULL,
-    Ingredients TEXT NOT NULL,
-    Instructions TEXT NOT NULL
+    TotalTime INT,
+    Difficulty VARCHAR(50),
+    Ingredients TEXT,
+    Instructions TEXT,
+    ViewCount INT
 );
 
--- Table: Meal_Tag (Many-to-Many)
+-- Blog Table
+CREATE TABLE Blog (
+    BlogID INT PRIMARY KEY,
+    Title VARCHAR(100),
+    Content TEXT,
+    PublishDate DATE,
+    Username VARCHAR(50),
+    FOREIGN KEY (Username) REFERENCES User(Username)
+);
+
+-- Tag Table
+CREATE TABLE Tag (
+    TagID INT PRIMARY KEY,
+    TagName VARCHAR(50)
+);
+
+-- Favorites Bridge Table (User <-> Meal)
+CREATE TABLE Favorites (
+    Username VARCHAR(50),
+    RecipeID INT,
+    Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (Username, RecipeID),
+    FOREIGN KEY (Username) REFERENCES User(Username),
+    FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID)
+);
+
+-- Meal_Tag Bridge Table (Meal <-> Tag)
 CREATE TABLE Meal_Tag (
     RecipeID INT,
     TagID INT,
     PRIMARY KEY (RecipeID, TagID),
-    FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID) ON DELETE CASCADE,
-    FOREIGN KEY (TagID) REFERENCES Tag(TagID) ON DELETE CASCADE
+    FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID),
+    FOREIGN KEY (TagID) REFERENCES Tag(TagID)
 );
 
--- Table: Blog
-CREATE TABLE Blog (
-    BlogID INT AUTO_INCREMENT PRIMARY KEY,
-    PublishDate DATETIME,
-    Content MEDIUMTEXT,
-    Title VARCHAR(100),
-    Username VARCHAR(50),
-    RecipeID INT,
-    FOREIGN KEY (Username) REFERENCES User(Username) ON DELETE CASCADE,
-    FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID) ON DELETE SET NULL
-);
-
--- Table: Blog_Meal (Many-to-Many)
-CREATE TABLE Blog_Meal (
-    BlogID INT,
-    RecipeID INT,
-    PRIMARY KEY (BlogID, RecipeID),
-    FOREIGN KEY (BlogID) REFERENCES Blog(BlogID) ON DELETE CASCADE,
-    FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID) ON DELETE CASCADE
-);
-
--- Table: Saved_Meals (Many-to-Many)
-CREATE TABLE Saved_Meals (
-    Username VARCHAR(50),
-    RecipeID INT,
-    PRIMARY KEY (Username, RecipeID),
-    FOREIGN KEY (Username) REFERENCES User(Username) ON DELETE CASCADE,
-    FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID) ON DELETE CASCADE
-);
-
--- Table: Favorites (Many-to-Many)
-CREATE TABLE Favorites (
-    Username VARCHAR(50),
-    RecipeID INT,
-    PRIMARY KEY (Username, RecipeID),
-    FOREIGN KEY (Username) REFERENCES User(Username) ON DELETE CASCADE,
-    FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID) ON DELETE CASCADE
-);
-
--- Table: Added_Meals (Many-to-Many)
-CREATE TABLE Added_Meals (
-    Username VARCHAR(50),
-    RecipeID INT,
-    PRIMARY KEY (Username, RecipeID),
-    FOREIGN KEY (Username) REFERENCES User(Username) ON DELETE CASCADE,
-    FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID) ON DELETE CASCADE
-);
-
--- Table: DemographicGroupData
-CREATE TABLE DemographicGroupData (
-    GroupID INT AUTO_INCREMENT PRIMARY KEY,
-    GroupType VARCHAR(50),
-    GroupValue VARCHAR(50)
-);
-
--- Table: UserDemographic (Many-to-Many)
-CREATE TABLE UserDemographic (
-    Username VARCHAR(50),
-    GroupID INT,
-    PRIMARY KEY (Username, GroupID),
-    FOREIGN KEY (Username) REFERENCES User(Username) ON DELETE CASCADE,
-    FOREIGN KEY (GroupID) REFERENCES DemographicGroupData(GroupID) ON DELETE CASCADE
-);
-
--- Table: CategoryData
-CREATE TABLE CategoryData (
-    CategoryID INT AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(50)
-);
-
--- Table: RecipeData
-CREATE TABLE RecipeData (
-    RecipeID INT AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(100),
-    SavedStatus INT,
-    CategoryID INT,
-    ViewCount INT,
-    FOREIGN KEY (CategoryID) REFERENCES CategoryData(CategoryID) ON DELETE SET NULL
-);
-
--- Table: Interaction
+-- Interaction Table
 CREATE TABLE Interaction (
-    InteractionID INT AUTO_INCREMENT PRIMARY KEY,
-    Username VARCHAR(50),  # Changed from UserID
-    RecipeID INT,
+    InteractionID INT PRIMARY KEY AUTO_INCREMENT,
+    Timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     InteractionType VARCHAR(50),
-    Timestamp DATETIME,
-    FOREIGN KEY (Username) REFERENCES User(Username) ON DELETE CASCADE,
-    FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID) ON DELETE CASCADE
+    RecipeID INT,
+    UserID VARCHAR(50),
+    FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID),
+    FOREIGN KEY (UserID) REFERENCES User(Username)
 );
 
--- Table: LogEntry
+-- Alert Table
+CREATE TABLE Alert (
+    AlertID INT PRIMARY KEY,
+    Type VARCHAR(50),
+    Timestamp TIMESTAMP,
+    AssignedTo VARCHAR(50),
+    LogID INT,
+    FOREIGN KEY (AssignedTo) REFERENCES User(Username),
+    FOREIGN KEY (LogID) REFERENCES LogEntry(LogID)
+);
+
+-- LogEntry Table
 CREATE TABLE LogEntry (
-    LogID INT AUTO_INCREMENT PRIMARY KEY,
-    Timestamp DATETIME,
-    ErrorMessage TEXT,
-    SeverityLevel VARCHAR(20),
+    LogID INT PRIMARY KEY,
+    Timestamp TIMESTAMP,
+    SeverityLevel VARCHAR(50),
     Source VARCHAR(100),
-    Details TEXT
+    Details TEXT,
+    ErrorMessage TEXT
+);
+
+-- IssueReport Table
+CREATE TABLE IssueReport (
+    IssueID INT PRIMARY KEY,
+    Status VARCHAR(50),
+    Description TEXT,
+    Timestamp TIMESTAMP,
+    ReportedBy VARCHAR(50),
+    LogID INT,
+    FOREIGN KEY (ReportedBy) REFERENCES User(Username),
+    FOREIGN KEY (LogID) REFERENCES LogEntry(LogID)
 );
 
 
