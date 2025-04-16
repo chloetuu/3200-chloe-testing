@@ -3,8 +3,18 @@
 # This file has function to add certain functionality to the left side bar of the app
 
 import streamlit as st
+from streamlit_option_menu import option_menu
 import requests
+import json
+import os
+from dotenv import load_dotenv
 
+# Load environment variables
+load_dotenv()
+
+# Initialize session state for authentication if not already present
+if 'authenticated' not in st.session_state:
+    st.session_state['authenticated'] = False
 
 #### ------------------------ General ------------------------
 def HomeNav():
@@ -97,72 +107,34 @@ def AdminPageNav():
 
 # --------------------------------Links Function -----------------------------------------------
 def SideBarLinks(show_home=False):
-    """
-    This function handles adding links to the sidebar of the app based upon the logged-in user's role, which was put in the streamlit session_state object when logging in.
-    """
-
-    # If there is no logged in user, redirect to the Home (Landing) page
-    if "authenticated" not in st.session_state:
-        st.session_state.authenticated = False
-        st.switch_page("Home.py")
-
-    if show_home:
-        # Show the Home page link (the landing page)
-        HomeNav()
-
-    # Show the other page navigators depending on the users' role.
-    if st.session_state["authenticated"]:
-        # Display user profile picture based on who is logged in
-        if st.session_state["first_name"].lower() == "nina":
-            st.sidebar.image("assets/nina_patel_pfp.jpg", caption="@soccermom123", width=150)
-        elif st.session_state["first_name"].lower() == "charlie":
-            st.sidebar.image("assets/Charlie_pfp.jpeg", caption="fitwithcharlie", width=200)
-        elif st.session_state["first_name"].lower() == "jade":
-            st.sidebar.image("assets/jade_pfp.jpg", caption="@jade_dev", width=150)
-        elif st.session_state["first_name"].lower() == "james":
-            st.sidebar.image("assets/james_pfp.jpg", caption="@james_analyst", width=150)
-
-        # If the user role is usaid worker, show the Api Testing page
-        if st.session_state["role"] == "backend_developer":
-            BackendNav()
-            ApiDashboardNav()
-            GraphNav()
-
-        # If the user is an administrator, give them access to the administrator pages
-        if st.session_state["role"] == "administrator":
-            AdminPageNav()
-
-        # if the user is Nina, show all her pages in the sidebar
-        if st.session_state["first_name"].lower() == "nina":
-            st.sidebar.markdown("---")
-            st.sidebar.markdown("### Nina's Pages")
-            st.sidebar.page_link("pages/Nina_HomePage.py", label="Home", icon="🏠")
-            st.sidebar.page_link("pages/Nina_FavRecipes.py", label="Favorite Recipes", icon="❤️")
-            st.sidebar.page_link("pages/Nina_Patel_Recipes.py", label="Explore All Recipes", icon="🍔")
-            st.sidebar.page_link("pages/Nina_test.py", label="Explore Meals by Category", icon="🥳")
-
-        # if the user is Charlie, show their pages in the sidebar
-        if st.session_state["first_name"].lower() == "charlie":
-            st.sidebar.markdown("---")
-            st.sidebar.markdown("### Charlie's Pages")
-            # Add all navigation links for Charlie
-            st.sidebar.page_link("pages/Charlie_FavRecipes.py", label="Favorite Recipes", icon="❤️")
-            st.sidebar.page_link("pages/Charlie_Thompson_Recipes.py", label="Explore All Recipes", icon="🍔")
-            st.sidebar.page_link("pages/Charlie_Thompson_Recipes_Category.py", label="Explore Meals by Category", icon="🥗")
-            st.sidebar.page_link("pages/Blogs.py", label="Blogs", icon="📚")
-
-        # if the user is James, show his dashboard links
-        if st.session_state["first_name"].lower() == "james":
-            JamesNav()
-            AnalystBoard()
-            DataEditing()
+    """Display sidebar links based on user authentication and role."""
+    with st.sidebar:
+        if st.session_state.get('authenticated'):
+            # Display profile picture and user info
+            if st.session_state.get('first_name') == 'Charlie':
+                st.image("assets/Charlie_pfp.jpeg", caption="fitwithcharlie", width=200)
+            elif st.session_state.get('first_name') == 'Nina':
+                st.image("assets/Nina_pfp.jpeg", caption="ninapatel", width=200)
             
-
-    if st.session_state["authenticated"]:
-        # Always show a logout button if there is a logged in user
-        st.sidebar.markdown("---")
-        if st.sidebar.button("Logout"):
-            del st.session_state["role"]
-            del st.session_state["authenticated"]
-            st.switch_page("Home.py")
+            st.write(f"### {st.session_state.get('first_name', 'User')}'s Pages")
+            
+            # Add navigation links based on user role
+            if st.session_state.get('first_name') == 'Charlie':
+                st.page_link("pages/Charlie_Thompson.py", label="Favorite Recipes", icon="❤️")
+                st.page_link("pages/Charlie_Thompson_Recipes.py", label="Explore All Recipes", icon="🍔")
+                st.page_link("pages/Charlie_Thompson_Recipes_Category.py", label="Explore Meals by Category", icon="🥗")
+                st.page_link("pages/Charlie_Thompson_Blogs.py", label="Blogs", icon="📚")
+            elif st.session_state.get('first_name') == 'Nina':
+                st.page_link("pages/Nina_HomePage.py", label="Favorite Recipes", icon="❤️")
+                st.page_link("pages/Nina_test.py", label="Explore All Recipes", icon="🍔")
+                st.page_link("pages/Nina_test.py", label="Explore Meals by Category", icon="🥗")
+                st.page_link("pages/Nina_Blogs.py", label="Blogs", icon="📚")
+            
+            # Add logout button
+            if st.button("Logout", type="primary"):
+                st.session_state['authenticated'] = False
+                st.rerun()
+        else:
+            if show_home:
+                st.page_link("Home.py", label="Home", icon="🏠")
             
