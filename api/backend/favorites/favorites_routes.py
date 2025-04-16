@@ -14,8 +14,9 @@ def get_favorite_meals():
 
     query = '''
         SELECT m.*
-        FROM Favorites f
-        JOIN Meals m ON f.RecipeID = m.RecipeID
+        FROM SavedMeals s
+        JOIN Meals m ON s.RecipeID = m.RecipeID
+            AND s.Username = m.Username
     '''
     cursor.execute(query)
 
