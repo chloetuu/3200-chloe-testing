@@ -12,9 +12,17 @@ SideBarLinks()
 
 st.title(f"Welcome {st.session_state['first_name']}.")
 
-# Adds the followers and following count 
-follower_count = 128
-following_count = 67
+# Get follower and following counts from the API
+try:
+    response = requests.get(f"http://api:4000/u/users/{st.session_state['first_name'].lower()}")
+    response.raise_for_status()
+    follow_data = response.json()
+    follower_count = follow_data['follower_count']
+    following_count = follow_data['following_count']
+except Exception as e:
+    st.error(f"Error fetching follow counts: {e}")
+    follower_count = 0
+    following_count = 0
 
 col_a, col_b = st.columns([0.5,0.5])
 with col_a:
