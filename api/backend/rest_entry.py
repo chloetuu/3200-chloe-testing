@@ -1,74 +1,67 @@
 from flask import Flask
 from backend.db_connection import db
-<<<<<<< HEAD
-from backend.error.error_route import issues
-
-# Add your other route imports as needed
-# from backend.customers.customer_routes import customers
-# from backend.products.products_routes import products
-# from backend.meals.meal_routes import meals
-
-=======
 from backend.customers.customer_routes import customers
 from backend.products.products_routes import products
-# from backend.simple.simple_routes import simple_routes
+#from backend.simple.simple_routes import simple_routes  # Uncomment if needed
 from backend.meals.meal_routes import meals
->>>>>>> ff45cbbc3aef7db564ab3b724e88a1312717285a
+from backend.error.error_routes import issues
+
 import os
 from dotenv import load_dotenv
-from backend.blogs.blog_routes import blogs
 
 def create_app():
     app = Flask(__name__)
+
+    # Load environment variables from .env (which should be in your project root)
     load_dotenv()
 
+    # Set secret key for secure sessions and other security needs
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+
+    # Database connection settings for MySQL
     app.config['MYSQL_DATABASE_USER'] = os.getenv('DB_USER').strip()
     app.config['MYSQL_DATABASE_PASSWORD'] = os.getenv('MYSQL_ROOT_PASSWORD').strip()
     app.config['MYSQL_DATABASE_HOST'] = os.getenv('DB_HOST').strip()
     app.config['MYSQL_DATABASE_PORT'] = int(os.getenv('DB_PORT').strip())
     app.config['MYSQL_DATABASE_DB'] = os.getenv('DB_NAME').strip()
 
-    app.logger.info('Starting DB connection...')
+    # Initialize the database object with the settings above
+    app.logger.info('Starting the database connection')
     db.init_app(app)
 
-    @app.route('/')
+    # Define the default route
+    @app.route("/")
     def welcome():
         return "<h1>Welcome to the Summer 2025 CS 3200 Project Template Repo</h1>"
 
-    @app.route('/data')
-    def get_data():
-        return {
+    # A sample route for testing data transmission
+    @app.route("/data")
+    def getData():
+        data = {
             "staff": [
-                {"Name": "Mark Fontenot", "role": "Instructor"},
-                {"Name": "Ashley Davis", "role": "TA"}
+                {
+                    "Name": "Mark Fontenot",
+                    "role": "Instructor"
+                },
+                {
+                    "Name": "Ashley Davis",
+                    "role": "TA"
+                }
             ]
         }
+        return data
 
-    # Register your blueprints here
-    app.logger.info('Registering blueprints...')
-    app.register_blueprint(issues, url_prefix='/e')
-    # app.register_blueprint(customers, url_prefix='/c')
-    # app.register_blueprint(products, url_prefix='/p')
-    # app.register_blueprint(meals, url_prefix='/m')
-
-<<<<<<< HEAD
-=======
-    # Register the routes from each Blueprint with the app object
-    # and give a url prefix to each
-    app.logger.info('current_app(): registering blueprints with Flask app object.')   
-    # app.register_blueprint(simple_routes)
+    # Register blueprints with appropriate URL prefixes
+    app.logger.info('Registering blueprints with the Flask app object')
     app.register_blueprint(customers,   url_prefix='/c')
     app.register_blueprint(products,    url_prefix='/p')
     app.register_blueprint(meals,       url_prefix='/m')
-    app.register_blueprint(blogs,       url_prefix='/b')
-    
+    app.register_blueprint(issues,      url_prefix='/e')
+    # If you decide to use the simple_routes, uncomment the following line:
+    # app.register_blueprint(simple_routes, url_prefix='/s')
 
-    # Don't forget to return the app object
->>>>>>> ff45cbbc3aef7db564ab3b724e88a1312717285a
     return app
 
-# Only needed if you want to run this directly
 if __name__ == '__main__':
     app = create_app()
     app.run(debug=True)
