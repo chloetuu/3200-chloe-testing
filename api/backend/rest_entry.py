@@ -5,6 +5,8 @@ from backend.customers.customer_routes import customers
 from backend.products.products_routes import products
 # from backend.simple.simple_routes import simple_routes
 from backend.meals.meal_routes import meals
+from backend.favorites.favorites_routes import favorites 
+from backend.categories.category_routes import categories
 import os
 from dotenv import load_dotenv
 
@@ -71,10 +73,11 @@ def create_app():
     # and give a url prefix to each
     app.logger.info('current_app(): registering blueprints with Flask app object.')   
     # app.register_blueprint(simple_routes)
-    app.register_blueprint(customers,   url_prefix='/c')
+    app.register_blueprint(categories,   url_prefix='/c')
     app.register_blueprint(products,    url_prefix='/p')
     app.register_blueprint(meals,       url_prefix='/m')
     app.register_blueprint(blogs,       url_prefix='/b')
+    app.register_blueprint(favorites,   url_prefix='/f')
     
     
 
