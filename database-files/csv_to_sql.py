@@ -269,7 +269,7 @@ def csv_to_bulk_insert(csv_path, table_name):
             
             # Read all rows
             rows = list(reader)
-            if not rows:
+        if not rows:
                 print(f"⚠️ Warning: No data in {csv_path}")
                 return None
 
@@ -299,7 +299,7 @@ def csv_to_bulk_insert(csv_path, table_name):
             # Join all value sets with commas
             insert_stmt += ',\n'.join(values_list) + ';'
             
-            return insert_stmt
+        return insert_stmt
     except Exception as e:
         print(f"⚠️ Error processing {csv_path}: {str(e)}")
         return None

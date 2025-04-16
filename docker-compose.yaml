@@ -22,6 +22,6 @@ services:
     container_name: mysql_db
     hostname: db
     volumes:
-      - ./database-files:/docker-entrypoint-initdb.d/:ro
+      - ./database-files/tummy-base.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - 3200:3306
