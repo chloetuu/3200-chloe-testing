@@ -6,22 +6,21 @@ st.title("📋 Explore All Meals")
 
 try:
     # 🔁 Call your Flask API endpoint
-    response = requests.get("http://localhost:8501/m/meals")  
+    response = requests.get("http://api:4000/m/meals")  
     response.raise_for_status()
 
     meals = response.json()
 
     if meals:
-        for meal in meals:
-            st.markdown(f"### {meal['MealName']}")
-            st.markdown(
-                f"""
-                - 👤 Added by: `{meal['Username']}`
-                - 🍽️ Calories: {meal['Calories']}
-                - 🕒 Meal Time: {meal['MealTime']}
-                - 📝 Notes: {meal['Notes']}
-                """
-            )
+        for i, meal in enumerate(meals):
+            st.image(f"assets/{i % 8}.png", width=350)
+            st.markdown(f"### {meal['Name']}")
+            st.write(f"- 🍽️ Prep Time: {meal['PrepTime']} minutes")
+            st.write(f"- 🕒 Cook Time: {meal['CookTime']} minutes")
+            st.write(f"- ⏰ Total Time: {meal['TotalTime']} minutes")
+            st.write(f"- 😊 Difficulty: {meal['Difficulty']}")
+            st.write(f"- 🍒 Ingredients: {meal['Ingredients']}")
+            st.write(f"- 🤩 Instructions: {meal['Instructions']}")
             st.markdown("---")
     else:
         st.info("No meals found.")

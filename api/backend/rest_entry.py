@@ -3,13 +3,8 @@ from flask import Flask
 from backend.db_connection import db
 from backend.customers.customer_routes import customers
 from backend.products.products_routes import products
-<<<<<<< HEAD
 # from backend.simple.simple_routes import simple_routes
 from backend.meals.meal_routes import meals
-=======
-from backend.simple.simple_routes import simple_routes
-from api.backend.meals.meal_routes_routes import meals
->>>>>>> 345bd193c203d0cf6a96dbd57eb11975b0199845
 import os
 from dotenv import load_dotenv
 
@@ -77,6 +72,8 @@ def create_app():
     app.register_blueprint(customers,   url_prefix='/c')
     app.register_blueprint(products,    url_prefix='/p')
     app.register_blueprint(meals,       url_prefix='/m')
+    
+    
 
     # Don't forget to return the app object
     return app

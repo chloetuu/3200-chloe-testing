@@ -31,7 +31,6 @@ st.write('')
 st.write(f"***Bio:*** {st.session_state['bio']}")
 
 
-
 col1, col2, col3 = st.columns([3, 1, 0.75])  
 with col3:
     st.write('')     

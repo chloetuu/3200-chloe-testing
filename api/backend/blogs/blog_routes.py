@@ -1,7 +1,3 @@
-########################################################
-# Sample users blueprint of endpoints
-# Remove this file if you are not using it in your project
-########################################################
 from flask import Blueprint
 from flask import request
 from flask import jsonify
@@ -10,15 +6,15 @@ from flask import current_app
 from backend.db_connection import db
 from backend.ml_models.model01 import predict
 
-meals = Blueprint('meals', __name__ )
+blogs = Blueprint('blogs', __name__ )
 
 # Gets all meals 
-@meals.route('/meals', methods=['GET'])
-def get_all_meals():
+@blogs.route('/blogs', methods=['GET'])
+def get_all_blogs():
     cursor = db.get_db().cursor()
     the_query = '''
     SELECT *
-    FROM Meal
+    FROM Blogs
 '''
     cursor.execute(the_query)
     theData = cursor.fetchall()
@@ -27,10 +23,10 @@ def get_all_meals():
     the_response.mimetype='application/json'
     return the_response
 
-# Adds a meal 
-@meals.route('/meals', methods=['POST'])
-def add_meal():
-    current_app.logger.info('POST /meals route')
+# Adds a blog
+@meals.route('/blogs', methods=['POST'])
+def add_blog():
+    current_app.logger.info('POST /blogs route')
     meal_info = request.json
     username = meal_info['username']
     meal_name = meal_info['meal_name']
@@ -104,5 +100,4 @@ def update_recipe(recipe_id):
     db.get_db().commit()
 
     return jsonify({"message": "Recipe updated successfully"})
-
 
