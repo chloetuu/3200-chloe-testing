@@ -8,7 +8,7 @@ st.title("📋 Explore Meals by Category")
 # --- Load Categories from Backend ---
 def fetch_categories():
     try:
-        response = requests.get("http://api:4000/categories")
+        response = requests.get("http://api:4000/c/categories")
         response.raise_for_status()
         return [cat["CategoryName"] for cat in response.json()]
     except Exception as e:
