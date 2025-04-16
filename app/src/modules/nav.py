@@ -27,7 +27,7 @@ def CharlieExploreRecipes():
     st.sidebar.page_link("pages/Charlie_Thompson_Recipes.py", label="Explore All Recipes", icon="🍔")
 
 def CharlieExploreByCategory():
-    st.sidebar.page_link("pages/Charlie_Thompson_Recipes_Category.py", label="Explore Meals by Category", icon="🥗")
+    st.sidebar.page_link("pages/Nina_test.py", label="Explore Meals by Category", icon="🥗")
 
 def testNina():
     st.sidebar.page_link("pages/Nina_test.py", label="Categories", icon="😅")
