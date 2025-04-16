@@ -7,16 +7,13 @@ from modules.nav import SideBarLinks
 # Set page configuration
 st.set_page_config(
     page_title="Charlie's Home",
-    page_icon="��",
+    page_icon="🏠",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
 # Initialize sidebar
 with st.sidebar:
-    # Display profile picture
-    st.image("assets/Charlie_pfp.jpeg", caption="fitwithcharlie", width=200)
-    
     # Add section header
     st.markdown("### Charlie's Pages")
     
