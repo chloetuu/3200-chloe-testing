@@ -19,6 +19,9 @@ def FavoriteRecipes():
 def ExploreRecipes():
     st.sidebar.page_link("pages/Nina_Patel_Recipes.py", label="Explore All Recipes", icon="🍔")
 
+def testNina():
+st.sidebar.page_link("pages/Nina_test.py", label="Categories", icon="😅")
+
 #### ---------------------- Specific to Charlie ----------------------------
 
 def Blogs(): 
@@ -116,6 +119,7 @@ def SideBarLinks(show_home=False):
         if st.session_state["first_name"].lower() == "nina":
             FavoriteRecipes()
             ExploreRecipes()
+            testNina()
 
         # if the user is Charlie, show their Favorite Recipes page 
         if st.session_state["first_name"].lower() == "charlie":
