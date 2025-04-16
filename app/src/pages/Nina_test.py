@@ -15,7 +15,7 @@ def fetch_categories():
     try:
         response = requests.get("http://api:4000/c/categories")
         response.raise_for_status()
-        return [cat["CategoryName"] for cat in response.json()]
+        return [cat["Name"] for cat in response.json()]
     except Exception as e:
         st.sidebar.error(f"Error loading categories: {e}")
         return []

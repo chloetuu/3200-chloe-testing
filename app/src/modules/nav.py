@@ -108,6 +108,16 @@ def SideBarLinks(show_home=False):
 
     # Show the other page navigators depending on the users' role.
     if st.session_state["authenticated"]:
+        # Display user profile picture based on who is logged in
+        if st.session_state["first_name"].lower() == "nina":
+            st.sidebar.image("assets/nina_patel_pfp.jpg", caption="@soccermom123", width=150)
+        elif st.session_state["first_name"].lower() == "charlie":
+            st.sidebar.image("assets/Charlie_pfp.jpeg", caption="fitwithcharlie", width=200)
+        elif st.session_state["first_name"].lower() == "jade":
+            st.sidebar.image("assets/jade_pfp.jpg", caption="@jade_dev", width=150)
+        elif st.session_state["first_name"].lower() == "james":
+            st.sidebar.image("assets/james_pfp.jpg", caption="@james_analyst", width=150)
+
         # If the user role is usaid worker, show the Api Testing page
         if st.session_state["role"] == "backend_developer":
             BackendNav()

@@ -7,13 +7,8 @@ import requests
 
 st.set_page_config(layout = 'wide')
 
-
-
 # Show appropriate sidebar links for the role of the currently logged in user
-st.sidebar.image("assets/nina_patel_pfp.jpg", caption="@soccermom123", width=150)
-
 SideBarLinks()
-
 
 st.title(f"Welcome {st.session_state['first_name']}.")
 
@@ -45,23 +40,6 @@ with col3:
     st.write('')
     st.write('')
     st.image("assets/Tummi_logo.png", width=150, caption="Tummi")
-
-# Add favorite button
-if st.button("❤️ Add to Favorites", key=f"fav_{meal['RecipeID']}"):
-    try:
-        response = requests.post(
-            "http://api:4000/f/favorites",
-            json={
-                "username": st.session_state['first_name'].lower(),
-                "recipe_id": meal['RecipeID']
-            }
-        )
-        if response.status_code in [200, 201]:  # Accept both 200 (already favorited) and 201 (newly added)
-            st.success(response.json()['message'])
-        else:
-            st.error("Failed to add to favorites. Please try again.")
-    except Exception as e:
-        st.error(f"Error adding to favorites: {str(e)}")
 
 
 
