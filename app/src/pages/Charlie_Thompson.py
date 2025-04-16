@@ -4,14 +4,19 @@ logger = logging.getLogger(__name__)
 import streamlit as st
 from modules.nav import SideBarLinks
 
+# Set page configuration
+st.set_page_config(
+    page_title="Charlie's Home",
+    page_icon="🏠",
+    layout="wide"
+)
 
+# Initialize sidebar
+with st.sidebar:
+    st.image("assets/Charlie_pfp.jpeg", caption="fitwithcharlie", width=200)
+    SideBarLinks()
 
-
-# Show appropriate sidebar links for the role of the currently logged in user
-st.sidebar.image("assets/Charlie_pfp.jpeg", caption="fitwithcharlie", width=200)
-
-SideBarLinks()
-
+# Main content
 st.title(f"Welcome {st.session_state['first_name']}.")
 
 # Adds the followers and following count 
@@ -28,7 +33,7 @@ st.write('')
 st.write('')
 st.write(f"***Bio:*** {st.session_state['bio']}")
 
-
+# Add Tummi logo
 col1, col2, col3 = st.columns([3, 1, 0.75])  
 with col3:
     st.write('')     
