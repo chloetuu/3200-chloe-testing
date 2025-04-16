@@ -24,7 +24,7 @@ def get_all_blogs():
     return the_response
 
 # Adds a blog
-@meals.route('/blogs', methods=['POST'])
+@blogs.route('/blogs', methods=['POST'])
 def add_blog():
     current_app.logger.info('POST /blogs route')
     meal_info = request.json
@@ -34,7 +34,7 @@ def add_blog():
     meal_time = meal_info['meal_time']
     notes = meal_info.get('notes', '')  
 
-    query = '''INSERT INTO Meals (Username, MealName, Calories, MealTime, Notes)
+    query = '''INSERT INTO Blogs (Username, MealName, Calories, MealTime, Notes)
                VALUES (%s, %s, %s, %s, %s)'''
     data = (username, meal_name, calories, meal_time, notes)
     
@@ -43,61 +43,4 @@ def add_blog():
     db.get_db().commit()
 
     return 'Meal(s) added!'
-
-# Deletes a meal 
-@meals.route('/meals/<int:recipe_id>', methods=['DELETE'])
-def delete_meal(recipe_id):
-    current_app.logger.info(f'DELETE /meals/{recipe_id} route called')
-
-    query = '''DELETE FROM Meal WHERE RecipeID = %s'''
-    cursor = db.get_db().cursor()
-    cursor.execute(query, (recipe_id,))
-    db.get_db().commit()
-    
-    return 'Meal deleted!'
-
-@meals.route('/top-recipes', methods=['GET'])
-def get_top_recipes():
-    cursor = db.get_db().cursor()
-    query = '''
-        SELECT RecipeID, Title, Category, Views, Saves
-        FROM Recipes
-        ORDER BY Views DESC
-        LIMIT 4
-    '''
-    cursor.execute(query)
-    data = cursor.fetchall()
-    return jsonify(data)
-
-@meals.route('/flagged-recipes', methods=['GET'])
-def get_flagged_recipes():
-    cursor = db.get_db().cursor()
-    query = '''
-        SELECT RecipeID, Title, Category, Views, Saves, Flagged
-        FROM Recipes
-        WHERE Flagged = TRUE
-    '''
-    cursor.execute(query)
-    data = cursor.fetchall()
-    return jsonify(data)
-
-@meals.route('/recipes/<int:recipe_id>', methods=['PUT'])
-def update_recipe(recipe_id):
-    recipe_info = request.json
-    title = recipe_info['title']
-    category = recipe_info['category']
-    views = recipe_info['views']
-    saves = recipe_info['saves']
-    flagged = recipe_info['flagged']
-
-    query = '''
-        UPDATE Recipes
-        SET Title = %s, Category = %s, Views = %s, Saves = %s, Flagged = %s
-        WHERE RecipeID = %s
-    '''
-    cursor = db.get_db().cursor()
-    cursor.execute(query, (title, category, views, saves, flagged, recipe_id))
-    db.get_db().commit()
-
-    return jsonify({"message": "Recipe updated successfully"})
 
