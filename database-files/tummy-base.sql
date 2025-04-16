@@ -42,7 +42,6 @@ CREATE TABLE Meal (
     Difficulty ENUM('Easy', 'Medium', 'Hard') NOT NULL,
     Ingredients TEXT NOT NULL,
     Instructions TEXT NOT NULL,
-    FavoriteStatus BOOLEAN DEFAULT FALSE
 );
 
 -- Table: Meal_Tag (Many-to-Many)
@@ -77,6 +76,14 @@ CREATE TABLE Blog_Meal (
 
 -- Table: Saved_Meals (Many-to-Many)
 CREATE TABLE Saved_Meals (
+    Username VARCHAR(50),
+    RecipeID INT,
+    PRIMARY KEY (Username, RecipeID),
+    FOREIGN KEY (Username) REFERENCES User(Username),
+    FOREIGN KEY (RecipeID) REFERENCES Meal(RecipeID)
+);
+
+CREATE TABLE Favorites (
     Username VARCHAR(50),
     RecipeID INT,
     PRIMARY KEY (Username, RecipeID),

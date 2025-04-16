@@ -15,13 +15,12 @@ try:
         for i, meal in enumerate(meals):
             st.image(f"assets/{i % 8}.png", width=350)
             st.markdown(f"### {meal['Name']}")
-            st.markdown(
-                f"""
-                - 🍽️ Prep Time: {meal['PrepTime']}
-                - 🕒 Cook Time: {meal['CookTime']}
-                - 📝 Instructions: {meal['Instructions']}
-                """
-            )
+            st.write(f"- 🍽️ Prep Time: {meal['PrepTime']} minutes")
+            st.write(f"- 🕒 Cook Time: {meal['CookTime']} minutes")
+            st.write(f"- ⏰ Total Time: {meal['TotalTime']} minutes")
+            st.write(f"- 😊 Difficulty: {meal['Difficulty']}")
+            st.write(f"- 🍒 Ingredients: {meal['Ingredients']}")
+            st.write(f"- 🤩 Instructions: {meal['Instructions']}")
             st.markdown("---")
     else:
         st.info("No meals found.")
