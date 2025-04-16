@@ -3,6 +3,7 @@
 # This file has function to add certain functionality to the left side bar of the app
 
 import streamlit as st
+import requests
 
 
 #### ------------------------ General ------------------------
@@ -135,7 +136,7 @@ def SideBarLinks(show_home=False):
             st.sidebar.page_link("pages/Nina_HomePage.py", label="Home", icon="🏠")
             st.sidebar.page_link("pages/Nina_FavRecipes.py", label="Favorite Recipes", icon="❤️")
             st.sidebar.page_link("pages/Nina_Patel_Recipes.py", label="Explore All Recipes", icon="🍔")
-            st.sidebar.page_link("pages/Nina_test.py", label="Categories", icon="😅")
+            st.sidebar.page_link("pages/Nina_test.py", label="Explore Meals by Category", icon="🥳")
 
         # if the user is Charlie, show their Favorite Recipes page 
         if st.session_state["first_name"].lower() == "charlie":
