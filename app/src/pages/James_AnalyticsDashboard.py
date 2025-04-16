@@ -9,7 +9,7 @@ st.title("📊 Analytics Dashboard")
 st.markdown("**Last updated:** March 25th, 2025")
 
 # Back nav in sidebar
-st.sidebar.page_link("pages/James_Home.py", label="⬅️ Back to James Homepage")  # ← Update to actual filename!
+st.sidebar.page_link("pages/James_Homepage.py", label="⬅️ Back to James Homepage")  # ← Update to actual filename!
 
 # Sidebar Filters
 with st.sidebar:
