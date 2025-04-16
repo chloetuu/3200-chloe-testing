@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 import json
+from datetime import datetime
 
 # Set the page title
 st.title("Blogs")
@@ -36,37 +37,65 @@ def add_blog(blog_data):
 with st.expander("Add New Blog"):
     with st.form("new_blog_form"):
         username = st.text_input("Username")
-        meal_name = st.text_input("Meal Name")
-        calories = st.number_input("Calories", min_value=0)
-        meal_time = st.selectbox("Meal Time", ["Breakfast", "Lunch", "Dinner", "Snack"])
-        notes = st.text_area("Notes")
+        title = st.text_input("Title")
+        content = st.text_area("Content")
         
         submit_button = st.form_submit_button("Add Blog")
         
         if submit_button:
             blog_data = {
                 "username": username,
-                "meal_name": meal_name,
-                "calories": calories,
-                "meal_time": meal_time,
-                "notes": notes
+                "title": title,
+                "content": content
             }
             if add_blog(blog_data):
                 st.experimental_rerun()
 
 # Display existing blogs
-st.subheader("Existing Blogs")
+st.subheader("Posted Blogs")
 blogs = get_blogs()
 
 if blogs:
     for blog in blogs:
         with st.container():
-            st.write(f"**Meal:** {blog.get('MealName', 'N/A')}")
+            # Format the publish date
+            publish_date = blog.get('PublishDate')
+            if publish_date:
+                try:
+                    date_obj = datetime.strptime(publish_date, '%Y-%m-%d %H:%M:%S')
+                    formatted_date = date_obj.strftime('%B %d, %Y at %I:%M %p')
+                except:
+                    formatted_date = publish_date
+            else:
+                formatted_date = "Unknown date"
+            
+            # Display blog information
+            st.write(f"**Title:** {blog.get('Title', 'Untitled')}")
             st.write(f"**By:** {blog.get('Username', 'Anonymous')}")
-            st.write(f"**Calories:** {blog.get('Calories', 'N/A')}")
-            st.write(f"**Meal Time:** {blog.get('MealTime', 'N/A')}")
-            if blog.get('Notes'):
-                st.write(f"**Notes:** {blog.get('Notes')}")
+            st.write(f"**Published:** {formatted_date}")
+            
+            # Display content with proper formatting
+            content = blog.get('Content', '')
+            if content:
+                st.write("**Content:**")
+                st.write(content)
+            
+            # If there's a recipe ID, we can fetch and display the meal information
+            recipe_id = blog.get('RecipeID')
+            if recipe_id:
+                try:
+                    meal_response = requests.get(f'http://web-api:4000/m/meals/{recipe_id}')
+                    if meal_response.status_code == 200:
+                        meal = meal_response.json()
+                        st.write("**Related Meal:**")
+                        st.write(f"- Name: {meal.get('Name', 'N/A')}")
+                        st.write(f"- Prep Time: {meal.get('PrepTime', 'N/A')} minutes")
+                        st.write(f"- Cook Time: {meal.get('CookTime', 'N/A')} minutes")
+                        st.write(f"- Total Time: {meal.get('TotalTime', 'N/A')} minutes")
+                        st.write(f"- Difficulty: {meal.get('Difficulty', 'N/A')}")
+                except:
+                    st.write("Could not fetch meal information")
+            
             st.divider()
 else:
     st.info("No blogs found. Be the first to add one!")
