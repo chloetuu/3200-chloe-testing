@@ -82,7 +82,7 @@ with tab2:
     # Fetch meal data
     meal_data = []
     try:
-        response = requests.get('http://api:4000/api/meals/analytics')
+        response = requests.get('http://api:4000/api/c/customers')
         if response.status_code == 200:
             meal_data = response.json().get('data', {})
         else:
@@ -137,7 +137,7 @@ with tab3:
     # Fetch interaction data
     interaction_data = []
     try:
-        response = requests.get('http://api:4000/api/interactions/analytics')
+        response = requests.get('http://api:4000/api/i/interactions')
         if response.status_code == 200:
             interaction_data = response.json().get('data', {})
         else:
@@ -180,7 +180,7 @@ with tab4:
     # Fetch log data
     log_data = []
     try:
-        response = requests.get('http://api:4000/api/logs/analytics')
+        response = requests.get('http://api:4000/api/l/logs')
         if response.status_code == 200:
             log_data = response.json().get('data', {})
         else:
