@@ -78,7 +78,7 @@ def create_app():
     # app.register_blueprint(simple_routes)
     app.register_blueprint(categories,   url_prefix='/c')
     app.register_blueprint(products,    url_prefix='/p')
-    app.register_blueprint(meals,       url_prefix='/m')
+    app.register_blueprint(meals, url_prefix='/api/meals')
     app.register_blueprint(blogs,       url_prefix='/b')
     app.register_blueprint(favorites,   url_prefix='/f')
     app.register_blueprint(issues,      url_prefix='/l')

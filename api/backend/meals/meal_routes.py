@@ -168,7 +168,7 @@ def init_meals():
         current_app.logger.error(f'Error initializing test meals: {str(e)}')
         return jsonify({'error': str(e)}), 500
 
-@meals.route('/meals/analytics', methods=['GET'])
+@meals.route('/analytics', methods=['GET'])
 def get_meal_analytics():
     current_app.logger.info('GET /meals/analytics called')
     cursor = db.get_db().cursor()
