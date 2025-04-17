@@ -1,50 +1,28 @@
-from flask import Blueprint, request, jsonify, make_response, current_app
-from backend.db_connection import db
+from flask import Blueprint, jsonify
+import logging
+
+logger = logging.getLogger(__name__)
 
 interactions = Blueprint('interactions', __name__)
 
 @interactions.route('/interactions/analytics', methods=['GET'])
 def get_interaction_analytics():
-    current_app.logger.info('GET /interactions/analytics called')
-    cursor = db.get_db().cursor()
-
+    """Get interaction analytics data"""
     try:
-        # 1. Interaction type distribution
-        cursor.execute('''
-            SELECT InteractionType, COUNT(*) AS count
-            FROM Interaction
-            GROUP BY InteractionType
-        ''')
-        type_counts = cursor.fetchall()
-
-        # 2. Interactions over time
-        cursor.execute('''
-            SELECT DATE(Timestamp) AS date, COUNT(*) AS count
-            FROM Interaction
-            GROUP BY DATE(Timestamp)
-            ORDER BY date ASC
-        ''')
-        time_series = cursor.fetchall()
-
-        # 3. Top 10 most interacted meals
-        cursor.execute('''
-            SELECT m.Name, COUNT(*) AS count
-            FROM Interaction i
-            JOIN Meal m ON i.RecipeID = m.RecipeID
-            GROUP BY m.Name
-            ORDER BY count DESC
-            LIMIT 10
-        ''')
-        top_meals = cursor.fetchall()
-
-        return jsonify({
-            'data': {
-                'type_counts': type_counts,
-                'time_series': time_series,
-                'top_meals': top_meals
-            }
-        }), 200
-
+        # For now, return mock data
+        data = {
+            'type_counts': [
+                {'InteractionType': 'VIEW', 'count': 100},
+                {'InteractionType': 'SAVE', 'count': 50},
+                {'InteractionType': 'SHARE', 'count': 20}
+            ],
+            'time_series': [
+                {'date': '2024-01-01', 'count': 10},
+                {'date': '2024-01-02', 'count': 15},
+                {'date': '2024-01-03', 'count': 20}
+            ]
+        }
+        return jsonify({'data': data})
     except Exception as e:
-        current_app.logger.error(f'Error in /interactions/analytics: {str(e)}')
+        logger.error(f"Error fetching interaction analytics: {str(e)}")
         return jsonify({'error': str(e)}), 500 
