@@ -1,50 +1,60 @@
-from flask import Blueprint, request, jsonify, make_response, current_app
-from backend.db_connection import db
+import streamlit as st
+import pandas as pd
+import plotly.express as px
+import requests
 
-interactions = Blueprint('interactions', __name__)
+st.title("📊 Interaction Analytics Dashboard")
 
-@interactions.route('/interactions/analytics', methods=['GET'])
-def get_interaction_analytics():
-    current_app.logger.info('GET /interactions/analytics called')
-    cursor = db.get_db().cursor()
+# Fetch interaction data from Flask API
+interaction_data = {}
+try:
+    response = requests.get("http://api:4000/m/interactions/analytics")
+    if response.status_code == 200:
+        interaction_data = response.json().get("data", {})
+    else:
+        st.error(f"Error fetching interaction data: {response.status_code}")
+except Exception as e:
+    st.error(f"Error connecting to API: {str(e)}")
 
-    try:
-        # 1. Interaction type distribution
-        cursor.execute('''
-            SELECT InteractionType, COUNT(*) AS count
-            FROM Interaction
-            GROUP BY InteractionType
-        ''')
-        type_counts = cursor.fetchall()
+# Display charts if data exists
+if interaction_data:
+    col1, col2 = st.columns(2)
 
-        # 2. Interactions over time
-        cursor.execute('''
-            SELECT DATE(Timestamp) AS date, COUNT(*) AS count
-            FROM Interaction
-            GROUP BY DATE(Timestamp)
-            ORDER BY date ASC
-        ''')
-        time_series = cursor.fetchall()
+    with col1:
+        st.subheader("Interaction Type Distribution")
+        type_df = pd.DataFrame(interaction_data["type_counts"])
+        fig_type = px.pie(
+            type_df,
+            values="count",
+            names="InteractionType",
+            title="Interaction Types",
+            color_discrete_sequence=px.colors.qualitative.Set3
+        )
+        st.plotly_chart(fig_type, use_container_width=True)
 
-        # 3. Top 10 most interacted meals
-        cursor.execute('''
-            SELECT m.Name, COUNT(*) AS count
-            FROM Interaction i
-            JOIN Meal m ON i.RecipeID = m.RecipeID
-            GROUP BY m.Name
-            ORDER BY count DESC
-            LIMIT 10
-        ''')
-        top_meals = cursor.fetchall()
+    with col2:
+        st.subheader("Interactions Over Time")
+        time_df = pd.DataFrame(interaction_data["time_series"])
+        time_df["date"] = pd.to_datetime(time_df["date"])
+        fig_time = px.line(
+            time_df,
+            x="date",
+            y="count",
+            title="Interactions Over Time",
+            markers=True
+        )
+        st.plotly_chart(fig_time, use_container_width=True)
 
-        return jsonify({
-            'data': {
-                'type_counts': type_counts,
-                'time_series': time_series,
-                'top_meals': top_meals
-            }
-        }), 200
-
-    except Exception as e:
-        current_app.logger.error(f'Error in /interactions/analytics: {str(e)}')
-        return jsonify({'error': str(e)}), 500 
+    st.subheader("Top 10 Interacted Meals")
+    top_df = pd.DataFrame(interaction_data["top_meals"])
+    fig_top = px.bar(
+        top_df,
+        x="Name",
+        y="count",
+        title="Top Meals by Interactions",
+        color="Name",
+        color_discrete_sequence=px.colors.qualitative.Set3
+    )
+    st.plotly_chart(fig_top, use_container_width=True)
+else:
+    st.warning("No interaction data available.")
