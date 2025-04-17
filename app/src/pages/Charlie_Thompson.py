@@ -31,7 +31,7 @@ with st.sidebar:
     st.page_link("pages/Charlie_Thompson.py", label="Home", icon="🏠")
     st.page_link("pages/Charlie_FavRecipes.py", label="Favorite Recipes", icon="❤️")
     st.page_link("pages/Charlie_Thompson_Recipes.py", label="Explore All Recipes", icon="🍔")
-    st.page_link("pages/Charlie_Thompson_Recipes_Category.py", label="Explore Meals by Category", icon="🥗")
+    st.page_link("pages/Charlie_Thompson_Recipes_Category.py", label="Explore Meals by Tag", icon="🥗")
     st.page_link("pages/Blogs.py", label="Blogs", icon="📚")
     
     # Add separator
@@ -39,9 +39,9 @@ with st.sidebar:
     
     # Add logout button
     if st.button("Logout"):
-        for var in required_vars:
-            if var in st.session_state:
-                del st.session_state[var]
+        # Clear all session state variables
+        for key in list(st.session_state.keys()):
+            del st.session_state[key]
         st.switch_page("Home.py")
 
 # Main content

@@ -11,8 +11,14 @@ def get_all_tags():
     cursor = db.get_db().cursor()
     current_app.logger.info('GET /tags called')
     
+    query = '''
+    SELECT TagID, TagName
+    FROM Tag
+    ORDER BY TagName
+    '''
+    
     try:
-        cursor.execute('SELECT TagID, TagName as Name FROM Tag')
+        cursor.execute(query)
         tags = cursor.fetchall()
         return jsonify(tags)
     except Exception as e:
@@ -48,12 +54,19 @@ def get_tag(tag_id):
     cursor = db.get_db().cursor()
     current_app.logger.info(f'GET /tags/{tag_id} called')
     
+    query = '''
+    SELECT TagID, TagName
+    FROM Tag
+    WHERE TagID = %s
+    '''
+    
     try:
-        cursor.execute('SELECT TagID, TagName as Name FROM Tag WHERE TagID = %s', (tag_id,))
+        cursor.execute(query, (tag_id,))
         tag = cursor.fetchone()
         if tag:
             return jsonify(tag)
-        return jsonify({'error': 'Tag not found'}), 404
+        else:
+            return jsonify({'error': 'Tag not found'}), 404
     except Exception as e:
         current_app.logger.error(f'Error fetching tag: {str(e)}')
         return jsonify({'error': str(e)}), 500
@@ -122,4 +135,27 @@ def update_tag_request(request_id):
         return jsonify({'message': 'Tag request updated successfully'})
     except Exception as e:
         current_app.logger.error(f'Error updating tag request: {str(e)}')
+        return jsonify({'error': str(e)}), 500
+
+@tags_categories.route('/tags', methods=['POST'])
+def create_tag():
+    cursor = db.get_db().cursor()
+    current_app.logger.info('POST /tags called')
+    
+    data = request.get_json()
+    if not data or 'TagName' not in data:
+        return jsonify({'error': 'Missing tag name'}), 400
+    
+    query = '''
+    INSERT INTO Tag (TagName)
+    VALUES (%s)
+    '''
+    
+    try:
+        cursor.execute(query, (data['TagName'],))
+        db.get_db().commit()
+        return jsonify({'message': 'Tag created successfully'}), 201
+    except Exception as e:
+        db.get_db().rollback()
+        current_app.logger.error(f'Error creating tag: {str(e)}')
         return jsonify({'error': str(e)}), 500 

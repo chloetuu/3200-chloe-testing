@@ -1171,6 +1171,13 @@ INSERT INTO Follows (FollowerUsername, FolloweeUsername) VALUES
 ('bryangarcia', 'mccoywilliam'),
 ('bryangarcia', 'jacqueline17'),
 ('bryangarcia', 'markrush'),
+('imcdonald', 'mccoywilliam'),
+('imcdonald', 'jacqueline17'),
+('imcdonald', 'markrush'),
+('jbarnett', 'bryangarcia'),
+('jbarnett', 'imcdonald'),
+('bvasquez', 'mccoywilliam'),
+('bvasquez', 'jacqueline17'),
 ('soccermom123', 'mccoywilliam'),
 ('soccermom123', 'jacqueline17'),
 ('soccermom123', 'markrush'),
@@ -1179,5 +1186,5 @@ INSERT INTO Follows (FollowerUsername, FolloweeUsername) VALUES
 ('jacqueline17', 'soccermom123'),
 ('markrush', 'soccermom123'),
 ('bryangarcia', 'soccermom123'),
-('fitwithcharlie', 'soccermom123'),
-('soccermom123', 'fitwithcharlie');
+('soccermom123', 'fitwithcharlie'),
+('fitwithcharlie', 'soccermom123');

@@ -6,7 +6,7 @@ from backend.products.products_routes import products
 # from backend.simple.simple_routes import simple_routes
 from backend.meals.meal_routes import meals
 from backend.favorites.favorites_routes import favorites 
-from backend.tags.tag_category_routes import tags_categories
+from backend.tags.tag_routes import tags_categories
 from backend.error.error_routes import issues
 from backend.users.users_routes import users
 from backend.alerts.alerts_route import alerts

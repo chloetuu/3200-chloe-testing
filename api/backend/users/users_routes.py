@@ -278,5 +278,5 @@ def combine_demographic_groups():
         return jsonify({'message': 'Groups combined successfully'})
     except Exception as e:
         db.get_db().rollback()
-        current_app.logger.error(f'Error combining groups: {str(e)}')
+        current_app.logger.error(f'Error combining demographic groups: {str(e)}')
         return jsonify({'error': str(e)}), 500
