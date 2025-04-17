@@ -47,4 +47,4 @@ def get_interaction_analytics():
 
     except Exception as e:
         current_app.logger.error(f'Error in /interactions/analytics: {str(e)}')
-        return jsonify({'error': str(e)}), 500
+        return jsonify({'error': str(e)}), 500 
