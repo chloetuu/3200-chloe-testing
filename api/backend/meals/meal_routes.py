@@ -167,3 +167,49 @@ def init_meals():
         db.get_db().rollback()
         current_app.logger.error(f'Error initializing test meals: {str(e)}')
         return jsonify({'error': str(e)}), 500
+
+@meals.route('/meals/analytics', methods=['GET'])
+def get_meal_analytics():
+    current_app.logger.info('GET /meals/analytics called')
+    cursor = db.get_db().cursor()
+
+    try:
+        # 1. Difficulty distribution
+        cursor.execute('''
+            SELECT Difficulty, COUNT(*) AS count
+            FROM Meal
+            GROUP BY Difficulty
+        ''')
+        difficulty_counts = cursor.fetchall()
+
+        # 2. Tag popularity
+        cursor.execute('''
+            SELECT t.TagName, COUNT(*) AS count
+            FROM Meal_Tag mt
+            JOIN Tag t ON mt.TagID = t.TagID
+            GROUP BY t.TagName
+            ORDER BY count DESC
+            LIMIT 10
+        ''')
+        tag_counts = cursor.fetchall()
+
+        # 3. Top 10 most viewed meals
+        cursor.execute('''
+            SELECT Name, ViewCount
+            FROM Meal
+            ORDER BY ViewCount DESC
+            LIMIT 10
+        ''')
+        top_meals = cursor.fetchall()
+
+        return jsonify({
+            'data': {
+                'difficulty_counts': difficulty_counts,
+                'tag_counts': tag_counts,
+                'top_meals': top_meals
+            }
+        }), 200
+
+    except Exception as e:
+        current_app.logger.error(f'Error in /meals/analytics: {str(e)}')
+        return jsonify({'error': str(e)}), 500
