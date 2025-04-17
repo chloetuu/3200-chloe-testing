@@ -13,7 +13,7 @@ SideBarLinks()
 st.write("# Analytics Dashboard")
 
 """
-This dashboard displays key metrics and analytics for the Tummy application, including user interactions, meal popularity, and system performance.
+This dashboard displays key metrics and analytics for the Tummi application, including user interactions, meal popularity, and system performance.
 """
 
 # Create tabs for different analytics sections
@@ -137,7 +137,7 @@ with tab3:
     # Fetch interaction data
     interaction_data = []
     try:
-        response = requests.get('http://api:4000/m/interactions/analytics')
+        response = requests.get('http://api:4000/i/interactions/analytics')
         if response.status_code == 200:
             interaction_data = response.json().get('data', {})
         else:
