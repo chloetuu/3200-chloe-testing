@@ -10,7 +10,7 @@ def get_alerts():
     try:
         cursor = db.get_db().cursor()
         query = '''
-            SELECT a.AlertID, a.Type, a.Timestamp, a.AssignedTo, a.Status,
+            SELECT a.AlertID, a.Type, a.Timestamp, a.AssignedTo, 
                    l.SeverityLevel, l.Source, l.Details, l.ErrorMessage
             FROM Alert a
             LEFT JOIN LogEntry l ON a.LogID = l.LogID
