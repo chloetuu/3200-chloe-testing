@@ -109,6 +109,11 @@ def SideBarLinks(show_home=False):
 
     # Show the other page navigators depending on the users' role.
     if st.session_state["authenticated"]:
+        # Check if first_name exists in session state
+        if "first_name" not in st.session_state:
+            st.error("Please log in to view this page.")
+            st.switch_page("Home.py")
+
         # Display user profile picture based on who is logged in
         if st.session_state["first_name"].lower() == "nina":
             st.sidebar.image("assets/nina_patel_pfp.jpg", caption="@soccermom123", width=150)
@@ -140,6 +145,9 @@ def SideBarLinks(show_home=False):
 
         # if the user is Charlie, show their Favorite Recipes page 
         if st.session_state["first_name"].lower() == "charlie":
+            st.sidebar.markdown("---")
+            st.sidebar.markdown("### Charlie's Pages")
+            st.sidebar.page_link("pages/Charlie_Thompson.py", label="Home", icon="🏠")
             CharlieFavoriteRecipes()
             CharlieExploreRecipes()
             Blogs()

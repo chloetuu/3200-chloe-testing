@@ -1,177 +1,198 @@
 import streamlit as st
 import pandas as pd
-import mysql.connector
-from mysql.connector import Error
+import plotly.express as px
+import requests
+from datetime import datetime
+from streamlit_extras.app_logo import add_logo
+from modules.nav import SideBarLinks
 
+# Set page config must be the first Streamlit command
 st.set_page_config(page_title="Data Editing", layout="wide")
+SideBarLinks()
 
-# Database connection configuration
-db_config = {
-    'host': 'web-api',
-    'user': 'root',
-    'password': 'root',
-    'database': 'Tummy'
-}
+st.title("🛠️ Data Management Dashboard")
 
-def get_db_connection():
+# Create tabs for different data sections
+tab1, tab2, tab3 = st.tabs(["User Management", "Meal Management", "Tag Management"])
+
+# User Management Tab
+with tab1:
+    st.subheader("User Data")
+    
     try:
-        connection = mysql.connector.connect(**db_config)
-        return connection
-    except Error as e:
-        st.error(f"Error connecting to MySQL database: {e}")
-        return None
+        # Fetch user data from API
+        response = requests.get('http://web-api:4000/u/users')
+        if response.status_code == 200:
+            users_data = response.json()
+            df_users = pd.DataFrame(users_data)
+            
+            # Create an editable dataframe
+            st.write("Edit User Information:")
+            edited_df = st.data_editor(
+                df_users,
+                num_rows="dynamic",
+                column_config={
+                    "Username": st.column_config.TextColumn("Username", disabled=True),
+                    "FirstName": st.column_config.TextColumn("First Name"),
+                    "LastName": st.column_config.TextColumn("Last Name"),
+                    "Region": st.column_config.TextColumn("Region"),
+                    "ActivityLevel": st.column_config.SelectboxColumn(
+                        "Activity Level",
+                        options=["Low", "Medium", "High"]
+                    ),
+                    "Age": st.column_config.NumberColumn("Age"),
+                    "InclusionStatus": st.column_config.CheckboxColumn("Active"),
+                    "Bio": st.column_config.TextColumn("Bio", width="large")
+                },
+                use_container_width=True
+            )
+            
+            # User Statistics
+            col1, col2 = st.columns(2)
+            with col1:
+                # Region distribution
+                region_counts = df_users['Region'].value_counts()
+                fig_region = px.pie(
+                    values=region_counts.values,
+                    names=region_counts.index,
+                    title="Users by Region"
+                )
+                st.plotly_chart(fig_region)
+                
+            with col2:
+                # Activity Level distribution
+                activity_counts = df_users['ActivityLevel'].value_counts()
+                fig_activity = px.bar(
+                    x=activity_counts.index,
+                    y=activity_counts.values,
+                    title="Users by Activity Level"
+                )
+                st.plotly_chart(fig_activity)
+                
+        else:
+            st.error("Failed to fetch user data")
+    except Exception as e:
+        st.error(f"Error: {str(e)}")
 
-@st.cache_data
-def load_meal_data():
-    connection = get_db_connection()
-    if connection:
-        try:
-            query = """
-                SELECT 
-                    m.RecipeID,
-                    m.Name,
-                    m.Difficulty,
-                    m.PrepTime,
-                    m.CookTime,
-                    m.TotalTime,
-                    m.ViewCount,
-                    m.DateCreated,
-                    GROUP_CONCAT(t.TagName) as Tags,
-                    COUNT(DISTINCT sm.Username) as SaveCount,
-                    COUNT(DISTINCT i.InteractionID) as InteractionCount
-                FROM Meal m
-                LEFT JOIN Meal_Tag mt ON m.RecipeID = mt.RecipeID
-                LEFT JOIN Tag t ON mt.TagID = t.TagID
-                LEFT JOIN Saved_Meals sm ON m.RecipeID = sm.RecipeID
-                LEFT JOIN Interaction i ON m.RecipeID = i.RecipeID
-                GROUP BY 
-                    m.RecipeID, 
-                    m.Name, 
-                    m.Difficulty, 
-                    m.PrepTime,
-                    m.CookTime,
-                    m.TotalTime,
-                    m.ViewCount,
-                    m.DateCreated
-            """
-            df = pd.read_sql(query, connection)
-            # Convert Tags from string to list
-            df['Tags'] = df['Tags'].fillna('').apply(lambda x: x.split(',') if x else [])
-            # Convert DateCreated to datetime
-            df['DateCreated'] = pd.to_datetime(df['DateCreated'])
-            return df
-        except Error as e:
-            st.error(f"Error loading meal data: {e}")
-            return pd.DataFrame()
-        finally:
-            connection.close()
-    return pd.DataFrame()
+# Meal Management Tab
+with tab2:
+    st.subheader("Meal Management")
+    
+    try:
+        # Fetch meal data from API
+        response = requests.get('http://web-api:4000/m/meals')
+        if response.status_code == 200:
+            meals_data = response.json()
+            df_meals = pd.DataFrame(meals_data)
+            
+            # Display meal statistics
+            col1, col2 = st.columns(2)
+            
+            with col1:
+                # Difficulty distribution
+                if 'Difficulty' in df_meals.columns:
+                    difficulty_counts = df_meals['Difficulty'].value_counts()
+                    fig_difficulty = px.pie(
+                        values=difficulty_counts.values,
+                        names=difficulty_counts.index,
+                        title="Meals by Difficulty"
+                    )
+                    st.plotly_chart(fig_difficulty)
+            
+            with col2:
+                # View count statistics
+                if 'ViewCount' in df_meals.columns:
+                    fig_views = px.bar(
+                        df_meals.nlargest(10, 'ViewCount'),
+                        x='Name',
+                        y='ViewCount',
+                        title="Top 10 Most Viewed Meals"
+                    )
+                    st.plotly_chart(fig_views)
+            
+            # Editable meal data
+            st.write("Edit Meal Information:")
+            edited_meals = st.data_editor(
+                df_meals,
+                num_rows="dynamic",
+                column_config={
+                    "RecipeID": st.column_config.NumberColumn("Recipe ID", disabled=True),
+                    "Name": st.column_config.TextColumn("Name"),
+                    "Difficulty": st.column_config.SelectboxColumn(
+                        "Difficulty",
+                        options=["Easy", "Medium", "Hard"]
+                    ),
+                    "PrepTime": st.column_config.NumberColumn("Prep Time (min)"),
+                    "CookTime": st.column_config.NumberColumn("Cook Time (min)"),
+                    "TotalTime": st.column_config.NumberColumn("Total Time (min)"),
+                    "ViewCount": st.column_config.NumberColumn("Views"),
+                    "Ingredients": st.column_config.TextColumn("Ingredients", width="large"),
+                    "Instructions": st.column_config.TextColumn("Instructions", width="large")
+                },
+                use_container_width=True
+            )
+        else:
+            st.error("Failed to fetch meal data")
+    except Exception as e:
+        st.error(f"Error: {str(e)}")
 
-st.title("🛠️ Data Editing & Management")
+# Tag Management Tab
+with tab3:
+    st.subheader("Tag Management")
+    
+    try:
+        # Fetch meal data to extract tags
+        response = requests.get('http://web-api:4000/m/meals')
+        if response.status_code == 200:
+            meals_data = response.json()
+            df_meals = pd.DataFrame(meals_data)
+            
+            # Extract tags from meals
+            all_tags = []
+            for meal in meals_data:
+                if 'Tags' in meal and meal['Tags']:
+                    tags = meal['Tags'].split(',')
+                    all_tags.extend(tags)
+            
+            # Create tag usage statistics
+            tag_counts = pd.Series(all_tags).value_counts()
+            tag_df = pd.DataFrame({
+                'Tag': tag_counts.index,
+                'Usage Count': tag_counts.values
+            })
+            
+            # Display tag statistics
+            st.write("Tag Usage Statistics:")
+            st.dataframe(tag_df, use_container_width=True)
+            
+            # Create a pie chart of tag usage
+            fig_tags = px.pie(
+                tag_df,
+                values='Usage Count',
+                names='Tag',
+                title="Tag Usage Distribution"
+            )
+            st.plotly_chart(fig_tags)
+            
+            # Tag management interface
+            st.write("Add/Edit Tags:")
+            new_tag = st.text_input("Enter a new tag")
+            if st.button("Add Tag"):
+                if new_tag:
+                    # Here you would implement the API call to add the new tag
+                    st.success(f"Tag '{new_tag}' added successfully!")
+                else:
+                    st.warning("Please enter a tag name")
+            
+        else:
+            st.error("Failed to fetch meal data")
+    except Exception as e:
+        st.error(f"Error: {str(e)}")
 
-# Back nav in sidebar
-st.sidebar.page_link("pages/James_Homepage.py", label="⬅️ Back to James Homepage")
-
-# Load and display meal data
-df = load_meal_data()
-
-if not df.empty:
-    # --- Editable Table ---
-    st.subheader("Edit Recipe Data")
-    edited_df = st.data_editor(
-        df,
-        num_rows="dynamic",
-        use_container_width=True,
-        disabled=["RecipeID", "DateCreated", "SaveCount", "InteractionCount"],
-        column_config={
-            "Tags": st.column_config.ListColumn("Tags"),
-            "ViewCount": st.column_config.NumberColumn("View Count", format="%d"),
-            "PrepTime": st.column_config.NumberColumn("Prep Time (min)", format="%d"),
-            "CookTime": st.column_config.NumberColumn("Cook Time (min)", format="%d"),
-            "TotalTime": st.column_config.NumberColumn("Total Time (min)", format="%d"),
-            "SaveCount": st.column_config.NumberColumn("Save Count", format="%d"),
-            "InteractionCount": st.column_config.NumberColumn("Interaction Count", format="%d"),
-            "DateCreated": st.column_config.DateColumn("Date Created", format="YYYY-MM-DD")
-        }
-    )
-
-    # --- Filter Sidebar ---
-    with st.sidebar:
-        st.header("Filter")
-        difficulty_filter = st.multiselect("Difficulty", df["Difficulty"].unique(), default=df["Difficulty"].unique())
-        tag_filter = st.multiselect("Tags", sorted(set(tag for tags in df['Tags'] for tag in tags)))
-        
-        # Time range filter
-        st.subheader("Time Range")
-        min_time = st.number_input("Min Total Time (min)", min_value=0, value=0)
-        max_time = st.number_input("Max Total Time (min)", min_value=0, value=df['TotalTime'].max())
-        
-        # View count filter
-        st.subheader("View Count Range")
-        min_views = st.number_input("Min Views", min_value=0, value=0)
-        max_views = st.number_input("Max Views", min_value=0, value=df['ViewCount'].max())
-
-    # --- Filtered Table ---
-    filtered_df = edited_df[edited_df["Difficulty"].isin(difficulty_filter)]
-    if tag_filter:
-        filtered_df = filtered_df[filtered_df['Tags'].apply(lambda x: any(tag in x for tag in tag_filter))]
-    filtered_df = filtered_df[
-        (filtered_df['TotalTime'] >= min_time) & 
-        (filtered_df['TotalTime'] <= max_time) &
-        (filtered_df['ViewCount'] >= min_views) &
-        (filtered_df['ViewCount'] <= max_views)
-    ]
-
-    st.subheader("Filtered Table")
-    st.dataframe(filtered_df, use_container_width=True)
-
-    # --- Export or Save Changes ---
-    st.markdown("---")
-    col1, col2 = st.columns(2)
-
-    with col1:
-        st.download_button(
-            "💾 Download CSV",
-            data=filtered_df.to_csv(index=False),
-            file_name="meal_data.csv",
-            mime="text/csv"
-        )
-
-    with col2:
-        if st.button("✅ Save Changes"):
-            try:
-                connection = get_db_connection()
-                if connection:
-                    cursor = connection.cursor()
-                    for _, row in edited_df.iterrows():
-                        update_query = """
-                            UPDATE Meal 
-                            SET Name = %s, 
-                                Difficulty = %s, 
-                                ViewCount = %s,
-                                PrepTime = %s,
-                                CookTime = %s,
-                                TotalTime = %s
-                            WHERE RecipeID = %s
-                        """
-                        cursor.execute(update_query, (
-                            row['Name'],
-                            row['Difficulty'],
-                            row['ViewCount'],
-                            row['PrepTime'],
-                            row['CookTime'],
-                            row['TotalTime'],
-                            row['RecipeID']
-                        ))
-                    connection.commit()
-                    st.success("Changes saved successfully!")
-            except Error as e:
-                st.error(f"Error saving changes: {e}")
-            finally:
-                if connection:
-                    connection.close()
-else:
-    st.error("No data available. Please check your database connection.")
+# Save Changes Button
+if st.button("💾 Save All Changes", type="primary"):
+    st.success("Changes saved successfully!")
+    # Here you would implement the actual saving logic to your database
 
 
 

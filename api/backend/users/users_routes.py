@@ -201,3 +201,85 @@ def get_user_bio(username):
     
     the_response.mimetype = 'application/json'
     return the_response
+<<<<<<< HEAD
+=======
+
+@users.route('/users/analytics/behavior', methods=['GET'])
+def get_user_behavior():
+    cursor = db.get_db().cursor()
+    days = request.args.get('days', '7')  # Default to 7 days
+    
+    query = '''
+    SELECT 
+        DATE(Timestamp) as date,
+        COUNT(CASE WHEN ActionType = 'ADD' THEN 1 END) as added_count,
+        COUNT(CASE WHEN ActionType = 'SAVE' THEN 1 END) as saved_count
+    FROM UserAction
+    WHERE Timestamp >= DATE_SUB(CURRENT_DATE, INTERVAL %s DAY)
+    GROUP BY DATE(Timestamp)
+    ORDER BY date
+    '''
+    
+    try:
+        cursor.execute(query, (days,))
+        data = cursor.fetchall()
+        return jsonify({'data': data})
+    except Exception as e:
+        current_app.logger.error(f'Error fetching user behavior: {str(e)}')
+        return jsonify({'error': str(e)}), 500
+
+@users.route('/users/demographics/groups', methods=['GET'])
+def get_demographic_groups():
+    cursor = db.get_db().cursor()
+    
+    query = '''
+    SELECT DISTINCT 
+        CASE 
+            WHEN GroupType = 'AGE' THEN CONCAT('age: ', GroupValue)
+            WHEN GroupType = 'REGION' THEN CONCAT('region: ', GroupValue)
+            ELSE CONCAT(GroupType, ': ', GroupValue)
+        END as group_name,
+        GroupType,
+        GroupValue,
+        COUNT(Username) as user_count
+    FROM UserDemographics
+    GROUP BY GroupType, GroupValue
+    ORDER BY GroupType, GroupValue
+    '''
+    
+    try:
+        cursor.execute(query)
+        data = cursor.fetchall()
+        return jsonify({'data': data})
+    except Exception as e:
+        current_app.logger.error(f'Error fetching demographic groups: {str(e)}')
+        return jsonify({'error': str(e)}), 500
+
+@users.route('/users/demographics/combine', methods=['POST'])
+def combine_demographic_groups():
+    cursor = db.get_db().cursor()
+    data = request.get_json()
+    
+    if not data or 'group1' not in data or 'group2' not in data:
+        return jsonify({'error': 'Missing group information'}), 400
+        
+    try:
+        # Start a transaction
+        cursor.execute('START TRANSACTION')
+        
+        # Update users from group2 to group1
+        query = '''
+        UPDATE UserDemographics 
+        SET GroupValue = %s
+        WHERE CONCAT(GroupType, ': ', GroupValue) = %s
+        '''
+        
+        cursor.execute(query, (data['group1'], data['group2']))
+        db.get_db().commit()
+        
+        return jsonify({'message': 'Groups combined successfully'})
+    except Exception as e:
+        db.get_db().rollback()
+        current_app.logger.error(f'Error combining groups: {str(e)}')
+        return jsonify({'error': str(e)}), 500
+>>>>>>> 0cc87f3d7b0d4565c784268651c3fe3ad929fc47

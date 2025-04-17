@@ -3,9 +3,10 @@ import requests
 from collections import defaultdict
 from modules.nav import SideBarLinks
 
+# Set page configuration
 st.set_page_config(layout="wide", page_title="📋 Explore Meals by Tag")
 
-# Show appropriate sidebar links for the role of the currently logged in user
+# Display sidebar links
 SideBarLinks()
 
 st.title("📋 Explore Meals by Tag")
@@ -65,6 +66,11 @@ if meals:
                             tags = meal['Tags'].split(',')
                             st.write("🏷️ Tags:", ", ".join(tags))
                         
+                        # Format date if available
+                        if 'DateCreated' in meal:
+                            formatted_date = format_date(meal['DateCreated'])
+                            st.write(f"📅 Created: {formatted_date}")
+                        
                         st.write(f"⏱️ Preparation: {meal['PrepTime']} minutes")
                         st.write(f"🔥 Cooking: {meal['CookTime']} minutes")
                         st.write(f"⏰ Total Time: {meal['TotalTime']} minutes")
@@ -107,4 +113,4 @@ if meals:
             st.markdown(f"### ⚠️ No meals found with tag: {tag}")
 
 elif not meals:
-    st.info("No meals found.")
+    st.info("No meals found.") 
