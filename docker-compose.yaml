@@ -6,6 +6,10 @@ services:
     volumes: ["./app/src:/appcode"]
     ports:
       - 8501:8501
+    networks:
+      - app-network
+    depends_on:
+      - api
 
   api:
     build: ./api
@@ -14,6 +18,10 @@ services:
     volumes: ["./api:/apicode"]
     ports:
       - 4000:4000
+    networks:
+      - app-network
+    depends_on:
+      - db
 
   db:
     env_file:
@@ -25,3 +33,9 @@ services:
       - ./database-files/tummy-base.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - 3200:3306
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

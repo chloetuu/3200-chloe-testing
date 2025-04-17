@@ -46,6 +46,7 @@ st.write('### HI! As which user would you like to log in?')
 if st.button("Act as Nina, a Soccer Mom", 
             type = 'primary', 
             use_container_width=True):
+<<<<<<< HEAD
     # when user clicks the button, they are now considered authenticated
     st.session_state['authenticated'] = True
     # we set the role of the current user
@@ -58,6 +59,29 @@ if st.button("Act as Nina, a Soccer Mom",
     # landing page for this particular user type
     logger.info("Logging in as Nina Patel (User)")
     st.switch_page('pages/Nina_HomePage.py')
+=======
+    try:
+        # Fetch Nina's data from the API
+        firstname_response = requests.get("http://web-api:4000/u/users/soccermom123/firstname")
+        bio_response = requests.get("http://web-api:4000/u/users/soccermom123/bio")
+        
+        if firstname_response.status_code == 200 and bio_response.status_code == 200:
+            # when user clicks the button, they are now considered authenticated
+            st.session_state['authenticated'] = True
+            # we set the role of the current user
+            st.session_state['role'] = 'Stay at home mother'
+            # we add the first name of the user from the API response
+            st.session_state['first_name'] = firstname_response.json()['first_name']
+            # setting the bio from the API response
+            st.session_state['bio'] = bio_response.json()['bio']
+            # finally, we ask streamlit to switch to another page
+            logger.info("Logging in as Nina Patel (User)")
+            st.switch_page('pages/Nina_HomePage.py')
+        else:
+            st.error("Error fetching user data. Please try again.")
+    except Exception as e:
+        st.error(f"Error connecting to API: {str(e)}")
+>>>>>>> 8247b4ad002902c7ebd8a366b3760368df8f19f7
 
 
 if st.button('Act as Jade, Backend Developer', 
@@ -87,6 +111,7 @@ if st.button("Act as James, a Data Analyst",
 if st.button("Act as Charlie, an Influencer",
              type = 'primary',
              use_container_width=True):
+<<<<<<< HEAD
     # when user clicks the button, they are now considered authenticated
     st.session_state['authenticated'] = True
     # we set the role of the current user
@@ -98,6 +123,29 @@ if st.button("Act as Charlie, an Influencer",
     # finally, we ask streamlit to switch to another page, in this case, the landing page for this particular user type
     logger.info("Logging in as Charlie Thompson (User)")
     st.switch_page('pages/Charlie_Thompson.py')
+=======
+    try:
+        # Fetch Charlie's data from the API
+        firstname_response = requests.get("http://web-api:4000/u/users/fitwithcharlie/firstname")
+        bio_response = requests.get("http://web-api:4000/u/users/fitwithcharlie/bio")
+        
+        if firstname_response.status_code == 200 and bio_response.status_code == 200:
+            # when user clicks the button, they are now considered authenticated
+            st.session_state['authenticated'] = True
+            # we set the role of the current user
+            st.session_state['role'] = 'Follow my fitness journey'
+            # we add the first name of the user from the API response
+            st.session_state['first_name'] = firstname_response.json()['first_name']
+            # setting the bio from the API response
+            st.session_state['bio'] = bio_response.json()['bio']
+            # finally, we ask streamlit to switch to another page
+            logger.info("Logging in as Charlie Thompson (User)")
+            st.switch_page('pages/Charlie_Thompson.py')
+        else:
+            st.error("Error fetching user data. Please try again.")
+    except Exception as e:
+        st.error(f"Error connecting to API: {str(e)}")
+>>>>>>> 8247b4ad002902c7ebd8a366b3760368df8f19f7
 
 col1, col2, col3 = st.columns([3, 1, 0.75])  
 with col3:

@@ -161,3 +161,46 @@ def get_following_count(username):
     current_app.logger.info(f'Found {count} following for user {username}')
     
     return jsonify({'following_count': count})
+<<<<<<< HEAD
+=======
+
+@users.route('/users/<username>/firstname', methods=['GET'])
+def get_user_firstname(username):
+    cursor = db.get_db().cursor()
+    the_query = '''
+    SELECT FirstName
+    FROM User 
+    WHERE LOWER(Username) = LOWER(%s)
+    '''
+    cursor.execute(the_query, (username,))
+    result = cursor.fetchone()
+    
+    if result:
+        the_response = make_response(jsonify({'first_name': result['FirstName']}))
+        the_response.status_code = 200
+    else:
+        the_response = make_response(jsonify({'error': 'User not found'}), 404)
+    
+    the_response.mimetype = 'application/json'
+    return the_response
+
+@users.route('/users/<username>/bio', methods=['GET'])
+def get_user_bio(username):
+    cursor = db.get_db().cursor()
+    the_query = '''
+    SELECT Bio
+    FROM User 
+    WHERE LOWER(Username) = LOWER(%s)
+    '''
+    cursor.execute(the_query, (username,))
+    result = cursor.fetchone()
+    
+    if result:
+        the_response = make_response(jsonify({'bio': result['Bio']}))
+        the_response.status_code = 200
+    else:
+        the_response = make_response(jsonify({'error': 'User not found'}), 404)
+    
+    the_response.mimetype = 'application/json'
+    return the_response
+>>>>>>> 8247b4ad002902c7ebd8a366b3760368df8f19f7
