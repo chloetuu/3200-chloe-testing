@@ -3,18 +3,8 @@
 # This file has function to add certain functionality to the left side bar of the app
 
 import streamlit as st
-from streamlit_option_menu import option_menu
 import requests
-import json
-import os
-from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv()
-
-# Initialize session state for authentication if not already present
-if 'authenticated' not in st.session_state:
-    st.session_state['authenticated'] = False
 
 #### ------------------------ General ------------------------
 def HomeNav():
@@ -35,9 +25,6 @@ def CharlieFavoriteRecipes():
 
 def CharlieExploreRecipes():
     st.sidebar.page_link("pages/Charlie_Thompson_Recipes.py", label="Explore All Recipes", icon="🍔")
-
-def CharlieExploreByCategory():
-    st.sidebar.page_link("pages/Charlie_Thompson_Recipes_Category.py", label="Explore Meals by Category", icon="🥗")
 
 def testNina():
     st.sidebar.page_link("pages/Nina_test.py", label="Categories", icon="😅")
@@ -107,16 +94,6 @@ def AdminPageNav():
 
 # --------------------------------Links Function -----------------------------------------------
 def SideBarLinks(show_home=False):
-<<<<<<< HEAD
-    """Display sidebar links based on user authentication and role."""
-    with st.sidebar:
-        if st.session_state.get('authenticated'):
-            # Display profile picture and user info
-            if st.session_state.get('first_name') == 'Charlie':
-                st.image("assets/Charlie_pfp.jpeg", caption="fitwithcharlie", width=200)
-            elif st.session_state.get('first_name') == 'Nina':
-                st.image("assets/Nina_pfp.jpeg", caption="ninapatel", width=200)
-=======
     """
     This function handles adding links to the sidebar of the app based upon the logged-in user's role, which was put in the streamlit session_state object when logging in.
     """
@@ -172,27 +149,12 @@ def SideBarLinks(show_home=False):
             JamesNav()
             AnalystBoard()
             DataEditing()
->>>>>>> bd1b75ec7fb5b196e5cec0a3b7f332ec95b63125
             
-            st.write(f"### {st.session_state.get('first_name', 'User')}'s Pages")
-            
-            # Add navigation links based on user role
-            if st.session_state.get('first_name') == 'Charlie':
-                st.page_link("pages/Charlie_Thompson.py", label="Favorite Recipes", icon="❤️")
-                st.page_link("pages/Charlie_Thompson_Recipes.py", label="Explore All Recipes", icon="🍔")
-                st.page_link("pages/Charlie_Thompson_Recipes_Category.py", label="Explore Meals by Category", icon="🥗")
-                st.page_link("pages/Charlie_Thompson_Blogs.py", label="Blogs", icon="📚")
-            elif st.session_state.get('first_name') == 'Nina':
-                st.page_link("pages/Nina_HomePage.py", label="Favorite Recipes", icon="❤️")
-                st.page_link("pages/Nina_test.py", label="Explore All Recipes", icon="🍔")
-                st.page_link("pages/Nina_test.py", label="Explore Meals by Category", icon="🥗")
-                st.page_link("pages/Nina_Blogs.py", label="Blogs", icon="📚")
-            
-            # Add logout button
-            if st.button("Logout", type="primary"):
-                st.session_state['authenticated'] = False
-                st.rerun()
-        else:
-            if show_home:
-                st.page_link("Home.py", label="Home", icon="🏠")
+
+    if st.session_state["authenticated"]:
+        # Always show a logout button if there is a logged in user
+        if st.sidebar.button("Logout"):
+            del st.session_state["role"]
+            del st.session_state["authenticated"]
+            st.switch_page("Home.py")
             

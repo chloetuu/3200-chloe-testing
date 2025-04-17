@@ -9,6 +9,7 @@ from backend.favorites.favorites_routes import favorites
 from backend.categories.category_routes import categories
 from backend.error.error_routes import issues
 from backend.users.users_routes import users
+
 import os
 from dotenv import load_dotenv
 

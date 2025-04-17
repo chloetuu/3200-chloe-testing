@@ -212,3 +212,26 @@ def delete_favorite(recipe_id):
     except Exception as e:
         logging.error(f"Error deleting favorite meal: {str(e)}")
         return jsonify({'error': str(e)}), 500
+
+@favorites.route('/james/engagement_over_time', methods=['GET'])
+def get_engagement_over_time():
+    cursor = db.get_db().cursor()
+    current_app.logger.info('GET /james/engagement_over_time called')
+    
+    try:
+        query = '''
+            SELECT DATE(Timestamp) AS SaveDate, COUNT(*) AS SaveCount
+            FROM Saved_Meals
+            GROUP BY SaveDate
+            ORDER BY SaveDate ASC
+        '''
+        cursor.execute(query)
+        result = cursor.fetchall()
+
+        response = make_response(jsonify(result))
+        response.status_code = 200
+        response.mimetype = 'application/json'
+        return response
+    except Exception as e:
+        current_app.logger.error(f'Error retrieving engagement data: {str(e)}')
+        return jsonify({'error': str(e)}), 500
