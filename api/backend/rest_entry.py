@@ -1,7 +1,6 @@
 from flask import Flask
 
 from backend.db_connection import db
-from backend.products.products_routes import products
 from backend.meals.meal_routes import meals
 from backend.favorites.favorites_routes import favorites 
 from backend.tags.tag_routes import tags_categories
@@ -55,7 +54,6 @@ def create_app():
     # and give a url prefix to each
     app.logger.info('current_app(): registering blueprints with Flask app object.')   
     # app.register_blueprint(simple_routes)
-    app.register_blueprint(products,    url_prefix='/p')
     app.register_blueprint(meals,       url_prefix='/m')
     app.register_blueprint(blogs,       url_prefix='/b')
     app.register_blueprint(favorites,   url_prefix='/f')
