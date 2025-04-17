@@ -4,22 +4,21 @@ import json
 from modules.nav import SideBarLinks
 from datetime import datetime
 
+# Formats the date 
 def format_date(date_str):
     try:
-        # Try parsing the API date format
         date = datetime.strptime(date_str, '%a, %d %b %Y %H:%M:%S GMT')
         return date.strftime('%B %d, %Y')
     except:
-        # If that fails, try direct format
         try:
             date = datetime.strptime(date_str, '%Y-%m-%d')
             return date.strftime('%B %d, %Y')
         except:
-            return date_str  # Return original if parsing fails
+            return date_str  
 
 st.set_page_config(layout="wide", page_title="My Favorite Meals")
 
-# Show appropriate sidebar links for the role of the currently logged in user
+# Shows sidebar links for Nina 
 SideBarLinks()
 
 st.title("📋 My Favorite Meals")
@@ -29,16 +28,8 @@ if 'first_name' not in st.session_state:
     st.error("Please log in to view your favorite meals.")
     st.stop()
 
-# Initialize test data if needed
-if 'favorites_initialized' not in st.session_state:
-    try:
-        init_response = requests.post("http://api:4000/f/favorites/init")
-        if init_response.status_code == 200:
-            st.session_state.favorites_initialized = True
-    except Exception as e:
-        st.warning("Could not connect to initialization endpoint. This is okay if you already have favorites.")
 
-# Fetch favorite meals
+# Gets favorite meals
 try:
     response = requests.get(f"http://api:4000/f/favorites?username={st.session_state['first_name'].lower()}")
     
@@ -50,10 +41,9 @@ try:
         else:
             st.write(f"Found {len(meals)} favorite meals!")
             
-            # Add search functionality
+            # Add search bar
             search = st.text_input("🔍 Search your favorites", "")
             
-            # Filter meals based on search
             if search:
                 meals = [meal for meal in meals if search.lower() in meal['Name'].lower()]
             
@@ -64,12 +54,6 @@ try:
                     with col1:
                         st.image(f"assets/{meal['RecipeID'] % 8}.png", width=350)
                         
-                        # Display tags if available
-                        if meal.get('Tags'):
-                            tags = meal['Tags'].split(',')
-                            st.write("🏷️ Tags:", ", ".join(tags))
-                        
-                        # Format date if available
                         if 'DateCreated' in meal:
                             formatted_date = format_date(meal['DateCreated'])
                             st.write(f"📅 Created: {formatted_date}")

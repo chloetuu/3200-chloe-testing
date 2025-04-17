@@ -15,7 +15,6 @@ if 'first_name' not in st.session_state:
     st.stop()
 
 try:
-    # 🔁 Call your Flask API endpoint
     response = requests.get("http://api:4000/m/meals")  
     response.raise_for_status()
 
@@ -39,7 +38,6 @@ try:
                 # Add favorite button
                 if st.button("❤️ Add to Favorites", key=f"fav_{meal['RecipeID']}"):
                     try:
-                        # Call the favorites API to save the meal
                         fav_response = requests.post(
                             "http://api:4000/f/favorites",
                             json={

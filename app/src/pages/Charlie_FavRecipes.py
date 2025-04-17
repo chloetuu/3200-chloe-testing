@@ -16,15 +16,6 @@ if 'first_name' not in st.session_state:
     st.error("Please log in to view your favorite meals.")
     st.stop()
 
-# Initialize test data if needed
-try:
-    init_response = requests.post("http://api:4000/f/favorites/init")
-    if init_response.status_code == 200:
-        st.success("Test data initialized successfully!")
-    else:
-        st.warning("Could not initialize test data. This is okay if you already have favorites.")
-except Exception as e:
-    st.warning("Could not connect to initialization endpoint. This is okay if you already have favorites.")
 
 # Fetch favorite meals
 try:
@@ -59,13 +50,11 @@ try:
                         # Add delete button
                         if st.button("🗑️ Remove from Favorites", key=f"delete_{meal['RecipeID']}"):
                             try:
-                                # Call the favorites API to delete the meal
                                 delete_response = requests.delete(
                                     f"http://api:4000/f/favorites/{meal['RecipeID']}"
                                 )
                                 if delete_response.status_code == 200:
                                     st.success("Removed from favorites!")
-                                    # Refresh the page to show updated list
                                     st.rerun()
                                 else:
                                     st.error("Failed to remove from favorites. Please try again.")

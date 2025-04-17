@@ -6,7 +6,7 @@ from datetime import datetime
 # Set the page title
 st.title("Blogs")
 
-# Function to fetch blogs from the API
+# Gets blogs data from API 
 def get_blogs():
     try:
         response = requests.get('http://web-api:4000/b/blogs')
@@ -58,7 +58,6 @@ blogs = get_blogs()
 if blogs:
     for blog in blogs:
         with st.container():
-            # Format the publish date
             publish_date = blog.get('PublishDate')
             if publish_date:
                 try:
@@ -80,7 +79,7 @@ if blogs:
                 st.write("**Content:**")
                 st.write(content)
             
-            # If there's a recipe ID, we can fetch and display the meal information
+            # If there's a recipe ID, gets and displays the meal information
             recipe_id = blog.get('RecipeID')
             if recipe_id:
                 try:

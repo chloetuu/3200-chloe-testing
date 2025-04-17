@@ -8,6 +8,7 @@ from datetime import datetime
 from streamlit_extras.app_logo import add_logo
 from modules.nav import SideBarLinks
 
+# Shows side bar links for Jade 
 SideBarLinks()
 
 st.write("# Error Logs Dashboard")
@@ -16,7 +17,7 @@ st.write("# Error Logs Dashboard")
 This dashboard displays error logs from the application, including visualizations of severity levels and temporal patterns.
 """
 
-# Fetch data from API
+# Get data from API
 data = []
 try:
     response = requests.get('http://api:4000/l/log')
@@ -30,10 +31,8 @@ except Exception as e:
     data = []
 
 if data:
-    # Convert to DataFrame
     df = pd.DataFrame(data)
     
-    # Rename columns to match our expected format
     df = df.rename(columns={
         'LogID': 'id',
         'Timestamp': 'timestamp',
@@ -51,6 +50,7 @@ if data:
     
     with col1:
         st.subheader("Severity Distribution")
+
         # Create pie chart for severity levels
         severity_counts = df['severity'].value_counts()
         fig_severity = px.pie(
@@ -69,6 +69,7 @@ if data:
     
     with col2:
         st.subheader("Logs Over Time")
+        
         # Create bar chart for logs per day
         df['date'] = df['timestamp'].dt.date
         daily_counts = df.groupby('date').size().reset_index(name='count')

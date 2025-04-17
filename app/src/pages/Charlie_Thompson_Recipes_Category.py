@@ -6,12 +6,12 @@ from modules.nav import SideBarLinks
 # Set page configuration
 st.set_page_config(layout="wide", page_title="📋 Explore All Meals by Category")
 
-# Display sidebar links
+# Display sidebar links for Charlie
 SideBarLinks()
 
 st.title("📋 Explore Meals by Category")
 
-# --- Load Categories from Backend ---
+# Load Categories
 def fetch_categories():
     try:
         response = requests.get("http://api:4000/c/categories")

@@ -11,7 +11,7 @@ SideBarLinks()
 
 st.title("📋 Explore Meals by Tag")
 
-# --- Load Meals from Backend ---
+# Loads meals 
 def fetch_meals():
     try:
         response = requests.get("http://web-api:4000/m/meals")
@@ -21,11 +21,10 @@ def fetch_meals():
         st.error(f"Could not connect to meals API: {e}")
         return []
 
-# --- Fetch Data ---
+# Gets Data
 meals = fetch_meals()
 
 if meals:
-    # Extract all unique tags
     all_tags = set()
     for meal in meals:
         if meal.get('Tags'):
@@ -33,14 +32,14 @@ if meals:
             all_tags.update(tags)
     all_tags = sorted(list(all_tags))
 
-    # --- Sidebar Filters ---
+    # Sidebar filters 
     with st.sidebar:
         st.header("🔍 Filter Meals")
         selected_tags = st.multiselect(
             "Select Tags", all_tags, default=all_tags
         )
 
-    # --- Group meals by Tag ---
+    # Group meals by tag 
     grouped_meals = defaultdict(list)
     for meal in meals:
         if meal.get('Tags'):
@@ -49,7 +48,7 @@ if meals:
                 if tag in selected_tags:
                     grouped_meals[tag].append(meal)
 
-    # --- Display Meals for Selected Tags ---
+    # Display meals by tag 
     for tag in selected_tags:
         if tag in grouped_meals:
             meal_list = grouped_meals[tag]
@@ -61,12 +60,12 @@ if meals:
                     with col1:
                         st.image(f"assets/{meal['RecipeID'] % 8}.png", width=350)
                         
-                        # Display all tags for this meal
+                        # Shows all tags for this meal
                         if meal.get('Tags'):
                             tags = meal['Tags'].split(',')
                             st.write("🏷️ Tags:", ", ".join(tags))
                         
-                        # Format date if available
+                        # Format date 
                         if 'DateCreated' in meal:
                             formatted_date = format_date(meal['DateCreated'])
                             st.write(f"📅 Created: {formatted_date}")
@@ -76,7 +75,7 @@ if meals:
                         st.write(f"⏰ Total Time: {meal['TotalTime']} minutes")
                         st.write(f"📊 Difficulty: {meal['Difficulty']}")
                         
-                        # Display ingredients in a more organized way
+                        # Display ingredients
                         st.write("🧂 **Ingredients:**")
                         ingredients = [ing.strip() for ing in meal['Ingredients'].split(';')]
                         for ingredient in ingredients:
