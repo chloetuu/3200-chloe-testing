@@ -10,6 +10,8 @@ from backend.categories.category_routes import categories
 from backend.error.error_routes import issues
 from backend.users.users_routes import users
 from backend.interactions.interaction_routes import interactions
+from backend.logs.log_routes import logs
+from backend.data_editing.data_editing_routes import data_editing
 
 import os
 from dotenv import load_dotenv
@@ -85,6 +87,8 @@ def create_app():
     app.register_blueprint(issues,      url_prefix='/l')
     app.register_blueprint(users,      url_prefix='/u')
     app.register_blueprint(interactions, url_prefix='/i')
+    app.register_blueprint(logs,        url_prefix='/logs')
+    app.register_blueprint(data_editing, url_prefix='/d')
     
     
 
