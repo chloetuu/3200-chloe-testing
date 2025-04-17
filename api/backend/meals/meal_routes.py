@@ -34,7 +34,7 @@ def add_meal():
     difficulty = meal_info['difficulty']
     ingredients = meal_info['ingredients']
     instructions = meal_info['instructions']
-    tags = meal_info.get('tags', [])  # Optional list of tag names
+    tags = meal_info.get('tags', [])   
 
     cursor = db.get_db().cursor()
     try:

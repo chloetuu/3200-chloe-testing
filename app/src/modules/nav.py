@@ -6,10 +6,11 @@ import streamlit as st
 import requests
 
 
-#### ------------------------ General ------------------------
+# ------------------------ General Home  ----------------------
 def HomeNav():
     st.sidebar.page_link("Home.py", label="Home", icon="🏠")
 
+# ---------------Specific to Nina -----------------------------
 
 def AboutPageNav():
     st.sidebar.page_link("pages/30_About.py", label="About", icon="🧠")
@@ -20,60 +21,23 @@ def FavoriteRecipes():
 def ExploreRecipes():
     st.sidebar.page_link("pages/Nina_Patel_Recipes.py", label="Explore All Recipes", icon="🍔")
 
+
+def testNina():
+    st.sidebar.page_link("pages/Nina_test.py", label="Categories", icon="😅")
+
+# ---------------------- Specific to Charlie ------------------------
+
+def Blogs(): 
+    st.sidebar.page_link("pages/Blogs.py", label="Blogs", icon="📚")
+
 def CharlieFavoriteRecipes(): 
     st.sidebar.page_link("pages/Charlie_FavRecipes.py", label="Favorite Recipes", icon="❤️")
 
 def CharlieExploreRecipes():
     st.sidebar.page_link("pages/Charlie_Thompson_Recipes.py", label="Explore All Recipes", icon="🍔")
 
-def testNina():
-    st.sidebar.page_link("pages/Nina_test.py", label="Categories", icon="😅")
 
-#### ---------------------- Specific to Charlie ----------------------------
-
-def Blogs(): 
-    st.sidebar.page_link("pages/Blogs.py", label="Blogs", icon="📚")
-
-
-#### ------------------------ Examples for Role of pol_strat_advisor ------------------------
-def PolStratAdvHomeNav():
-    st.sidebar.page_link(
-        "pages/00_Pol_Strat_Home.py", label="Political Strategist Home", icon="👤"
-    )
-
-
-def Profile_Page():
-    st.sidebar.page_link(
-        "pages/01_Profile_Page.py", label="Profile Page", icon="🏦"
-    )
-
-
-def Recipe_Page():
-    st.sidebar.page_link("pages/02_Recipe_Page.py", label="Map Demonstration", icon="🗺️")
-
-
-## ------------------------ Examples for Role of usaid_worker ------------------------
-def BackendNav():
-    st.sidebar.page_link(
-        "pages/Jade_Home.py", label="Backend Developer Home", icon="👤"
-    )
-
-def ApiDashboardNav():
-    st.sidebar.page_link("pages/Jade_Api_Dashboard.py", label="API Dashboard", icon="🛜")
-
-
-def GraphNav():
-    st.sidebar.page_link(
-        "pages/Jade_Time.py", label="Time Series Graph", icon="📈"
-    )
-
-
-def ClassificationNav():
-    st.sidebar.page_link(
-        "pages/13_Classification.py", label="Classification Demo", icon="🌺"
-    )
-
-#### ------------------------ Specific to James ------------------------
+# ------------------------ Specific to James ---------------------
 def JamesNav():
     st.sidebar.page_link("pages/James_Homepage.py", label="James Home", icon="📊")
     
@@ -84,15 +48,7 @@ def DataEditing():
     st.sidebar.page_link("pages/James_DataEditing.py", label="Data Editing", icon="🛠️")
 
 
-#### ------------------------ System Admin Role ------------------------
-def AdminPageNav():
-    st.sidebar.page_link("pages/20_Admin_Home.py", label="System Admin", icon="🖥️")
-    st.sidebar.page_link(
-        "pages/21_ML_Model_Mgmt.py", label="ML Model Management", icon="🏢"
-    )
-
-
-# --------------------------------Links Function -----------------------------------------------
+# --------------------------- Sidebar Links Function ----------------------------------
 def SideBarLinks(show_home=False):
     """
     This function handles adding links to the sidebar of the app based upon the logged-in user's role, which was put in the streamlit session_state object when logging in.
@@ -124,15 +80,6 @@ def SideBarLinks(show_home=False):
         elif st.session_state["first_name"].lower() == "james":
             st.sidebar.image("assets/james_pfp.jpg", caption="@james_analyst", width=150)
 
-        # If the user role is usaid worker, show the Api Testing page
-        if st.session_state["role"] == "backend_developer":
-            BackendNav()
-            ApiDashboardNav()
-            GraphNav()
-
-        # If the user is an administrator, give them access to the administrator pages
-        if st.session_state["role"] == "administrator":
-            AdminPageNav()
 
         # if the user is Nina, show all her pages in the sidebar
         if st.session_state["first_name"].lower() == "nina":
@@ -143,7 +90,7 @@ def SideBarLinks(show_home=False):
             st.sidebar.page_link("pages/Nina_Patel_Recipes.py", label="Explore All Recipes", icon="🍔")
             st.sidebar.page_link("pages/Nina_test.py", label="Explore Meals by Category", icon="🥳")
 
-        # if the user is Charlie, show their Favorite Recipes page 
+        # if the user is Charlie, show all his pages in the sidebar
         if st.session_state["first_name"].lower() == "charlie":
             st.sidebar.markdown("---")
             st.sidebar.markdown("### Charlie's Pages")

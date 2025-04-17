@@ -18,7 +18,7 @@ def get_favorite_meals():
     if not username:
         return make_response(jsonify({"error": "Username parameter is required"}), 400)
 
-    # First, check if there are any saved meals for this user
+    # Check if there are any saved meals for this user
     check_query = '''
         SELECT COUNT(*) as count
         FROM Saved_Meals
@@ -50,10 +50,9 @@ def add_favorite():
     username = fav_info['username']
     recipe_id = fav_info['recipe_id']
 
-    # First, ensure the user exists in the User table
+    # Makes sure user exists in the User table
     cursor = db.get_db().cursor()
     try:
-        # Check if user exists
         check_user_query = '''
             SELECT Username FROM User WHERE LOWER(Username) = LOWER(%s)
         '''
@@ -68,12 +67,12 @@ def add_favorite():
             '''
             cursor.execute(insert_user_query, (
                 username,
-                username.capitalize(),  # FirstName
-                'User',  # LastName
-                'Unknown',  # Region
-                'Medium',  # ActivityLevel
-                30,  # Age
-                'A user of the Tummy app'  # Bio
+                username.capitalize(), 
+                'User', 
+                'Unknown',  
+                'Medium',  
+                30,  
+                'A user of the Tummy app' 
             ))
             db.get_db().commit()
             current_app.logger.info(f'Created new user: {username}')
@@ -90,7 +89,7 @@ def add_favorite():
             current_app.logger.info(f'Meal {recipe_id} is already favorited by {username}')
             return jsonify({'message': 'This meal is already in your favorites!'}), 200
 
-        # Now add the meal to favorites
+        # Add the meal to favorites
         query = '''
             INSERT INTO Saved_Meals (Username, RecipeID)
             VALUES (%s, %s)
