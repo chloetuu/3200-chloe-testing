@@ -13,6 +13,7 @@ CREATE TABLE User (
     ActivityLevel VARCHAR(50),
     InclusionStatus BOOLEAN
 );
+
 CREATE TABLE Follows (
     FollowerUsername VARCHAR,
     FolloweeUsername VARCHAR,
@@ -123,6 +124,8 @@ INSERT INTO User (Username, FirstName, LastName, Region, Age, Bio, ActivityLevel
 ('jacqueline17', 'Gregory', 'Escobar', 'Maine', 22, 'Every home economy decision red machine off. Social water recent cause weight bill.', 'High', 1),
 ('markrush', 'Jerome', 'Barry', 'Wisconsin', 32, 'Consider dinner someone gun meeting black. Operation race discover year feel area race.', 'Medium', 0),
 ('bryangarcia', 'Jennifer', 'Gonzalez', 'New Mexico', 63, 'Group partner without up Mrs else financial. Fight when from computer.', 'High', 0),
+('soccermom123', 'Nina', 'Patel', 'California', 38, 'I am a stay at home mom who has 3 children who have different dietary restrictions! Follow me to follow my journey :)', 'High', 1),
+('fitwithcharlie', 'Charlie', 'Thompson', 'New York', 26, 'Fueled by flavor, powered by gains. Follow me on Instagram and Youtube @fitwithcharlie for more content', 'High', 1),
 ('imcdonald', 'Kevin', 'Herrera', 'New York', 38, 'Forget dream someone sound early. Professor green sure big. Analysis reach finish lead could young.', 'Medium', 1),
 ('jbarnett', 'Tiffany', 'Bell', 'Washington', 27, 'Capital art majority individual. Service today town left choice none.', 'High', 1),
 ('bvasquez', 'Danielle', 'Barnes', 'South Dakota', 37, 'Draw mouth itself measure small region. Ok cost wish property role.', 'Medium', 0),
@@ -156,6 +159,8 @@ Visit job around large.', 'High', 0),
 ('cschultz', 'Lisa', 'Richards', 'California', 33, 'Prevent cover political manage information. Night serious more here well. We general sort loss.', 'Low', 0),
 ('derekburns', 'Carmen', 'Benson', 'Florida', 39, 'Give happen partner leader. Structure speech newspaper investment still area. Partner world peace.', 'High', 0),
 ('michaelphillips', 'Jack', 'Mendoza', 'Alabama', 60, 'Necessary full not off late. Pick management determine check computer hair other.', 'High', 0);
+
+
 
 -- Insert statements for table: LogEntry
 INSERT INTO LogEntry (LogID, Timestamp, SeverityLevel, Source, Details, ErrorMessage) VALUES
@@ -1152,3 +1157,26 @@ INSERT INTO Interaction (InteractionID, Timestamp, InteractionType, RecipeID, Us
 (33, '2022-07-13 09:52:18', 'COMMENT', 23, 'odonnellmonica'),
 (34, '2021-11-19 21:06:38', 'COMMENT', 4, 'xtaylor'),
 (35, '2022-12-04 10:02:09', 'SHARE', 34, 'imcdonald');
+
+-- Insert statements for table: Follows
+INSERT INTO Follows (FollowerUsername, FolloweeUsername) VALUES
+('mccoywilliam', 'jacqueline17'),
+('mccoywilliam', 'markrush'),
+('mccoywilliam', 'bryangarcia'),
+('jacqueline17', 'mccoywilliam'),
+('jacqueline17', 'markrush'),
+('markrush', 'mccoywilliam'),
+('markrush', 'jacqueline17'),
+('bryangarcia', 'mccoywilliam'),
+('bryangarcia', 'jacqueline17'),
+('bryangarcia', 'markrush'),
+('soccermom123', 'mccoywilliam'),
+('soccermom123', 'jacqueline17'),
+('soccermom123', 'markrush'),
+('soccermom123', 'bryangarcia'),
+('mccoywilliam', 'soccermom123'),
+('jacqueline17', 'soccermom123'),
+('markrush', 'soccermom123'),
+('bryangarcia', 'soccermom123'),
+('fitwithcharlie', 'soccermom123'),
+('soccermom123', 'fitwithcharlie');
