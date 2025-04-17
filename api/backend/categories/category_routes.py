@@ -16,7 +16,7 @@ def get_all_categories():
     current_app.logger.info('GET /categories called')
     
     try:
-        cursor.execute('SELECT * FROM CategoryData')
+        cursor.execute('SELECT TagID as CategoryID, TagName as Name FROM Tag')
         categories = cursor.fetchall()
         return jsonify(categories)
     except Exception as e:
@@ -29,20 +29,20 @@ def init_categories():
     current_app.logger.info('POST /categories/init called')
     
     try:
-        # Initialize categories
-        categories = [
+        # Initialize tags
+        tags = [
             "Appetizers", "Main Dishes", "Desserts", "Beverages", 
             "Sides", "Breakfast", "Lunch", "Dinner"
         ]
         
-        for category in categories:
-            cursor.execute('INSERT IGNORE INTO CategoryData (Name) VALUES (%s)', (category,))
+        for tag in tags:
+            cursor.execute('INSERT IGNORE INTO Tag (TagName) VALUES (%s)', (tag,))
         
         db.get_db().commit()
-        current_app.logger.info('Successfully initialized categories')
-        return jsonify({'message': 'Categories initialized successfully'})
+        current_app.logger.info('Successfully initialized tags')
+        return jsonify({'message': 'Tags initialized successfully'})
     except Exception as e:
-        current_app.logger.error(f'Error initializing categories: {str(e)}')
+        current_app.logger.error(f'Error initializing tags: {str(e)}')
         return jsonify({'error': str(e)}), 500
 
 @categories.route('/categories/<int:category_id>', methods=['GET'])
@@ -51,7 +51,7 @@ def get_category(category_id):
     current_app.logger.info(f'GET /categories/{category_id} called')
     
     try:
-        cursor.execute('SELECT * FROM CategoryData WHERE CategoryID = %s', (category_id,))
+        cursor.execute('SELECT TagID as CategoryID, TagName as Name FROM Tag WHERE TagID = %s', (category_id,))
         category = cursor.fetchone()
         if category:
             return jsonify(category)
