@@ -54,3 +54,47 @@ def delete_log(log_id):
     db.get_db().commit()
 
     return jsonify({'message': 'Log entry deleted!'}), 200
+
+# GET log analytics
+@issues.route('/logs/analytics', methods=['GET'])
+def get_log_analytics():
+    current_app.logger.info('GET /logs/analytics called')
+    cursor = db.get_db().cursor()
+
+    try:
+        # 1. Severity distribution
+        cursor.execute('''
+            SELECT SeverityLevel, COUNT(*) AS count
+            FROM LogEntry
+            GROUP BY SeverityLevel
+        ''')
+        severity_counts = cursor.fetchall()
+
+        # 2. Alert type distribution
+        cursor.execute('''
+            SELECT a.Type, COUNT(*) AS count
+            FROM Alert a
+            GROUP BY a.Type
+        ''')
+        alert_counts = cursor.fetchall()
+
+        # 3. Logs over time
+        cursor.execute('''
+            SELECT DATE(Timestamp) as date, COUNT(*) as count
+            FROM LogEntry
+            GROUP BY DATE(Timestamp)
+            ORDER BY date
+        ''')
+        time_series = cursor.fetchall()
+
+        return jsonify({
+            'data': {
+                'severity_counts': severity_counts,
+                'alert_counts': alert_counts,
+                'time_series': time_series
+            }
+        }), 200
+
+    except Exception as e:
+        current_app.logger.error(f'Error in /logs/analytics: {str(e)}')
+        return jsonify({'error': str(e)}), 500

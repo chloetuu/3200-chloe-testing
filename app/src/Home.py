@@ -112,4 +112,3 @@ with col3:
     st.write('')
     st.write('')
     st.image("assets/Tummi_logo.png", width=150, caption="Tummi")
-

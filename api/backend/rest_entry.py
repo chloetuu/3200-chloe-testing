@@ -9,7 +9,13 @@ from backend.favorites.favorites_routes import favorites
 from backend.categories.category_routes import categories
 from backend.error.error_routes import issues
 from backend.users.users_routes import users
+<<<<<<< HEAD
 from backend.alerts.alerts_route import alerts
+=======
+from backend.interactions.interaction_routes import interactions
+from backend.logs.log_routes import logs
+
+>>>>>>> 42694160ae5d1f0a94ec7a567680559364e9e1db
 import os
 from dotenv import load_dotenv
 
@@ -83,7 +89,12 @@ def create_app():
     app.register_blueprint(favorites,   url_prefix='/f')
     app.register_blueprint(issues,      url_prefix='/l')
     app.register_blueprint(users,      url_prefix='/u')
+<<<<<<< HEAD
     app.register_blueprint(alerts,      url_prefix='/a')
+=======
+    app.register_blueprint(interactions, url_prefix='/i')
+    app.register_blueprint(logs,        url_prefix='/logs')
+>>>>>>> 42694160ae5d1f0a94ec7a567680559364e9e1db
     
     
 

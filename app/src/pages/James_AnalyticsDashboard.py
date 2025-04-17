@@ -1,72 +1,213 @@
+import logging
+logger = logging.getLogger(__name__)
 import streamlit as st
+import requests
 import pandas as pd
-import matplotlib.pyplot as plt
+import plotly.express as px
+from datetime import datetime
+from streamlit_extras.app_logo import add_logo
+from modules.nav import SideBarLinks
 
-st.set_page_config(page_title="Analytics Dashboard", layout="wide")
+SideBarLinks()
 
-# Title + Last Updated
-st.title("📊 Analytics Dashboard")
-st.markdown("**Last updated:** March 25th, 2025")
+st.write("# Analytics Dashboard")
 
-# Back nav in sidebar
-st.sidebar.page_link("pages/James_Homepage.py", label="⬅️ Back to James Homepage")  # ← Update to actual filename!
+"""
+This dashboard displays key metrics and analytics for the Tummy application, including user interactions, meal popularity, and system performance.
+"""
 
-# Sidebar Filters
-with st.sidebar:
-    st.header("Filters")
-    age_group = st.selectbox("Age Group", [">18", "18–24", "25–34", "35–44", "45–54", "55+"])
-    region = st.selectbox("Region", ["Northeast", "South", "Midwest", "West"])
-    timeframe = st.selectbox("Timeframe", ["Day", "Week", "Month", "6 Months", "Year"])
-    st.button("Apply Filters")
+# Create tabs for different analytics sections
+tab1, tab2, tab3, tab4 = st.tabs(["User Analytics", "Meal Analytics", "Interaction Analytics", "System Performance"])
 
-# Layout: 3 columns (Bar chart | Line chart | Top Recipes)
-col1, col2, col3 = st.columns([2, 2, 1.5])
+# User Analytics Tab
+with tab1:
+    st.subheader("User Analytics")
+    
+    user_data = []
+    try:
+        response = requests.get('http://localhost:4000/u/users/analytics')
+        if response.status_code == 200:
+            user_data = response.json().get('data', {})
+        else:
+            st.error(f"Error fetching user data: {response.status_code}")
+    except Exception as e:
+        st.error(f"Error connecting to API: {str(e)}")
+    
+    if user_data:
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            region_df = pd.DataFrame(user_data['region_counts'])
+            fig_region = px.pie(
+                region_df,
+                values='count',
+                names='Region',
+                title="User Distribution by Region",
+                color_discrete_sequence=px.colors.qualitative.Set3
+            )
+            st.plotly_chart(fig_region, use_container_width=True)
+        
+        with col2:
+            activity_df = pd.DataFrame(user_data['activity_counts'])
+            fig_activity = px.bar(
+                activity_df,
+                x='ActivityLevel',
+                y='count',
+                title="User Distribution by Activity Level",
+                color='ActivityLevel',
+                color_discrete_sequence=px.colors.qualitative.Set3
+            )
+            st.plotly_chart(fig_activity, use_container_width=True)
+        
+        age_df = pd.DataFrame(user_data['age_distribution'])
+        fig_age = px.bar(
+            age_df,
+            x='age_group',
+            y='count',
+            title="User Age Distribution",
+            color='age_group',
+            color_discrete_sequence=px.colors.qualitative.Set3
+        )
+        st.plotly_chart(fig_age, use_container_width=True)
 
-# --- Popular Categories Bar Chart ---
-with col1:
-    st.subheader("Popular Categories (Top 4)")
-    categories = ['Dinner', 'Lunch', 'Healthy', 'Quick']
-    views = [140000, 125000, 120000, 100000]
-    saves = [120000, 115000, 100000, 75000]
+# Meal Analytics Tab
+with tab2:
+    st.subheader("Meal Analytics")
+    
+    meal_data = []
+    try:
+        response = requests.get('http://localhost:4000/m/meals/analytics')
+        if response.status_code == 200:
+            meal_data = response.json().get('data', {})
+        else:
+            st.error(f"Error fetching meal data: {response.status_code}")
+    except Exception as e:
+        st.error(f"Error connecting to API: {str(e)}")
+    
+    if meal_data:
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            difficulty_df = pd.DataFrame(meal_data['difficulty_counts'])
+            fig_difficulty = px.pie(
+                difficulty_df,
+                values='count',
+                names='Difficulty',
+                title="Meal Distribution by Difficulty",
+                color_discrete_sequence=px.colors.qualitative.Set3
+            )
+            st.plotly_chart(fig_difficulty, use_container_width=True)
+        
+        with col2:
+            tag_df = pd.DataFrame(meal_data['tag_counts'])
+            fig_tags = px.bar(
+                tag_df,
+                x='TagName',
+                y='count',
+                title="Tag Popularity",
+                color='TagName',
+                color_discrete_sequence=px.colors.qualitative.Set3
+            )
+            st.plotly_chart(fig_tags, use_container_width=True)
+        
+        top_meals_df = pd.DataFrame(meal_data['top_meals'])
+        fig_top_meals = px.bar(
+            top_meals_df,
+            x='Name',
+            y='ViewCount',
+            title="Top 10 Most Viewed Meals",
+            color='Name',
+            color_discrete_sequence=px.colors.qualitative.Set3
+        )
+        st.plotly_chart(fig_top_meals, use_container_width=True)
 
-    fig, ax = plt.subplots()
-    x = range(len(categories))
-    ax.bar(x, views, width=0.4, label='Views', align='center', alpha=0.7)
-    ax.bar([p + 0.4 for p in x], saves, width=0.4, label='Saves', align='center', alpha=0.7)
-    ax.set_xticks([p + 0.2 for p in x])
-    ax.set_xticklabels(categories)
-    ax.set_ylabel("Views/Saves")
-    ax.legend()
-    st.pyplot(fig)
+# Interaction Analytics Tab
+with tab3:
+    st.subheader("Interaction Analytics")
+    
+    interaction_data = []
+    try:
+        response = requests.get('http://localhost:4000/i/interactions/analytics')
+        if response.status_code == 200:
+            interaction_data = response.json().get('data', {})
+        else:
+            st.error(f"Error fetching interaction data: {response.status_code}")
+    except Exception as e:
+        st.error(f"Error connecting to API: {str(e)}")
+    
+    if interaction_data:
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            type_df = pd.DataFrame(interaction_data['type_counts'])
+            fig_type = px.pie(
+                type_df,
+                values='count',
+                names='InteractionType',
+                title="Interaction Type Distribution",
+                color_discrete_sequence=px.colors.qualitative.Set3
+            )
+            st.plotly_chart(fig_type, use_container_width=True)
+        
+        with col2:
+            time_df = pd.DataFrame(interaction_data['time_series'])
+            time_df['date'] = pd.to_datetime(time_df['date'])
+            fig_time = px.line(
+                time_df,
+                x='date',
+                y='count',
+                title="Interactions Over Time",
+                markers=True
+            )
+            st.plotly_chart(fig_time, use_container_width=True)
 
-# --- Overall Engagement Line Chart ---
-with col2:
-    st.subheader("Overall Engagement Over Time")
-    timeline = list(range(10))
-    line_views = [1000, 3000, 5000, 2000, 2500, 6000, 7000, 8000, 10000, 12000]
-    line_saves = [500, 1500, 3000, 1200, 1800, 4000, 4500, 5000, 7000, 8000]
-
-    fig2, ax2 = plt.subplots()
-    ax2.plot(timeline, line_views, label="Views", color="black")
-    ax2.plot(timeline, line_saves, label="Saves", color="blue")
-    ax2.set_xlabel("Time")
-    ax2.set_ylabel("Views / Saves")
-    ax2.legend()
-    st.pyplot(fig2)
-
-# --- Top Recipes Section ---
-with col3:
-    st.subheader("Top Recipes")
-
-    def recipe_card(rank, name, image_url):
-        st.markdown(f"**{rank}. {name}**")
-        st.image(image_url, width=120)
-        st.button("View details", key=name)
-
-    recipe_card("★ 1", "Acai Smoothie Bowl", "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/A%C3%A7a%C3%AD_na_Tigela.jpg/640px-A%C3%A7a%C3%AD_na_Tigela.jpg")
-    recipe_card("2", "Tiramisu Cake", "https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Tiramisu_-_Raffaele_Diomede.jpg/640px-Tiramisu_-_Raffaele_Diomede.jpg")
-    recipe_card("3", "Steak & Eggs", "https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Steak_and_eggs_0001.jpg/640px-Steak_and_eggs_0001.jpg")
-
-# --- Export Button ---
-st.markdown("---")
-st.download_button("📄 Export as PDF/PNG", data="Report data placeholder", file_name="analytics_export.pdf")
+# System Performance Tab
+with tab4:
+    st.subheader("System Performance")
+    
+    log_data = []
+    try:
+        response = requests.get('http://localhost:4000/l/logs/analytics')
+        if response.status_code == 200:
+            log_data = response.json().get('data', {})
+        else:
+            st.error(f"Error fetching log data: {response.status_code}")
+    except Exception as e:
+        st.error(f"Error connecting to API: {str(e)}")
+    
+    if log_data:
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            severity_df = pd.DataFrame(log_data['severity_counts'])
+            fig_severity = px.pie(
+                severity_df,
+                values='count',
+                names='SeverityLevel',
+                title="Log Severity Distribution",
+                color_discrete_sequence=px.colors.qualitative.Set3
+            )
+            st.plotly_chart(fig_severity, use_container_width=True)
+        
+        with col2:
+            alert_df = pd.DataFrame(log_data['alert_counts'])
+            fig_alerts = px.bar(
+                alert_df,
+                x='Type',
+                y='count',
+                title="Alert Type Distribution",
+                color='Type',
+                color_discrete_sequence=px.colors.qualitative.Set3
+            )
+            st.plotly_chart(fig_alerts, use_container_width=True)
+        
+        time_df = pd.DataFrame(log_data['time_series'])
+        time_df['date'] = pd.to_datetime(time_df['date'])
+        fig_time = px.line(
+            time_df,
+            x='date',
+            y='count',
+            title="System Logs Over Time",
+            markers=True
+        )
+        st.plotly_chart(fig_time, use_container_width=True)
