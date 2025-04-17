@@ -108,3 +108,56 @@ def get_user_analytics():
     except Exception as e:
         current_app.logger.error(f'Error in /users/analytics: {str(e)}')
         return jsonify({'error': str(e)}), 500
+
+@users.route('/users/follows', methods=['GET'])
+def get_all_follow_counts():
+    cursor = db.get_db().cursor()
+    current_app.logger.info('GET /users/follows called')
+    
+    query = '''
+    SELECT 
+        u.Username,
+        (SELECT COUNT(*) FROM Follows WHERE followee_id = u.Username) as follower_count,
+        (SELECT COUNT(*) FROM Follows WHERE follower_id = u.Username) as following_count
+    FROM User u
+    '''
+    
+    cursor.execute(query)
+    follow_counts = cursor.fetchall()
+    current_app.logger.info(f'Found follow counts for {len(follow_counts)} users')
+    
+    return jsonify(follow_counts)
+
+@users.route('/users/<username>/followers', methods=['GET'])
+def get_follower_count(username):
+    cursor = db.get_db().cursor()
+    current_app.logger.info(f'GET /users/{username}/followers called')
+    
+    query = '''
+    SELECT COUNT(*) as follower_count
+    FROM Follows
+    WHERE followee_id = %s
+    '''
+    
+    cursor.execute(query, (username,))
+    count = cursor.fetchone()['follower_count']
+    current_app.logger.info(f'Found {count} followers for user {username}')
+    
+    return jsonify({'follower_count': count})
+
+@users.route('/users/<username>/following', methods=['GET'])
+def get_following_count(username):
+    cursor = db.get_db().cursor()
+    current_app.logger.info(f'GET /users/{username}/following called')
+    
+    query = '''
+    SELECT COUNT(*) as following_count
+    FROM Follows
+    WHERE follower_id = %s
+    '''
+    
+    cursor.execute(query, (username,))
+    count = cursor.fetchone()['following_count']
+    current_app.logger.info(f'Found {count} following for user {username}')
+    
+    return jsonify({'following_count': count})
