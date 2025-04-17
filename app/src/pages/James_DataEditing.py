@@ -26,6 +26,9 @@ with tab1:
             users_data = response.json()
             df_users = pd.DataFrame(users_data)
             
+            # Convert InclusionStatus to boolean
+            df_users['InclusionStatus'] = df_users['InclusionStatus'].astype(bool)
+            
             # Create an editable dataframe
             st.write("Edit User Information:")
             edited_df = st.data_editor(

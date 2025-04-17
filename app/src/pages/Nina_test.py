@@ -86,8 +86,8 @@ if meals:
                             st.write(f"👀 Views: {meal['ViewCount']}")
                     
                     with col2:
-                        # Add favorite button
-                        if st.button("❤️ Add to Favorites", key=f"fav_{meal['RecipeID']}"):
+                        # Add favorite button with unique key
+                        if st.button("❤️ Add to Favorites", key=f"fav_{tag}_{meal['RecipeID']}"):
                             try:
                                 # Call the favorites API to save the meal
                                 fav_response = requests.post(
