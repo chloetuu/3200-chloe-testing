@@ -55,3 +55,56 @@ def add_user():
     except Exception as e:
         current_app.logger.error(f"Failed to add user: {e}")
         return make_response(jsonify({'error': 'Failed to add user'}), 500)
+
+@users.route('/users/analytics', methods=['GET'])
+def get_user_analytics():
+    current_app.logger.info('GET /users/analytics called')
+    cursor = db.get_db().cursor()
+
+    try:
+        # 1. Region distribution
+        cursor.execute('''
+            SELECT Region, COUNT(*) AS count
+            FROM User
+            GROUP BY Region
+        ''')
+        region_counts = cursor.fetchall()
+
+        # 2. Activity level distribution
+        cursor.execute('''
+            SELECT ActivityLevel, COUNT(*) AS count
+            FROM User
+            GROUP BY ActivityLevel
+        ''')
+        activity_counts = cursor.fetchall()
+
+        # 3. Age distribution
+        cursor.execute('''
+            SELECT 
+                CASE 
+                    WHEN Age < 18 THEN 'Under 18'
+                    WHEN Age BETWEEN 18 AND 24 THEN '18-24'
+                    WHEN Age BETWEEN 25 AND 34 THEN '25-34'
+                    WHEN Age BETWEEN 35 AND 44 THEN '35-44'
+                    WHEN Age BETWEEN 45 AND 54 THEN '45-54'
+                    WHEN Age BETWEEN 55 AND 64 THEN '55-64'
+                    ELSE '65+'
+                END as age_group,
+                COUNT(*) as count
+            FROM User
+            GROUP BY age_group
+            ORDER BY MIN(Age)
+        ''')
+        age_distribution = cursor.fetchall()
+
+        return jsonify({
+            'data': {
+                'region_counts': region_counts,
+                'activity_counts': activity_counts,
+                'age_distribution': age_distribution
+            }
+        }), 200
+
+    except Exception as e:
+        current_app.logger.error(f'Error in /users/analytics: {str(e)}')
+        return jsonify({'error': str(e)}), 500
