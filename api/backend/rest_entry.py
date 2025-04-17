@@ -1,9 +1,7 @@
 from flask import Flask
 
 from backend.db_connection import db
-from backend.customers.customer_routes import customers
 from backend.products.products_routes import products
-# from backend.simple.simple_routes import simple_routes
 from backend.meals.meal_routes import meals
 from backend.favorites.favorites_routes import favorites 
 from backend.tags.tag_category_routes import tags_categories
@@ -53,25 +51,6 @@ def create_app():
         return "<h1> Welcome to the Summer 2025 CS 3200 Project Template Repo<h1>"
     
     
-    # Example route for testing streamlit
-    @app.route("/data")
-    def getData():
-        data = { 
-            "staff": [
-                {
-                    "Name": "Mark Fontenot",
-                    "role": "Instructor"
-                }, 
-                {
-                    "Name": "Ashley Davis",
-                    "role": "TA"
-                }
-            ]
-        }
-        return data
-    
-
-
     # Register the routes from each Blueprint with the app object
     # and give a url prefix to each
     app.logger.info('current_app(): registering blueprints with Flask app object.')   

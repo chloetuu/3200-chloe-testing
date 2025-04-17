@@ -21,18 +21,15 @@ def get_all_users():
 
 @users.route('/users', methods=['POST'])
 def add_user():
-    # Get the data from the request
     user_data = request.get_json()
 
     required_fields = ['Username', 'FirstName', 'LastName', 'Region', 'ActivityLevel', 'Age', 'InclusionStatus', 'Bio']
     if not all(field in user_data for field in required_fields):
         return make_response(jsonify({'error': 'Missing required user data'}), 400)
 
-    # Get the DB cursor
     db_connection = db.get_db()
     cursor = db_connection.cursor()
 
-    # Insert the new user
     insert_query = '''
         INSERT INTO User (Username, FirstName, LastName, Region, ActivityLevel, Age, InclusionStatus, Bio)
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
@@ -161,43 +158,3 @@ def get_following_count(username):
     current_app.logger.info(f'Found {count} following for user {username}')
     
     return jsonify({'following_count': count})
-
-@users.route('/users/<username>/firstname', methods=['GET'])
-def get_user_firstname(username):
-    cursor = db.get_db().cursor()
-    the_query = '''
-    SELECT FirstName
-    FROM User 
-    WHERE LOWER(Username) = LOWER(%s)
-    '''
-    cursor.execute(the_query, (username,))
-    result = cursor.fetchone()
-    
-    if result:
-        the_response = make_response(jsonify({'first_name': result['FirstName']}))
-        the_response.status_code = 200
-    else:
-        the_response = make_response(jsonify({'error': 'User not found'}), 404)
-    
-    the_response.mimetype = 'application/json'
-    return the_response
-
-@users.route('/users/<username>/bio', methods=['GET'])
-def get_user_bio(username):
-    cursor = db.get_db().cursor()
-    the_query = '''
-    SELECT Bio
-    FROM User 
-    WHERE LOWER(Username) = LOWER(%s)
-    '''
-    cursor.execute(the_query, (username,))
-    result = cursor.fetchone()
-    
-    if result:
-        the_response = make_response(jsonify({'bio': result['Bio']}))
-        the_response.status_code = 200
-    else:
-        the_response = make_response(jsonify({'error': 'User not found'}), 404)
-    
-    the_response.mimetype = 'application/json'
-    return the_response
