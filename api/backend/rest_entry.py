@@ -9,6 +9,7 @@ from backend.favorites.favorites_routes import favorites
 from backend.categories.category_routes import categories
 from backend.error.error_routes import issues
 from backend.users.users_routes import users
+from backend.alerts.alerts_route import alerts
 import os
 from dotenv import load_dotenv
 
@@ -82,6 +83,7 @@ def create_app():
     app.register_blueprint(favorites,   url_prefix='/f')
     app.register_blueprint(issues,      url_prefix='/l')
     app.register_blueprint(users,      url_prefix='/u')
+    app.register_blueprint(alerts,      url_prefix='/a')
     
     
 
