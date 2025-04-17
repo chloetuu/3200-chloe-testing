@@ -117,8 +117,8 @@ def get_all_follow_counts():
     query = '''
     SELECT 
         u.Username,
-        (SELECT COUNT(*) FROM Follows WHERE followee_id = u.Username) as follower_count,
-        (SELECT COUNT(*) FROM Follows WHERE follower_id = u.Username) as following_count
+        (SELECT COUNT(*) FROM Follows WHERE FolloweeUsername = u.Username) as follower_count,
+        (SELECT COUNT(*) FROM Follows WHERE FollowerUsername = u.Username) as following_count
     FROM User u
     '''
     
@@ -136,7 +136,7 @@ def get_follower_count(username):
     query = '''
     SELECT COUNT(*) as follower_count
     FROM Follows
-    WHERE followee_id = %s
+    WHERE FolloweeUsername = %s
     '''
     
     cursor.execute(query, (username,))
@@ -153,7 +153,7 @@ def get_following_count(username):
     query = '''
     SELECT COUNT(*) as following_count
     FROM Follows
-    WHERE follower_id = %s
+    WHERE FollowerUsername = %s
     '''
     
     cursor.execute(query, (username,))
@@ -161,43 +161,3 @@ def get_following_count(username):
     current_app.logger.info(f'Found {count} following for user {username}')
     
     return jsonify({'following_count': count})
-
-@users.route('/users/<username>/firstname', methods=['GET'])
-def get_user_firstname(username):
-    cursor = db.get_db().cursor()
-    the_query = '''
-    SELECT FirstName
-    FROM User 
-    WHERE LOWER(Username) = LOWER(%s)
-    '''
-    cursor.execute(the_query, (username,))
-    result = cursor.fetchone()
-    
-    if result:
-        the_response = make_response(jsonify({'first_name': result[0]}))
-        the_response.status_code = 200
-    else:
-        the_response = make_response(jsonify({'error': 'User not found'}), 404)
-    
-    the_response.mimetype = 'application/json'
-    return the_response
-
-@users.route('/users/<username>/bio', methods=['GET'])
-def get_user_bio(username):
-    cursor = db.get_db().cursor()
-    the_query = '''
-    SELECT Bio
-    FROM User 
-    WHERE LOWER(Username) = LOWER(%s)
-    '''
-    cursor.execute(the_query, (username,))
-    result = cursor.fetchone()
-    
-    if result:
-        the_response = make_response(jsonify({'bio': result[0]}))
-        the_response.status_code = 200
-    else:
-        the_response = make_response(jsonify({'error': 'User not found'}), 404)
-    
-    the_response.mimetype = 'application/json'
-    return the_response

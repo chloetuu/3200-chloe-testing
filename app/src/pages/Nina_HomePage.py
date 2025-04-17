@@ -12,27 +12,28 @@ SideBarLinks()
 
 st.title(f"Welcome {st.session_state['first_name']}.")
 
-# Get follower and following counts from the API
+# Fetch follower and following counts from the API
 try:
-    # Get follower count
-    follower_response = requests.get(f"http://api:4000/u/users/{st.session_state['first_name'].lower()}/followers")
-    follower_response.raise_for_status()
-    follower_count = follower_response.json()['follower_count']
-
-    # Get following count
-    following_response = requests.get(f"http://api:4000/u/users/{st.session_state['first_name'].lower()}/following")
-    following_response.raise_for_status()
-    following_count = following_response.json()['following_count']
+    followers_response = requests.get(f"http://api:4000/u/users/soccermom123/followers")
+    following_response = requests.get(f"http://api:4000/u/users/soccermom123/following")
+    
+    if followers_response.status_code == 200 and following_response.status_code == 200:
+        followers = followers_response.json()['follower_count']
+        following = following_response.json()['following_count']
+    else:
+        st.error("Error fetching follow counts")
+        followers = 0
+        following = 0
 except Exception as e:
-    st.error(f"Error fetching follow counts: {e}")
-    follower_count = 0
-    following_count = 0
+    st.error(f"Error fetching follow counts: {str(e)}")
+    followers = 0
+    following = 0
 
 col_a, col_b = st.columns([0.5,0.5])
 with col_a:
-    st.metric(label="Followers", value=follower_count)
+    st.metric(label="Followers", value=followers)
 with col_b:
-    st.metric(label="Following", value=following_count)
+    st.metric(label="Following", value=following)
 
 st.write('')
 st.write('')

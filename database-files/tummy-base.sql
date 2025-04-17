@@ -13,17 +13,14 @@ CREATE TABLE User (
     ActivityLevel VARCHAR(50),
     InclusionStatus BOOLEAN
 );
-<<<<<<< HEAD
 
 CREATE TABLE Follows (
-    FollowerUsername VARCHAR,
-    FolloweeUsername VARCHAR,
+    FollowerUsername VARCHAR(50),
+    FolloweeUsername VARCHAR(50),
     PRIMARY KEY (FollowerUsername, FolloweeUsername),
     FOREIGN KEY (FollowerUsername) REFERENCES User(Username),
     FOREIGN KEY (FolloweeUsername) REFERENCES User(Username)
-)
-=======
->>>>>>> b7c052813c4a87632461285ca8b18e1d44d646e7
+);
 
 -- LogEntry Table
 CREATE TABLE LogEntry (
