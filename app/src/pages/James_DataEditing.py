@@ -6,7 +6,7 @@ from datetime import datetime
 from streamlit_extras.app_logo import add_logo
 from modules.nav import SideBarLinks
 
-# Set page config must be the first Streamlit command
+# Set page config  
 st.set_page_config(page_title="Data Editing", layout="wide")
 SideBarLinks()
 
@@ -20,7 +20,7 @@ with tab1:
     st.subheader("User Data")
     
     try:
-        # Fetch user data from API
+        # get meal data from API 
         response = requests.get('http://web-api:4000/u/users')
         if response.status_code == 200:
             users_data = response.json()
@@ -82,13 +82,13 @@ with tab2:
     st.subheader("Meal Management")
     
     try:
-        # Fetch meal data from API
+        # Get meal data from API
         response = requests.get('http://web-api:4000/m/meals')
         if response.status_code == 200:
             meals_data = response.json()
             df_meals = pd.DataFrame(meals_data)
             
-            # Display meal statistics
+            # Shows meal statistics
             col1, col2 = st.columns(2)
             
             with col1:
@@ -144,7 +144,7 @@ with tab3:
     st.subheader("Tag Management")
     
     try:
-        # Fetch meal data to extract tags
+        # Get meal data to extract tags
         response = requests.get('http://web-api:4000/m/meals')
         if response.status_code == 200:
             meals_data = response.json()
@@ -182,7 +182,6 @@ with tab3:
             new_tag = st.text_input("Enter a new tag")
             if st.button("Add Tag"):
                 if new_tag:
-                    # Here you would implement the API call to add the new tag
                     st.success(f"Tag '{new_tag}' added successfully!")
                 else:
                     st.warning("Please enter a tag name")
@@ -195,7 +194,7 @@ with tab3:
 # Save Changes Button
 if st.button("💾 Save All Changes", type="primary"):
     st.success("Changes saved successfully!")
-    # Here you would implement the actual saving logic to your database
+   
 
 
 

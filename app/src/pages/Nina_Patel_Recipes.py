@@ -3,33 +3,31 @@ import requests
 from modules.nav import SideBarLinks
 from datetime import datetime
 
+# Formats the date for when the Meal is created 
 def format_date(date_str):
     try:
-        # Try parsing the API date format
         date = datetime.strptime(date_str, '%a, %d %b %Y %H:%M:%S GMT')
         return date.strftime('%B %d, %Y')
     except:
-        # If that fails, try direct format
         try:
             date = datetime.strptime(date_str, '%Y-%m-%d')
             return date.strftime('%B %d, %Y')
         except:
-            return date_str  # Return original if parsing fails
+            return date_str  
 
 st.set_page_config(layout="wide", page_title="Explore All Meals")
 
-# Show appropriate sidebar links for the role of the currently logged in user
+# Show appropriate sidebar links Nina 
 SideBarLinks()
 
 st.title("📋 Explore All Meals")
 
-# Check if user is logged in
+# Checks if user is logged in
 if 'first_name' not in st.session_state:
     st.error("Please log in to view and favorite meals.")
     st.stop()
 
 try:
-    # 🔁 Call your Flask API endpoint
     response = requests.get("http://api:4000/m/meals")  
     response.raise_for_status()
 
@@ -72,13 +70,13 @@ try:
                     st.write(f"⏰ Total Time: {meal['TotalTime']} minutes")
                     st.write(f"📊 Difficulty: {meal['Difficulty']}")
                     
-                    # Display ingredients in a more organized way
+                    # Display ingredients  
                     st.write("🧂 **Ingredients:**")
                     ingredients = [ing.strip() for ing in meal['Ingredients'].split(';')]
                     for ingredient in ingredients:
                         st.write(f"  • {ingredient}")
                     
-                    # Display instructions as numbered steps
+                    # Display instructions in numbered steps 
                     st.write("📝 **Instructions:**")
                     instructions = [inst.strip() for inst in meal['Instructions'].split('.') if inst.strip()]
                     for i, instruction in enumerate(instructions, 1):

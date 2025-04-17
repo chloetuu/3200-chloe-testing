@@ -17,11 +17,11 @@ st.write("# System Performance Dashboard")
 This dashboard provides time-based analysis of system errors, performance metrics, and alert management.
 """
 
-# Fetch data from API
+# Get data from API
 data = []
 alerts_data = []
 try:
-    # Fetch log data
+    # Get log data
     log_response = requests.get('http://api:4000/l/log')
     if log_response.status_code == 200:
         data = log_response.json()
@@ -29,7 +29,7 @@ try:
         st.error(f"Error fetching log data: {log_response.status_code}")
         data = []
 
-    # Fetch alerts data
+    # Get alerts data
     alerts_response = requests.get('http://api:4000/a/alerts')
     if alerts_response.status_code == 200:
         alerts_data = alerts_response.json()
@@ -45,10 +45,7 @@ except Exception as e:
 tab1, tab2, tab3, tab4 = st.tabs(["Performance Metrics", "Hourly Analysis", "Weekly Patterns", "Alert Management"])
 
 if data:
-    # Convert to DataFrame
     df = pd.DataFrame(data)
-    
-    # Convert timestamp to datetime
     df['Timestamp'] = pd.to_datetime(df['Timestamp'])
     
     # Add time-based columns for analysis
@@ -165,10 +162,9 @@ with tab4:
     st.subheader("Alert Management")
     
     if alerts_data:
-        # Convert alerts to DataFrame
         alerts_df = pd.DataFrame(alerts_data)
         
-        # Convert timestamp to datetime, handling potential format issues
+        # Convert timestamp to datetime 
         try:
             alerts_df['Timestamp'] = pd.to_datetime(alerts_df['Timestamp'], format='%Y-%m-%d %H:%M:%S')
         except:
@@ -184,7 +180,7 @@ with tab4:
         with col2:
             severity_level = st.selectbox("Filter by Severity", ['All'] + list(alerts_df['SeverityLevel'].unique()))
         with col3:
-            # Handle missing Status field
+            # If status field is missing: 
             if 'Status' in alerts_df.columns:
                 status = st.selectbox("Filter by Status", ['All'] + list(alerts_df['Status'].unique()))
             else:

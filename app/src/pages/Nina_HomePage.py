@@ -7,12 +7,12 @@ import requests
 
 st.set_page_config(layout = 'wide')
 
-# Show appropriate sidebar links for the role of the currently logged in user
+# Shows sidebar links for Nina 
 SideBarLinks()
 
 st.title(f"Welcome {st.session_state['first_name']}.")
 
-# Fetch follower and following counts from the API
+# Gets follower and following counts from the API
 try:
     followers_response = requests.get(f"http://api:4000/u/users/soccermom123/followers")
     following_response = requests.get(f"http://api:4000/u/users/soccermom123/following")

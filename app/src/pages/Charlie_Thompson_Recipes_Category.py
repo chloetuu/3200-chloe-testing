@@ -6,13 +6,18 @@ from modules.nav import SideBarLinks
 # Set page configuration
 st.set_page_config(layout="wide", page_title="📋 Explore Meals by Tag")
 
-# Display sidebar links
+# Display sidebar links for Charlie
 SideBarLinks()
 
 st.title("📋 Explore Meals by Tag")
 
+<<<<<<< HEAD
+# Load Categories
+def fetch_categories():
+=======
 # --- Load Tags from Backend ---
 def fetch_tags():
+>>>>>>> 78a21624952d9cc3d789ece64d7eacc6a7a7ca34
     try:
         response = requests.get("http://web-api:4000/t/tags")
         response.raise_for_status()
