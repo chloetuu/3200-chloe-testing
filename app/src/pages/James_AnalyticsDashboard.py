@@ -25,7 +25,7 @@ with tab1:
     
     user_data = []
     try:
-        response = requests.get('http://localhost:4000/u/users/analytics')
+        response = requests.get('http://web-api:4000/u/users/analytics')
         if response.status_code == 200:
             user_data = response.json().get('data', {})
         else:
@@ -76,7 +76,7 @@ with tab2:
     
     meal_data = []
     try:
-        response = requests.get('http://localhost:4000/m/meals/analytics')
+        response = requests.get('http://web-api:4000/m/meals/analytics')
         if response.status_code == 200:
             meal_data = response.json().get('data', {})
         else:
@@ -127,7 +127,7 @@ with tab3:
     
     interaction_data = []
     try:
-        response = requests.get('http://localhost:4000/i/interactions/analytics')
+        response = requests.get('http://web-api:4000/i/interactions/analytics')
         if response.status_code == 200:
             interaction_data = response.json().get('data', {})
         else:
@@ -167,7 +167,7 @@ with tab4:
     
     log_data = []
     try:
-        response = requests.get('http://localhost:4000/l/logs/analytics')
+        response = requests.get('http://web-api:4000/l/logs/analytics')
         if response.status_code == 200:
             log_data = response.json().get('data', {})
         else:
