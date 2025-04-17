@@ -164,4 +164,21 @@ for i in range(1, 36):
 interactions_df = pd.DataFrame(interactions)
 interactions_df.to_csv("database-files/csv/Interaction.csv", index=False)
 
+# Generate Follows data
+follows = [
+    {"FollowerUsername": "nina", "FolloweeUsername": "charlie"},
+    {"FollowerUsername": "nina", "FolloweeUsername": "alex"},
+    {"FollowerUsername": "nina", "FolloweeUsername": "sarah"},
+    {"FollowerUsername": "charlie", "FolloweeUsername": "nina"},
+    {"FollowerUsername": "charlie", "FolloweeUsername": "alex"},
+    {"FollowerUsername": "alex", "FolloweeUsername": "nina"},
+    {"FollowerUsername": "alex", "FolloweeUsername": "charlie"},
+    {"FollowerUsername": "sarah", "FolloweeUsername": "nina"},
+    {"FollowerUsername": "sarah", "FolloweeUsername": "charlie"},
+    {"FollowerUsername": "sarah", "FolloweeUsername": "alex"}
+]
+
+follows_df = pd.DataFrame(follows)
+follows_df.to_csv("database-files/csv/Follows.csv", index=False)
+
 print("All CSV files generated successfully in database-files/csv directory!") 

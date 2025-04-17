@@ -14,11 +14,15 @@ st.title(f"Welcome {st.session_state['first_name']}.")
 
 # Get follower and following counts from the API
 try:
-    response = requests.get(f"http://api:4000/u/users/{st.session_state['first_name'].lower()}")
-    response.raise_for_status()
-    follow_data = response.json()
-    follower_count = follow_data['follower_count']
-    following_count = follow_data['following_count']
+    # Get follower count
+    follower_response = requests.get(f"http://api:4000/u/users/{st.session_state['first_name'].lower()}/followers")
+    follower_response.raise_for_status()
+    follower_count = follower_response.json()['follower_count']
+
+    # Get following count
+    following_response = requests.get(f"http://api:4000/u/users/{st.session_state['first_name'].lower()}/following")
+    following_response.raise_for_status()
+    following_count = following_response.json()['following_count']
 except Exception as e:
     st.error(f"Error fetching follow counts: {e}")
     follower_count = 0
