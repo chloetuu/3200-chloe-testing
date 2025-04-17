@@ -25,7 +25,7 @@ with tab1:
     
     user_data = []
     try:
-        response = requests.get('http://web-api:4000/u/users/analytics')
+        response = requests.get('http://api:4000/u/users/analytics')
         if response.status_code == 200:
             user_data = response.json().get('data', {})
         else:

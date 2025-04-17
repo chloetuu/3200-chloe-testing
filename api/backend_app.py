@@ -2,6 +2,12 @@
 # Main application interface
 ###
 
+import os
+import sys
+
+# Add the current directory to the Python path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 # import the create app function 
 # that lives in src/__init__.py
 from backend.rest_entry import create_app

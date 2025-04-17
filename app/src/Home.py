@@ -49,8 +49,8 @@ if st.button("Act as Nina, a Soccer Mom",
             use_container_width=True):
     try:
         # Fetch Nina's data from the API
-        firstname_response = requests.get("http://web-api:4000/u/users/soccermom123/firstname")
-        bio_response = requests.get("http://web-api:4000/u/users/soccermom123/bio")
+        firstname_response = requests.get("http://api:4000/u/users/soccermom123/firstname")
+        bio_response = requests.get("http://api:4000/u/users/soccermom123/bio")
         
         if firstname_response.status_code == 200 and bio_response.status_code == 200:
             st.session_state['authenticated'] = True
@@ -86,8 +86,8 @@ if st.button("Act as Charlie, an Influencer",
              type = 'primary',
              use_container_width=True):
     try:
-        firstname_response = requests.get("http://web-api:4000/u/users/fitwithcharlie/firstname")
-        bio_response = requests.get("http://web-api:4000/u/users/fitwithcharlie/bio")
+        firstname_response = requests.get("http://api:4000/u/users/fitwithcharlie/firstname")
+        bio_response = requests.get("http://api:4000/u/users/fitwithcharlie/bio")
         
         if firstname_response.status_code == 200 and bio_response.status_code == 200:
             st.session_state['authenticated'] = True
