@@ -10,11 +10,12 @@ from backend.categories.category_routes import categories
 from backend.error.error_routes import issues
 from backend.users.users_routes import users
 from backend.alerts.alerts_route import alerts
+from backend.blogs.blog_routes import blogs
+from backend.tags.tag_routes import tags
 import os
 from dotenv import load_dotenv
 
 # new changes
-from backend.blogs.blog_routes import blogs
 def create_app():
     app = Flask(__name__)
 
@@ -84,6 +85,7 @@ def create_app():
     app.register_blueprint(issues,      url_prefix='/l')
     app.register_blueprint(users,      url_prefix='/u')
     app.register_blueprint(alerts,      url_prefix='/a')
+    app.register_blueprint(tags,        url_prefix='/t')
     
     
 
