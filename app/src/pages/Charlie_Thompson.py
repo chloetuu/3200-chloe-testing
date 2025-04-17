@@ -28,8 +28,9 @@ with st.sidebar:
     
     # Add logout button
     if st.button("Logout"):
-        del st.session_state["role"]
-        del st.session_state["authenticated"]
+        # Clear all session state variables
+        for key in list(st.session_state.keys()):
+            del st.session_state[key]
         st.switch_page("Home.py")
 
 # Main content

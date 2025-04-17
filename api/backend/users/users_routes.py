@@ -161,8 +161,6 @@ def get_following_count(username):
     current_app.logger.info(f'Found {count} following for user {username}')
     
     return jsonify({'following_count': count})
-<<<<<<< HEAD
-=======
 
 @users.route('/users/<username>/firstname', methods=['GET'])
 def get_user_firstname(username):
@@ -203,4 +201,3 @@ def get_user_bio(username):
     
     the_response.mimetype = 'application/json'
     return the_response
->>>>>>> 8247b4ad002902c7ebd8a366b3760368df8f19f7
