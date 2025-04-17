@@ -174,7 +174,7 @@ def get_user_firstname(username):
     result = cursor.fetchone()
     
     if result:
-        the_response = make_response(jsonify({'first_name': result[0]}))
+        the_response = make_response(jsonify({'first_name': result['FirstName']}))
         the_response.status_code = 200
     else:
         the_response = make_response(jsonify({'error': 'User not found'}), 404)
@@ -194,7 +194,7 @@ def get_user_bio(username):
     result = cursor.fetchone()
     
     if result:
-        the_response = make_response(jsonify({'bio': result[0]}))
+        the_response = make_response(jsonify({'bio': result['Bio']}))
         the_response.status_code = 200
     else:
         the_response = make_response(jsonify({'error': 'User not found'}), 404)
